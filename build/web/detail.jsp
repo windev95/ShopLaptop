@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
-    <head>        
+    <head>                
         <title>Chi tiết sản phẩm</title>
         <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
@@ -63,8 +63,8 @@
                                                     <div class="overflow-thumbnails-carousel">
                                                         <ul class="thumbnails-carousel owl-carousel">
                                                             <li>
-                                                                <a href="//bizweb.dktcdn.net/100/052/640/products/sofa-10.jpg?v=1458893355590" data-image="//bizweb.dktcdn.net/100/052/640/products/sofa-10.jpg?v=1458893355590" data-zoom-image="//bizweb.dktcdn.net/100/052/640/products/sofa-10.jpg?v=1458893355590">
-                                                                    <img src="//bizweb.dktcdn.net/thumb/medium/100/052/640/products/sofa-10.jpg?v=1458893355590" title="Sofa cổ điển"
+                                                                <a href="./images/product/lenovo-ideapad-100.png" data-image="./images/product/lenovo-ideapad-100.png" data-zoom-image="./images/product/lenovo-ideapad-100.png">
+                                                                    <img src="./images/product/lenovo-ideapad-100.png" title="Sofa cổ điển"
                                                                          alt="Sofa cổ điển" />
                                                                 </a>
                                                             </li>
@@ -89,7 +89,6 @@
                                                 </div>
                                                 <div class="col-xs-10">
                                                     <div class="product-image inner-cloud-zoom">
-
                                                         <a href="//bizweb.dktcdn.net/100/052/640/products/sofa-10.jpg?v=1458893355590" title="" id="ex1">
                                                             <img src="./images/product/lenovo-ideapad-100.png" alt="" id="image" data-zoom-image="./images/product/lenovo-ideapad-100.png"
                                                                  alt="Sofa cổ điển" />

@@ -51,7 +51,7 @@
                         <div class="row ">
                             <div class="col-sm-6 col-md-3 logo">
                                 <div class="logo_content">
-                                    <a href="/ShopLaptop" class="logo" title="Ranger theme">
+                                    <a href="/Laptop" class="logo" title="Ranger theme">
                                         <img src="./images/shop/logo.png" alt="Ranger theme">
                                     </a>
                                 </div>
@@ -120,7 +120,7 @@
                                     <div id="navbar-collapse-grid" class="navbar-collapse collapse no-padding-lr">
                                         <ul class="nav navbar-nav">
                                             <!-- Grid 12 Menu -->
-                                            <li class="fali"><a href="/ShopLaptop" title="Trang chủ">Trang chủ</a></li>
+                                            <li class="fali"><a href="/Laptop" title="Trang chủ">Trang chủ</a></li>
                                             <li class="fali"><a href="./introduce.jsp" title="Giới thiệu">Giới thiệu</a></li>
                                             <li class="dropdown yamm-fw">
                                                 <a class="a_medr1" href="./all.jsp">Sản phẩm</a><a href="/collections/all" data-toggle="dropdown" class="dropdown-toggle clickshowarrow a_medr2" title="Sản phẩm"><i class="fa fa-angle-down"></i></a>

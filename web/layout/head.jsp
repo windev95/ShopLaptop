@@ -65,6 +65,8 @@
         <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/owl.carousel.js?1479951271873' type='text/javascript'></script>
         <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/jquery.magnific-popup.min.js?1479951271873' type='text/javascript'></script>
         <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/jquery.elevatezoom.min.js?1479951271873' type='text/javascript'></script>-->
+        <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/bw-statistics-style.css?1479951271873' rel='stylesheet' type='text/css' />
+	<script>var ProductReviewsAppUtil=ProductReviewsAppUtil || {};</script>
         <script>
             var Bizweb = Bizweb || {};
             Bizweb.store = 'ranger-theme.bizwebvietnam.net';
@@ -106,6 +108,7 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(log, s);
             })();
         </script>
+        
         <!-- Google Tag Manager -->
         <noscript>
             <iframe src='//www.googletagmanager.com/ns.html?id=GTM-MS77Z9' height='0' width='0' style='display:none;visibility:hidden'></iframe>

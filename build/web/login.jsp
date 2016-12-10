@@ -64,7 +64,7 @@
                                                         </div>
                                                     </li>
                                                     <li><a href="javascript:void(0);" onclick="showRecoverPasswordForm()" class="a_forget_pass" style="color:#898989;padding-right:15px">Quên mật khẩu?</a></li>
-                                                    <li><a class="hover_underline" href="/account/register">Đăng ký tài khoản mới</a></li>
+                                                    <li><a class="hover_underline" href="./register.jsp">Đăng ký tài khoản mới</a></li>
                                                 </ul>
                                             </div>
                                         </div>

@@ -12,12 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <script src='./js/assets/slick.js' type='text/javascript'></script>
+    <script src='./js/slick.js' type='text/javascript'></script>
     <script src='./js/main.js' type='text/javascript'></script>
     <script src='./js/bootstrap.js' type='text/javascript'></script>
     <script src='./js/jquery.menu-aim.js' type='text/javascript'></script>
     <script src='./js/menu.js' type='text/javascript'></script>
-<!--    <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/slick.js?1479951271873' type='text/javascript'></script>
+<!--<script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/slick.js?1479951271873' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/main.js?1479951271873' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/bootstrap.js?1479951271873' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/jquery.menu-aim.js?1479951271873' type='text/javascript'></script>
@@ -50,7 +50,7 @@
     <script src='./js/app.js' type='text/javascript'></script>
     <script src='./js/api.jquery.js' type='text/javascript'></script>
     <script src='./js/ajax-cart.js' type='text/javascript'></script>
-<!--    <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/components.js?1479951271873' type='text/javascript'></script>
+<!--<script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/components.js?1479951271873' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/app.js?1479951271873' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/assets/themes_support/api.jquery.js?3' type='text/javascript'></script>
     <script src='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/ajax-cart.js?1479951271873' type='text/javascript'></script>-->
