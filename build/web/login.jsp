@@ -39,19 +39,24 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div id="login" class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-style form-login">
-                                    <form accept-charset='UTF-8' action='/account/login' id='customer_login' method='post'>
+                                    <form accept-charset='UTF-8' action="UserServlet" method="POST">
                                         <input name='FormType' type='hidden' value='customer_login' />
                                         <input name='utf8' type='hidden' value='true' />
+                                        <input type="hidden" value="login" name="command" id="command"/>
                                         <h3 class="form-heading">Đăng nhập</h3>
-
+                                        <%if(session.getAttribute("error")!=null){%>
+                                        <div>
+                                            <h4 style="color:red"><%=session.getAttribute("error")%></h4>
+                                        </div> 
+                                        <%}%>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="email" value="" placeholder="Email" name="email" required />
+                                                <input type="email" value="" maxlength="50" placeholder="Email" name="email" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="password" value="" placeholder="Mật khẩu" name="password" required />
+                                                <input type="password" value="" maxlength="50" placeholder="Mật khẩu" name="password" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">
@@ -69,7 +74,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <button class="btn-cart btn btn-primary pull-left">Đăng nhập</button>
+                                            <button class="btn-cart btn btn-primary pull-left" type="submit">Đăng nhập</button>
                                         </div>
                                     </form>
                                 </div>

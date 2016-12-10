@@ -10,6 +10,25 @@
     <head>        
         <title>Đăng ký</title>
         <jsp:include page = "layout/head.jsp"></jsp:include>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+              $(document).ready(function () {
+                   var x_timer;
+                   $("#email").keyup(function (e) {
+                        clearTimeout(x_timer);
+                        var user_name = $(this).val();
+                        x_timer = setTimeout(function () {
+                            check_username_ajax(user_name);
+                        }, 1000);
+                        });
+                   function check_username_ajax(email) {
+                        $("#user-result").html('<img src="images/shop/ajax-loader.gif" />');
+                        $.post('CheckEmailServlet', {'email':email}, function (data) {
+                            $("#user-result").html(data);
+                         });
+                   }
+               });
+        </script>
     </head>
     <body>
             <div id="page-wrapper">
@@ -39,28 +58,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-style form-login">
-                                    <form accept-charset='UTF-8' action='./register.jsp' id='customer_register' method='post'>
+                                    <form accept-charset='UTF-8' action="UserServlet" method="POST">
                                         <input name='FormType' type='hidden' value='customer_register' />
+                                        <input type="hidden" value="insert" name="command" id="command"/>
                                         <input name='utf8' type='hidden' value='true' />
                                         <h3 class="form-heading">Đăng ký</h3>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" name="lastName" placeholder="Họ và Tên *" />
+                                                <input type="text" value="" name="fullname" id="fullname" maxlength="50" placeholder="Họ và Tên *" />                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="email" value="" name="email" placeholder="Email *" required />
+                                                <input type="email" value="" name="email" id="email" id="email" maxlength="50" placeholder="Email *" required="yes" /> <span id="user-result"></span>                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="password" value="" name="password" placeholder="Mật khẩu *" required />
+                                                <input type="password" value="" name="password" id="password" maxlength="50" placeholder="Mật khẩu *" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="password" value="" name="repassword" placeholder="Mật khẩu nhập lại *" required />
+                                                <input type="password" value="" name="repassword" id="repassword" maxlength="50" placeholder="Mật khẩu nhập lại *" required />
                                             </div>
                                         </div>
                                         <div class="row">
@@ -76,8 +96,8 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <button class="btn-cart">Đăng ký</button>
+                                        <div class="row">                                            
+                                            <button class="btn-cart" type="submit">Đăng ký</button>                                          
                                         </div>
                                     </form>
                                 </div>

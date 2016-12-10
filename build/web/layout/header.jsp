@@ -3,7 +3,8 @@
     Created on : Nov 27, 2016, 7:48:32 PM
     Author     : BoyIt
 --%>
-
+<%@page import="model.Users"%>
+<%@page import="dao.UsersDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+         <%
+            Users users = new Users();
+            if (session.getAttribute("users") != null) 
+                users = (Users) session.getAttribute("users");
+            else
+                users.setUserEmail("");
+        %>
         <!-- SITE HEADER
         =========================================================================== -->
         <div id="site-header">
@@ -30,14 +38,17 @@
                                     </ul>
                                 </div>
                                 <div class="pull-right">
+                                    <% if(session.getAttribute("users") == null) {%>
                                     <ul>
                                         <li><a href="./register.jsp" class="header-link" title="Đăng ký">Đăng ký</a></li>
                                         <li><a href="./login.jsp" class="header-link" title="Đăng nhập">Đăng nhập</a></li>
                                     </ul>
-<!--                                    <ul>																	
-					<li><a href="./account.jsp" class="header-link" title="Xin chào! ">Tài khoản</a></li>
+                                    <%} else {%>
+                                    <ul>																	
+					<li><a href="./account.jsp" class="header-link" title="Xin chào! "><%=users.getUserEmail() %></a></li>
 					<li><a href="/account/logout" class="header-link" title="Thoát">Thoát</a></li>													
-                                    </ul>-->
+                                    </ul>
+                                    <%}%>
                                 </div>
                             </div>
                         </div>

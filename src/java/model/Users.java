@@ -21,11 +21,11 @@ public class Users {
         this.userID = userID;
     }
 
-    public String getFullName() {
+    public String getUserFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
+    public void setUserFullName(String fullName) {
         this.fullName = fullName;
     }
 
