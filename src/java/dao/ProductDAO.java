@@ -44,11 +44,30 @@ public class ProductDAO
         }         
         return list;     
     }  
+    public Product getProduct(long productID) throws SQLException 
+    {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM product WHERE product_id = '" + productID + "'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        Product product = new Product();
+        while (rs.next()) 
+        {
+            product.setProductID(rs.getLong("product_id"));
+            product.setCategoryID(rs.getLong("category_id"));
+            product.setProductName(rs.getString("product_name"));
+            product.setProductImage(rs.getString("product_image"));
+            product.setProductPrice(rs.getDouble("product_price"));
+            product.setProductDescription(rs.getString("product_description"));
+        }
+        return product;
+    }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();     
-        for(Product p : dao.getListAllProduct())
-        {         
-            System.out.println(p.getProductID() + " - "+p.getProductName());        
-        }    
+//        for(Product p : dao.getListAllProduct())
+//        {         
+//            System.out.println(p.getProductID() + " - "+p.getProductName());        
+//        }
+        System.out.println(dao.getProduct(7).getProductID()+ " - " + dao.getProduct(7).getCategoryID()+ " - " + dao.getProduct(7).getProductName());
     } 
 } 
