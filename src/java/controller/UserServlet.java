@@ -47,7 +47,7 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         switch (command) {
             case "insert":
-//                users.setUserID(new java.util.Date().getTime());
+                users.setUserID(new java.util.Date().getTime());
 //                users.setUserID(3);
                 users.setUserFullName(request.getParameter("fullname"));
                 users.setUserEmail(request.getParameter("email"));

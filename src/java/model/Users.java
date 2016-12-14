@@ -3,7 +3,7 @@ public class Users {
     private long userID;
     private String fullName;
     private String userEmail;
-    private String userPass;
+    private String userPass;    
     public Users(){
     }
     public Users(long userID, String fullName, String userEmail, String userPass) {

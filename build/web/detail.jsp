@@ -5,16 +5,11 @@
 --%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="vn">
-    <head>                
-        <title>Chi tiết sản phẩm</title>
-        <jsp:include page = "layout/head.jsp"></jsp:include>
-    </head>
-    <body>
+<%@page import="model.Category"%> 
+<%@page import="dao.CategoryDAO"%>
         <%
             ProductDAO productDAO = new ProductDAO();
+            CategoryDAO categoryDAO = new CategoryDAO();
             Product product = new Product();
             String productID = "";
             if(request.getParameter("product") != null)
@@ -23,6 +18,15 @@
                 product = productDAO.getProduct(Long.parseLong(productID));
             }
         %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="vn">
+    <head>                
+        <title>Chi tiết sản phẩm</title>
+        <jsp:include page = "layout/head.jsp"></jsp:include>
+    </head>
+    <body>
+
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
         <div id="site-content">
@@ -30,18 +34,24 @@
         =========================================================================== -->
         <div id="main">
                 <section class="page_title">
-                    <h1 class="text-center">Sofa cổ điển</h1>
+                    <h1 class="text-center"><%=product.getProductName()%></h1>
                 </section>
                 <div class="header-breadcrumb">
                     <div class="container">
                         <div class="row ">
                             <div class="col-xs-12">
                                 <ol class="breadcrumb">
-                                    <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
+                                    <li><a href="/Laptop" title="Trang chủ">Trang chủ </a> </li>
+                                    <%
+                                    for (Category c : categoryDAO.getCategoryNameID(product.getCategoryID()))
+                                    {
+                                    %>
                                     <li>
-                                        <a href="ghe-sofa-hoa-phat" title="Ghế Sofa Hòa Phát">Ghế Sofa Hòa Phát</a>
+                                        <a href="product.jsp?category=<%=product.getCategoryID()%>" title="<%=c.getCategoryName()%>"><%=c.getCategoryName()%></a>
                                     </li>
-                                    <li class="active  breadcrumb-title">Sofa cổ điển</li>
+                                    <%}
+                                    %>
+                                    <li class="active  breadcrumb-title"><%=product.getProductName()%></li>
                                 </ol>
                             </div>
                         </div>

@@ -101,6 +101,26 @@
             });
         });
     </script>
-    <script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );var ga = document.createElement('script'); ga.type = 'text/javascript';ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=744490d02029212edbf582898c435781&data=eyJoYXNoIjoiNDc2NzEzMWZhY2M3YzNkYTQ2Y2M2NzUzNTgxNTg4ZTUiLCJzc29faWQiOjMwMjYwMDl9&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>	
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/58500409e2def07b70b0c8e2/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+<!--    <script lang="javascript">
+        (function() {
+            var pname = ( (document.title !='')? document.title : document.querySelector('h1').innerHTML );
+            var ga = document.createElement('script'); 
+            ga.type = 'text/javascript';
+            ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=744490d02029212edbf582898c435781&data=eyJoYXNoIjoiNDc2NzEzMWZhY2M3YzNkYTQ2Y2M2NzUzNTgxNTg4ZTUiLCJzc29faWQiOjMwMjYwMDl9&pname='+pname;
+            var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();
+        </script>	-->
     </body>
 </html>

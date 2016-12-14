@@ -12,12 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-                <h1 style="display:none;">Ranger theme</h1>
-                <div class="home-slide">
-                    <div class="container-fluid">
-                        <div class="row ">
-                            <div id="owl-demo-slide" class="owl-carousel owl-theme">
-                                <div class="item">
+            <h1 style="display:none;">Ranger theme</h1>
+            <div class="home-slide">
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div id="owl-demo-slide" class="owl-carousel owl-theme">
+                            <div class="item">
                                     <a href="#" title="Slide">
                                         <img src="./images/slider/Online-Friday.png" alt="Slide">
                                     </a>
@@ -36,14 +36,5 @@
                         </div>
                     </div>
                 </div><!--End. Home-slide-->
-<!--                <script>
-                    jQuery(document).ready(function($) {
-                    $(".owl-carousel").slideshow({
-                      width      : 900,
-                      height     : 325,
-                      transition : 'square'
-                    });
-                  });
-                </script>-->
     </body>
 </html>

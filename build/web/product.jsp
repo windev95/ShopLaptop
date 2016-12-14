@@ -5,6 +5,8 @@
 --%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
+<%@page import="model.Category"%> 
+<%@page import="dao.CategoryDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -14,6 +16,7 @@
     </head>
     <body>
         <%
+            CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
             String category_id = "";
             if(request.getParameter("category")!=null)
@@ -27,8 +30,12 @@
         <!--MAIN
         =========================================================================== -->
         <div id="main">
+                <%
+                for (Category c : categoryDAO.getCategoryNameID(Long.parseLong(category_id)))
+                {
+                %>
                 <section class="page_title">
-                    <h1 class="text-center">Phụ kiện đèn ngủ</h1>
+                    <h1 class="text-center"><%=c.getCategoryName()%></h1>
                 </section>
                 <div class="header-breadcrumb">
                     <div class="container">
@@ -36,12 +43,15 @@
                             <div class="col-xs-12">
                                 <ol class="breadcrumb">
                                     <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
-                                    <li class="active ">Phụ kiện đèn ngủ</li>
+                                    <li class="active "><%=c.getCategoryName()%></li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
+                <%
+                }
+                %>
                 <section class="mtb25">
                     <div class="container">
                         <div class="row">
