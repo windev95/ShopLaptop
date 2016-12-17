@@ -95,7 +95,7 @@
                                         </div>
                                     </li>
                                     <li class="cart dropdown">
-                                        <a href="/cart" id="dLabel1" class="a_hv_cart_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a href="/Laptop/cart.jsp" id="dLabel1" class="a_hv_cart_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="./images/shop/cart.png" alt="CART">
                                             <span class="cart-number">0</span>
                                         </a>
@@ -214,7 +214,7 @@
                                         </div>
                                     </li>
                                     <li class="cart dropdown">
-                                        <a href="/cart" class="a_hv_cart_dropdown" id="dLabel1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a href="/Laptop/cart.jsp" class="a_hv_cart_dropdown" id="dLabel1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="./images/shop/cart.png" alt="CART">
                                             <span class="cart-number">0</span>
                                         </a>

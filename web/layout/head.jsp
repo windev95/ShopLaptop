@@ -37,6 +37,7 @@
         <link href='./css/main.css' rel='stylesheet' type='text/css' />
         <link href='./css/bootstrap-select.css' rel='stylesheet' type='text/css' />
         <link href='./css/menustyle.css' rel='stylesheet' type='text/css' />
+        <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/main.css?1479951271873' rel='stylesheet' type='text/css' />
 <!--    <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/normalize.css?1479951271873' rel='stylesheet' type='text/css' />
         <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/owl.carousel.css?1479951271873' rel='stylesheet' type='text/css' />
         <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/owl.theme.css?1479951271873' rel='stylesheet' type='text/css' />
@@ -55,6 +56,7 @@
         <script src='./js/modernizr-2.8.3.min.js' type='text/javascript'></script>
         <script src='./js/jquery-1.9.1.min.js' type='text/javascript'></script>
         <script src='./js/bootstrap-select.js' type='text/javascript'></script>
+        <script src='./js/bootstrap.js' type='text/javascript'></script>
         <script src='./js/owl.carousel.js' type='text/javascript'></script>
         <script src='./js/jquery.magnific-popup.min.js' type='text/javascript'></script>
         <script src='./js/jquery.elevatezoom.min.js' type='text/javascript'></script>

@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="cart_div_center col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                                <form action="/cart" method="post" id="cart_form" class="clearfix big_screen_form table-responsive">
+                                <form action="/Laptop/cart.jsp" method="post" id="cart_form" class="clearfix big_screen_form table-responsive">
                                     <table class="table big_screen">
                                         <!--HÀNG TIÊU ĐỀ-->
                                         <tr class="cart_title">

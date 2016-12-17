@@ -15,7 +15,7 @@
         <div id="site-content">
             <div id="main">
                 <jsp:include page = "layout/slider.jsp"></jsp:include> 
-                <jsp:include page = "layout/contact.jsp"></jsp:include> 
+                <jsp:include page = "layout/contact.jsp"></jsp:include>
                 <section class="news_jobs">
                     <div class="container">
                         <div class="row ">

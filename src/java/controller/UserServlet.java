@@ -48,16 +48,15 @@ public class UserServlet extends HttpServlet {
         switch (command) {
             case "insert":
                 users.setUserID(new java.util.Date().getTime());
-//                users.setUserID(3);
                 users.setUserFullName(request.getParameter("fullname"));
                 users.setUserEmail(request.getParameter("email"));
-                users.setUserPass(encrypt.hashmd5(request.getParameter("password")));
+                users.setUserPass(encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 usersDAO.insertUser(users);
                 url = "/login.jsp";
                 break;
             case "login":
                 session.setAttribute("error", "");
-                users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("password")));
+                users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 String name = usersDAO.checkName(request.getParameter("email"));
                 if (users != null) {
                     session.setAttribute("users", users);
