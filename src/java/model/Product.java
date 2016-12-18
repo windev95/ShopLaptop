@@ -27,9 +27,9 @@ public class Product {
     private String productSize;
     private String productWeight;
     private String productMaterial;
-    private double productPrice;
+    private int productPrice;
     private int productSale;
-    private double productPriceReal;    
+    private int productPriceReal;    
     private Timestamp productUpdate;
     private int productBuys;
     private int productInventory;
@@ -43,7 +43,7 @@ public class Product {
     private long producerID;  
     public Product() {
     }
-    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, double productPrice, int productSale, double productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide) {
+    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide) {
         this.productID = productID;
         this.productName = productName;
         this.productImage = productImage;
@@ -234,10 +234,10 @@ public class Product {
     public void setProductMaterial(String productMaterial) {
         this.productMaterial = productMaterial;
     }
-    public double getProductPrice() {
+    public int getProductPrice() {
         return productPrice;
     }
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
     public int getProductSale() {
@@ -246,10 +246,10 @@ public class Product {
     public void setProductSale(int productSale) {
         this.productSale = productSale;
     }
-    public double getProductPriceReal() {
+    public int getProductPriceReal() {
         return productPriceReal;
     }
-    public void setProductPriceReal(double productPriceReal) {
+    public void setProductPriceReal(int productPriceReal) {
         this.productPriceReal = productPriceReal;
     }
     public Timestamp getProductUpdate() {

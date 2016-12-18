@@ -15,9 +15,11 @@ public class encrypt {
             return hashtext;
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
-        }
+        }               
     }
     public static void main(String[] args) throws Exception {
+        double b = 1000000000;
+        System.out.println("Xuất: " + b);
         System.out.println("Kết quả đã mã hóa: " + hashmd5("demo@gmail.com", "demo"));
     }
     

@@ -37,7 +37,9 @@
         <link href='./css/main.css' rel='stylesheet' type='text/css' />
         <link href='./css/bootstrap-select.css' rel='stylesheet' type='text/css' />
         <link href='./css/menustyle.css' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
         <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/main.css?1479951271873' rel='stylesheet' type='text/css' />
+        
 <!--    <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/normalize.css?1479951271873' rel='stylesheet' type='text/css' />
         <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/owl.carousel.css?1479951271873' rel='stylesheet' type='text/css' />
         <link href='//bizweb.dktcdn.net/100/052/640/themes/134620/assets/owl.theme.css?1479951271873' rel='stylesheet' type='text/css' />

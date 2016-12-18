@@ -186,7 +186,253 @@
                                                 <!--<p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;">Tab 1</p>
                                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"><img src="./images/product/<%=product.getProductImage()%>" /></p> -->
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="product_info"><p>Tab 2</p></div>
+                                            <div role="tabpanel" class="tab-pane" id="product_info">                                              
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Bộ xử lý</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>        
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Bộ nhớ</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>  
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Đĩa cứng</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>  
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Mnà hình</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>  
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Đồ họa</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>  
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Âm thanh</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>  
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Đĩa quang</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table> 
+                                               
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Cổng giao tiếp</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Giao tiếp mạng</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Card Reader</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Webcam</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>  
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Pin/Battery</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>                                 
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th colspan="2">Hệ điều hành</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Hệ điều hành</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>                                      
+                                                </tbody>
+                                              </table>
+                                                
+                                                <table class="table table-hover table-striped">
+                                                <thead>
+                                                  <tr>                                                   
+                                                    <th style="width: 30%;" colspan="2">Kích thước & trọng lượng</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td style="width: 30%;">Kích thước</td>
+                                                    <td>@mnbvcxzbvcxdo</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Trọng lượng</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Chất liệu</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                                
+                                                
+                                            </div>
                                             <div role="tabpanel" class="tab-pane" id="product_cmt"><p>Tab 3</p></div>
                                         </div>
                                     </div>
@@ -299,18 +545,7 @@
                                 }
                             });//-- End Bizweb.Image.switchImage
                         }//-- End if (variant && variant.image)
-                    };
-                    jQuery(function($) {
-                        new Bizweb.OptionSelectors('product-selectors', {
-                            product: {"id":1295278,"name":"<%=product.getProductName()%>","alias":"sopha-giuong-co-dien","type":"Sofa","price":<%=product.getProductPrice()%>,"price_max":<%=product.getProductPrice()%>,"price_min":<%=product.getProductPrice()%>,"price_varies":false,"compare_at_price_max":0.0,"compare_at_price_min":0.0,"compare_at_price_varies":false,"tags":["Ghế Sofa"],"meta_title":"Sopha giường cổ điển","meta_description":"","featured_image":{"alt":"./images/product/<%=product.getProductImage()%>","id":3496470,"product_id":1295278,"position":"0","src":"","attached_to_variant":false,"variant_ids":[2108929]},"images":[{"alt":"","id":3496470,"product_id":1295278,"position":"0","src":"./images/product/<%=product.getProductImage()%>","attached_to_variant":true,"variant_ids":[2108929]},{"alt":"xanh pha xanh lá mạ","id":3496471,"product_id":1295278,"position":"0","src":"./images/product/<%=product.getProductImage()%>","attached_to_variant":true,"variant_ids":[2108928]}],"options":["Màu sắc"],"variants":[{"id":2108928,"price":<%=product.getProductPrice()%>,"options":["Xanh lam"],"option1":"Xanh lam","title":"Xanh lam","taxable":true,"inventory_management":"","inventory_policy":"deny","inventory_quantity":1,"weight":0.0,"weight_unit":"kg","image":{"alt":"xanh pha xanh lá mạ","id":3496471,"product_id":1295278,"position":"0","src":"./images/product/<%=product.getProductImage()%>","attached_to_variant":true,"variant_ids":[2108928]},"requires_shipping":true,"selected":false,"url":"/sopha-giuong-co-dien?variantid=2108928","available":true},{"id":2108929,"price":<%=product.getProductPrice()%>,"options":["Xanh ngọc"],"option1":"Xanh ngọc","title":"Xanh ngọc","taxable":true,"inventory_management":"","inventory_policy":"deny","inventory_quantity":1,"weight":0.0,"weight_unit":"kg","image":{"alt":"","id":3496470,"product_id":1295278,"position":"0","src":"./images/product/<%=product.getProductImage()%>","attached_to_variant":true,"variant_ids":[2108929]},"requires_shipping":true,"selected":false,"url":"/sopha-giuong-co-dien?variantid=2108929","available":true}],"available":true,"content":"\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eMột căn nhà đẹp là có 1 phòng khách thu hút.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eBộ sofa luôn là tâm điểm thu hút sự chú ý khi bước chân vào không gian này.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eViệc bài trí sofa đúng cách không chỉ mang lại vẻ đẹp thanh thoát cho căn phòng mà còn mang tài vận và may mắn đến cho gia chủ.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eLiên hệ ngay đến công ty sản xuất ghế\u0026nbsp;sofa giường đẹp giá rẻ\u0026nbsp;để được tư vấn tốt nhất\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eMẫu mã sản phẩm sofa giường cao cấp\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003e\u0026nbsp;\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;\u0022\u003e\u003cimg src=\u0022./images/product/<%=product.getProductImage()%>\u0022 /\u003e\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eKhông quá đỗi trắng muốt đến ngất ngây, nhưng thật sự cũng đi vào lòng người với bộ ghế sofa giường đẹp giá rẻ được bọc bằng chất liệu vải hoa tạo cảm giác nhẹ nhàng và bồng bềnh cho không gian thêm nồng ấm.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eĐệm mút:\u0026nbsp;Cứng hoặc mềm - bông mút ( tùy chọn )\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003ePhụ kiện: Nhập khẩu Malaysia\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eKích thước: 1800 * 1200. ( Kích thước - màu sắc có thể thay đổi theo yêu cầu )\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eCam kết đảm bảo chất lượng và giá trị của sản phẩm, nguồn gốc xuất sứ vật liệu rõ ràng.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eĐặc biệt: Quý khách có thể kiểm tra giám sát chất lượng sản phẩm sofa theo từng giai đoạn\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;\u0022\u003e\u003cimg src=\u0022./images/product/<%=product.getProductImage()%>\u0022 /\u003e\u003c/p\u003e","summary_or_content":"\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eMột căn nhà đẹp là có 1 phòng khách thu hút.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eBộ sofa luôn là tâm điểm thu hút sự chú ý khi bước chân vào không gian này.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eViệc bài trí sofa đúng cách không chỉ mang lại vẻ đẹp thanh thoát cho căn phòng mà còn mang tài vận và may mắn đến cho gia chủ.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eLiên hệ ngay đến công ty sản xuất ghế\u0026nbsp;sofa giường đẹp giá rẻ\u0026nbsp;để được tư vấn tốt nhất\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eMẫu mã sản phẩm sofa giường cao cấp\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003e\u0026nbsp;\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;\u0022\u003e\u003cimg src=\u0022./images/product/<%=product.getProductImage()%>\u0022 /\u003e\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eKhông quá đỗi trắng muốt đến ngất ngây, nhưng thật sự cũng đi vào lòng người với bộ ghế sofa giường đẹp giá rẻ được bọc bằng chất liệu vải hoa tạo cảm giác nhẹ nhàng và bồng bềnh cho không gian thêm nồng ấm.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eĐệm mút:\u0026nbsp;Cứng hoặc mềm - bông mút ( tùy chọn )\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003ePhụ kiện: Nhập khẩu Malaysia\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eKích thước: 1800 * 1200. ( Kích thước - màu sắc có thể thay đổi theo yêu cầu )\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eCam kết đảm bảo chất lượng và giá trị của sản phẩm, nguồn gốc xuất sứ vật liệu rõ ràng.\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;\u0022\u003eĐặc biệt: Quý khách có thể kiểm tra giám sát chất lượng sản phẩm sofa theo từng giai đoạn\u003c/p\u003e\r\n\r\n\u003cp style=\u0022color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;\u0022\u003e\u003cimg src=\u0022./images/product/<%=product.getProductImage()%>\u0022 /\u003e\u003c/p\u003e"},
-                            onVariantSelected: selectCallback,
-                            enableHistoryState: true
-                        });
-                        // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
-                        $('.selector-wrapper:eq(0)').prepend('<label for="productSelect-option-0">M&#224;u sắc</label>');
-                        $('.single-option-selector').addClass('selectpicker selectproduct');
-                        // Hide selectors if we only have 1 variant and its title contains 'Default'.
-                    });
+                    };//                    
                 </script>
             </div>
         <!--/MAIN-->
