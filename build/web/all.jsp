@@ -123,7 +123,7 @@
                                                         <div class="col-sm-7 col-md-7 righcontent">
                                                             <h5 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
                                                             <div class="description">
-                                                                <%=p.getProductDescription()%>
+                                                                <%=p.getProductContent()%>
                                                             </div>
                                                             <span class="product-price">
                                                                 <b class="productminprice"><%=p.getProductPrice()%>₫</b>

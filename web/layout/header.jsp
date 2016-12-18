@@ -244,6 +244,9 @@
                 position: relative;
             }
         </style>
+        <script src='./js/menu.js' type='text/javascript'></script>
+        <script src='./js/main.js' type='text/javascript'></script>
+        <script src='./js/jquery.menu-aim.js' type='text/javascript'></script>
         <!-- /SITE HEADER -->
     </body>
 </html>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement; 
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
+import java.text.DecimalFormat;
 import java.util.ArrayList; 
 import model.Product; 
 public class ProductDAO 
@@ -21,7 +22,7 @@ public class ProductDAO
             product.setProductName(rs.getString("product_name"));    
             product.setProductImage(rs.getString("product_image")); 
             product.setProductPrice(rs.getDouble("product_price"));   
-            product.setProductDescription(rs.getString("product_description"));      
+            product.setProductContent(rs.getString("product_content"));      
             list.add(product);         
         }         
         return list;     
@@ -39,7 +40,7 @@ public class ProductDAO
             product.setProductName(rs.getString("product_name"));    
             product.setProductImage(rs.getString("product_image")); 
             product.setProductPrice(rs.getDouble("product_price"));   
-            product.setProductDescription(rs.getString("product_description"));      
+            product.setProductContent(rs.getString("product_content"));      
             list.add(product);         
         }         
         return list;     
@@ -58,7 +59,7 @@ public class ProductDAO
             product.setProductName(rs.getString("product_name"));
             product.setProductImage(rs.getString("product_image"));
             product.setProductPrice(rs.getDouble("product_price"));
-            product.setProductDescription(rs.getString("product_description"));
+            product.setProductContent(rs.getString("product_content"));
         }
         return product;
     }
@@ -68,6 +69,6 @@ public class ProductDAO
 //        {         
 //            System.out.println(p.getProductID() + " - "+p.getProductName());        
 //        }
-        System.out.println(dao.getProduct(7).getProductID()+ " - " + dao.getProduct(7).getCategoryID()+ " - " + dao.getProduct(7).getProductName());
+        System.out.println(dao.getProduct(5).getProductPrice()+ " - " + dao.getProduct(7).getCategoryID()+ " - " + dao.getProduct(7).getProductName());
     } 
 } 

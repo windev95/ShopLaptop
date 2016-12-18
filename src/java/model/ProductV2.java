@@ -1,6 +1,6 @@
 package model;
 import java.sql.Timestamp;
-public class Product {
+public class ProductV2 {
     private long productID;         
     private String productName;   
     private String productImage; 
@@ -33,7 +33,7 @@ public class Product {
     private Timestamp productUpdate;
     private int productBuys;
     private int productInventory;
-    private boolean productHide;   
+    private int productHide;   
     private long cpuID;
     private long ramID;
     private long storageID;
@@ -41,9 +41,9 @@ public class Product {
     private long screensizeID;
     private long categoryID;
     private long producerID;  
-    public Product() {
+    public ProductV2() {
     }
-    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, double productPrice, int productSale, double productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide) {
+    public ProductV2(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, double productPrice, int productSale, double productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, int productHide) {
         this.productID = productID;
         this.productName = productName;
         this.productImage = productImage;
@@ -270,10 +270,10 @@ public class Product {
     public void setProductInventory(int productInventory) {
         this.productInventory = productInventory;
     }
-    public boolean getProductHide() {
+    public int getProductHide() {
         return productHide;
     }
-    public void setProductHide(boolean productHide) {
+    public void setProductHide(int productHide) {
         this.productHide = productHide;
     }
     public long getCpuID() {
@@ -319,59 +319,3 @@ public class Product {
         this.producerID = producerID;
     }
 }
-
-//package model; 
-//public class Product 
-//{    
-//    private long productID;   
-//    private long categoryID;  
-//    private String productName;   
-//    private String productImage;    
-//    private double productPrice;   
-//    private String productDescription;
-//    public Product(){
-//    }
-//    public Product(long productID, String productName, String productImage, double productPrice, String productDescription) {
-//        this.productID = productID;
-//        this.productName = productName;
-//        this.productImage = productImage;
-//        this.productPrice = productPrice;
-//        this.productDescription = productDescription;
-//    }
-//    public long getProductID() {
-//        return productID;
-//    }
-//    public void setProductID(long productID) {
-//        this.productID = productID;
-//    }
-//    public long getCategoryID() {
-//        return categoryID;
-//    }
-//    public void setCategoryID(long categoryID) {
-//        this.categoryID = categoryID;
-//    }
-//    public String getProductName() {
-//        return productName;
-//    }
-//    public void setProductName(String productName) {
-//        this.productName = productName;
-//    }
-//    public String getProductImage() {
-//        return productImage;
-//    }
-//    public void setProductImage(String productImage) {
-//        this.productImage = productImage;
-//    }
-//    public double getProductPrice() {
-//        return productPrice;
-//    }
-//    public void setProductPrice(double productPrice) {
-//        this.productPrice = productPrice;
-//    }
-//    public String getProductDescription() {
-//        return productDescription;
-//    }
-//    public void setProductDescription(String productDescription) {
-//        this.productDescription = productDescription;
-//    }    
-//}  
