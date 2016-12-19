@@ -153,7 +153,7 @@ INSERT INTO `image` VALUES ('20', 'Laptop 2', 'lenovo-ideapad-100.png', '10');
 
 ======================TẠO BẢNG SẢN PHẨM ===========================
 -- Tạo Table product
- DROP TABLE IF EXISTS `product`; 
+DROP TABLE IF EXISTS `product`; 
 CREATE TABLE `product` (   
 `product_id` bigint(20) NOT NULL auto_increment,   
 `product_name` varchar(50) NULL,  
@@ -183,7 +183,7 @@ CREATE TABLE `product` (
 `product_material` varchar(50)  NULL,   
 `product_price` double default NULL,  
 `product_sale` int default 0,  
-`product_price_ real` double default NULL,  
+`product_price_real` double default NULL,  
 `product_update` timestamp NULL default NULL on update CURRENT_TIMESTAMP,  
 `product_buys` int default 0,  
 `product_inventory` int default NULL,  
