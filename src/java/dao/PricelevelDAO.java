@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import model.Pricelevel;
 public class PricelevelDAO {
     //get tên loại sản phẩm them id
-    public ArrayList<Pricelevel> getPricelevelNameID(long categoryID) throws SQLException { 
+    public ArrayList<Pricelevel> getPricelevelNameID(long pricelevelID) throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
-        String sql = "SELECT category_name FROM category WHERE category_id = '" + categoryID + "'";       
+        String sql = "SELECT pricelevel_name FROM pricelevel WHERE pricelevel_id = '" + pricelevelID + "'";       
         PreparedStatement ps = connection.prepareCall(sql);        
         ResultSet rs = ps.executeQuery();       
         ArrayList<Pricelevel> list = new ArrayList<>();        
         while (rs.next()) 
         {             
-            Pricelevel category = new Pricelevel();        
-            category.setPricelevelName(rs.getString("category_name"));       
-            list.add(category);         
+            Pricelevel pricelevel = new Pricelevel();        
+            pricelevel.setPricelevelName(rs.getString("pricelevel_name"));       
+            list.add(pricelevel);         
         }         
         return list;    
     }

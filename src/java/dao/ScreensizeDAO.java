@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import model.Screensize;
 public class ScreensizeDAO {
     //get tên loại sản phẩm them id
-    public ArrayList<Screensize> getScreensizeNameID(long categoryID) throws SQLException { 
+    public ArrayList<Screensize> getScreensizeNameID(long screensizeID) throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
-        String sql = "SELECT category_name FROM category WHERE category_id = '" + categoryID + "'";       
+        String sql = "SELECT screensize_name FROM screensize WHERE screensize_id = '" + screensizeID + "'";       
         PreparedStatement ps = connection.prepareCall(sql);        
         ResultSet rs = ps.executeQuery();       
         ArrayList<Screensize> list = new ArrayList<>();        
         while (rs.next()) 
         {             
-            Screensize category = new Screensize();        
-            category.setScreensizeName(rs.getString("category_name"));       
-            list.add(category);         
+            Screensize screensize = new Screensize();        
+            screensize.setScreensizeName(rs.getString("screensize_name"));       
+            list.add(screensize);         
         }         
         return list;    
     }
