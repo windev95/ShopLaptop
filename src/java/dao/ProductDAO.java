@@ -101,6 +101,6 @@ public class ProductDAO
     }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();     
-        System.out.println(dao.getProduct(3).getProductPrice());
+        System.out.println(dao.getProduct(3).getProductMetaKeywords());
     } 
 } 

@@ -22,7 +22,9 @@
 <!DOCTYPE html>
 <html lang="vn">
     <head>                
-        <title>Chi tiết sản phẩm</title>
+        <title>Chi tiết - <%=product.getProductMetaTitle()%></title>
+        <meta name="keywords" content="<%=product.getProductMetaKeywords()%>">
+        <meta name="description" content="<%=product.getProductMetaDescription()%>">
         <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
@@ -196,11 +198,11 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Công nghệ CPU</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getCpuID()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Loại CPU</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductCpuDetail()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>        
@@ -214,11 +216,11 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">RAM</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getRamID()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Loại Ram</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductRamDetail()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>  
@@ -232,11 +234,11 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Ổ cứng</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getStorageID()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Loại ổ đĩa</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductStorageDetail()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>  
@@ -250,11 +252,11 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Kích thước</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getScreensizeID()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Thông tin thêm</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductScreenDetail()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>  
@@ -268,7 +270,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Chipset đồ họa</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductVGA()%></td>
                                                   </tr>
                                      
                                                 </tbody>
@@ -283,7 +285,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Chuẩn âm thanh</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductSound()%></td>
                                                   </tr>
                                   
                                                 </tbody>
@@ -298,7 +300,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Loại đĩa hổ trợ</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductDVD()%></td>
                                                   </tr>
                    
                                                 </tbody>
@@ -313,7 +315,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Cổng giao tiếp</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductConnect()%></td>
                                                   </tr>
                                  
                                                 </tbody>
@@ -328,15 +330,15 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">LAN</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductLAN()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Chuyển Wifi</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductWifi()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Kết nối không dây khác</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductWireless()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>
@@ -350,7 +352,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Khe đọc thẻ nhớ</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductCardReader()%></td>
                                                   </tr>
                                         
                                                 </tbody>
@@ -365,7 +367,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Độ phân giải WC</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductWebcam()%></td>
                                                   </tr>  
                                                 </tbody>
                                               </table>
@@ -379,7 +381,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Thông tin Pin</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductPin()%></td>
                                                   </tr>                                 
                                                 </tbody>
                                               </table>
@@ -393,7 +395,7 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Hệ điều hành</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductOS()%></td>
                                                   </tr>                                      
                                                 </tbody>
                                               </table>
@@ -407,15 +409,15 @@
                                                 <tbody>
                                                   <tr>
                                                     <td style="width: 30%;">Kích thước</td>
-                                                    <td>@mnbvcxzbvcxdo</td>
+                                                    <td><%=product.getProductSize()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Trọng lượng</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductWeight()%></td>
                                                   </tr>
                                                   <tr>
                                                     <td style="width: 30%;">Chất liệu</td>
-                                                    <td>@famnbvcxnbvcxt</td>
+                                                    <td><%=product.getProductMaterial()%></td>
                                                   </tr>
                                                 </tbody>
                                               </table>
