@@ -195,11 +195,11 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Công nghệ CPU</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
                                                   <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td style="width: 30%;">Loại CPU</td>
                                                     <td>@famnbvcxnbvcxt</td>
                                                   </tr>
                                                 </tbody>
@@ -213,11 +213,11 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">RAM</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
                                                   <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td style="width: 30%;">Loại Ram</td>
                                                     <td>@famnbvcxnbvcxt</td>
                                                   </tr>
                                                 </tbody>
@@ -231,11 +231,11 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Ổ cứng</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
                                                   <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td style="width: 30%;">Loại ổ đĩa</td>
                                                     <td>@famnbvcxnbvcxt</td>
                                                   </tr>
                                                 </tbody>
@@ -244,16 +244,16 @@
                                                 <table class="table table-hover table-striped">
                                                 <thead>
                                                   <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Mnà hình</th>
+                                                    <th style="width: 30%;" colspan="2">Màn hình</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Kích thước</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
                                                   <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td style="width: 30%;">Thông tin thêm</td>
                                                     <td>@famnbvcxnbvcxt</td>
                                                   </tr>
                                                 </tbody>
@@ -267,13 +267,10 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Chipset đồ họa</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
-                                                    <td>@famnbvcxnbvcxt</td>
-                                                  </tr>
+                                     
                                                 </tbody>
                                               </table>  
                                                 
@@ -285,13 +282,10 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Chuẩn âm thanh</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
-                                                    <td>@famnbvcxnbvcxt</td>
-                                                  </tr>
+                                  
                                                 </tbody>
                                               </table>  
                                                 
@@ -303,13 +297,10 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Loại đĩa hổ trợ</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
-                                                    <td>@famnbvcxnbvcxt</td>
-                                                  </tr>
+                   
                                                 </tbody>
                                               </table> 
                                                
@@ -321,13 +312,10 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Cổng giao tiếp</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
-                                                    <td>@famnbvcxnbvcxt</td>
-                                                  </tr>
+                                 
                                                 </tbody>
                                               </table>
                                                 
@@ -339,11 +327,15 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">LAN</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
                                                   <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
+                                                    <td style="width: 30%;">Chuyển Wifi</td>
+                                                    <td>@famnbvcxnbvcxt</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td style="width: 30%;">Kết nối không dây khác</td>
                                                     <td>@famnbvcxnbvcxt</td>
                                                   </tr>
                                                 </tbody>
@@ -357,13 +349,10 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Khe đọc thẻ nhớ</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thorntmnbvcmnbvon</td>
-                                                    <td>@famnbvcxnbvcxt</td>
-                                                  </tr>
+                                        
                                                 </tbody>
                                               </table>
                                                 
@@ -375,7 +364,7 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Độ phân giải WC</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>  
                                                 </tbody>
@@ -389,7 +378,7 @@
                                                 </thead>
                                                 <tbody>
                                                   <tr>
-                                                    <td style="width: 30%;">Ottojhgfdsjhgfdshgfds</td>
+                                                    <td style="width: 30%;">Thông tin Pin</td>
                                                     <td>@mnbvcxzbvcxdo</td>
                                                   </tr>                                 
                                                 </tbody>
