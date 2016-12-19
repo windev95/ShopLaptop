@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
 import java.sql.Timestamp;
-//import java.text.DecimalFormat;
+import java.text.DecimalFormat;
 import java.util.ArrayList; 
 import model.Product; 
 public class ProductDAO 
@@ -101,10 +101,6 @@ public class ProductDAO
     }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();     
-//        for(Product p : dao.getListAllProduct())
-//        {         
-//            System.out.println(p.getProductID() + " - "+p.getProductName());        
-//        }
-        System.out.println(dao.getProduct(1).getProductPrice()+ " - " + dao.getProduct(7).getCategoryID()+ " - " + dao.getProduct(7).getProductName());
+        System.out.println(dao.getProduct(3).getProductPrice());
     } 
 } 
