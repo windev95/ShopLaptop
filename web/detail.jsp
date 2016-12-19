@@ -7,9 +7,27 @@
 <%@page import="dao.ProductDAO" %>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%>
+<%@page import="model.Cpu"%> 
+<%@page import="dao.CpuDAO"%>
+<%@page import="model.Ram"%> 
+<%@page import="dao.RamDAO"%>
+<%@page import="model.Storage"%> 
+<%@page import="dao.StorageDAO"%>
+<%@page import="model.Screensize"%> 
+<%@page import="dao.ScreensizeDAO"%>
+<%@page import="model.Pricelevel"%> 
+<%@page import="dao.PricelevelDAO"%>
+<%@page import="model.Image"%> 
+<%@page import="dao.ImageDAO"%>
         <%
             ProductDAO productDAO = new ProductDAO();
             CategoryDAO categoryDAO = new CategoryDAO();
+            CpuDAO cpuDAO = new CpuDAO();
+            RamDAO ramDAO = new RamDAO();
+            StorageDAO storageDAO = new StorageDAO();
+            ScreensizeDAO screensizeDAO = new ScreensizeDAO();
+            PricelevelDAO pricelevelDAO = new PricelevelDAO();
+            ImageDAO imageDAO = new ImageDAO();
             Product product = new Product();
             String productID = "";
             if(request.getParameter("product") != null)
@@ -188,243 +206,181 @@
                                                 <!--<p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal;">Tab 1</p>
                                                 <p style="color: rgb(0, 0, 0); font-family: Arial, Verdana, sans-serif; font-size: 14px; line-height: normal; text-align: center;"><img src="./images/product/<%=product.getProductImage()%>" /></p> -->
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="product_info">                                              
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Bộ xử lý</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Công nghệ CPU</td>
-                                                    <td><%=product.getCpuID()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Loại CPU</td>
-                                                    <td><%=product.getProductCpuDetail()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>        
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Bộ nhớ</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">RAM</td>
-                                                    <td><%=product.getRamID()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Loại Ram</td>
-                                                    <td><%=product.getProductRamDetail()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>  
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Đĩa cứng</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Ổ cứng</td>
-                                                    <td><%=product.getStorageID()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Loại ổ đĩa</td>
-                                                    <td><%=product.getProductStorageDetail()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>  
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Màn hình</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Kích thước</td>
-                                                    <td><%=product.getScreensizeID()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thông tin thêm</td>
-                                                    <td><%=product.getProductScreenDetail()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>  
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Đồ họa</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Chipset đồ họa</td>
-                                                    <td><%=product.getProductVGA()%></td>
-                                                  </tr>
-                                     
-                                                </tbody>
-                                              </table>  
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Âm thanh</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Chuẩn âm thanh</td>
-                                                    <td><%=product.getProductSound()%></td>
-                                                  </tr>
-                                  
-                                                </tbody>
-                                              </table>  
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Đĩa quang</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Loại đĩa hổ trợ</td>
-                                                    <td><%=product.getProductDVD()%></td>
-                                                  </tr>
-                   
-                                                </tbody>
-                                              </table> 
-                                               
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Cổng giao tiếp</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Cổng giao tiếp</td>
-                                                    <td><%=product.getProductConnect()%></td>
-                                                  </tr>
-                                 
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Giao tiếp mạng</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">LAN</td>
-                                                    <td><%=product.getProductLAN()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Chuyển Wifi</td>
-                                                    <td><%=product.getProductWifi()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Kết nối không dây khác</td>
-                                                    <td><%=product.getProductWireless()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Card Reader</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Khe đọc thẻ nhớ</td>
-                                                    <td><%=product.getProductCardReader()%></td>
-                                                  </tr>
-                                        
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Webcam</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Độ phân giải WC</td>
-                                                    <td><%=product.getProductWebcam()%></td>
-                                                  </tr>  
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Pin/Battery</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Thông tin Pin</td>
-                                                    <td><%=product.getProductPin()%></td>
-                                                  </tr>                                 
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th colspan="2">Hệ điều hành</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Hệ điều hành</td>
-                                                    <td><%=product.getProductOS()%></td>
-                                                  </tr>                                      
-                                                </tbody>
-                                              </table>
-                                                
-                                                <table class="table table-hover table-striped">
-                                                <thead>
-                                                  <tr>                                                   
-                                                    <th style="width: 30%;" colspan="2">Kích thước & trọng lượng</th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td style="width: 30%;">Kích thước</td>
-                                                    <td><%=product.getProductSize()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Trọng lượng</td>
-                                                    <td><%=product.getProductWeight()%></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td style="width: 30%;">Chất liệu</td>
-                                                    <td><%=product.getProductMaterial()%></td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                                
+                                            <div role="tabpanel" class="tab-pane" id="product_info">  
+                                                <table width="100%" class="table table-hover">
+                                                    <tbody>
+                                                        <tr id="row_1" class="odd" role="row">
+                                                            <td colspan=2 width="30%" class="danger sorting_1" >BỘ XỬ LÝ</td>    
+                                                        </tr>                                
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td width="30%" class="sorting_1">Công nghệ CPU</td>
+                                                                        <% for (Cpu cpu : cpuDAO.getCpuNameID(product.getCpuID()))  { %>
+                                                                        <td><%=cpu.getCpuName()%></td>
+                                                                        <%  }  %>
+                                                                    </tr>
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td width="30%" class="sorting_1">Loại CPU</td>
+                                                                        <td><%=product.getProductCpuDetail()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >BỘ NHỚ</td>
+                                                                    </tr>
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td width="30%" class="sorting_1">RAM</td>
+                                                                        <%
+                                                                        for (Ram ram : ramDAO.getRamNameID(product.getRamID()))
+                                                                        {
+                                                                        %>
+                                                                        <td><%=ram.getRamName()%></td>
+                                                                        <%
+                                                                        }
+                                                                        %>
+                                                                    </tr>
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td width="30%" class="sorting_1">Loại RAM</td>
+                                                                        <td><%=product.getProductRamDetail()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >ĐĨA CỨNG</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Ổ cứng</td>
+                                                                    <%
+                                                                    for (Storage storage : storageDAO.getStorageNameID(product.getStorageID()))
+                                                                    {
+                                                                    %>
+                                                                    <td><%=storage.getStorageName()%></td>
+                                                                    <%
+                                                                    }
+                                                                    %>
+                                                                  </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Loại ổ đĩa</td>
+                                                                    <td><%=product.getProductStorageDetail()%></td>
+                                                                  </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >MÀN HÌNH</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Kích thước</td>
+                                                                    <%
+                                                                    for (Screensize screensize : screensizeDAO.getScreensizeNameID(product.getScreensizeID()))
+                                                                    {
+                                                                    %>
+                                                                    <td><%=screensize.getScreensizeName()%></td>
+                                                                    <%
+                                                                    }
+                                                                    %>
+                                                                  </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Thông tin thêm</td>
+                                                                    <td><%=product.getProductScreenDetail()%></td>
+                                                                  </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >ĐỒ HỌA</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Chipset đồ họa</td>
+                                                                    <td><%=product.getProductVGA()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >ÂM THANH</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Chuẩn âm thanh</td>
+                                                                    <td><%=product.getProductSound()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >ĐĨA QUANG</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Loại đĩa hổ trợ</td>
+                                                                    <td><%=product.getProductDVD()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >CỔNG GIAO TIẾP</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Cổng giao tiếp</td>
+                                                                    <td><%=product.getProductConnect()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >GIAO TIẾP MẠNG</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">LAN</td>
+                                                                    <td><%=product.getProductLAN()%></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td style="width: 30%;">Chuyển Wifi</td>
+                                                                      <td><%=product.getProductWifi()%></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td style="width: 30%;">Kết nối không dây khác</td>
+                                                                      <td><%=product.getProductWireless()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >CARD READER</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Khe đọc thẻ nhớ</td>
+                                                                    <td><%=product.getProductCardReader()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >WEBCAM</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Độ phân giải WC</td>
+                                                                    <td><%=product.getProductWebcam()%></td>
+                                                                    </tr>  
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >PIN/BATTERY</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Thông tin Pin</td>
+                                                                    <td><%=product.getProductPin()%></td>
+                                                                    </tr>
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >HỆ ĐIỀU HÀNH</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Hệ điều hành</td>
+                                                                    <td><%=product.getProductOS()%></td>
+                                                                    </tr> 
+                                                                    
+                                                                    <tr id="row_1" class="odd" role="row">
+                                                                        <td colspan=2 width="30%" class="danger sorting_1" >KÍCH THƯỚC & TRỌNG LƯỢNG</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                    <td style="width: 30%;">Kích thước</td>
+                                                                    <td><%=product.getProductSize()%></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td style="width: 30%;">Trọng lượng</td>
+                                                                      <td><%=product.getProductWeight()%></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td style="width: 30%;">Chất liệu</td>
+                                                                      <td><%=product.getProductMaterial()%></td>
+                                                                    </tr>
+                                                    </tbody>
+                                                </table>                                               
                                                 
                                             </div>
                                             <div role="tabpanel" class="tab-pane" id="product_cmt"><p>Tab 3</p></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

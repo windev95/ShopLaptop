@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import model.Image;
 public class ImageDAO {
     //get tên loại sản phẩm them id
-    // get danh sách sản phẩm dựa vào mã danh mục    
     public ArrayList<Image> getListImageByProduct(long product_id)  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
         String sql = "SELECT * FROM image WHERE product_id = '" + product_id + "'";      
