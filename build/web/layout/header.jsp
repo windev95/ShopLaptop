@@ -6,13 +6,6 @@
 <%@page import="model.Users"%>
 <%@page import="dao.UsersDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
          <%
             Users users = new Users();
             if (session.getAttribute("users") != null) 
@@ -248,5 +241,3 @@
         <script src='./js/main.js' type='text/javascript'></script>
         <script src='./js/jquery.menu-aim.js' type='text/javascript'></script>
         <!-- /SITE HEADER -->
-    </body>
-</html>

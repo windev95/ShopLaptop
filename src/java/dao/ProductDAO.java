@@ -66,6 +66,7 @@ public class ProductDAO
             product.setProductCpuDetail(rs.getString("product_cpudetail")); 
             product.setProductRamDetail(rs.getString("product_ramdetail")); 
             product.setProductStorageDetail(rs.getString("product_storagedetail")); 
+            product.setProductScreen(rs.getString("product_screen")); 
             product.setProductScreenDetail(rs.getString("product_screendetail")); 
             product.setProductVGA(rs.getString("product_vga")); 
             product.setProductSound(rs.getString("product_sound")); 

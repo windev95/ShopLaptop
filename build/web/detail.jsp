@@ -19,23 +19,23 @@
 <%@page import="dao.PricelevelDAO"%>
 <%@page import="model.Image"%> 
 <%@page import="dao.ImageDAO"%>
-        <%
-            ProductDAO productDAO = new ProductDAO();
-            CategoryDAO categoryDAO = new CategoryDAO();
-            CpuDAO cpuDAO = new CpuDAO();
-            RamDAO ramDAO = new RamDAO();
-            StorageDAO storageDAO = new StorageDAO();
-            ScreensizeDAO screensizeDAO = new ScreensizeDAO();
-            PricelevelDAO pricelevelDAO = new PricelevelDAO();
-            ImageDAO imageDAO = new ImageDAO();
-            Product product = new Product();
-            String productID = "";
-            if(request.getParameter("product") != null)
-            {
-                productID = request.getParameter("product");
-                product = productDAO.getProduct(Long.parseLong(productID));
-            }
-        %>
+<%
+    ProductDAO productDAO = new ProductDAO();
+    CategoryDAO categoryDAO = new CategoryDAO();
+    CpuDAO cpuDAO = new CpuDAO();
+    RamDAO ramDAO = new RamDAO();
+    StorageDAO storageDAO = new StorageDAO();
+    ScreensizeDAO screensizeDAO = new ScreensizeDAO();
+    PricelevelDAO pricelevelDAO = new PricelevelDAO();
+    ImageDAO imageDAO = new ImageDAO();
+    Product product = new Product();
+    String productID = "";
+    if(request.getParameter("product") != null)
+        {
+            productID = request.getParameter("product");
+            product = productDAO.getProduct(Long.parseLong(productID));
+        }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -43,7 +43,6 @@
         <title>Chi tiết - <%=product.getProductMetaTitle()%></title>
         <meta name="keywords" content="<%=product.getProductMetaKeywords()%>">
         <meta name="description" content="<%=product.getProductMetaDescription()%>">
-        <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
 
@@ -103,19 +102,17 @@
                                                 <div class="col-xs-2 slick-item">
                                                     <div class="overflow-thumbnails-carousel">
                                                         <ul class="thumbnails-carousel owl-carousel">
+                                                            <%
+                                                            for(Image image : imageDAO.getListImageByProduct(Long.parseLong(productID)))
+                                                            {
+                                                            %>
                                                             <li>
-                                                                <a href="./images/product/<%=product.getProductImage()%>" data-image="./images/product/<%=product.getProductImage()%>" data-zoom-image="./images/product/<%=product.getProductImage()%>">
-                                                                    <img src="./images/product/<%=product.getProductImage()%>" title="Sofa cổ điển"
-                                                                         alt="Sofa cổ điển" />
+                                                                <a href="./images/product/<%=image.getImageImage()%>" data-image="./images/product/<%=image.getImageImage()%>" data-zoom-image="./images/product/<%=image.getImageImage()%>">
+                                                                    <img src="./images/product/<%=image.getImageImage()%>" title="<%=image.getImageAlt()%>"
+                                                                         alt="<%=image.getImageAlt()%>" />
                                                                 </a>
                                                             </li>
-
-                                                            <li>
-                                                                <a href="./images/product/<%=product.getProductImage()%>" data-image="./images/product/<%=product.getProductImage()%>" data-zoom-image="./images/product/<%=product.getProductImage()%>">
-                                                                    <img src="./images/product/<%=product.getProductImage()%>" title="Sofa cổ điển"
-                                                                         alt="xanh pha xanh lá mạ" />
-                                                                </a>
-                                                            </li>
+                                                            <% } %>
                                                             <div class="owl-controls clickable" style="display: none;">
                                                                 <div class="owl-pagination">
                                                                     <div class="owl-page active"><span class=""></span></div>
@@ -132,7 +129,7 @@
                                                     <div class="product-image inner-cloud-zoom">
                                                         <a href="./images/product/<%=product.getProductImage()%>" title="" id="ex1">
                                                             <img src="./images/product/<%=product.getProductImage()%>" alt="" id="image" data-zoom-image="./images/product/<%=product.getProductImage()%>"
-                                                                 alt="Sofa cổ điển" />
+                                                                 alt="<%=product.getProductName()%>" />
                                                         </a>
                                                     </div>
                                                 </div>
@@ -142,7 +139,16 @@
                                     <div class="product-detail-right col-md-6">
                                         <div class="">
                                             <h2 itemprop="name" class="product-name"><%=product.getProductName()%></h2>
-                                            <div class="description">Một căn nhà đẹp là có 1 phòng khách thu hút.</div>
+                                            <% for (Cpu cpu : cpuDAO.getCpuNameID(product.getCpuID()))  { %>
+                                            <div class="description">Bộ xử lý: <%=cpu.getCpuName()%>, <%=product.getProductCpuDetail()%></div>
+                                            <%  }  %>                                               
+                                            <%for (Ram ram : ramDAO.getRamNameID(product.getRamID())){ %>
+                                            <div class="description">Bộ nhớ RAM: <%=ram.getRamName()%></div>
+                                            <%}%>
+                                            <%for (Storage storage : storageDAO.getStorageNameID(product.getStorageID())){ %>
+                                            <div class="description">Ổ cứng: <%=storage.getStorageName()%></div>
+                                            <%}%>
+                                            <div class="description">Chipset đồ họa: <%=product.getProductVGA()%></div>
                                             <span class="product-price">
                                                 <b itemprop="price" class="productminprice"><%=product.getProductPrice()%>₫</b>
                                             </span>
@@ -264,18 +270,11 @@
                                                                     <tr id="row_1" class="odd" role="row">
                                                                         <td colspan=2 width="30%" class="danger sorting_1" >MÀN HÌNH</td>
                                                                     </tr>
-                                                                    <tr>
+                                                                  <tr>
                                                                     <td style="width: 30%;">Kích thước</td>
-                                                                    <%
-                                                                    for (Screensize screensize : screensizeDAO.getScreensizeNameID(product.getScreensizeID()))
-                                                                    {
-                                                                    %>
-                                                                    <td><%=screensize.getScreensizeName()%></td>
-                                                                    <%
-                                                                    }
-                                                                    %>
+                                                                    <td><%=product.getProductScreen()%> Inch</td>
                                                                   </tr>
-                                                                    <tr>
+                                                                  <tr>
                                                                     <td style="width: 30%;">Thông tin thêm</td>
                                                                     <td><%=product.getProductScreenDetail()%></td>
                                                                   </tr>

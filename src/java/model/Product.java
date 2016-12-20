@@ -12,6 +12,7 @@ public class Product {
     private String productCpuDetail;
     private String productRamDetail;
     private String productStorageDetail;
+    private String productScreen;
     private String productScreenDetail;
     private String productVGA;
     private String productSound;
@@ -43,7 +44,7 @@ public class Product {
     private long producerID;  
     public Product() {
     }
-    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide) {
+    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide) {
         this.productID = productID;
         this.productName = productName;
         this.productImage = productImage;
@@ -55,6 +56,7 @@ public class Product {
         this.productCpuDetail = productCpuDetail;
         this.productRamDetail = productRamDetail;
         this.productStorageDetail = productStorageDetail;
+        this.productScreen = productScreen;
         this.productScreenDetail = productScreenDetail;
         this.productVGA = productVGA;
         this.productSound = productSound;
@@ -143,6 +145,12 @@ public class Product {
     }
     public void setProductStorageDetail(String productStorageDetail) {
         this.productStorageDetail = productStorageDetail;
+    }
+    public String getProductScreen() {
+        return productScreen;
+    }
+    public void setProductScreen(String productScreen) {
+        this.productScreen = productScreen;
     }
     public String getProductScreenDetail() {
         return productScreenDetail;
