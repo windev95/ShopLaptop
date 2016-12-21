@@ -43,6 +43,7 @@
         <title>Chi tiết - <%=product.getProductMetaTitle()%></title>
         <meta name="keywords" content="<%=product.getProductMetaKeywords()%>">
         <meta name="description" content="<%=product.getProductMetaDescription()%>">
+        <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
 
