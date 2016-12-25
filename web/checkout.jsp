@@ -4,7 +4,9 @@
     Author     : Toan
 --%>
 <%@page import="model.Users"%>
-<% if (session.getAttribute("users") == null) {
+<% 
+    Users users = (Users) session.getAttribute("user");
+    if (users == null) {
         response.sendRedirect("/Laptop/login.jsp");
     }
 %>

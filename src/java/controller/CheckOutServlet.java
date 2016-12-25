@@ -17,11 +17,9 @@ import model.Item;
 import model.Users;
 import java.io.PrintWriter;
 //import tools.SendMail;
-
 public class CheckOutServlet extends HttpServlet {
     private final BillDAO billDAO = new BillDAO();
     private final BillDetailDAO billDetailDAO = new BillDetailDAO();
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,14 +36,11 @@ public class CheckOutServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,7 +75,6 @@ public class CheckOutServlet extends HttpServlet {
             }
 //            SendMail sm = new SendMail();
 //            SendMail.sendMail(users.getUserEmail(), "Thayphet.net", "Hello, "+users.getUserEmail()+"\nTotal: "+cart.total());
-        
             cart = new Cart();
             session.setAttribute("cart", cart);
         } catch (Exception e) {

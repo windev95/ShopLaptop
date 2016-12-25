@@ -59,7 +59,7 @@ public class UserServlet extends HttpServlet {
                 users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 String name = usersDAO.checkName(request.getParameter("email"));
                 if (users != null) {
-                    session.setAttribute("users", users);
+                    session.setAttribute("user", users);
                     url = "/index.jsp";
                     break;
                 }else{

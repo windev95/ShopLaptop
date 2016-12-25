@@ -11,8 +11,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
          <%
             Users users = new Users();
-            if (session.getAttribute("users") != null) 
-                users = (Users) session.getAttribute("users");
+            if (session.getAttribute("user") != null) 
+                users = (Users) session.getAttribute("user");
             else
                 users.setUserEmail("");
             Cart cart = (Cart) session.getAttribute("cart");
@@ -39,7 +39,7 @@
                                     </ul>
                                 </div>
                                 <div class="pull-right">
-                                    <% if(session.getAttribute("users") == null) {%>
+                                    <% if(session.getAttribute("user") == null) {%>
                                     <ul>
                                         <li><a href="./register.jsp" class="header-link" title="Đăng ký">Đăng ký</a></li>
                                         <li><a href="./login.jsp" class="header-link" title="Đăng nhập">Đăng nhập</a></li>
@@ -49,10 +49,10 @@
 					<li><a href="./account.jsp" class="header-link" title="Xin chào! "><%=users.getUserEmail() %></a></li>
                                         <script>
                                             function thoat(){
-                                                var session.getAttribute("users") = null;
+                                                var session.getAttribute("user") = null;
                                             }
                                         </script>
-                                        <li onclick="thoat()"><a href="#" class="header-link" title="Thoát">Thoát</a></li>													
+                                        <li onclick="thoat()"><a href="LogOutServlet" class="header-link" title="Thoát">Thoát</a></li>													
                                     </ul>
                                     <%}%>
                                 </div>

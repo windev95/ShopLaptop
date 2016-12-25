@@ -1,4 +1,5 @@
 package controller;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -6,12 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cart;
-import model.Item;
-import model.Product;
-import dao.ProductDAO;
-public class CartServlet extends HttpServlet {
-    private final ProductDAO productDAO = new ProductDAO();
+import model.Users;
+
+public class LogOutServlet extends HttpServlet {
+    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -20,48 +20,29 @@ public class CartServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CartServlet</title>");            
+            out.println("<title>Servlet LogOutServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CartServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        HttpSession session = request.getSession();
+        session.setAttribute("user", null);
+        response.sendRedirect("/Laptop/index.jsp");
         processRequest(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String command = request.getParameter("command");
-        String productID = request.getParameter("productID");
-        Cart cart = (Cart) session.getAttribute("cart");
-        try {
-            Long idProduct = Long.parseLong(productID);
-            Product product = productDAO.getProduct(idProduct);
-            switch (command) {
-                case "plus":
-                    if (cart.getCartItems().containsKey(idProduct)) {
-                        cart.plusToCart(idProduct, 
-                                new Item(product,cart.getCartItems().get(idProduct).getQuantity()));
-                    } else {
-                        cart.plusToCart(idProduct, new Item(product, 1));
-                    }
-                    break;
-                case "remove":
-                    cart.removeToCart(idProduct);
-                    break;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("/Laptop/index.jsp");
-        }
-        session.setAttribute("cart", cart);
+        session.setAttribute("user", null);
         response.sendRedirect("/Laptop/index.jsp");
         processRequest(request, response);
     }
