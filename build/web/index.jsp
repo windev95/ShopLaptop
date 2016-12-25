@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
+<%@page import="model.Cart" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="vn">
@@ -12,6 +13,11 @@
 <body id="top">
     <%
     ProductDAO productDAO = new ProductDAO();
+    Cart cart = (Cart) session.getAttribute("cart");
+    if (cart == null) {
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
     %>
     <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -616,8 +622,7 @@
                                 <div class="item">
                                     <div class="col-md-12">
                                         <div class="product_item">
-                                            <form action="/cart/add" class="product_item_form" method="post">
-
+                                            <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                 <div class="product-gird">
                                                     <div class="product-img-parent">
                                                         <% if(p.getProductSale() > 0 ){ %>
@@ -628,7 +633,7 @@
                                                         </a>
                                                         <div class="product-action-btn">
                                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a class="btn btn-default btn-lg addtocart" href="detail.jsp?product=<%=p.getProductID()%>">CHỌN SẢN PHẨM</a>
+                                                                <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">CHỌN SẢN PHẨM</a>
                                                                 <a href="detail.jsp?product=<%=p.getProductID()%>" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
                                                             </div>
                                                         </div>

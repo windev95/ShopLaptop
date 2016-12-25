@@ -5,6 +5,9 @@
 --%>
 <%@page import="model.Users"%>
 <%@page import="dao.UsersDAO"%>
+<%@page import="java.util.Map"%>
+<%@page import="model.Item"%>
+<%@page import="model.Cart" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
          <%
             Users users = new Users();
@@ -12,6 +15,11 @@
                 users = (Users) session.getAttribute("users");
             else
                 users.setUserEmail("");
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+                session.setAttribute("cart", cart);
+            }
         %>
         <!-- SITE HEADER
         =========================================================================== -->
@@ -88,13 +96,37 @@
                                         </div>
                                     </li>
                                     <li class="cart dropdown">
-                                        <a href="/Laptop/cart.jsp" id="dLabel1" class="a_hv_cart_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a href="#" class="a_hv_cart_dropdown" id="dLabel1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="./images/shop/cart.png" alt="CART">
-                                            <span class="cart-number">0</span>
+                                            <span class="cart-number"><%=cart.countItem()%></span>
                                         </a>
                                         <div id="cart-info-parent" class="dropdown-menu">
                                             <div id="cart-info">
                                                 <div class="cart-content" id="cart-content">
+                                                <%for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {%>
+                                                <div class="control-container">
+                                                    <div class="row">
+                                                    <a class="cart-close" title="Xóa" href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>" onclick="Bizweb.removeItem(2022657)">
+                                                        <img class="item-remove" src="./images/shop/itemclose.png">
+                                                        </a>
+                                                    <div class="col-md-10 cart-left">
+                                                        <img src="./images/product/<%=list.getValue().getProduct().getProductImage()%>">
+                                                        </div><div class="col-md-14 cart-right">
+                                                        <div class="cart-title">
+                                                        <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
+                                                        </div><div class="cart-price">
+                                                        <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=list.getValue().getProduct().getProductPrice()%>₫</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+                                                <div class="subtotal">
+                                                    <span class="cart-total-right">
+                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=cart.total()%>₫
+                                                    </span>
+                                                </div>
+                                                <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>
+                                                <div class="action"><a id="gocart" href="/Laptop/checkout.jsp">Thanh toán</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,7 +155,7 @@
                                         </button>
                                         <a href="./cart.jsp" class="xs-cart-btn hidden-sm hidden-md hidden-lg">
                                             <img src="./images/shop/cart.png" alt="CART">
-                                            <span class="cart-number">0</span>
+                                            <span class="cart-number"><%=cart.countItem()%></span>
                                         </a>
                                     </div>
                                     <div id="navbar-collapse-grid" class="navbar-collapse collapse no-padding-lr">
@@ -207,13 +239,39 @@
                                         </div>
                                     </li>
                                     <li class="cart dropdown">
-                                        <a href="/Laptop/cart.jsp" class="a_hv_cart_dropdown" id="dLabel1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a href="#" class="a_hv_cart_dropdown" id="dLabel1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="./images/shop/cart.png" alt="CART">
-                                            <span class="cart-number">0</span>
+                                            <span class="cart-number"><%=cart.countItem()%></span>
                                         </a>
                                         <div id="cart-info-parent" class="dropdown-menu">
                                             <div id="cart-info">
                                                 <div class="cart-content" id="cart-content">
+                                                <%for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {%>
+                                                <div class="control-container">
+                                                    <div class="row">
+                                                    <a class="cart-close" title="Xóa" href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>" onclick="Bizweb.removeItem(2022657)">
+                                                        <img class="item-remove" src="./images/shop/itemclose.png">
+                                                    </a>
+                                                    <div class="col-md-10 cart-left">
+                                                        <img src="./images/product/<%=list.getValue().getProduct().getProductImage()%>">
+                                                    </div>
+                                                    <div class="col-md-14 cart-right">
+                                                        <div class="cart-title">
+                                                            <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
+                                                        </div>
+                                                        <div class="cart-price">
+                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=list.getValue().getProduct().getProductPrice()%>₫</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+                                                <div class="subtotal">
+                                                    <span class="cart-total-right">
+                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=cart.total()%>₫
+                                                    </span>
+                                                </div>
+                                                <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>
+                                                <div class="action"><a id="gocart" href="/Laptop/checkout.jsp">Thanh toán</a></div>
                                                 </div>
                                             </div>
                                         </div>

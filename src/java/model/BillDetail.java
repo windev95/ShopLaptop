@@ -3,15 +3,19 @@ public class BillDetail {
     private long billDetailID;
     private long productID;   
     private int quantity;
-    private double price;
+    private int price;
     private long billID;
     public BillDetail() {
     }
-    public BillDetail(long billDetailID, int quantity, double price) {
+
+    public BillDetail(long billDetailID, long productID, int quantity, int price, long billID) {
         this.billDetailID = billDetailID;
+        this.productID = productID;
         this.quantity = quantity;
         this.price = price;
+        this.billID = billID;
     }
+    
     public long getBillDetailID() {
         return billDetailID;
     }
@@ -30,10 +34,10 @@ public class BillDetail {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
     public long getBillID() {

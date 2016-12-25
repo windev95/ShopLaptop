@@ -7,6 +7,7 @@
 <%@page import="dao.CategoryDAO"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
+<%@page import="model.Cart" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -15,8 +16,16 @@
         <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
-        <%CategoryDAO categoryDAO = new CategoryDAO(); %>
-        <%ProductDAO productDAO = new ProductDAO(); %>
+        <%
+            CategoryDAO categoryDAO = new CategoryDAO(); 
+            ProductDAO productDAO = new ProductDAO();
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+                session.setAttribute("cart", cart);
+            }
+        %>
+        
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
         <!-- SITE CONTENT
@@ -113,7 +122,7 @@
                                                 {
                                             %>
                                            <div class="product_item col-xs-12">
-                                                <form action="/cart/add" class="product_item_form" method="post">
+                                                <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" method="post" class="product_item_form">
                                                     <div>
                                                         <div class="col-sm-5 col-md-5 no-padding-l">
                                                             <div class="product-img-parent">
@@ -139,7 +148,8 @@
                                                             </div>
                                                             <div class="product-action-btn-list">
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
+                                                                    <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">MUA NGAY</a>
+<!--                                                                    <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>-->
                                                                     <button class="btn btn-default btn-black btn-lg"><a href="detail.jsp?product=<%=p.getProductID()%>">CHI TIẾT</a></button>
                                                                 </div>
                                                             </div>
@@ -159,7 +169,7 @@
                                             %>
                                             <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="product_item">
-                                                    <form action="/cart/add" class="product_item_form" method="post">
+                                                    <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                         <div class="product-gird">
                                                             <div class="product-img-parent">
                                                                 <a class="product-img" href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>">
@@ -167,7 +177,8 @@
                                                                 </a>
                                                                 <div class="product-action-btn">
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                        <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
+                                                                        <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">MUA NGAY</a>
+<!--                                                                        <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>-->
                                                                         <a href="detail.jsp?product=<%=p.getProductID()%>" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
                                                                     </div>
                                                                 </div>

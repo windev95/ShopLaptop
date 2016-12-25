@@ -19,6 +19,7 @@
 <%@page import="dao.PricelevelDAO"%>
 <%@page import="model.Image"%> 
 <%@page import="dao.ImageDAO"%>
+<%@page import="model.Cart" %>
 <%
     ProductDAO productDAO = new ProductDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
@@ -35,6 +36,11 @@
             productID = request.getParameter("product");
             product = productDAO.getProduct(Long.parseLong(productID));
         }
+    Cart cart = (Cart) session.getAttribute("cart");
+    if (cart == null) {
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -96,7 +102,7 @@
 <!--                                <meta itemprop="url" content="//ranger-theme.bizwebvietnam.net/sopha-giuong-co-dien">-->
                                 <meta itemprop="image" content="./images/product/<%=product.getProductImage()%>">
                                 <meta itemprop="shop-currency" content="VND">
-                                <form action="/cart/add" method="post" class="product_form_class">
+                                <form action="CartServlet?command=plus&productID=<%=product.getProductID()%>" method="post" class="product_form_class">
                                     <div class="product-detail-left col-md-6">
                                         <div class="popup-gallery">
                                             <div class="row">
@@ -395,7 +401,7 @@
                                         <div class="item">
                                             <div class="col-md-12">
                                                 <div class="product_item">
-                                                    <form action="/cart/add" class="product_item_form" method="post">
+                                                    <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                         <div class="product-gird">
                                                             <div class="product-img-parent">
                                                                 <div class="sale_tag">- 5%</div>
@@ -404,7 +410,7 @@
                                                                 </a>
                                                                 <div class="product-action-btn">
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                        <a class="btn btn-default btn-lg addtocart" href="detail.jsp?product=<%=p.getProductID()%>">CHỌN SẢN PHẨM</a>
+                                                                        <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">CHỌN SẢN PHẨM</a>
                                                                         <a href="detail.jsp?product=<%=p.getProductID()%>" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
                                                                     </div>
                                                                 </div>

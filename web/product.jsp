@@ -5,8 +5,9 @@
 --%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
-<%@page import="model.Category"%> 
-<%@page import="dao.CategoryDAO"%>
+<%@page import="model.Category" %> 
+<%@page import="dao.CategoryDAO" %>
+<%@page import="model.Cart" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -22,6 +23,11 @@
             if(request.getParameter("category")!=null)
             {
                 category_id = request.getParameter("category");
+            }
+            Cart cart = (Cart) session.getAttribute("cart");
+            if (cart == null) {
+                cart = new Cart();
+                session.setAttribute("cart", cart);
             }
         %>
         <div id="page-wrapper">
@@ -149,7 +155,8 @@
                                                             </div>
                                                             <div class="product-action-btn-list">
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
+                                                                    <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">MUA NGAY</a>
+<!--                                                                    <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>-->
                                                                     <button class="btn btn-default btn-black btn-lg"><a href="detail.jsp?product=<%=p.getProductID()%>">CHI TIẾT</a></button>
                                                                 </div>
                                                             </div>
@@ -177,7 +184,8 @@
                                                                 </a>
                                                                 <div class="product-action-btn">
                                                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                                                        <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
+                                                                        <a class="btn btn-default btn-lg addtocart" href="CartServlet?command=plus&productID=<%=p.getProductID()%>">MUA NGAY</a>
+<!--                                                                        <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>-->
                                                                         <a href="detail.jsp?product=<%=p.getProductID()%>" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
                                                                     </div>
                                                                 </div>

@@ -9,10 +9,11 @@ public class Bill {
     private String billPayment;
     private int billPaid;
     private int billFinish;
+    private int billTotal;
     private long userID;  
     public Bill() {
     }
-    public Bill(long billID, String billName, long billPhone, String billAddress, Timestamp billDate, String billPayment, int billPaid, int billFinish) {
+    public Bill(long billID, String billName, long billPhone, String billAddress, Timestamp billDate, String billPayment, int billPaid, int billFinish, int billTotal, long userID) {
         this.billID = billID;
         this.billName = billName;
         this.billPhone = billPhone;
@@ -21,6 +22,8 @@ public class Bill {
         this.billPayment = billPayment;
         this.billPaid = billPaid;
         this.billFinish = billFinish;
+        this.billTotal = billTotal;
+        this.userID = userID;
     }
     public long getBillID() {
         return billID;
@@ -69,6 +72,12 @@ public class Bill {
     }
     public void setBillFinish(int billFinish) {
         this.billFinish = billFinish;
+    }
+    public int getBillTotal() {
+        return billTotal;
+    }
+    public void setBillTotal(int billTotal) {
+        this.billTotal = billTotal;
     }
     public long getUserID() {
         return userID;

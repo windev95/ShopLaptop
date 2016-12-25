@@ -255,12 +255,13 @@ CREATE TABLE `bill` (
 `bill_payment` varchar(255) collate utf8_unicode_ci default NULL,
 `bill_paid` int(1) default 0,
 `bill_finish` int(1) default 0,
+`bill_total` int default 0,
 `user_id` bigint(20) default NULL,
 PRIMARY KEY (`bill_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 //Nhập liệu
-INSERT INTO `bill` VALUES ('1463295350519', 'Quốc Toàn', '0987654321', 'D3, P.25, Q.Bình Thạnh, TP.HCM', '2016-12-15 13:55:50', 'Live', '0', '0', '1481990800540');
+INSERT INTO `bill` VALUES ('1463295350519', 'Quốc Toàn', '0987654321', 'D3, P.25, Q.Bình Thạnh, TP.HCM', '2016-12-15 13:55:50', 'Live', '0', '0','100', '1481990800540');
 
 ====================TẠO BẢNG CHI TIẾT HÓA ĐƠN=========================
 DROP TABLE IF EXISTS `bill_detail`;
