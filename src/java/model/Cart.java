@@ -54,7 +54,7 @@ public class Cart {
         return count;
     }
     //sum total
-    public double total() {
+    public int total() {
         int count = 0;
         for (Map.Entry<Long, Item> list : cartItems.entrySet()) {
             count += list.getValue().getProduct().getProductPrice() * list.getValue().getQuantity();

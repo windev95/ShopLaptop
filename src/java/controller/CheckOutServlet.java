@@ -16,7 +16,7 @@ import model.Cart;
 import model.Item;
 import model.Users;
 import java.io.PrintWriter;
-//import tools.SendMail;
+import helpers.Sendmail;
 public class CheckOutServlet extends HttpServlet {
     private final BillDAO billDAO = new BillDAO();
     private final BillDetailDAO billDetailDAO = new BillDetailDAO();
@@ -62,7 +62,7 @@ public class CheckOutServlet extends HttpServlet {
             bill.setBillPayment(payment);
             bill.setBillPaid(0);
             bill.setBillFinish(0);
-            bill.setBillTotal(567);
+            bill.setBillTotal(cart.total());
             bill.setUserID(users.getUserID());          
             billDAO.insertBill(bill);
             for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {
@@ -73,8 +73,8 @@ public class CheckOutServlet extends HttpServlet {
                         list.getValue().getProduct().getProductPrice(), billID
                         ));
             }
-//            SendMail sm = new SendMail();
-//            SendMail.sendMail(users.getUserEmail(), "Thayphet.net", "Hello, "+users.getUserEmail()+"\nTotal: "+cart.total());
+            Sendmail sm = new Sendmail();
+            Sendmail.sendMail(users.getUserEmail(), "ShopLaptop", "Hello, "+users.getUserEmail()+"\nTotal: "+cart.total());
             cart = new Cart();
             session.setAttribute("cart", cart);
         } catch (Exception e) {

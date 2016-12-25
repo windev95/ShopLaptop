@@ -60,6 +60,7 @@ public class UserServlet extends HttpServlet {
                 String name = usersDAO.checkName(request.getParameter("email"));
                 if (users != null) {
                     session.setAttribute("user", users);
+                    session.setAttribute("name", name);
                     url = "/index.jsp";
                     break;
                 }else{

@@ -47,12 +47,7 @@
                                     <%} else {%>
                                     <ul>																	
 					<li><a href="./account.jsp" class="header-link" title="Xin chào! "><%=users.getUserEmail() %></a></li>
-                                        <script>
-                                            function thoat(){
-                                                var session.getAttribute("user") = null;
-                                            }
-                                        </script>
-                                        <li onclick="thoat()"><a href="LogOutServlet" class="header-link" title="Thoát">Thoát</a></li>													
+                                        <li><a href="LogOutServlet" class="header-link" title="Thoát">Thoát</a></li>													
                                     </ul>
                                     <%}%>
                                 </div>
