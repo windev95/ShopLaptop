@@ -3,9 +3,12 @@
     Created on : Dec 25, 2016, 9:19:11 PM
     Author     : Toan
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Users"%>
+<% if (session.getAttribute("users") == null) {
+        response.sendRedirect("/Laptop/login.jsp");
+    }
+%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,12 +17,7 @@
         <title>Thông tin thanh toán</title>
     </head>
     <body>
-        <%
-//            Users users = (Users) session.getAttribute("users");
-            if (session.getAttribute("users") == null) {
-                response.sendRedirect("/Laptop/login.jsp");
-            }
-        %>
+
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
         <div id="site-content">
