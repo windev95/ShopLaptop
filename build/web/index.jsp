@@ -116,22 +116,22 @@
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sản phẩm mới</a></li>
-                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">GAMING</a></li>
-                                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">NoteBook</a></li>
-                                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">UltraBook</a></li>
-                                        <li role="presentation"><a href="#settings2" aria-controls="settings2" role="tab" data-toggle="tab">2 in 1</a></li>
-                                        <li role="presentation"><a href="#settings3" aria-controls="settings3" role="tab" data-toggle="tab">Đèn trang trí</a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">GIÁ TỐT</a></li>
+                                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Gaming</a></li>
+                                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Notebook</a></li>
+                                        <li role="presentation"><a href="#settings2" aria-controls="settings2" role="tab" data-toggle="tab">Ultrabook</a></li>
+                                        <li role="presentation"><a href="#settings3" aria-controls="settings3" role="tab" data-toggle="tab">2 in 1</a></li>
                                         <li role="presentation" class="dropdown">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                                 Dự án <i class="fa fa-angle-down pull-right"></i>
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Sản phẩm mới</a></li>
-                                                <li role="presentation"><a href="#profile" id="profile_tab" aria-controls="profile" role="tab" data-toggle="tab">Bàn Cafe</a></li>
-                                                <li role="presentation"><a href="#messages" id="messages_tab" aria-controls="messages" role="tab" data-toggle="tab">Ghế Cafe</a></li>
-                                                <li role="presentation"><a href="#settings" id="settings_tab" aria-controls="settings" role="tab" data-toggle="tab">Sofa Hàn quốc</a></li>
-                                                <li role="presentation"><a href="#settings2" id="settings2_tab" aria-controls="settings2" role="tab" data-toggle="tab">Sofa cao cấp</a></li>
-                                                <li role="presentation"><a href="#settings3" id="settings3_tab" aria-controls="settings3" role="tab" data-toggle="tab">Đèn trang trí</a></li>
+                                                <li role="presentation"><a href="#profile" id="profile_tab" aria-controls="profile" role="tab" data-toggle="tab">GIÁ TỐT</a></li>
+                                                <li role="presentation"><a href="#messages" id="messages_tab" aria-controls="messages" role="tab" data-toggle="tab">Gaming</a></li>
+                                                <li role="presentation"><a href="#settings" id="settings_tab" aria-controls="settings" role="tab" data-toggle="tab">Notebook</a></li>
+                                                <li role="presentation"><a href="#settings2" id="settings2_tab" aria-controls="settings2" role="tab" data-toggle="tab">Ultrabook</a></li>
+                                                <li role="presentation"><a href="#settings3" id="settings3_tab" aria-controls="settings3" role="tab" data-toggle="tab">2 in 1</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -139,6 +139,7 @@
 
                                 <!-- Tab panes -->
                                 <div class="tab-content">
+<!--                                    Sản phẩm mới-->
                                     <div role="tabpanel" class="tab-pane active" id="home">
                                         <div class="featured_projects_hidden_xs">
                                             <%
@@ -181,312 +182,233 @@
                                             <a href="/Laptop/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
+                                                
+<!--                                    Sản phẩm giá tốt-->
                                     <div role="tabpanel" class="tab-pane" id="profile">
                                         <div class="featured_projects_hidden_xs">
-
+                                            <%
+                                                for(Product pnew : productDAO.getListProductPrice())
+                                                {
+                                            %>
                                             <div class="col-sm-6 col-md-4 projects-item-content">
                                                 <div class="projects-item">
-                                                    <a href="/ban-tra-trong-suot"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/7.jpg?v=1453697651440" alt="B&#224;n tr&#224; trong suốt"></a>
+                                                    <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-tra-trong-suot">Bàn trà trong suốt</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-tra-trong-suot">3.500.000₫</a></p>
+                                                        <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ban-trang-tri"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/2943-ban-cafe-r524-min.jpg?v=1469541836387" alt="B&#224;n trang tr&#237;"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-trang-tri">Bàn trang trí</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-trang-tri">760.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ban-cafe-nang-cao-60"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-21.jpg?v=1453707350340" alt="B&#224;n cafe n&#226;ng cao 60"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-cafe-nang-cao-60">Bàn cafe nâng cao 60</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-cafe-nang-cao-60">528.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ban-tra-chan-banh-mi-60"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-22-098d0842-a734-4549-a4e8-0ec79be3bb4f.jpg?v=1453707444037" alt="B&#224;n tr&#224; ch&#226;n b&#225;nh m&#236; 60"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-tra-chan-banh-mi-60">Bàn trà chân bánh mì 60</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-tra-chan-banh-mi-60">520.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ban-tra-2-tang-70"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-23.jpg?v=1453707779813" alt="B&#224;n tr&#224; 2 tầng 70"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-tra-2-tang-70">Bàn trà 2 tầng 70</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-tra-2-tang-70">469.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ban-tra-chan-banh-mi-90-bestgoods"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/7-fca35c0c-5c30-4357-9054-7c5c22b57048.jpg?v=1453697721530" alt="B&#224;n trang tr&#237;"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ban-tra-chan-banh-mi-90-bestgoods">Bàn trang trí</a></h3>
-                                                        <p class="projects-item-description"><a href="/ban-tra-chan-banh-mi-90-bestgoods">519.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div><!-- End. Item hidden-xs-->
+                                            <% }%>
+                                        </div>
                                         <div class="featured_projects_show_xs">
                                             <div id="owl-demo-featured_projects_profile" class="owl-carousel owl-theme">
 
+                                                <%
+                                                for(Product pnew : productDAO.getListProductPrice())
+                                                {
+                                                %>
                                                 <div class="item">
                                                     <div class="col-xs-12 projects-item-content">
                                                         <div class="projects-item">
-                                                            <a href="/ban-tra-trong-suot"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/7.jpg?v=1453697651440" alt="B&#224;n tr&#224; trong suốt"></a>
+                                                            <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-tra-trong-suot">Bàn trà trong suốt</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-tra-trong-suot">3.500.000₫</a></p>
+                                                                <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ban-trang-tri"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/2943-ban-cafe-r524-min.jpg?v=1469541836387" alt="B&#224;n trang tr&#237;"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-trang-tri">Bàn trang trí</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-trang-tri">760.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ban-cafe-nang-cao-60"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-21.jpg?v=1453707350340" alt="B&#224;n cafe n&#226;ng cao 60"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-cafe-nang-cao-60">Bàn cafe nâng cao 60</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-cafe-nang-cao-60">528.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ban-tra-chan-banh-mi-60"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-22-098d0842-a734-4549-a4e8-0ec79be3bb4f.jpg?v=1453707444037" alt="B&#224;n tr&#224; ch&#226;n b&#225;nh m&#236; 60"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-tra-chan-banh-mi-60">Bàn trà chân bánh mì 60</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-tra-chan-banh-mi-60">520.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ban-tra-2-tang-70"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-23.jpg?v=1453707779813" alt="B&#224;n tr&#224; 2 tầng 70"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-tra-2-tang-70">Bàn trà 2 tầng 70</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-tra-2-tang-70">469.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ban-tra-chan-banh-mi-90-bestgoods"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/7-fca35c0c-5c30-4357-9054-7c5c22b57048.jpg?v=1453697721530" alt="B&#224;n trang tr&#237;"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ban-tra-chan-banh-mi-90-bestgoods">Bàn trang trí</a></h3>
-                                                                <p class="projects-item-description"><a href="/ban-tra-chan-banh-mi-90-bestgoods">519.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                                <% }%>
 
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/collections/ban-da-nang" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/Laptop/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
+
+<!--                                     GAMING-->
                                     <div role="tabpanel" class="tab-pane" id="messages">
                                         <div class="featured_projects_hidden_xs">
-
+                                            <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(1))
+                                                {
+                                            %>
                                             <div class="col-sm-6 col-md-4 projects-item-content">
                                                 <div class="projects-item">
-                                                    <a href="/ghe-sofa-cafe-dep"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/11.jpg?v=1453697573373" alt="Ghế sofa cafe đẹp"></a>
+                                                    <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ghe-sofa-cafe-dep">Ghế sofa cafe đẹp</a></h3>
-                                                        <p class="projects-item-description"><a href="/ghe-sofa-cafe-dep">1.800.000₫</a></p>
+                                                        <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ghe-cafe-sua"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/8.jpg?v=1453697229017" alt="Ghế cafe sữa"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ghe-cafe-sua">Ghế cafe sữa</a></h3>
-                                                        <p class="projects-item-description"><a href="/ghe-cafe-sua">1.200.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ghe-thu-gian-xanh-ngoc"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/9.jpg?v=1453697167010" alt="Ghế thư gi&#227;n xanh ngọc"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ghe-thu-gian-xanh-ngoc">Ghế thư giãn xanh ngọc</a></h3>
-                                                        <p class="projects-item-description"><a href="/ghe-thu-gian-xanh-ngoc">1.600.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ghe-thu-gian"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/6-min.jpg?v=1469595270843" alt="Ghế thư gi&#227;n"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ghe-thu-gian">Ghế thư giãn</a></h3>
-                                                        <p class="projects-item-description"><a href="/ghe-thu-gian">2.100.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/ghe-trang-tri-1"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-1.jpg?v=1453696925393" alt="Ghế trang tr&#237;"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/ghe-trang-tri-1">Ghế trang trí</a></h3>
-                                                        <p class="projects-item-description"><a href="/ghe-trang-tri-1">3.200.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-sm-6 col-md-4 projects-item-content">
-                                                <div class="projects-item">
-                                                    <a href="/copy-of-ghe-doc-dao"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/2-f0312520-214b-48d2-8f38-e5e49c214d96.jpg?v=1453695636750" alt="Ghế nghệ thuật"></a>
-                                                    <div class="projects-item-info">
-                                                        <h3 class="projects-item-title"><a href="/copy-of-ghe-doc-dao">Ghế nghệ thuật</a></h3>
-                                                        <p class="projects-item-description"><a href="/copy-of-ghe-doc-dao">2.600.000₫</a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div><!-- End. Item hidden-xs-->
+                                            <% }%>
+                                        </div>
                                         <div class="featured_projects_show_xs">
-                                            <div id="owl-demo-featured_projects_messages" class="owl-carousel owl-theme">
+                                            <div id="owl-demo-featured_projects_profile" class="owl-carousel owl-theme">
 
+                                                <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(1))
+                                                {
+                                                %>
                                                 <div class="item">
                                                     <div class="col-xs-12 projects-item-content">
                                                         <div class="projects-item">
-                                                            <a href="/ghe-sofa-cafe-dep"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/11.jpg?v=1453697573373" alt="Ghế sofa cafe đẹp"></a>
+                                                            <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ghe-sofa-cafe-dep">Ghế sofa cafe đẹp</a></h3>
-                                                                <p class="projects-item-description"><a href="/ghe-sofa-cafe-dep">1.800.000₫</a></p>
+                                                                <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ghe-cafe-sua"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/8.jpg?v=1453697229017" alt="Ghế cafe sữa"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ghe-cafe-sua">Ghế cafe sữa</a></h3>
-                                                                <p class="projects-item-description"><a href="/ghe-cafe-sua">1.200.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ghe-thu-gian-xanh-ngoc"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/9.jpg?v=1453697167010" alt="Ghế thư gi&#227;n xanh ngọc"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ghe-thu-gian-xanh-ngoc">Ghế thư giãn xanh ngọc</a></h3>
-                                                                <p class="projects-item-description"><a href="/ghe-thu-gian-xanh-ngoc">1.600.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ghe-thu-gian"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/6-min.jpg?v=1469595270843" alt="Ghế thư gi&#227;n"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ghe-thu-gian">Ghế thư giãn</a></h3>
-                                                                <p class="projects-item-description"><a href="/ghe-thu-gian">2.100.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/ghe-trang-tri-1"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/untitled-1.jpg?v=1453696925393" alt="Ghế trang tr&#237;"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/ghe-trang-tri-1">Ghế trang trí</a></h3>
-                                                                <p class="projects-item-description"><a href="/ghe-trang-tri-1">3.200.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="item">
-                                                    <div class="col-xs-12 projects-item-content">
-                                                        <div class="projects-item">
-                                                            <a href="/copy-of-ghe-doc-dao"><img src="//bizweb.dktcdn.net/thumb/large/100/052/640/products/2-f0312520-214b-48d2-8f38-e5e49c214d96.jpg?v=1453695636750" alt="Ghế nghệ thuật"></a>
-                                                            <div class="projects-item-info">
-                                                                <h3 class="projects-item-title"><a href="/copy-of-ghe-doc-dao">Ghế nghệ thuật</a></h3>
-                                                                <p class="projects-item-description"><a href="/copy-of-ghe-doc-dao">2.600.000₫</a></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                                                <% }%>
 
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/collections/ghe-da-nang" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/Laptop/product.jsp?category=1" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
-                                </div>
+                                                
+<!--                                     NOTEBOOK-->
+                                    <div role="tabpanel" class="tab-pane" id="settings">
+                                        <div class="featured_projects_hidden_xs">
+                                            <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(2))
+                                                {
+                                            %>
+                                            <div class="col-sm-6 col-md-4 projects-item-content">
+                                                <div class="projects-item">
+                                                    <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                    <div class="projects-item-info">
+                                                        <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% }%>
+                                        </div>
+                                        <div class="featured_projects_show_xs">
+                                            <div id="owl-demo-featured_projects_profile" class="owl-carousel owl-theme">
 
+                                                <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(2))
+                                                {
+                                                %>
+                                                <div class="item">
+                                                    <div class="col-xs-12 projects-item-content">
+                                                        <div class="projects-item">
+                                                            <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                            <div class="projects-item-info">
+                                                                <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center projects-item-content">
+                                            <a href="/Laptop/product.jsp?category=2" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                        </div>
+                                    </div>
+                                                
+<!--                                     ULTRABOOK-->
+                                    <div role="tabpanel" class="tab-pane" id="settings1">
+                                        <div class="featured_projects_hidden_xs">
+                                            <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(3))
+                                                {
+                                            %>
+                                            <div class="col-sm-6 col-md-4 projects-item-content">
+                                                <div class="projects-item">
+                                                    <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                    <div class="projects-item-info">
+                                                        <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% }%>
+                                        </div>
+                                        <div class="featured_projects_show_xs">
+                                            <div id="owl-demo-featured_projects_profile" class="owl-carousel owl-theme">
+
+                                                <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(3))
+                                                {
+                                                %>
+                                                <div class="item">
+                                                    <div class="col-xs-12 projects-item-content">
+                                                        <div class="projects-item">
+                                                            <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                            <div class="projects-item-info">
+                                                                <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center projects-item-content">
+                                            <a href="/Laptop/product.jsp?category=3" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                        </div>
+                                    </div>
+                                                
+<!--                                     2 IN 1-->
+                                    <div role="tabpanel" class="tab-pane" id="settings2">
+                                        <div class="featured_projects_hidden_xs">
+                                            <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(4))
+                                                {
+                                            %>
+                                            <div class="col-sm-6 col-md-4 projects-item-content">
+                                                <div class="projects-item">
+                                                    <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                    <div class="projects-item-info">
+                                                        <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% }%>
+                                        </div>
+                                        <div class="featured_projects_show_xs">
+                                            <div id="owl-demo-featured_projects_profile" class="owl-carousel owl-theme">
+
+                                                <%
+                                                for(Product pnew : productDAO.getListProductBuysByCategory(4))
+                                                {
+                                                %>
+                                                <div class="item">
+                                                    <div class="col-xs-12 projects-item-content">
+                                                        <div class="projects-item">
+                                                            <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
+                                                            <div class="projects-item-info">
+                                                                <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% }%>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center projects-item-content">
+                                            <a href="/Laptop/product.jsp?category=4" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -506,117 +428,6 @@
                             <h2 class="activities_title text-center padding-lr-15">Sản phẩm nổi bật</h2>
                             <p class="activities_description text-center padding-lr-15 hidden-xs">Chúng tôi mang đến những sản phẩm với chất lượng cao nhất và dịch vụ hoàn hảo nhất cho mọi khách hàng</p>
                             <div id="owl-demo-featured-products" class="owl-carousel owl-theme">
-<!--                                <div class="item">
-                                    <div class="col-md-12">
-                                        <div class="product_item">
-                                            <form action="/cart/add" class="product_item_form" method="post">
-                                                <div class="product-gird">
-                                                    <div class="product-img-parent">
-                                                        <a class="product-img" href="./detail.jsp" title="Ghế thư giãn xanh ngọc">
-                                                            <img class="product-img-first" src="./images/product/lenovo-ideapad-100.png" alt="Ghế thư gi&#227;n xanh ngọc">
-                                                        </a>
-                                                        <div class="product-action-btn">
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
-                                                                <a href="./detail.jsp" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="product-price text-center">
-                                                        <b class="productminprice">1.600.000₫</b>
-                                                    </span>
-                                                    <h3 class="product-name"><a href="./detail.jsp" title="Ghế thư giãn xanh ngọc">Ghế thư giãn xanh ngọc</a></h3>
-                                                    <div style="display:none">
-                                                        <input type="hidden" name="variantId" value="2022657" />
-                                                    </div>
-                                                    số lượng
-                                                    <div style="display:none">
-                                                        <div class="input-group quantity">
-                                                            <input type="text" class="form-control" name="quantity" id="quantity_wanted" size="2" value="1" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                 End .product-gird 
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-md-12">
-                                        <div class="product_item">
-                                            <form action="/cart/add" class="product_item_form" method="post">
-                                                <div class="product-gird">
-                                                    <div class="product-img-parent">
-                                                        <a class="product-img" href="./detail.jsp" title="Ghế trang trí">
-                                                            <img class="product-img-first" src="./images/product/lenovo-ideapad-100.png" alt="Ghế trang tr&#237;">
-                                                        </a>
-                                                        <div class="product-action-btn">
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a class="btn btn-default btn-lg addtocart" href="/ghe-trang-tri">CHỌN SẢN PHẨM</a>
-                                                                <a href="./detail.jsp" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="product-price text-center">
-                                                        <b class="productminprice">2.300.000₫</b>
-                                                    </span>
-                                                    <h3 class="product-name"><a href="./detail.jsp" title="Ghế trang trí">Ghế trang trí</a></h3>
-                                                    <div style="display:none">
-                                                        <select id="product-selectors" name="variantId" style="display:none">
-                                                            <option lỗi liquid unknown operator roduct value="2021419">Vàng - 2.300.000₫</option>
-                                                            <option lỗi liquid unknown operator roduct value="2021420">Đen - 2.300.000₫</option>
-                                                        </select>
-                                                    </div>
-                                                    số lượng
-                                                    <div style="display:none">
-                                                        <div class="input-group quantity">
-                                                            <input type="text" class="form-control" name="quantity" id="quantity_wanted" size="2" value="1" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                 End .product-gird 
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-md-12">
-                                        <div class="product_item">
-                                            <form action="/cart/add" class="product_item_form" method="post">
-                                                <div class="product-gird">
-                                                    <div class="product-img-parent">
-                                                        <div class="sale_tag">- 8%</div>
-                                                        <a class="product-img" href="/ghe-cafe-sua" title="Ghế cafe sữa">
-                                                            <img class="product-img-first" src="./images/product/lenovo-ideapad-100.png" alt="Ghế cafe sữa">
-                                                        </a>
-                                                        <div class="product-action-btn">
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
-                                                                <a href="/ghe-cafe-sua" class="btn btn-default btn-black btn-lg">CHI TIẾT</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <span class="product-price text-center">
-                                                        <b class="productminprice">1.200.000₫</b>
-                                                        <del>1.300.000₫</del>
-                                                    </span>
-                                                    <h3 class="product-name"><a href="/ghe-cafe-sua" title="Ghế cafe sữa">Ghế cafe sữa</a></h3>
-                                                    <div style="display:none">
-                                                        <input type="hidden" name="variantId" value="2022660" />
-                                                    </div>
-                                                    số lượng
-                                                    <div style="display:none">
-                                                        <div class="input-group quantity">
-                                                            <input type="text" class="form-control" name="quantity" id="quantity_wanted" size="2" value="1" />
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                 End .product-gird 
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>-->
                             <%
                                 for(Product p : productDAO.getListProductNoibat())
                                 {

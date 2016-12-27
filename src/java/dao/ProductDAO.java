@@ -13,7 +13,7 @@ public class ProductDAO
     // get danh sách sản phẩm dựa vào mã danh mục    
     public ArrayList<Product> getListProductByCategory(long category_id)  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product WHERE category_id = '" + category_id + "'";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and category_id = '" + category_id + "'";      
         PreparedStatement ps = connection.prepareCall(sql);       
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
@@ -33,7 +33,7 @@ public class ProductDAO
     // get danh sách tất cả sản phẩm
     public ArrayList<Product> getListAllProduct()  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0";      
         PreparedStatement ps = connection.prepareCall(sql);       
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
@@ -50,10 +50,10 @@ public class ProductDAO
         }         
         return list;     
     }  
-    // get danh sách sản phẩm nổi bật
+    // get danh sách 6 sản phẩm nổi bật
     public ArrayList<Product> getListProductNoibat()  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product ORDER BY `product_buys` DESC LIMIT 6";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 ORDER BY `product_buys` DESC LIMIT 6";      
         PreparedStatement ps = connection.prepareCall(sql);       
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
@@ -70,10 +70,10 @@ public class ProductDAO
         }         
         return list;     
     }  
-    // get danh sách sản phẩm mới
+    // get danh sách 6 sản phẩm mới
     public ArrayList<Product> getListProductNew()  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product ORDER BY `product_update` DESC LIMIT 6";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 ORDER BY `product_update` DESC LIMIT 6";      
         PreparedStatement ps = connection.prepareCall(sql);       
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
@@ -90,10 +90,50 @@ public class ProductDAO
         }         
         return list;     
     } 
+    // get danh sách 6 sản phẩm giá tốt
+    public ArrayList<Product> getListProductPrice()  throws SQLException {     
+        Connection connection = DBConnect.getConnecttion();      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 ORDER BY `product_price_real` ASC LIMIT 6";      
+        PreparedStatement ps = connection.prepareCall(sql);       
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Product> list = new ArrayList<>();       
+        while (rs.next()) { 
+            Product product = new Product();       
+            product.setProductID(rs.getLong("product_id")); 
+            product.setProductName(rs.getString("product_name"));    
+            product.setProductImage(rs.getString("product_image")); 
+            product.setProductPrice(rs.getInt("product_price"));   
+            product.setProductSale(rs.getInt("product_sale")); 
+            product.setProductPriceReal(rs.getInt("product_price_real"));
+            product.setProductContent(rs.getString("product_content"));      
+            list.add(product);         
+        }         
+        return list;     
+    } 
+    // get danh sách 6 sản phẩm theo loại
+    public ArrayList<Product> getListProductBuysByCategory(long category_id)  throws SQLException {     
+        Connection connection = DBConnect.getConnecttion();      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and category_id = '" + category_id + "' ORDER BY `product_buys` DESC LIMIT 6";      
+        PreparedStatement ps = connection.prepareCall(sql);       
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Product> list = new ArrayList<>();       
+        while (rs.next()) { 
+            Product product = new Product();       
+            product.setProductID(rs.getLong("product_id")); 
+            product.setProductName(rs.getString("product_name"));    
+            product.setProductImage(rs.getString("product_image")); 
+            product.setProductPrice(rs.getInt("product_price"));   
+            product.setProductSale(rs.getInt("product_sale")); 
+            product.setProductPriceReal(rs.getInt("product_price_real"));
+            product.setProductContent(rs.getString("product_content"));      
+            list.add(product);         
+        }         
+        return list;     
+    }
     public Product getProduct(long productID) throws SQLException 
     {
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM product WHERE product_id = '" + productID + "'";
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and product_id = '" + productID + "'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         Product product = new Product();

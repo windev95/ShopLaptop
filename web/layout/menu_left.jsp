@@ -11,11 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>JSP Page</title>
         <link href='./css/main.css' rel='stylesheet' type='text/css' />        
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
+<!--        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <%
@@ -45,20 +50,207 @@
         </div>          
 
 <!--               DEMO DEMO DEMO ==========================================-->
+
         <div class="cd-dropdown-wrapper">
             <nav class="cd-dropdown dropdown-is-active">
                 <div class="dropdown-content-title">Tìm kiếm sản phẩm</div>
+
                 <ul class="cd-dropdown-content">
-                    <li class="">       
+                    <div class="panel-group" id="accordion">
+                        
+<!--                    NHÀ SẢN XUẤT  -->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h5 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">NHÀ SẢN XUẤT</a>
+                        </h5>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options1" id="option1" autocomplete="on" value="Tất cả" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options1" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options1" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+<!--                                    <div class="panel-body">
+                                        <label class="btn btn-primary btn-block active">
+                                            <input type="checkbox" checked autocomplete="off"> Tất cả
+                                        </label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <label class="btn btn-primary ">
+                                            <input type="checkbox"  autocomplete="off"> Core I3
+                                        </label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <label class="btn btn-primary ">
+                                            <input type="checkbox"  autocomplete="off"> Core I5
+                                        </label>
+                                    </div>-->
+                          </div>
+                      </div>
+                    </div>
+<!--                    KHOẢNG GIÁ-->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">KHOẢNG GIÁ</a>
+                        </h4>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapse">
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options2" id="option1" autocomplete="off" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options2" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options2" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+                            </div>
+                      </div>
+                    </div>
+<!--                    MÀN HÌNH-->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">MÀN HÌNH</a>
+                        </h4>
+                      </div>
+                      <div id="collapse3" class="panel-collapse collapse">
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options3" id="option1" autocomplete="off" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options3" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options3" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+<!--                    BỘ VI XỬ LÝ-->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">VI XỬ LÝ</a>
+                        </h4>
+                      </div>
+                      <div id="collapse4" class="panel-collapse collapse">
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options4" id="option1" autocomplete="off" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options4" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options4" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+                            </div>
+                      </div>
+                    </div>
+<!--                    BỘ NHỚ-->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ</a>
+                        </h4>
+                      </div>
+                      <div id="collapse5" class="panel-collapse collapse">
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options5" id="option1" autocomplete="off" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options5" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options5" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+<!--                    Ổ CỨNG-->
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Ổ CỨNG</a>
+                        </h4>
+                      </div>
+                      <div id="collapse6" class="panel-collapse collapse">
+                        <div class="btn-group" data-toggle="buttons">
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options6" id="option1" autocomplete="off" checked> Tất cả
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options6" id="option2" autocomplete="off" > 2 GB
+                                </label>
+                            </div>
+                            <div class="panel-body">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options6" id="option3" autocomplete="off" > 4 GB
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                        
+                  </div> 
+                    
+                    
+                    
+<!--                    <li class="">       
                         <div class="panel-group">
-<!--                        <div class="panel panel-default">-->
+                        <div class="panel panel-default">
                           <div class="panel-heading">
-                              <h4 class="panel-title">
+                            <h4 class="panel-title">
                               <a data-toggle="collapse" href="#collapse1">CPU <span class="label label-default ">Tất cả</span></a>
                             </h4>
                           </div>
                           <div id="collapse1" class="panel-collapse collapse">
-<!--                            <div class="btn-group" data-toggle="buttons">-->
+                            <div class="btn-group" data-toggle="buttons">
                                     <div class="panel-body">
                                         <label class="btn btn-primary active">
                                             <input type="checkbox" checked autocomplete="off"> Tất cả
@@ -74,18 +266,18 @@
                                             <input type="checkbox"  autocomplete="off"> Core I5
                                         </label>
                                     </div>
-<!--                          </div>-->
                           </div>
-<!--                        </div>                            -->
+                          </div>
+                        </div>                            
                                                     
-<!--                        <div class="panel panel-default">-->
+                        <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
                               <a data-toggle="collapse" href="#collapse2">RAM <span class="label label-default">Tất cả</span></a>
                             </h4>
                           </div>
                           <div id="collapse2" class="panel-collapse collapse">
-<!--                            <div class="btn-group" data-toggle="buttons">-->
+                            <div class="btn-group" data-toggle="buttons">
                                 <div class="panel-body">
                                     <label class="btn btn-primary active">
                                         <input type="radio" name="options" id="option1" autocomplete="off" checked> Tất cả
@@ -101,11 +293,11 @@
                                         <input type="radio" name="options" id="option3" autocomplete="off" > 4 GB
                                     </label>
                                 </div>
-<!--                            </div>-->
+                            </div>
                           </div>
-<!--                        </div>-->
+                        </div>
                       </div>                      
-                    </li>
+                    </li>-->
                 </ul>
             </nav>
         </div> 
