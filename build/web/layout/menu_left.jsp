@@ -83,21 +83,6 @@
                                     <input type="radio" name="options1" id="option3" autocomplete="off" > 4 GB
                                 </label>
                             </div>
-<!--                                    <div class="panel-body">
-                                        <label class="btn btn-primary btn-block active">
-                                            <input type="checkbox" checked autocomplete="off"> Tất cả
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <label class="btn btn-primary ">
-                                            <input type="checkbox"  autocomplete="off"> Core I3
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <label class="btn btn-primary ">
-                                            <input type="checkbox"  autocomplete="off"> Core I5
-                                        </label>
-                                    </div>-->
                           </div>
                       </div>
                     </div>
@@ -238,66 +223,6 @@
                     </div>
                         
                   </div> 
-                    
-                    
-                    
-<!--                    <li class="">       
-                        <div class="panel-group">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" href="#collapse1">CPU <span class="label label-default ">Tất cả</span></a>
-                            </h4>
-                          </div>
-                          <div id="collapse1" class="panel-collapse collapse">
-                            <div class="btn-group" data-toggle="buttons">
-                                    <div class="panel-body">
-                                        <label class="btn btn-primary active">
-                                            <input type="checkbox" checked autocomplete="off"> Tất cả
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <label class="btn btn-primary ">
-                                            <input type="checkbox"  autocomplete="off"> Core I3
-                                        </label>
-                                    </div>
-                                    <div class="panel-body">
-                                        <label class="btn btn-primary ">
-                                            <input type="checkbox"  autocomplete="off"> Core I5
-                                        </label>
-                                    </div>
-                          </div>
-                          </div>
-                        </div>                            
-                                                    
-                        <div class="panel panel-default">
-                          <div class="panel-heading">
-                            <h4 class="panel-title">
-                              <a data-toggle="collapse" href="#collapse2">RAM <span class="label label-default">Tất cả</span></a>
-                            </h4>
-                          </div>
-                          <div id="collapse2" class="panel-collapse collapse">
-                            <div class="btn-group" data-toggle="buttons">
-                                <div class="panel-body">
-                                    <label class="btn btn-primary active">
-                                        <input type="radio" name="options" id="option1" autocomplete="off" checked> Tất cả
-                                    </label>
-                                </div>
-                                <div class="panel-body">
-                                    <label class="btn btn-primary active">
-                                        <input type="radio" name="options" id="option2" autocomplete="off" > 2 GB
-                                    </label>
-                                </div>
-                                <div class="panel-body">
-                                    <label class="btn btn-primary active">
-                                        <input type="radio" name="options" id="option3" autocomplete="off" > 4 GB
-                                    </label>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>                      
-                    </li>-->
                 </ul>
             </nav>
         </div> 

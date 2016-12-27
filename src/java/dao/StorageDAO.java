@@ -22,6 +22,22 @@ public class StorageDAO {
         }         
         return list;    
     }
+    // get danh sách Storage
+    public ArrayList<Storage> getListRam() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM storage";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Storage> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Storage category = new Storage();      
+            category.setStorageID(rs.getInt("storage_id"));       
+            category.setStorageName(rs.getString("storage_name"));       
+            list.add(category);         
+        }         
+        return list;    
+    }
     public static void main(String[] args) throws SQLException 
     {       
         StorageDAO dao = new StorageDAO();      

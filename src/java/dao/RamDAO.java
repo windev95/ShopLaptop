@@ -22,6 +22,22 @@ public class RamDAO {
         }         
         return list;    
     }
+    // get danh sách RAM
+    public ArrayList<Ram> getListRam() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM ram";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Ram> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Ram category = new Ram();      
+            category.setRamID(rs.getInt("ram_id"));       
+            category.setRamName(rs.getString("ram_name"));       
+            list.add(category);         
+        }         
+        return list;    
+    }
     public static void main(String[] args) throws SQLException 
     {       
         RamDAO dao = new RamDAO();      

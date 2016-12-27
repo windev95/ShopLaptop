@@ -22,12 +22,28 @@ public class CpuDAO {
         }         
         return list;    
     }
+    // get danh sách CPU
+    public ArrayList<Cpu> getListCpu() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM cpu";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Cpu> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Cpu category = new Cpu();      
+            category.setCpuID(rs.getInt("cpu_id"));       
+            category.setCpuName(rs.getString("cpu_name"));       
+            list.add(category);         
+        }         
+        return list;    
+    }
     public static void main(String[] args) throws SQLException 
     {       
         CpuDAO dao = new CpuDAO();      
-        for (Cpu ds : dao.getCpuNameID(1)) 
+        for (Cpu ds : dao.getListCpu()) 
         {           
-            System.out.println(" - " + ds.getCpuName());         
+            System.out.println(ds.getCpuID() +" - " + ds.getCpuName());         
         }     
     } 
     

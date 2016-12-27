@@ -22,6 +22,22 @@ public class ScreensizeDAO {
         }         
         return list;    
     }
+    // get danh sách Screensize
+    public ArrayList<Screensize> getListRam() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM screensize";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Screensize> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Screensize category = new Screensize();      
+            category.setScreensizeID(rs.getInt("screensize_id"));       
+            category.setScreensizeName(rs.getString("screensize_name"));       
+            list.add(category);         
+        }         
+        return list;    
+    }
     public static void main(String[] args) throws SQLException 
     {       
         ScreensizeDAO dao = new ScreensizeDAO();      

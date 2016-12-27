@@ -22,12 +22,28 @@ public class PricelevelDAO {
         }         
         return list;    
     }
+    // get danh sách khoảng giá 
+    public ArrayList<Pricelevel> getListPricelevel() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM pricelevel";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Pricelevel> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Pricelevel category = new Pricelevel();      
+            category.setPricelevelID(rs.getInt("pricelevel_id"));       
+            category.setPricelevelName(rs.getString("pricelevel_name"));       
+            list.add(category);         
+        }         
+        return list;    
+    }
     public static void main(String[] args) throws SQLException 
     {       
         PricelevelDAO dao = new PricelevelDAO();      
-        for (Pricelevel ds : dao.getPricelevelNameID(3)) 
+        for (Pricelevel ds : dao.getListPricelevel()) 
         {           
-            System.out.println(" - " + ds.getPricelevelName());         
+            System.out.println(ds.getPricelevelID() + " - " + ds.getPricelevelName());         
         }     
     } 
     
