@@ -3,6 +3,7 @@
     Created on : Nov 27, 2016, 7:48:32 PM
     Author     : BoyIt
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Users"%>
 <%@page import="dao.UsersDAO"%>
 <%@page import="java.util.Map"%>
@@ -20,6 +21,7 @@
                 cart = new Cart();
                 session.setAttribute("cart", cart);
             }
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
         <!-- SITE HEADER
         =========================================================================== -->
@@ -110,14 +112,14 @@
                                                         <div class="cart-title">
                                                         <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                                         </div><div class="cart-price">
-                                                        <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=list.getValue().getProduct().getProductPrice()%>₫</div>
+                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPrice())%>₫</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <% }%>
                                                 <div class="subtotal">
                                                     <span class="cart-total-right">
-                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=cart.total()%>₫
+                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=formatter.format(cart.total())%>₫
                                                     </span>
                                                 </div>
                                                 <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>
@@ -255,14 +257,14 @@
                                                             <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                                         </div>
                                                         <div class="cart-price">
-                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=list.getValue().getProduct().getProductPrice()%>₫</div>
+                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPrice())%>₫</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <% }%>
                                                 <div class="subtotal">
                                                     <span class="cart-total-right">
-                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=cart.total()%>₫
+                                                        <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=formatter.format(cart.total())%>₫
                                                     </span>
                                                 </div>
                                                 <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>

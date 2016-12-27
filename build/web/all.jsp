@@ -3,6 +3,7 @@
     Created on : Dec 1, 2016, 10:24:43 AM
     Author     : BoyIt
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%>
 <%@page import="model.Product" %>
@@ -24,6 +25,7 @@
                 cart = new Cart();
                 session.setAttribute("cart", cart);
             }
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
         
         <div id="page-wrapper">
@@ -135,7 +137,7 @@
                                                                 <%=p.getProductContent()%>
                                                             </div>
                                                             <span class="product-price">
-                                                                <b class="productminprice"><%=p.getProductPrice()%>₫</b>
+                                                                <b class="productminprice"><%= formatter.format(p.getProductPrice())%>₫</b>
                                                             </span>
                                                             <div style="display:none">
                                                                 <input type="hidden" name="variantId" value="2024175" />
@@ -184,7 +186,7 @@
                                                                 </div>
                                                             </div>
                                                             <span class="product-price text-center">
-                                                                <b class="productminprice"><%=p.getProductPrice()%>₫</b>
+                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%>₫</b>
                                                             </span>
                                                             <h3 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>"><%=p.getProductName()%></a></h3>
                                                             <div style="display:none">

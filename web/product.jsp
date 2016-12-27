@@ -3,6 +3,7 @@
     Created on : Dec 3, 2016, 9:42:35 PM
     Author     : BoyIt
 --%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
 <%@page import="model.Category" %> 
@@ -29,6 +30,7 @@
                 cart = new Cart();
                 session.setAttribute("cart", cart);
             }
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -142,7 +144,7 @@
                                                                 <%=p.getProductContent()%>
                                                             </div>
                                                             <span class="product-price">
-                                                                <b class="productminprice"><%=p.getProductPrice()%>₫</b>
+                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%>₫</b>
                                                             </span>
                                                             <div style="display:none">
                                                                 <input type="hidden" name="variantId" value="2024175" />
@@ -191,7 +193,7 @@
                                                                 </div>
                                                             </div>
                                                             <span class="product-price text-center">
-                                                                <b class="productminprice"><%=p.getProductPrice()%>₫</b>
+                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%>₫</b>
                                                             </span>
                                                             <h3 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>"><%=p.getProductName()%></a></h3>
                                                             <div style="display:none">

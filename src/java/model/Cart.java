@@ -46,7 +46,11 @@ public class Cart {
         if (bln) {
             cartItems.remove(product);
         }
-    }  
+    } 
+    //remove all to cart
+    public void removeAll() {
+        cartItems = new HashMap<>();
+    } 
     //count item
     public int countItem() {
         int count = 0;
