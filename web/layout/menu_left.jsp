@@ -3,7 +3,6 @@
     Created on : Dec 3, 2016, 9:52:32 PM
     Author     : BoyIt
 --%>
-<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,14 +17,12 @@
         <script src="./js/jquery.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <%
             CategoryDAO categoryDAO = new CategoryDAO(); 
-            DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
         <div class="megamenu-left col-md-3 col-md-pull-9">
         <div class="cd-dropdown-wrapper">

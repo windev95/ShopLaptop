@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement; 
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
-import java.sql.Timestamp;
-import java.text.DecimalFormat;
+//import java.sql.Timestamp;
+//import java.text.DecimalFormat;
 import java.util.ArrayList; 
 import model.Product; 
 public class ProductDAO 
@@ -29,7 +29,42 @@ public class ProductDAO
             list.add(product);         
         }         
         return list;     
-    }        
+    }    
+    // get danh sách sản phẩm dựa vào tìm kiếm nâng cao
+    public ArrayList<Product> getListProductByAdvanceSearch(long producerID,long pricelevelID, long screensizeID, long cpuID, long ramID, long storageID)  throws SQLException {     
+        String producer, pricelevel, screensize, cpu, ram, storage;
+        if(producerID > 0)
+        {
+            producer = "`producer_id` = " + producerID;
+            
+        }else
+        {
+            producer = "1";
+        }
+        Connection connection = DBConnect.getConnecttion();      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and ? and ? and ? and ? and ? and ?";      
+        PreparedStatement ps = connection.prepareCall(sql);  
+            ps.setString(1, producer);
+            ps.setLong(2, pricelevelID);
+            ps.setLong(3, screensizeID);
+            ps.setLong(4, cpuID);
+            ps.setLong(5, ramID);
+            ps.setLong(6, storageID);
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Product> list = new ArrayList<>();       
+        while (rs.next()) { 
+            Product product = new Product();       
+            product.setProductID(rs.getLong("product_id"));     
+            product.setProductName(rs.getString("product_name"));    
+            product.setProductImage(rs.getString("product_image")); 
+            product.setProductPrice(rs.getInt("product_price")); 
+            product.setProductSale(rs.getInt("product_sale")); 
+            product.setProductPriceReal(rs.getInt("product_price_real"));
+            product.setProductContent(rs.getString("product_content"));      
+            list.add(product);         
+        }         
+        return list;     
+    }
     // get danh sách tất cả sản phẩm
     public ArrayList<Product> getListAllProduct()  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
@@ -185,7 +220,10 @@ public class ProductDAO
         return product;
     }
     public static void main(String[] args) throws SQLException {
-        ProductDAO dao = new ProductDAO();     
-        System.out.println(dao.getProduct(3).getProductDVD());
+        ProductDAO dao = new ProductDAO();   
+        for (Product ds : dao.getListProductByAdvanceSearch(0,1,1,1,1,1)) 
+        {           
+            System.out.println(ds.getProductID() + " - " + ds.getProductName());         
+        }
     } 
 } 
