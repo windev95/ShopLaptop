@@ -3,19 +3,18 @@
     Created on : Dec 3, 2016, 8:44:42 PM
     Author     : BoyIt
 --%>
-
-<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Map"%>
 <%@page import="model.Item"%>
 <%@page import="model.Cart" %>
+<%@page import="helpers.MoneyFormat"%>
 <%
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
                 session.setAttribute("cart", cart);
             }
-            DecimalFormat formatter = new DecimalFormat("###,###,###");
+            MoneyFormat formatter = new MoneyFormat();
 %>
 <!DOCTYPE html>
 <html lang="vn">
@@ -55,25 +54,13 @@
                                     <table class="table big_screen">
                                         <!--HÀNG TIÊU ĐỀ-->
                                         <tr class="cart_title">
-                                            <td class="td_item_price">
-                                                STT
-                                            </td>
+                                            <td class="td_item_price">STT</td>
                                             <td class="img_item_cart_title">Sản phầm</td>
-                                            <td>
-                                                Thông tin
-                                            </td>
-                                            <td class="td_item_price">
-                                                Đơn giá
-                                            </td>
-                                            <td>
-                                                Số lượng
-                                            </td>
-                                            <td>
-                                                Thành tiền
-                                            </td>
-                                            <td>
-                                                Xóa
-                                            </td>
+                                            <td>Thông tin</td>
+                                            <td class="td_item_price">Đơn giá</td>
+                                            <td>Số lượng</td>
+                                            <td>Thành tiền</td>
+                                            <td>Xóa</td>
                                         </tr>
                                         <!--SẢN PHẨM-->
                                         <% int i = 1;%>
@@ -93,13 +80,13 @@
                                                 <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>" title="<%=list.getValue().getProduct().getProductName()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                             </td>
                                             <!--giá-->
-                                            <td class="cart_price_item"> <%=formatter.format(list.getValue().getProduct().getProductPrice())%>₫</td>
+                                            <td class="cart_price_item"> <%=formatter.format(list.getValue().getProduct().getProductPrice())%></td>
                                             <!--số lượng-->
                                             <td>
                                                 <input type="number" class="big_input form-control input-control" min="1" name="Lines" value="<%=list.getValue().getQuantity()%>">
                                             </td>
                                             <!--thành tiền-->
-                                            <td class="cart_price_total"><%= formatter.format(list.getValue().getQuantity() * list.getValue().getProduct().getProductPrice()) %>₫</td>
+                                            <td class="cart_price_total"><%= formatter.format(list.getValue().getQuantity() * list.getValue().getProduct().getProductPrice()) %></td>
                                             <!--xóa-->
                                             <td class="cart_item_close"><a href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>" data-id="1420708"><i class="fa fa-trash"></i></a></td>
                                         </tr>
@@ -110,13 +97,13 @@
                                         <div class="cart_checkout pull-right col-xs-12 pull-right text-right no-padding-lr">
                                             <div class="cart_checkout_total pull-right text-right col-xs-12 pull-right text-right no-padding-lr">
                                                 <div class="big_cart_total">
-                                                    <span>Tổng tiền:</span><span><%=formatter.format(cart.total())%>₫</span>
+                                                    <span>Tổng tiền:</span><span><%=formatter.format(cart.total())%></span>
                                                 </div>
                                             </div>
                                             <div class="cart_checkout_pay pull-right text-right col-xs-12 pull-right text-right no-padding-lr">
                                                 <a class="btn btn-default shop_link" href="/Laptop/all.jsp" role="button">Mua Thêm</a>
                                                 <button class="btn btn-default" name="update" type="submit">Cập nhật</button>
-                                                <a class="btn btn-default" href="CartServlet?command=removeAll&productID=All" type="button">Xóa hết</a>
+                                                <a class="btn btn-default" href="CartServlet?command=delete&productID=<%=0%>" type="button">Xóa hết</a>
 <!--                                                <button href="CartServlet?command=removeAll" id="empty_cart_button" class="btn btn-default" value="empty_cart" name="update_cart_action" type="button">
                                                     <span><span>Xóa hết</span></span>
                                                 </button>-->

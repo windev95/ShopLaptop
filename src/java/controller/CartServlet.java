@@ -56,8 +56,9 @@ public class CartServlet extends HttpServlet {
                 case "remove":
                     cart.removeToCart(idProduct);
                     break;
-                case "removeAll":
-                    cart.removeAll();
+                case "delete":
+                    cart = new Cart();
+                    session.setAttribute("cart", cart);
                     break;
             }
         } catch (Exception e) {

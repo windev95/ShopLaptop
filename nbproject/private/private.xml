@@ -3,13 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/index.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/layout/menu_left.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/product.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/detail.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/all.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/cart.jsp</file>
-            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/web/layout/header.jsp</file>
+            <file>file:/D:/OneDrive/Documents/Web%20Java/ShopLaptop/src/java/dao/ProductDAO.java</file>
         </group>
     </open-files>
 </project-private>

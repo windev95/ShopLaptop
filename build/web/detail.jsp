@@ -3,7 +3,7 @@
     Created on : Dec 3, 2016, 5:58:45 PM
     Author     : BoyIt
 --%>
-<%@page import="java.text.DecimalFormat"%>
+<%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
 <%@page import="model.Category"%> 
@@ -42,7 +42,7 @@
         cart = new Cart();
         session.setAttribute("cart", cart);
     }
-    DecimalFormat formatter = new DecimalFormat("###,###,###");
+    MoneyFormat formatter = new MoneyFormat();
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -159,12 +159,12 @@
                                             <%}%>
                                             <div class="description">Chipset đồ họa: <%=product.getProductVGA()%></div>
                                             <span class="product-price">
-                                                <b itemprop="price" class="productminprice"><%=formatter.format(product.getProductPrice())%>₫</b>
+                                                <b itemprop="price" class="productminprice"><%=formatter.format(product.getProductPrice())%></b>
                                             </span>
                                             <div class="variant_Count">
                                                 <select id="product-selectors" name="variantId" style="display:none">
-                                                    <option value="2108928">Xanh lam - <%=formatter.format(product.getProductPrice())%>₫</option>
-                                                    <option value="2108929">Xanh ngọc - <%=formatter.format(product.getProductPrice())%>₫</option>
+                                                    <option value="2108928">Xanh lam - <%=formatter.format(product.getProductPrice())%></option>
+                                                    <option value="2108929">Xanh ngọc - <%=formatter.format(product.getProductPrice())%></option>
                                                 </select>
                                             </div>
                                             <!--số lượng-->
@@ -418,14 +418,14 @@
                                                                 </div>
                                                             </div>
                                                             <span class="product-price text-center">
-                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%>₫</b>
-                                                                <del><%=formatter.format(p.getProductPrice())%>₫</del>
+                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%></b>
+                                                                <del><%=formatter.format(p.getProductPrice())%></del>
                                                             </span>
                                                             <h3 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>"><%=p.getProductName()%></a></h3>
                                                             <div style="display:none">
                                                                 <select id="product-selectors" name="variantId" style="display:none">
-                                                                    <option lỗi liquid unknown operator roduct value="2111409">Ghi - <%=formatter.format(p.getProductPrice())%>₫</option>
-                                                                    <option lỗi liquid unknown operator roduct value="2111410">Xanh - <%=formatter.format(p.getProductPrice())%>₫</option>
+                                                                    <option lỗi liquid unknown operator roduct value="2111409">Ghi - <%=formatter.format(p.getProductPrice())%></option>
+                                                                    <option lỗi liquid unknown operator roduct value="2111410">Xanh - <%=formatter.format(p.getProductPrice())%></option>
                                                                 </select>
                                                             </div>
                                                             <!--số lượng-->

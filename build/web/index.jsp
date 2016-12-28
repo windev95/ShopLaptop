@@ -1,8 +1,8 @@
-<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
 <%@page import="model.Cart" %>
+<%@page import="helpers.MoneyFormat"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="vn">
@@ -19,7 +19,7 @@
         cart = new Cart();
         session.setAttribute("cart", cart);
     }
-    DecimalFormat formatter = new DecimalFormat("###,###,###");
+    MoneyFormat formatter = new MoneyFormat();
     %>
     <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -151,7 +151,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -195,7 +195,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -214,7 +214,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -240,7 +240,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -259,7 +259,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -285,7 +285,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +304,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -330,7 +330,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -349,7 +349,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -375,7 +375,7 @@
                                                     <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                     <div class="projects-item-info">
                                                         <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                        <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@
                                                             <a href="detail.jsp?product=<%=pnew.getProductID()%>"><img src="./images/product/<%=pnew.getProductImage()%>" alt="<%=pnew.getProductName()%>"></a>
                                                             <div class="projects-item-info">
                                                                 <h3 class="projects-item-title"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=pnew.getProductName()%></a></h3>
-                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%>₫</a></p>
+                                                                <p class="projects-item-description"><a href="detail.jsp?product=<%=pnew.getProductID()%>"><%=formatter.format(pnew.getProductPriceReal())%></a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -452,16 +452,16 @@
                                                         </div>
                                                     </div>
                                                     <span class="product-price text-center">
-                                                        <b class="productminprice"><%=formatter.format(p.getProductPriceReal())%>₫</b>
+                                                        <b class="productminprice"><%=formatter.format(p.getProductPriceReal())%></b>
                                                         <% if(p.getProductSale() > 0 ){ %>
-                                                        <del><%=formatter.format(p.getProductPrice())%>₫</del>
+                                                        <del><%=formatter.format(p.getProductPrice())%></del>
                                                         <% }%>
                                                     </span>
                                                     <h3 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>"><%=p.getProductName()%></a></h3>
 <!--                                                    <div style="display:none">
                                                         <select id="product-selectors" name="variantId" style="display:none">
-                                                            <option lỗi liquid unknown operator roduct value="2023875">Đỏ - <%=formatter.format(p.getProductPriceReal())%>₫</option>
-                                                            <option lỗi liquid unknown operator roduct value="2023876">Trắng - <%=formatter.format(p.getProductPriceReal())%>₫</option>
+                                                            <option lỗi liquid unknown operator roduct value="2023875">Đỏ - <%=formatter.format(p.getProductPriceReal())%></option>
+                                                            <option lỗi liquid unknown operator roduct value="2023876">Trắng - <%=formatter.format(p.getProductPriceReal())%></option>
                                                         </select>
                                                     </div>-->
                                                     <!--số lượng-->
