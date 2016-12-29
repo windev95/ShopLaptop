@@ -3,6 +3,7 @@
     Created on : Dec 1, 2016, 10:24:43 AM
     Author     : BoyIt
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%>
@@ -26,6 +27,19 @@
                 session.setAttribute("cart", cart);
             }
             MoneyFormat formatter = new MoneyFormat();
+            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=5;
+            if (request.getParameter("pages") != null) {
+                pages = (int) Integer.parseInt(request.getParameter("pages"));
+            }
+            total = productDAO.countProduct();
+            if (total <= pagesize) {
+                firstResult = 1;
+                maxResult = total;
+            }else{
+                firstResult = (pages - 1) * pagesize;
+                maxResult = pagesize;
+            }
+            
         %>
         
         <div id="page-wrapper">
@@ -213,20 +227,17 @@
                                         <div class="collection-pagination-parent">
                                             <div class="filter-right">
                                                 <div class="collection-pagination pull-right pagination-wrapper">
-                                                    <ul class="pagination">
-                                                        <li class="active"><span>1</span></li>
-                                                        <li><a href="/collections/all?page=2">2</a></li>
-                                                        <li><a href="/collections/all?page=3">3</a></li>
-                                                        <li>
-                                                            <a class="last " aria-label="Next" href="/collections/all?page=2">
-                                                                <span aria-hidden="true">Trang sau</span>
-                                                            </a>
-                                                        </li>
+                                                    <ul class="pagination">                                                                                          
+                                                      
+                                                        <%for(int i=1;i<=(total/pagesize)+1;i++){%>
+                                                        <li><a href="all.jsp&pages=<%=i%>"><%=i%></a></li>
+                                                        <%}%>
+                                                      
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <!-- End. Filter 2-->
                                 </div>
                             </div>

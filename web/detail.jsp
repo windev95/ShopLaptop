@@ -52,6 +52,14 @@
         <meta name="keywords" content="<%=product.getProductMetaKeywords()%>">
         <meta name="description" content="<%=product.getProductMetaDescription()%>">
         <jsp:include page = "layout/head.jsp"></jsp:include>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=190240264706946";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     </head>
     <body>
 
@@ -211,7 +219,7 @@
                                                 <a href="#product_info" aria-controls="tab" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
                                             </li>
                                             <li role="presentation">
-                                                <a href="#product_cmt" aria-controls="tab" role="tab" data-toggle="tab">Đánh giá sản phẩm</a>
+                                                <a href="#product_cmt" aria-controls="tab" role="tab" data-toggle="tab">Bình luận</a>
                                             </li>
                                         </ul>
                                         <!-- Tab panes -->
@@ -387,7 +395,7 @@
                                                 </table>                                               
                                                 
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="product_cmt"><p>Tab 3</p></div>
+                                            <div role="tabpanel" class="tab-pane" id="product_cmt"><p><div class="fb-comments" data-href="http://localhost:8080/Laptop/detail.jsp?product=<%=product.getProductID()%>" data-width="800" data-numposts="5"></div></p></div>
                                             </div>
                                         </div>
                                     </div>

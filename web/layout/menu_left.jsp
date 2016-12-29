@@ -34,7 +34,7 @@
                     {
                     %>
                     <li class="">
-                        <a href="product.jsp?category=<%=c.getCategoryID()%>" class="link_title_css link_title_<%=c.getCategoryID()%>"> <%=c.getCategoryName()%>
+                        <a href="product.jsp?category=<%=c.getCategoryID()%>&pages=1" class="link_title_css link_title_<%=c.getCategoryID()%>"> <%=c.getCategoryName()%>
                         </a>
                     </li>
                     <%

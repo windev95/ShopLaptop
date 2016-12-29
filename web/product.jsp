@@ -3,6 +3,8 @@
     Created on : Dec 3, 2016, 9:42:35 PM
     Author     : BoyIt
 --%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
@@ -20,10 +22,10 @@
         <%
             CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
-            String category_id = "";
+            long category_id = 0;
             if(request.getParameter("category")!=null)
             {
-                category_id = request.getParameter("category");
+                category_id = (long) Long.parseLong(request.getParameter("category"));
             }
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
@@ -31,6 +33,19 @@
                 session.setAttribute("cart", cart);
             }
             MoneyFormat formatter = new MoneyFormat();
+            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=5;
+            if (request.getParameter("pages") != null) {
+                pages = (int) Integer.parseInt(request.getParameter("pages"));
+            }
+            total = productDAO.countProductByCategory(category_id);
+            if (total <= pagesize) {
+                firstResult = 1;
+                maxResult = total;
+            }else{
+                firstResult = (pages - 1) * pagesize;
+                maxResult = pagesize;
+            }
+            ArrayList<Product> listProduct = productDAO.getListProductByNav(category_id, firstResult, maxResult);
         %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -39,7 +54,7 @@
         =========================================================================== -->
         <div id="main">
                 <%
-                for (Category c : categoryDAO.getCategoryNameID(Long.parseLong(category_id)))
+                for (Category c : categoryDAO.getCategoryNameID(category_id))
                 {
                 %>
                 <section class="page_title">
@@ -127,7 +142,7 @@
                                         <!-- End .section-title -->
                                         <div class="product-list-show" style="display: none">
                                             <%
-                                                for(Product p : productDAO.getListProductByCategory(Long.parseLong(category_id)))
+                                                for(Product p : listProduct)
                                                 {
                                             %>
                                            <div class="product_item col-xs-12">
@@ -173,7 +188,7 @@
                                         </div>
                                         <div class="product-grid-show">
                                             <%
-                                                for(Product p : productDAO.getListProductByCategory(Long.parseLong(category_id)))
+                                                for(Product p : listProduct)
                                                 {
                                             %>
                                             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -219,9 +234,18 @@
                                     <div class="col-xs-12">
                                         <div class="collection-pagination-parent">
                                             <div class="filter-right">
+                                                <div class="collection-pagination pull-right pagination-wrapper">
+                                                    <ul class="pagination">                                                                                          
+                                                      
+                                                        <%for(int i=1;i<=(total/pagesize)+1;i++){%>
+                                                        <li><a href="product.jsp?category=<%=category_id%>&pages=<%=i%>"><%=i%></a></li>
+                                                        <%}%>
+                                                      
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <!-- End. Filter 2-->
                                 </div>
                             </div>
