@@ -161,7 +161,7 @@
                                             <li class="fali"><a href="/Laptop" title="Trang chủ">Trang chủ</a></li>
                                             <li class="fali"><a href="./introduce.jsp" title="Giới thiệu">Giới thiệu</a></li>
                                             <li class="dropdown yamm-fw">
-                                                <a class="a_medr1" href="./all.jsp">Sản phẩm</a><a href="/collections/all" data-toggle="dropdown" class="clickshowarrow a_medr2" title="Sản phẩm"><i class="fa fa-angle-down"></i></a>
+                                                <a class="a_medr1" href="./all.jsp?pages=1">Sản phẩm</a><a href="/collections/all" data-toggle="dropdown" class="clickshowarrow a_medr2" title="Sản phẩm"><i class="fa fa-angle-down"></i></a>
                                                 <div class="arrow"></div>
                                                 <ul class="dropdown-menu dropdown-menu-right col-md-12 homemenudropdown">
                                                     <div class="container">

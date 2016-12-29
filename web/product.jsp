@@ -109,29 +109,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-<!--                                                <div class="filter-item">
-                                                    <span class="label-btn">Sắp xếp:</span>
-                                                    <select class="sort sort-by selectpicker">
-                                                        <option value="default">Mặc định</option>
-                                                        <option value="price-asc">Giá tăng dần</option>
-                                                        <option value="price-desc">Giá giảm dần</option>
-                                                        <option value="alpha-asc">Từ A-Z</option>
-                                                        <option value="alpha-desc">Từ Z-A</option>
-                                                        <option value="created-asc">Mới đến cũ</option>
-                                                        <option value="created-desc">Cũ đến mới</option>
-                                                    </select>
-                                                </div>-->
-                                                <!-- End .filter-item -->
-<!--                                                <div class="filter-item">
-                                                    <span class="label-btn">Hiển thị:</span>
-                                                    <select onchange="location = this.options[this.selectedIndex].value;" class="sort selectpicker">
-                                                        <option value="default">18</option>
-                                                        <option value="/collections/phu-kien-den-ngu?view=a"><a href="/collections/phu-kien-den-ngu?view=a">21</a></option>
-                                                        <option value="/collections/phu-kien-den-ngu?view=b"><a href="/collections/phu-kien-den-ngu?view=b">24</a></option>
-                                                        <option value="/collections/phu-kien-den-ngu?view=c"><a href="/collections/phu-kien-den-ngu?view=c">27</a></option>
-                                                    </select>
-                                                </div>-->
-                                                <!-- End .filter-item -->
                                             </div>
 
                                         </div>

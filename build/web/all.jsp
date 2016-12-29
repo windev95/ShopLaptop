@@ -27,7 +27,7 @@
                 session.setAttribute("cart", cart);
             }
             MoneyFormat formatter = new MoneyFormat();
-            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=5;
+            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=9;
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }
@@ -39,7 +39,7 @@
                 firstResult = (pages - 1) * pagesize;
                 maxResult = pagesize;
             }
-            
+             ArrayList<Product> listProduct = productDAO.getallListProductByNav(firstResult, maxResult);
         %>
         
         <div id="page-wrapper">
@@ -101,29 +101,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-<!--                                                <div class="filter-item">
-                                                    <span class="label-btn">Sắp xếp:</span>
-                                                    <select class="sort sort-by selectpicker">
-                                                        <option value="default">Mặc định</option>
-                                                        <option value="price-asc">Giá tăng dần</option>
-                                                        <option value="price-desc">Giá giảm dần</option>
-                                                        <option value="alpha-asc">Từ A-Z</option>
-                                                        <option value="alpha-desc">Từ Z-A</option>
-                                                        <option value="created-asc">Mới đến cũ</option>
-                                                        <option value="created-desc">Cũ đến mới</option>
-                                                    </select>
-                                                </div>-->
-                                                <!-- End .filter-item -->
-<!--                                                <div class="filter-item">
-                                                    <span class="label-btn">Hiển thị:</span>
-                                                    <select onchange="location = this.options[this.selectedIndex].value;" class="sort selectpicker">
-                                                        <option value="default">18</option>
-                                                        <option value="/collections/all?view=a"><a href="/collections/all?view=a">21</a></option>
-                                                        <option value="/collections/all?view=b"><a href="/collections/all?view=b">24</a></option>
-                                                        <option value="/collections/all?view=c"><a href="/collections/all?view=c">27</a></option>
-                                                    </select>
-                                                </div>-->
-                                                <!-- End .filter-item -->
+
                                             </div>
 
                                         </div>
@@ -134,7 +112,7 @@
                                         <!-- End .section-title -->
                                         <div class="product-list-show" style="display: none">
                                             <%
-                                                for(Product p : productDAO.getListAllProduct())
+                                                for(Product p : listProduct)
                                                 {
                                             %>
                                            <div class="product_item col-xs-12">
@@ -180,7 +158,7 @@
                                         </div>
                                         <div class="product-grid-show">
                                             <%
-                                                for(Product p : productDAO.getListAllProduct())
+                                                for(Product p : listProduct)
                                                 {
                                             %>
                                             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -230,7 +208,7 @@
                                                     <ul class="pagination">                                                                                          
                                                       
                                                         <%for(int i=1;i<=(total/pagesize)+1;i++){%>
-                                                        <li><a href="all.jsp&pages=<%=i%>"><%=i%></a></li>
+                                                        <li><a href="all.jsp?pages=<%=i%>"><%=i%></a></li>
                                                         <%}%>
                                                       
                                                     </ul>
