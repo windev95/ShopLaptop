@@ -395,7 +395,11 @@
                                                 </table>                                               
                                                 
                                             </div>
-                                            <div role="tabpanel" class="tab-pane" id="product_cmt"><p><div class="fb-comments" data-href="http://localhost:8080/Laptop/detail.jsp?product=<%=product.getProductID()%>" data-width="800" data-numposts="5"></div></p></div>
+                                            <div role="tabpanel" class="tab-pane" id="product_cmt">
+                                                <p>
+                                                <div class="fb-comments" data-href="http://localhost:8080/Laptop/detail.jsp?product=<%=product.getProductID()%>" data-width="100%" data-numposts="5"></div>
+                                            </p>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>

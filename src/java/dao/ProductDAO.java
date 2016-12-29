@@ -236,6 +236,11 @@ public class ProductDAO
             product.setProductSale(rs.getInt("product_sale")); 
             product.setProductPriceReal(rs.getInt("product_price_real"));
             product.setProductContent(rs.getString("product_content")); 
+            product.setProductCpuDetail(rs.getString("product_cpudetail")); 
+            product.setProductVGA(rs.getString("product_vga")); 
+            product.setCpuID(rs.getLong("cpu_id"));
+            product.setRamID(rs.getLong("ram_id"));
+            product.setStorageID(rs.getLong("storage_id"));
         list.add(product);
     }
     return list;
@@ -269,6 +274,11 @@ public class ProductDAO
             product.setProductSale(rs.getInt("product_sale")); 
             product.setProductPriceReal(rs.getInt("product_price_real"));
             product.setProductContent(rs.getString("product_content")); 
+            product.setProductCpuDetail(rs.getString("product_cpudetail")); 
+            product.setProductVGA(rs.getString("product_vga")); 
+            product.setCpuID(rs.getLong("cpu_id"));
+            product.setRamID(rs.getLong("ram_id"));
+            product.setStorageID(rs.getLong("storage_id"));
         list.add(product);
     }
     return list;

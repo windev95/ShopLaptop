@@ -10,6 +10,12 @@
 <%@page import="model.Category" %> 
 <%@page import="dao.CategoryDAO" %>
 <%@page import="model.Cart" %>
+<%@page import="model.Cpu"%> 
+<%@page import="dao.CpuDAO"%>
+<%@page import="model.Ram"%> 
+<%@page import="dao.RamDAO"%>
+<%@page import="model.Storage"%> 
+<%@page import="dao.StorageDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -21,6 +27,9 @@
         <%
             CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
+            CpuDAO cpuDAO = new CpuDAO();
+            RamDAO ramDAO = new RamDAO();
+            StorageDAO storageDAO = new StorageDAO();
             long category_id = 0;
             if(request.getParameter("category")!=null)
             {
@@ -132,7 +141,16 @@
                                                         <div class="col-sm-7 col-md-7 righcontent">
                                                             <h5 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
                                                             <div class="description">
-                                                                <%=p.getProductContent()%>
+                                                                <% for (Cpu cpu : cpuDAO.getCpuNameID(p.getCpuID()))  { %>
+                                                                <h5>Bộ xử lý: <%=cpu.getCpuName()%>, <%=p.getProductCpuDetail()%></h5>
+                                                                <% }%>
+                                                                <% for (Ram ram : ramDAO.getRamNameID(p.getRamID()))  { %>
+                                                                <h5>Bộ nhớ Ram: <%=ram.getRamName()%></h5>
+                                                                <% }%>
+                                                                <%for (Storage storage : storageDAO.getStorageNameID(p.getStorageID())){ %>
+                                                                <h5>Ổ cứng: <%=storage.getStorageName()%></h5>
+                                                                <% }%>
+                                                                <h5>Chipset đồ họa: <%=p.getProductVGA()%></h5>
                                                             </div>
                                                             <span class="product-price">
                                                                 <b class="productminprice"><%=formatter.format(p.getProductPrice())%></b>
