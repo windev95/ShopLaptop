@@ -360,7 +360,7 @@ public class ProductDAO
         for (Product ds : dao.getListProductByAdvanceSearch(0,1,1,1,1,1)) 
         {           
             //System.out.println(ds.getProductID() + " - " + ds.getProductName());
-            System.out.println(dao.countProduct());
+            System.out.println(dao.countProductByCategory(3));
 
         }
     } 

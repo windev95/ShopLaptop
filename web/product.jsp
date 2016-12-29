@@ -4,7 +4,6 @@
     Author     : BoyIt
 --%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
@@ -33,13 +32,13 @@
                 session.setAttribute("cart", cart);
             }
             MoneyFormat formatter = new MoneyFormat();
-            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=5;
+            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=6;
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }
             total = productDAO.countProductByCategory(category_id);
             if (total <= pagesize) {
-                firstResult = 1;
+                firstResult = 0;
                 maxResult = total;
             }else{
                 firstResult = (pages - 1) * pagesize;
