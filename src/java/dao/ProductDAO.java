@@ -33,25 +33,10 @@ public class ProductDAO
         return list;     
     }    
     // get danh sách sản phẩm dựa vào tìm kiếm nâng cao
-    public ArrayList<Product> getListProductByAdvanceSearch(long producerID,long pricelevelID, long screensizeID, long cpuID, long ramID, long storageID)  throws SQLException {     
-        String producer, pricelevel, screensize, cpu, ram, storage;
-        if(producerID > 0)
-        {
-            producer = "`producer_id` = " + producerID;
-            
-        }else
-        {
-            producer = "1";
-        }
+    public ArrayList<Product> getListProductByAdvanceSearch(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID)  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and ? and ? and ? and ? and ? and ?";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";      
         PreparedStatement ps = connection.prepareCall(sql);  
-            ps.setString(1, producer);
-            ps.setLong(2, pricelevelID);
-            ps.setLong(3, screensizeID);
-            ps.setLong(4, cpuID);
-            ps.setLong(5, ramID);
-            ps.setLong(6, storageID);
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
         while (rs.next()) { 
@@ -354,7 +339,7 @@ public class ProductDAO
     }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO();  
-        for (Product ds : dao.getListProductBySearchNav("S",1,2)) 
+        for (Product ds : dao.getListProductByAdvanceSearch("","","","","","")) 
         {           
             //System.out.println(ds.getProductID() + " - " + ds.getProductName());
             System.out.println(ds.getProductID() + " - " +ds.getProductName());
