@@ -101,7 +101,7 @@
                                                 </div>
                                             </div>
                                             <div class="cart_checkout_pay pull-right text-right col-xs-12 pull-right text-right no-padding-lr">
-                                                <a class="btn btn-default shop_link" href="/Laptop/all.jsp" role="button">Mua Thêm</a>
+                                                <a class="btn btn-default shop_link" href="/Laptop/all.jsp?pages=1" role="button">Mua Thêm</a>
                                                 <button class="btn btn-default" name="update" type="submit">Cập nhật</button>
                                                 <a class="btn btn-default" href="CartServlet?command=delete&productID=<%=0%>" type="button">Xóa hết</a>
 <!--                                                <button href="CartServlet?command=removeAll" id="empty_cart_button" class="btn btn-default" value="empty_cart" name="update_cart_action" type="button">

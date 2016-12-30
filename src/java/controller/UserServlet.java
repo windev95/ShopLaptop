@@ -4,6 +4,9 @@ import dao.UsersDAO;
 import helpers.encrypt;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -57,10 +60,19 @@ public class UserServlet extends HttpServlet {
             case "login":
                 session.setAttribute("error", "");
                 users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
-                String name = usersDAO.checkName(request.getParameter("email"));
+                {
+                    try { 
+                        for (Users ds : usersDAO.getUserByEmail("demo@gmail.com"))
+                        {
+                            session.setAttribute("name", ds.getUserFullName());
+                            session.setAttribute("id", ds.getUserID());
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 if (users != null) {
                     session.setAttribute("user", users);
-                    session.setAttribute("name", name);
                     url = "/index.jsp";
                     break;
                 }else{

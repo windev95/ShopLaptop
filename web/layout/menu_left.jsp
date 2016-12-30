@@ -5,6 +5,8 @@
 --%>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%> 
+<%@page import="model.Producer"%> 
+<%@page import="dao.ProducerDAO"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +25,7 @@
     <body>
         <%
             CategoryDAO categoryDAO = new CategoryDAO(); 
+            ProducerDAO producerDAO = new ProducerDAO(); 
         %>
         <div class="megamenu-left col-md-3 col-md-pull-9">
         <div class="cd-dropdown-wrapper">
@@ -44,7 +47,26 @@
                 <!-- .cd-dropdown-content -->
             </nav>
             <!-- .cd-dropdown -->
-        </div>          
+        </div>        
+<!--                THƯƠNG HIỆU-->
+<!--        <div class="cd-dropdown-wrapper">
+            <nav class="cd-dropdown dropdown-is-active">
+                <div class="dropdown-content-title"><i class="fa fa-bars"></i> THƯƠNG HIỆU</div>
+                <ul class="cd-dropdown-content">
+                    <%
+                    for (Producer c : producerDAO.getListProducer())
+                    {
+                    %>
+                    <li class="">
+                        <a href="product.jsp?category=<%=c.getProducerID()%>&pages=1" class="link_title_css link_title_<%=c.getProducerID()%>"> <%=c.getProducerName()%>
+                        </a>
+                    </li>
+                    <%
+                    }
+                    %>
+                </ul>
+            </nav>
+        </div>   -->
 
 <!--               DEMO DEMO DEMO ==========================================-->
 

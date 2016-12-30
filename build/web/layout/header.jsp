@@ -16,6 +16,10 @@
                 users = (Users) session.getAttribute("user");
             else
                 users.setUserEmail("");
+//            if (session.getAttribute("name") != null) 
+//                users = (Users) session.getAttribute("name");
+//            else
+//                users.setUserFullName("");
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
@@ -48,7 +52,7 @@
                                     </ul>
                                     <%} else {%>
                                     <ul>																	
-					<li><a href="./account.jsp" class="header-link" title="Xin chào! "><%=users.getUserEmail() %></a></li>
+					<li><a href="./account.jsp" class="header-link" title="Xin chào! "><%=session.getAttribute("name")%></a></li>
                                         <li><a href="LogOutServlet" class="header-link" title="Thoát">Thoát</a></li>													
                                     </ul>
                                     <%}%>
@@ -131,9 +135,9 @@
                                 </ul>
                             </div>
                             <div class="col-xs-12 hidden-sm hidden-md hidden-lg header-search">
-                                <form action="/search" method="get">
+                                <form action="SearchServlet" method="POST">
                                     <div class="input-group header_xs_search">
-                                        <input type="text" class="form-control header_xs_search_input" maxlength="70" name="query" id="search" placeholder="Tìm kiếm...">
+                                        <input type="text" class="form-control header_xs_search_input" maxlength="70" name="query" id="" placeholder="Tìm kiếm...">
                                         <span class="input-group-btn">
                                             <button class="btn btn-default header_xs_search_btn" type="submit"><i class="fa fa-search"></i></button>
                                         </span>
@@ -222,7 +226,7 @@
                                             </a>
                                             <ul class="dropdown-menu dropdown_Menu1" aria-labelledby="dropdown_Menu1">
                                                 <li>
-                                                    <form action="/search" method="get">
+                                                    <form action="SearchServlet" method="POST">
                                                         <div class="input-group search_form_action">
                                                             <input type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Nhập từ khóa tìm kiếm...">
                                                             <span class="input-group-btn">

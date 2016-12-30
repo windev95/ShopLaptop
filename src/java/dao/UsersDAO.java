@@ -27,21 +27,20 @@ public class UsersDAO {
         return false;
     }
     //kiểm tra, trả về tên khách hàng tường ứng với email truyền vào
-    public String checkName(String email) {
-        Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT * FROM users WHERE user_email = '" + email + "'";
-        PreparedStatement ps;
-        try {
-            ps = connection.prepareCall(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                connection.close();
-            return sql;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+    public ArrayList<Users> getUserByEmail(String email) throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM users WHERE user_email = '" + email + "'";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Users> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Users users = new Users();      
+            users.setUserID(rs.getLong("user_id"));   
+            users.setUserFullName(rs.getString("user_fullname"));       
+            list.add(users);         
+        }         
+        return list;    
     }
     // phương thức thêm tài khoản
     public boolean insertUser(Users u) {
@@ -81,4 +80,12 @@ public class UsersDAO {
         }
         return null;
     }    
+    public static void main(String[] args) throws SQLException 
+    {       
+        UsersDAO dao = new UsersDAO();      
+        for (Users ds : dao.getUserByEmail("demo@gmail.com")) 
+        {           
+            System.out.println(ds.getUserID()+" - " + ds.getUserFullName());         
+        }     
+    } 
 }

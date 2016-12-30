@@ -41,7 +41,7 @@
                 session.setAttribute("cart", cart);
             }
             MoneyFormat formatter = new MoneyFormat();
-            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=6;
+            int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=9;
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }

@@ -54,6 +54,11 @@
                                         <h3 class="form-heading">Thông tin thanh toán</h3>
                                         <div class="row info-input">
                                             <div class="">
+                                                <input type="hidden" value="<%=session.getAttribute("id")%>" name="id" required />
+                                            </div>
+                                        </div>
+                                        <div class="row info-input">
+                                            <div class="">
                                                 <input type="text" value="" maxlength="50" placeholder="Tên" name="name" required />
                                             </div>
                                         </div>

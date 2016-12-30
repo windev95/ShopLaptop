@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html lang="vn">
     <head>        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Đăng ký</title>
         <jsp:include page = "layout/head.jsp"></jsp:include>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>

@@ -167,18 +167,21 @@
                                             <%}%>
                                             <div class="description">Chipset đồ họa: <%=product.getProductVGA()%></div>
                                             <span class="product-price">
-                                                <b itemprop="price" class="productminprice"><%=formatter.format(product.getProductPrice())%></b>
+                                                <b itemprop="price" class="productminprice"><%=formatter.format(product.getProductPriceReal())%></b>
+                                                <% if(product.getProductSale() > 0 ){ %>
+                                                <del><%=formatter.format(product.getProductPrice())%></del>
+                                                <% }%>
                                             </span>
-                                            <div class="variant_Count">
+<!--             //                                <div class="variant_Count">
                                                 <select id="product-selectors" name="variantId" style="display:none">
                                                     <option value="2108928">Xanh lam - <%=formatter.format(product.getProductPrice())%></option>
                                                     <option value="2108929">Xanh ngọc - <%=formatter.format(product.getProductPrice())%></option>
                                                 </select>
-                                            </div>
+                                            </div>-->
                                             <!--số lượng-->
                                             <div class="col-sm-12 no-padding-lr quantity_cartbtn ">
                                                 <!-- <div class="col-sm-6 no-padding-lr"> -->
-                                                <div class="product_quantity">
+<!--                                                <div class="product_quantity">
                                                     <div class="quanitybtn">
                                                         <div class="input-group quantity">
                                                             <div class="input-group qttform">
@@ -194,7 +197,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <!-- </div> -->
                                                 <div class="product_cart_btn">
                                                     <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
@@ -418,7 +421,9 @@
                                                     <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                         <div class="product-gird">
                                                             <div class="product-img-parent">
-                                                                <div class="sale_tag">- 5%</div>
+                                                                <% if(p.getProductSale() > 0 ){ %>
+                                                                <div class="sale_tag">- <%=p.getProductSale()%>%</div>
+                                                                <% }%>
                                                                 <a class="product-img" href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>">
                                                                     <img class="product-img-first" src="./images/product/<%=p.getProductImage()%>" alt="<%=p.getProductName()%>">
                                                                 </a>
@@ -430,8 +435,10 @@
                                                                 </div>
                                                             </div>
                                                             <span class="product-price text-center">
-                                                                <b class="productminprice"><%=formatter.format(p.getProductPrice())%></b>
+                                                                <b class="productminprice"><%=formatter.format(p.getProductPriceReal())%></b>
+                                                                <% if(p.getProductSale() > 0 ){ %>
                                                                 <del><%=formatter.format(p.getProductPrice())%></del>
+                                                                <% }%>
                                                             </span>
                                                             <h3 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>"><%=p.getProductName()%></a></h3>
                                                             <div style="display:none">

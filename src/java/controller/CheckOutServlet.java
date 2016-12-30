@@ -15,6 +15,7 @@ import model.BillDetail;
 import model.Cart;
 import model.Item;
 import model.Users;
+import model.Product;
 import java.io.PrintWriter;
 import helpers.Sendmail;
 public class CheckOutServlet extends HttpServlet {
@@ -46,6 +47,7 @@ public class CheckOutServlet extends HttpServlet {
             throws ServletException, IOException {
         String payment = request.getParameter("payment");
         String name = request.getParameter("name");
+        String id = request.getParameter("id");
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         HttpSession session = request.getSession();
@@ -63,7 +65,7 @@ public class CheckOutServlet extends HttpServlet {
             bill.setBillPaid(0);
             bill.setBillFinish(0);
             bill.setBillTotal(cart.total());
-            bill.setUserID(users.getUserID());          
+            bill.setUserID(Long.parseLong(id));          
             billDAO.insertBill(bill);
             for (Map.Entry<Long, Item> list : cart.getCartItems().entrySet()) {
                 long billDetailID = new Date().getTime();

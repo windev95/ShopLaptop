@@ -7,6 +7,8 @@ import java.sql.SQLException;
 //import java.sql.Timestamp;
 //import java.text.DecimalFormat;
 import java.util.ArrayList; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Product; 
 public class ProductDAO 
 {     
@@ -295,9 +297,64 @@ public class ProductDAO
         }
         return count;
     }
+    //Tìm kiếm sản phẩm
+    public ArrayList<Product> getListProductBySearchNav(String query, int firstResult,int maxResult) throws SQLException{
+        Connection connection = DBConnect.getConnecttion();
+        String sql="SELECT * FROM product WHERE product_name LIKE '%" + query + "%' limit ?,?";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.setInt(1, firstResult);
+        ps.setInt(2, maxResult);
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Product> list = new ArrayList<>();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setProductID(rs.getLong("product_id")); 
+            product.setProductName(rs.getString("product_name"));    
+            product.setProductImage(rs.getString("product_image")); 
+            product.setProductPrice(rs.getInt("product_price"));   
+            product.setProductSale(rs.getInt("product_sale")); 
+            product.setProductPriceReal(rs.getInt("product_price_real"));
+            product.setProductContent(rs.getString("product_content")); 
+            product.setProductCpuDetail(rs.getString("product_cpudetail")); 
+            product.setProductVGA(rs.getString("product_vga")); 
+            product.setCpuID(rs.getLong("cpu_id"));
+            product.setRamID(rs.getLong("ram_id"));
+            product.setStorageID(rs.getLong("storage_id"));
+        list.add(product);
+    }
+    return list;
+    }
+    // Tính tổng sản phẩm tìm kiếm
+    public int countProductBySearch(String query) throws SQLException{
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT count(product_id) FROM product WHERE product_name LIKE '%" + query + "%'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        return count;
+    }
+    //set giảm số lượng tồn kho
+    public boolean minusProduct(int id, int gia) {
+        Connection connection = DBConnect.getConnecttion();
+
+        String sql = "INSERT INTO users VALUES(?,?,?,?)";
+        try {
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, id);
+            ps.setLong(2, gia);
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public static void main(String[] args) throws SQLException {
-        ProductDAO dao = new ProductDAO();   
-        for (Product ds : dao.getallListProductByNav(7,2)) 
+        ProductDAO dao = new ProductDAO();  
+        for (Product ds : dao.getListProductBySearchNav("S",1,2)) 
         {           
             //System.out.println(ds.getProductID() + " - " + ds.getProductName());
             System.out.println(ds.getProductID() + " - " +ds.getProductName());

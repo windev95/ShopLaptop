@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 public class MoneyFormat {
     public static String format(int money) {
         DecimalFormat formatter = new DecimalFormat("###,###,###");            
-        return formatter.format(money) + " VNĐ";
+        return formatter.format(money) + "₫";
     }
     
     public static void main(String[] args) throws Exception {

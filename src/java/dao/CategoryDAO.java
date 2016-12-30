@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import model.Category; 
 public class CategoryDAO 
 {     
-// get danh sách thể loại     
+    // get danh sách thể loại     
     public ArrayList<Category> getListCategory() throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
         String sql = "SELECT * FROM category";       
