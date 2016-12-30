@@ -276,7 +276,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/all.jsp\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/all.jsp\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                                \r\n");
@@ -361,7 +361,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/all.jsp\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/all.jsp\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("\r\n");
@@ -446,7 +446,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/product.jsp?category=1\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/product.jsp?category=1\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                                \r\n");
@@ -531,7 +531,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/product.jsp?category=2\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/product.jsp?category=2\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                                \r\n");
@@ -616,7 +616,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/product.jsp?category=3\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/product.jsp?category=3\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                                \r\n");
@@ -701,7 +701,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"col-md-12 text-center projects-item-content\">\r\n");
-      out.write("                                            <a href=\"/Laptop/product.jsp?category=4\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
+      out.write("                                            <a href=\"/product.jsp?category=4\" class=\"projects-item-content-more btn btn-default\">Xem thêm</a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("\r\n");
