@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <meta property="og:image" content="./images/shop/logo.png">
         <title>Thêm mới sản phẩm</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -21,7 +22,7 @@
         <script src="${root}/Admin/js/custom.js"></script>
     </head>
     <body>
-         <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header.jsp"></jsp:include>
         <div class="page-content">
             <div class="row">
                 <jsp:include page="menu.jsp"></jsp:include>

@@ -16,10 +16,10 @@
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="index.jsp"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
-                    <li><a href="manager_category.jsp"><i class="glyphicon glyphicon-align-justify"></i> Danh mục</a></li>
-                    <li><a href="manager_product.jsp"><i class="glyphicon glyphicon-book"></i> Sản phẩm</a></li>
-                    <li><a href="manager_bill.jsp"><i class="glyphicon glyphicon-file"></i> Hóa đơn</a></li>
+                    <li class="current"><a href="../Admin/index.jsp"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
+                    <li><a href="../Admin/manager_category.jsp"><i class="glyphicon glyphicon-align-justify"></i> Danh mục</a></li>
+                    <li><a href="../Admin/manager_product.jsp"><i class="glyphicon glyphicon-book"></i> Sản phẩm</a></li>
+                    <li><a href="../Admin/manager_bill.jsp"><i class="glyphicon glyphicon-file"></i> Hóa đơn</a></li>
                     
                 </ul>
              </div>

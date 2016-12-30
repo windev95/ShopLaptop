@@ -37,29 +37,29 @@
 			  				<div class="panel-heading">
 					            <div class="panel-title">Thông tin danh mục</div>					          					       
 					        </div>
-                                                    <form action="/Laptop/ManagerCategoryServlet" method="post">
+                                                    <form action="../ManagerCategoryServlet" method="POST">
 			  				<div class="panel-body">
 			  					<form action="">
 									<fieldset>
+                                                                                <input type="hidden" name="command" value="insert">
 										<div class="form-group">
 											<label>Tên danh mục</label>
-											<input class="form-control" placeholder="Text field" type="text">
+											<input class="form-control" name="tenDanhMuc" placeholder="Text field" type="text">
 										</div>
 										<div class="form-group">
 											<label>MetaTittle</label>
-											<input class="form-control" placeholder="Text field" type="text">
+											<input class="form-control" name="mt" placeholder="Text field" type="text">
 										</div>
                                                                                 <div class="form-group">
 											<label>Metakeywords</label>
-											<input class="form-control" placeholder="Text field" type="text">
+											<input class="form-control" name="mk" placeholder="Text field" type="text">
 										</div>
                                                                                 <div class="form-group">
 											<label>MetaDescription</label>
-											<input class="form-control" placeholder="Text field" type="text">
+											<input class="form-control" name="md" placeholder="Text field" type="text">
 										</div>
 									</fieldset>
-									<div>
-										<input type="hidden" name="command" value="insert">
+									<div>										
                                                                                 <input type="submit" class="button" value="Lưu dữ liệu">
 									</div>
 								</form>

@@ -24,6 +24,10 @@
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>controller.SearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerCategoryServlet</servlet-name>
+        <servlet-class>controller.ManagerCategoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerCategoryServlet</servlet-name>
+        <url-pattern>/ManagerCategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

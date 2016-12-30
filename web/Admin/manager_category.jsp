@@ -36,7 +36,7 @@
   			<div class="content-box-large">
   				<div class="panel-heading">
 					<div class="panel-title">Quản lý danh mục</div>
-                                        <button class="btn btn-default" onclick="location.href='insert_category.jsp'">Thêm mới</button>
+                                        <button class="btn btn-default" onclick="location.href='../Admin/insert_category.jsp'">Thêm mới</button>
 				</div>
                                 
   				<div class="panel-body">                                  
@@ -57,9 +57,9 @@
 								<td><%=category.getCategoryName()%></td>							
                                                                 <td width="175px"> 
                                                                 <center>
-                                                                    <a href="/Laptop/ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>">del</a>
-                                                                <button class="btn btn-primary btn-xs" onclick="location.href='${root}/Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                                                <button class="btn btn-danger btn-xs" onclick="location.href='/Laptop/ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
+                                                                    <a href="../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>">del</a>
+                                                                <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                                                <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
                                                                 </center>
 							</tr>
                                                         <%}%>
