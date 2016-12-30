@@ -32,16 +32,12 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
         processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         String query = (request.getParameter("query"));
         session.setAttribute("query", query);
