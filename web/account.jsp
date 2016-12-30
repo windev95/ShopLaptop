@@ -26,7 +26,7 @@
                         <div class="row ">
                             <div class="col-xs-12">
                                 <ol class="breadcrumb">
-                                    <li><a href="/Laptop" title="Trang chủ">Trang chủ </a> </li>
+                                    <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
                                     <li class="active breadcrumb-title">Trang khách hàng</li>
                                 </ol>
                             </div>

@@ -77,7 +77,7 @@
                         <div class="row ">
                             <div class="col-xs-12">
                                 <ol class="breadcrumb">
-                                    <li><a href="/Laptop" title="Trang chủ">Trang chủ </a> </li>
+                                    <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
                                     <%
                                     for (Category c : categoryDAO.getCategoryNameID(product.getCategoryID()))
                                     {
@@ -400,7 +400,7 @@
                                             </div>
                                             <div role="tabpanel" class="tab-pane" id="product_cmt">
                                                 <p>
-                                                <div class="fb-comments" data-href="http://localhost:8080/Laptop/detail.jsp?product=<%=product.getProductID()%>" data-width="100%" data-numposts="5"></div>
+                                                <div class="fb-comments" data-href="http://localhost:8080/detail.jsp?product=<%=product.getProductID()%>" data-width="100%" data-numposts="5"></div>
                                             </p>
                                             </div>
                                             </div>

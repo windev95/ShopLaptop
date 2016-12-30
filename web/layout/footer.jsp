@@ -128,7 +128,7 @@
                         <div class="col-xs-12 col-sm-7 col-sm-push-5">
                             <div class="pull-right">
                                 <ul>
-                                    <li><a href="/ShopLaptop" title="Trang chủ">Trang chủ</a></li>
+                                    <li><a href="/" title="Trang chủ">Trang chủ</a></li>
                                     <li><a href="./introduce.jsp" title="Giới thiệu">Giới thiệu</a></li>
                                     <li><a href="./all.jsp" title="Sản phẩm">Sản phẩm</a></li>
                                     <li><a href="#" title="Tin tức">Tin tức</a></li>

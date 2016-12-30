@@ -179,7 +179,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
                                                 
@@ -224,7 +224,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/all.jsp" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
 
@@ -269,7 +269,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/product.jsp?category=1" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/product.jsp?category=1" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
                                                 
@@ -314,7 +314,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/product.jsp?category=2" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/product.jsp?category=2" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
                                                 
@@ -359,7 +359,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/product.jsp?category=3" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/product.jsp?category=3" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
                                                 
@@ -404,7 +404,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center projects-item-content">
-                                            <a href="/Laptop/product.jsp?category=4" class="projects-item-content-more btn btn-default">Xem thêm</a>
+                                            <a href="/product.jsp?category=4" class="projects-item-content-more btn btn-default">Xem thêm</a>
                                         </div>
                                     </div>
 

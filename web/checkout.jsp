@@ -7,7 +7,7 @@
 <% 
     Users users = (Users) session.getAttribute("user");
     if (users == null) {
-        response.sendRedirect("/Laptop/login.jsp");
+        response.sendRedirect("/login.jsp");
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

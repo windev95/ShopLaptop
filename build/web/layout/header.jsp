@@ -69,7 +69,7 @@
                         <div class="row ">
                             <div class="col-sm-6 col-md-3 logo">
                                 <div class="logo_content">
-                                    <a href="/Laptop" class="logo" title="Ranger theme">
+                                    <a href="/" class="logo" title="Ranger theme">
                                         <img src="./images/shop/logo.png" alt="Ranger theme">
                                     </a>
                                 </div>
@@ -126,8 +126,8 @@
                                                         <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=formatter.format(cart.total())%>₫
                                                     </span>
                                                 </div>
-                                                <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>
-                                                <div class="action"><a id="gocart" href="/Laptop/checkout.jsp">Thanh toán</a></div>
+                                                <div class="action"><a id="gocart" href="/cart.jsp">Giỏ hàng</a></div>
+                                                <div class="action"><a id="gocart" href="/checkout.jsp">Thanh toán</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                                     <div id="navbar-collapse-grid" class="navbar-collapse collapse no-padding-lr">
                                         <ul class="nav navbar-nav">
                                             <!-- Grid 12 Menu -->
-                                            <li class="fali"><a href="/Laptop" title="Trang chủ">Trang chủ</a></li>
+                                            <li class="fali"><a href="/" title="Trang chủ">Trang chủ</a></li>
                                             <li class="fali"><a href="./introduce.jsp" title="Giới thiệu">Giới thiệu</a></li>
                                             <li class="dropdown yamm-fw">
                                                 <a class="a_medr1" href="./all.jsp?pages=1">Sản phẩm</a><a href="/collections/all" data-toggle="dropdown" class="clickshowarrow a_medr2" title="Sản phẩm"><i class="fa fa-angle-down"></i></a>
@@ -271,8 +271,8 @@
                                                         <i style="color:#898989;font-style: normal;">TỔNG TIỀN:</i> <%=formatter.format(cart.total())%>₫
                                                     </span>
                                                 </div>
-                                                <div class="action"><a id="gocart" href="/Laptop/cart.jsp">Giỏ hàng</a></div>
-                                                <div class="action"><a id="gocart" href="/Laptop/checkout.jsp">Thanh toán</a></div>
+                                                <div class="action"><a id="gocart" href="/cart.jsp">Giỏ hàng</a></div>
+                                                <div class="action"><a id="gocart" href="/checkout.jsp">Thanh toán</a></div>
                                                 </div>
                                             </div>
                                         </div>
