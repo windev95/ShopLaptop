@@ -4,6 +4,9 @@
     Author     : Khang
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.CategoryDAO"%>
+<%@page import="model.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +24,10 @@
         <script src="${root}/Admin/js/custom.js"></script>
     </head>
     <body>
+        <%
+            CategoryDAO categorydao = new CategoryDAO();
+            ArrayList<Category> listCategory = categorydao.getListCategory();            
+        %>
         <jsp:include page="header.jsp"></jsp:include>
         <div class="page-content">
             <div class="row">
@@ -29,49 +36,34 @@
   			<div class="content-box-large">
   				<div class="panel-heading">
 					<div class="panel-title">Quản lý danh mục</div>
+                                        <button class="btn btn-default" onclick="location.href='insert_category.jsp'">Thêm mới</button>
 				</div>
-  				<div class="panel-body">
+                                
+  				<div class="panel-body">                                  
   					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 						<thead>
-							<tr>
-								<th>Rendering engine</th>
-								<th>Browser</th>
-								<th>Platform(s)</th>
-								<th>Engine version</th>
+							<tr>          
+								<th>Mã Danh Mục</th>
+								<th>Tên Danh Mục</th>							
 								<th>Tùy chọn</th>
 							</tr>
 						</thead>
 						<tbody>
+                                                <%
+                                                    for(Category category : listCategory){
+                                                %>
 							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Seamonkey 1.1</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-                                                                <td> 
-                                                                <button class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i> View</button>                                                                
-                                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
-                                                                <button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
+								<td><%=category.getCategoryID()%></td>
+								<td><%=category.getCategoryName()%></td>							
+                                                                <td width="175px"> 
+                                                                <center>
+                                                                    <a href="/Laptop/ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>">del</a>
+                                                                <button class="btn btn-primary btn-xs" onclick="location.href='${root}/Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                                                <button class="btn btn-danger btn-xs" onclick="location.href='/Laptop/ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
+                                                                </center>
 							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Seamonkey 1.1</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-                                                                <td> 
-                                                                <button class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i> View</button>                                                                
-                                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
-                                                                <button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
-							</tr>
-                                                        <tr class="gradeA">
-								<td>Gecko</td>
-								<td>Seamonkey 1.1</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-                                                                <td> 
-                                                                <button class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i> View</button>                                                                
-                                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i> Edit</button>
-                                                                <button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
-							</tr>
+                                                        <%}%>
+                                                           
 						</tbody>
 					</table>
   				</div>
