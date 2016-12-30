@@ -41,7 +41,7 @@ public class SearchServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String query = (request.getParameter("query"));
         session.setAttribute("query", query);
-        response.sendRedirect("/Laptop/search.jsp?query="+query+"&pages=1");
+        response.sendRedirect("/search.jsp?query="+query+"&pages=1");
         processRequest(request, response);
     }
     @Override

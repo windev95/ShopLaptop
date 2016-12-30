@@ -63,10 +63,10 @@ public class CartServlet extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("/Laptop/index.jsp");
+            response.sendRedirect("/index.jsp");
         }
         session.setAttribute("cart", cart);
-        response.sendRedirect("/Laptop/index.jsp");
+        response.sendRedirect("/index.jsp");
         processRequest(request, response);
     }
 
