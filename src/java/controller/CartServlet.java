@@ -31,6 +31,8 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         doPost(request, response);
         processRequest(request, response);
     }
@@ -38,6 +40,8 @@ public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String command = request.getParameter("command");
         String productID = request.getParameter("productID");
         Cart cart = (Cart) session.getAttribute("cart");

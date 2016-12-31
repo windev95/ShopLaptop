@@ -32,6 +32,8 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         processRequest(request, response);
     }
 
@@ -39,6 +41,8 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         String query = (request.getParameter("query"));
         session.setAttribute("query", query);
         response.sendRedirect("/search.jsp?query="+query+"&pages=1");
