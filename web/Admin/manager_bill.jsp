@@ -28,10 +28,10 @@
                 <div class="col-md-10"> 			
   			<div class="content-box-large">
   				<div class="panel-heading">
-					<div class="panel-title">Quản lý hóa đơn</div>
+                                    <div class="panel-title">Quản lý hóa đơn</div>
 				</div>
   				<div class="panel-body">
-  					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+<!--  					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 						<thead>
 							<tr>
 								<th>Rendering engine</th>
@@ -73,7 +73,7 @@
                                                                 <button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
 							</tr>
 						</tbody>
-					</table>
+					</table>-->
   				</div>
   			</div>
 

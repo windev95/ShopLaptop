@@ -15,64 +15,134 @@
         <title>Quản lý danh mục</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
-        <!-- Bootstrap -->
-        <link href="${root}/Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">       
-        <!-- styles -->
-        <link href="${root}/Admin/css/styles.css" rel="stylesheet">
-        <script src="${root}/Admin/bootstrap/js/jquery.js"></script>
-        <script src="${root}/Admin/bootstrap/js/bootstrap.min.js"></script>     
-        <script src="${root}/Admin/js/custom.js"></script>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="${root}/Admin/layout/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
-    <body>
+    <body class="hold-transition skin-blue sidebar-mini">
         <%
             CategoryDAO categorydao = new CategoryDAO();
             ArrayList<Category> listCategory = categorydao.getListCategory();            
         %>
-        <jsp:include page="header.jsp"></jsp:include>
-        <div class="page-content">
-            <div class="row">
-                <jsp:include page="menu.jsp"></jsp:include>
-                <div class="col-md-10"> 			
-  			<div class="content-box-large">
-  				<div class="panel-heading">
-					<div class="panel-title">Quản lý danh mục</div>
-                                        <button class="btn btn-default" onclick="location.href='../Admin/insert_category.jsp'">Thêm mới</button>
-				</div>
-                                
-  				<div class="panel-body">                                  
-  					<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-						<thead>
-							<tr>          
-								<th>Mã Danh Mục</th>
-								<th>Tên Danh Mục</th>							
-								<th>Tùy chọn</th>
-							</tr>
-						</thead>
-						<tbody>
-                                                <%
-                                                    for(Category category : listCategory){
-                                                %>
-							<tr class="gradeA">
-								<td><%=category.getCategoryID()%></td>
-								<td><%=category.getCategoryName()%></td>							
-                                                                <td width="175px"> 
-                                                                <center>                                                                    
-                                                                <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                                                <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button></td>
-                                                                </center>
-							</tr>
-                                                        <%}%>
-                                                           
-						</tbody>
-					</table>
-  				</div>
-  			</div>
+        <div class="wrapper">
+            <jsp:include page="./layout/header.jsp"></jsp:include>
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <h1>
+                      Dashboard
+                      <small>Version 2.0</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                      <li class="active">Dashboard</li>
+                    </ol>
+                  </section>
+<!--                MAIN------------------------------------------------------------------->
+                        <section class="content">
+                             <div class="row">
+                               <div class="col-xs-12">
+                                 <!-- /.box -->
 
+                                 <div class="box">
+                                   <div class="box-header">
+                                     <h3 class="box-title">Bảng danh mục sản phẩm</h3>
+                                   </div>
+                                   <!-- /.box-header -->
+                                   <div class="box-body">
+                                     <table id="example1" class="table table-bordered table-striped">
+                                       <thead>
+                                       <tr>
+                                            <th>Mã Danh Mục</th>
+                                            <th>Tên Danh Mục</th>							
+                                            <th>Tùy chọn</th>
+                                       </tr>
+                                       </thead>
+                                       <tbody>
+                                        <%
+                                            for(Category category : listCategory){
+                                        %>
+                                        <tr>                                        
+                                          <td><%=category.getCategoryID()%></td>
+                                          <td><%=category.getCategoryName()%></td>
+                                          <td>
+                                              <center> 
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                                </center> 
+                                           </td>                                         
+                                        </tr>
+                                       <% }%>
+                                       </tbody>
+                                       <tfoot>
+                                       <tr>
+                                            <th>Mã Danh Mục</th>
+                                            <th>Tên Danh Mục</th>							
+                                            <th>Tùy chọn</th>
+                                       </tr>
+                                       </tfoot>
+                                     </table>
+                                   </div>
+                                   <!-- /.box-body -->
+                                 </div>
+                                 <!-- /.box -->
+                               </div>
+                               <!-- /.col -->
+                             </div>
+                             <!-- /.row -->
+                           </section>
 
-
-		  </div>
-            </div>
+<!--                /MAIN------------------------------------------------------------------->
+            </div>            
+            <jsp:include page="./layout/footer.jsp"></jsp:include>
+            <jsp:include page="./layout/control-sidebar.jsp"></jsp:include>
+            <div class="control-sidebar-bg"></div>
         </div>
-        <jsp:include page="footer.jsp"></jsp:include>
+            <!-- jQuery 2.2.3 -->
+            <script src="${root}/Admin/layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <!-- Bootstrap 3.3.6 -->
+            <script src="${root}/Admin/layout/bootstrap/js/bootstrap.min.js"></script>
+            <!-- DataTables -->
+            <script src="${root}/Admin/layout/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <!-- SlimScroll -->
+            <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
+            <!-- AdminLTE App -->
+            <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="${root}/Admin/layout/dist/js/demo.js"></script>
+            
+            <script>
+            $(function () {
+              $("#example1").DataTable();
+              $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+              });
+            });
+          </script>
     </body>
 </html>
