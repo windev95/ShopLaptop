@@ -63,8 +63,7 @@
 
                                  <div class="box">
                                    <div class="box-header">
-                                     <h3 class="box-title">Bảng danh mục sản phẩm</h3>
-                                     
+                                     <h3 class="box-title">Bảng danh mục sản phẩm</h3>                                     
                                      <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_category.jsp">THÊM MỚI</a>
                                    </div>
                                    <!-- /.box-header -->
@@ -73,7 +72,10 @@
                                        <thead>
                                        <tr>
                                             <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
+                                            <th>Tên Danh Mục</th>
+                                            <th>Tittle</th>
+                                            <th>Keywords</th>
+                                            <th>Description</th>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </thead>
@@ -84,6 +86,9 @@
                                         <tr>                                        
                                           <td><%=category.getCategoryID()%></td>
                                           <td><%=category.getCategoryName()%></td>
+                                          <td><%=category.getCategorymt()%></td>
+                                          <td><%=category.getCategorymkw()%></td>
+                                          <td><%=category.getCategorymd()%></td>
                                           <td>
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
@@ -96,7 +101,10 @@
                                        <tfoot>
                                        <tr>
                                             <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
+                                            <th>Tên Danh Mục</th>
+                                            <th>Tittle</th>
+                                            <th>Keywords</th>
+                                            <th>Description</th>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </tfoot>
@@ -134,17 +142,11 @@
             <script src="${root}/Admin/layout/dist/js/demo.js"></script>
             
             <script>
-            $(function () {
-              $("#example1").DataTable();
-              $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-              });
+            $(document).ready(function () {
+                $('#example1').DataTable({
+                    responsive: true
+                });
             });
-          </script>
+            </script>
     </body>
 </html>
