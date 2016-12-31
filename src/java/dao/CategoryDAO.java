@@ -19,7 +19,10 @@ public class CategoryDAO
         {             
             Category category = new Category();      
             category.setCategoryID(rs.getInt("category_id"));       
-            category.setCategoryName(rs.getString("category_name"));       
+            category.setCategoryName(rs.getString("category_name"));
+            category.setCategorymt(rs.getString("category_metatitle")); 
+            category.setCategorymkw(rs.getString("category_metakeywords"));  
+            category.setCategorymd(rs.getString("category_metadescription"));  
             list.add(category);         
         }         
         return list;    
