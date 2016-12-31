@@ -12,65 +12,127 @@
         <title>Thêm mới danh mục</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
-        <!-- Bootstrap -->
-        <link href="${root}/Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">       
-        <!-- styles -->
-        <link href="${root}/Admin/css/styles.css" rel="stylesheet">
-        <script src="${root}/Admin/bootstrap/js/jquery.js"></script>
-        <script src="${root}/Admin/bootstrap/js/bootstrap.min.js"></script>      
-        <script src="${root}/Admin/js/custom.js"></script>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="${root}/Admin/layout/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
-    <body>
+    <body class="hold-transition skin-blue sidebar-mini">
         <%
             String error = "";
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
         %>
-        <jsp:include page="header.jsp"></jsp:include>
-        <div class="page-content">
-            <div class="row">
-                <jsp:include page="menu.jsp"></jsp:include>
-                <div class="col-md-10">
-                    <div class="col-md-6">
-	  					<div class="content-box-large">
-			  				<div class="panel-heading">
-					            <div class="panel-title">Thông tin danh mục </div>					          					       
-					        </div>
-                                                    <form action="../ManagerCategoryServlet" method="POST">
-			  				<div class="panel-body">
-			  					<form action="">
-									<fieldset>
-                                                                                <input type="hidden" name="command" value="insert">
-										<div class="form-group">
-											<label>Tên danh mục</label>
-                                                                                        <input class="form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục" type="text" required>
-										</div>
-										<div class="form-group">
-											<label>MetaTittle</label>
-											<input class="form-control" name="mt" placeholder="Text field" type="text">
-										</div>
-                                                                                <div class="form-group">
-											<label>Metakeywords</label>
-											<input class="form-control" name="mk" placeholder="Text field" type="text">
-										</div>
-                                                                                <div class="form-group">
-											<label>MetaDescription</label>
-											<input class="form-control" name="md" placeholder="Text field" type="text">
-										</div>
-									</fieldset>
-									<div>										
-                                                                                <input type="submit" class="btn btn-primary" value="Lưu dữ liệu">
-									</div>
-								</form>
-			  				</div>
-                                                    </form>
-			  			</div>
-	  				</div>
-                </div>
-                
-            </div>
+            <div class="wrapper">
+            <jsp:include page="./layout/header.jsp"></jsp:include>
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <h1>
+                      Dashboard
+                      <small>Version 2.0</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                      <li class="active">Dashboard</li>
+                    </ol>
+                  </section>
+<!--                MAIN------------------------------------------------------------------->
+ <section class="content">
+                      <div class="row">
+                          <div class="col-xs-12">
+                            <!-- Horizontal Form -->
+                            <div class="box box-info">
+                              <div class="box-header with-border">
+                                <h3 class="box-title">Sửa danh mục sản phẩm</h3>
+                              </div>
+                              <!-- /.box-header -->
+                              <!-- form start -->
+                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
+                                <div class="box-body">
+                                    <input type="hidden" name="command" value="insert">
+                                  <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" name="tenDanhMuc" required class="form-control" value="" id="inputEmail3" placeholder="Tên danh mục">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
+
+                                    <div class="col-sm-10">
+                                      <input type="text" name="mt" value="" class="form-control" id="inputEmail3" placeholder="MetaTittle">
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
+
+                                    <div class="col-sm-10">
+                                      <input type="text" name="mk" value=""  class="form-control" id="inputEmail3" placeholder="Metakeywords">
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" name="md" value="" class="form-control" id="inputEmail3" placeholder="MetaDescription">
+                                    </div>
+                                  </div>
+                                    
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                  <button type="submit" class="btn btn-default">Cancel</button>
+                                  <button type="submit" class="btn btn-info pull-right">Thêm dữ liệu</button>
+                                </div>
+                                <!-- /.box-footer -->
+                              </form>
+                            </div>
+                          </div>                 
+                  
+                    </div>
+                  </section>
+<!--                /MAIN------------------------------------------------------------------->
+            </div>            
+            <jsp:include page="./layout/footer.jsp"></jsp:include>
+            <jsp:include page="./layout/control-sidebar.jsp"></jsp:include>
+            <div class="control-sidebar-bg"></div>
         </div>
-        <jsp:include page="footer.jsp"></jsp:include>
+            <!-- jQuery 2.2.3 -->
+            <script src="${root}/Admin/layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <!-- Bootstrap 3.3.6 -->
+            <script src="${root}/Admin/layout/bootstrap/js/bootstrap.min.js"></script>
+            <!-- DataTables -->
+            <script src="${root}/Admin/layout/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <!-- SlimScroll -->
+            <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
+            <!-- AdminLTE App -->
+            <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="${root}/Admin/layout/dist/js/demo.js"></script>           
     </body>
 </html>

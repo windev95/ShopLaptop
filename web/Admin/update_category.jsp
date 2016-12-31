@@ -61,7 +61,7 @@
                               </div>
                               <!-- /.box-header -->
                               <!-- form start -->
-                              <form class="form-horizontal" action="/ManagerCategoryServlet" method="POST">
+                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
                                 <div class="box-body">
                                     <input type="hidden" name="command" value="update">
                                     <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
@@ -69,7 +69,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" class="form-control" value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
+                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
                                     </div>
                                   </div>
                                   

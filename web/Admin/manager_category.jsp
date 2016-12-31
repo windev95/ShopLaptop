@@ -64,6 +64,8 @@
                                  <div class="box">
                                    <div class="box-header">
                                      <h3 class="box-title">Bảng danh mục sản phẩm</h3>
+                                     
+                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_category.jsp">THÊM MỚI</a>
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
