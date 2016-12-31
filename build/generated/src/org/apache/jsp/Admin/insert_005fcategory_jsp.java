@@ -3,11 +3,8 @@ package org.apache.jsp.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import java.util.ArrayList;
-import dao.CategoryDAO;
-import model.Category;
 
-public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class insert_005fcategory_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -57,14 +54,11 @@ public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.Ht
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Quản lý danh mục</title>\r\n");
+      out.write("        <title>Thêm mới danh mục</title>\r\n");
       out.write("        \r\n");
       out.write("        ");
       if (_jspx_meth_c_set_0(_jspx_page_context))
@@ -83,7 +77,7 @@ public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.Ht
       out.write("/Admin/bootstrap/js/jquery.js\"></script>\r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${root}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/Admin/bootstrap/js/bootstrap.min.js\"></script>     \r\n");
+      out.write("/Admin/bootstrap/js/bootstrap.min.js\"></script>      \r\n");
       out.write("        <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${root}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Admin/js/custom.js\"></script>\r\n");
@@ -91,8 +85,10 @@ public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.Ht
       out.write("    <body>\r\n");
       out.write("        ");
 
-            CategoryDAO categorydao = new CategoryDAO();
-            ArrayList<Category> listCategory = categorydao.getListCategory();            
+            String error = "";
+            if(request.getParameter("error")!=null){
+                error = (String) request.getParameter("error");
+            }
         
       out.write("\r\n");
       out.write("        ");
@@ -103,59 +99,44 @@ public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.Ht
       out.write("                ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "menu.jsp", out, false);
       out.write("\r\n");
-      out.write("                <div class=\"col-md-10\"> \t\t\t\r\n");
-      out.write("  \t\t\t<div class=\"content-box-large\">\r\n");
-      out.write("  \t\t\t\t<div class=\"panel-heading\">\r\n");
-      out.write("\t\t\t\t\t<div class=\"panel-title\">Quản lý danh mục</div>\r\n");
-      out.write("                                        <button class=\"btn btn-default\" onclick=\"location.href='../Admin/insert_category.jsp'\">Thêm mới</button>\r\n");
-      out.write("\t\t\t\t</div>\r\n");
-      out.write("                                \r\n");
-      out.write("  \t\t\t\t<div class=\"panel-body\">                                  \r\n");
-      out.write("  \t\t\t\t\t<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" class=\"table table-striped table-bordered\" id=\"example\">\r\n");
-      out.write("\t\t\t\t\t\t<thead>\r\n");
-      out.write("\t\t\t\t\t\t\t<tr>          \r\n");
-      out.write("\t\t\t\t\t\t\t\t<th>Mã Danh Mục</th>\r\n");
-      out.write("\t\t\t\t\t\t\t\t<th>Tên Danh Mục</th>\t\t\t\t\t\t\t\r\n");
-      out.write("\t\t\t\t\t\t\t\t<th>Tùy chọn</th>\r\n");
-      out.write("\t\t\t\t\t\t\t</tr>\r\n");
-      out.write("\t\t\t\t\t\t</thead>\r\n");
-      out.write("\t\t\t\t\t\t<tbody>\r\n");
-      out.write("                                                ");
-
-                                                    for(Category category : listCategory){
-                                                
-      out.write("\r\n");
-      out.write("\t\t\t\t\t\t\t<tr class=\"gradeA\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t<td>");
-      out.print(category.getCategoryID());
-      out.write("</td>\r\n");
-      out.write("\t\t\t\t\t\t\t\t<td>");
-      out.print(category.getCategoryName());
-      out.write("</td>\t\t\t\t\t\t\t\r\n");
-      out.write("                                                                <td width=\"175px\"> \r\n");
-      out.write("                                                                <center>                                                                    \r\n");
-      out.write("                                                                <button class=\"btn btn-primary btn-xs\" onclick=\"location.href='");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${root}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("../Admin/update_category.jsp?command=update&category_id=");
-      out.print(category.getCategoryID());
-      out.write("'\"><i class=\"glyphicon glyphicon-pencil\"></i> Sửa</button>\r\n");
-      out.write("                                                                <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='../ManagerCategoryServlet?command=delete&category_id=");
-      out.print(category.getCategoryID());
-      out.write("'\"><i class=\"glyphicon glyphicon-remove\"></i> Xóa</button></td>\r\n");
-      out.write("                                                                </center>\r\n");
-      out.write("\t\t\t\t\t\t\t</tr>\r\n");
-      out.write("                                                        ");
-}
-      out.write("\r\n");
-      out.write("                                                           \r\n");
-      out.write("\t\t\t\t\t\t</tbody>\r\n");
-      out.write("\t\t\t\t\t</table>\r\n");
-      out.write("  \t\t\t\t</div>\r\n");
-      out.write("  \t\t\t</div>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\t  </div>\r\n");
+      out.write("                <div class=\"col-md-10\">\r\n");
+      out.write("                    <div class=\"col-md-6\">\r\n");
+      out.write("\t  \t\t\t\t\t<div class=\"content-box-large\">\r\n");
+      out.write("\t\t\t  \t\t\t\t<div class=\"panel-heading\">\r\n");
+      out.write("\t\t\t\t\t            <div class=\"panel-title\">Thông tin danh mục </div>\t\t\t\t\t          \t\t\t\t\t       \r\n");
+      out.write("\t\t\t\t\t        </div>\r\n");
+      out.write("                                                    <form action=\"../ManagerCategoryServlet\" method=\"POST\">\r\n");
+      out.write("\t\t\t  \t\t\t\t<div class=\"panel-body\">\r\n");
+      out.write("\t\t\t  \t\t\t\t\t<form action=\"\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<fieldset>\r\n");
+      out.write("                                                                                <input type=\"hidden\" name=\"command\" value=\"insert\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<label>Tên danh mục</label>\r\n");
+      out.write("                                                                                        <input class=\"form-control\" name=\"tenDanhMuc\" placeholder=\"Nhập tên danh mục\" type=\"text\" required>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<label>MetaTittle</label>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"mt\" placeholder=\"Text field\" type=\"text\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("                                                                                <div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<label>Metakeywords</label>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"mk\" placeholder=\"Text field\" type=\"text\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("                                                                                <div class=\"form-group\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<label>MetaDescription</label>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"md\" placeholder=\"Text field\" type=\"text\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</fieldset>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<div>\t\t\t\t\t\t\t\t\t\t\r\n");
+      out.write("                                                                                <input type=\"submit\" class=\"btn btn-primary\" value=\"Lưu dữ liệu\">\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
+      out.write("\t\t\t\t\t\t\t\t</form>\r\n");
+      out.write("\t\t\t  \t\t\t\t</div>\r\n");
+      out.write("                                                    </form>\r\n");
+      out.write("\t\t\t  \t\t\t</div>\r\n");
+      out.write("\t  \t\t\t\t</div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                \r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("        ");

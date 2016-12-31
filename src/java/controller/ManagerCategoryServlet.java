@@ -35,6 +35,7 @@ public class ManagerCategoryServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         String command = request.getParameter("command");
         String category_id = request.getParameter("category_id");
+        String category_name = request.getParameter("category_name");
         String url = "";
         try {
             switch (command) {

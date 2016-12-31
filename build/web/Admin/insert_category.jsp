@@ -35,7 +35,7 @@
                     <div class="col-md-6">
 	  					<div class="content-box-large">
 			  				<div class="panel-heading">
-					            <div class="panel-title">Thông tin danh mục</div>					          					       
+					            <div class="panel-title">Thông tin danh mục </div>					          					       
 					        </div>
                                                     <form action="../ManagerCategoryServlet" method="POST">
 			  				<div class="panel-body">
@@ -44,7 +44,7 @@
                                                                                 <input type="hidden" name="command" value="insert">
 										<div class="form-group">
 											<label>Tên danh mục</label>
-											<input class="form-control" name="tenDanhMuc" placeholder="Text field" type="text">
+                                                                                        <input class="form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục" type="text" required>
 										</div>
 										<div class="form-group">
 											<label>MetaTittle</label>
@@ -60,7 +60,7 @@
 										</div>
 									</fieldset>
 									<div>										
-                                                                                <input type="submit" class="button" value="Lưu dữ liệu">
+                                                                                <input type="submit" class="btn btn-primary" value="Lưu dữ liệu">
 									</div>
 								</form>
 			  				</div>

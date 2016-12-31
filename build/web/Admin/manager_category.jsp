@@ -56,10 +56,9 @@
 								<td><%=category.getCategoryID()%></td>
 								<td><%=category.getCategoryName()%></td>							
                                                                 <td width="175px"> 
-                                                                <center>
-                                                                    <a href="../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>">del</a>
+                                                                <center>                                                                    
                                                                 <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                                                <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
+                                                                <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button></td>
                                                                 </center>
 							</tr>
                                                         <%}%>

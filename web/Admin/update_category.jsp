@@ -1,15 +1,11 @@
-<%-- 
-    Document   : insert_category
-    Created on : Dec 30, 2016, 5:42:36 PM
-    Author     : Khang
---%>
 
+<%@page import="model.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Thêm mới danh mục</title>
+        <title>Cập nhật danh mục</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
         <!-- Bootstrap -->
@@ -37,26 +33,27 @@
 			  				<div class="panel-heading">
 					            <div class="panel-title">Thông tin danh mục </div>					          					       
 					        </div>
-                                                    <form action="../ManagerCategoryServlet" method="POST">
+                                                    <form action="/ManagerCategoryServlet" method="POST">
 			  				<div class="panel-body">
 			  					<form action="">
 									<fieldset>
-                                                                                <input type="hidden" name="command" value="insert">
+                                                                                <input type="hidden" name="command" value="update">
+                                                                                <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
 										<div class="form-group">
 											<label>Tên danh mục</label>
-                                                                                        <input class="form-control" name="tenDanhMuc" placeholder="Nhập tên danh mục" type="text" required>
+                                                                                        <input class="form-control" type="text" value="<%=request.getParameter("category_name")%>" name="tenDanhMuc" required>
 										</div>
 										<div class="form-group">
 											<label>MetaTittle</label>
-											<input class="form-control" name="mt" placeholder="Text field" type="text">
+											<input class="form-control" name="mt" placeholder="Text field" type="text" value="<%=request.getParameter("category_metatitle")%>">
 										</div>
                                                                                 <div class="form-group">
 											<label>Metakeywords</label>
-											<input class="form-control" name="mk" placeholder="Text field" type="text">
+											<input class="form-control" name="mk" placeholder="Text field" type="text" value="<%=request.getParameter("category_name")%>">
 										</div>
                                                                                 <div class="form-group">
 											<label>MetaDescription</label>
-											<input class="form-control" name="md" placeholder="Text field" type="text">
+											<input class="form-control" name="md" placeholder="Text field" type="text" value="<%=request.getParameter("category_id")%>">
 										</div>
 									</fieldset>
 									<div>										
