@@ -138,6 +138,14 @@ public final class manager_005fcategory_jsp extends org.apache.jasper.runtime.Ht
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${root}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("../Admin/update_category.jsp?command=update&category_id=");
       out.print(category.getCategoryID());
+      out.write("&category_name=");
+      out.print(category.getCategoryName());
+      out.write("&category_metatitle=");
+      out.print(category.getCategorymt());
+      out.write("&category_metakeywords=");
+      out.print(category.getCategorymkw());
+      out.write("&category_metadescription=");
+      out.print(category.getCategorymd());
       out.write("'\"><i class=\"glyphicon glyphicon-pencil\"></i> Sửa</button>\r\n");
       out.write("                                                                <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='../ManagerCategoryServlet?command=delete&category_id=");
       out.print(category.getCategoryID());

@@ -49,11 +49,11 @@
 										</div>
                                                                                 <div class="form-group">
 											<label>Metakeywords</label>
-											<input class="form-control" name="mk" placeholder="Text field" type="text" value="<%=request.getParameter("category_name")%>">
+											<input class="form-control" name="mk" placeholder="Text field" type="text" value="<%=request.getParameter("category_metakeywords")%>">
 										</div>
                                                                                 <div class="form-group">
 											<label>MetaDescription</label>
-											<input class="form-control" name="md" placeholder="Text field" type="text" value="<%=request.getParameter("category_id")%>">
+											<input class="form-control" name="md" placeholder="Text field" type="text" value="<%=request.getParameter("category_metadescription")%>">
 										</div>
 									</fieldset>
 									<div>										
