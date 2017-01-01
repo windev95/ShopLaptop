@@ -341,8 +341,6 @@ public class ProductDAO
     }
     public boolean insert(Product p) throws SQLException {
     try {
-            java.util.Date date = new Date();
-            Timestamp timestamp = new Timestamp(date.getTime());
             Connection connection = DBConnect.getConnecttion();
             String sql = "INSERT INTO product VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareCall(sql);
@@ -376,7 +374,7 @@ public class ProductDAO
             ps.setDouble(28, p.getProductPrice());
             ps.setInt(29, p.getProductSale());
             ps.setDouble(30, p.getProductPriceReal());
-            ps.setTimestamp(31, timestamp);
+            ps.setTimestamp(31, p.getProductUpdate());
             ps.setInt(32, p.getProductBuys());
             ps.setInt(33, p.getProductInventory());
             ps.setBoolean(34, p.getProductHide());
@@ -393,10 +391,72 @@ public class ProductDAO
         return false;
         }
     }
+    public boolean update(Product p) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE product SET product_name=?,product_image=?,product_color=?,product_content=?,product_metatitle=?,product_metakeywords=?,product_metadescription=?,product_cpudetail=?,product_ramdetail=?,product_storagedetail=?,product_screen=?,product_screendetail=?,product_vga=?,product_sound=?,product_dvd=?,product_connect=?,product_lan=?,product_wifi=?,product_wireless=?,product_cardreader=?,product_webcam=?,product_pin=?,product_os=?,product_size=?,product_weight=?,product_material=?,product_price=?,product_sale=?,product_price_real=?,product_update=?,product_buys=?,product_inventory=?,product_hide=?,cpu_id=?,ram_id=?,storage_id=?,pricelevel_id=?,screensize_id=?,category_id=?,producer_id=? WHERE product_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);                   
+            ps.setString(1, p.getProductName());
+            ps.setString(2, p.getProductImage());
+            ps.setString(3, p.getProductColor());
+            ps.setString(4, p.getProductContent());
+            ps.setString(5, p.getProductMetaTitle());
+            ps.setString(6, p.getProductMetaKeywords());
+            ps.setString(7, p.getProductMetaDescription());
+            ps.setString(8, p.getProductCpuDetail());
+            ps.setString(9, p.getProductRamDetail());
+            ps.setString(10, p.getProductStorageDetail());
+            ps.setString(11, p.getProductScreen());
+            ps.setString(12, p.getProductScreenDetail());
+            ps.setString(13, p.getProductVGA());
+            ps.setString(14, p.getProductSound());
+            ps.setString(15, p.getProductDVD());
+            ps.setString(16, p.getProductConnect());
+            ps.setString(17, p.getProductLAN());
+            ps.setString(18, p.getProductWifi());
+            ps.setString(19, p.getProductWireless());
+            ps.setString(20, p.getProductCardReader());
+            ps.setString(21, p.getProductWebcam());
+            ps.setString(22, p.getProductPin());
+            ps.setString(23, p.getProductOS());
+            ps.setString(24, p.getProductSize());
+            ps.setString(25, p.getProductWeight());
+            ps.setString(26, p.getProductMaterial());
+            ps.setDouble(27, p.getProductPrice());
+            ps.setInt(28, p.getProductSale());
+            ps.setDouble(29, p.getProductPriceReal());
+            ps.setTimestamp(30, p.getProductUpdate());
+            ps.setInt(31, p.getProductBuys());
+            ps.setInt(32, p.getProductInventory());
+            ps.setBoolean(33, p.getProductHide());
+            ps.setLong(34, p.getCpuID());
+            ps.setLong(35, p.getRamID());
+            ps.setLong(36, p.getStorageID());
+            ps.setLong(37, p.getPricelevelID());
+            ps.setLong(38, p.getScreensizeID());
+            ps.setLong(39, p.getCategoryID());
+            ps.setLong(40, p.getProducerID());
+            ps.setLong(41, p.getProductID());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
+    public boolean delete(long product_id) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "DELETE FROM product WHERE product_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, product_id);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO(); 
-        java.util.Date date = new Date();
-        Timestamp timestamp = new Timestamp(date.getTime());
-        System.out.println(dao.insert(new Product(100, "zero", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0, 0, 0, timestamp, 0, 0, true,1,1,1,1,1,1,1)));
+        System.out.println(dao.delete(100));
     } 
 } 
