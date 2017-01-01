@@ -1,6 +1,6 @@
 <%-- 
-    Document   : insert_product
-    Created on : Dec 30, 2016, 10:32:14 AM
+    Document   : insert_category
+    Created on : Dec 30, 2016, 5:42:36 PM
     Author     : Khang
 --%>
 
@@ -9,67 +9,109 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <meta property="og:image" content="./images/shop/logo.png">
         <title>Thêm mới sản phẩm</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
-        <link href="${root}/Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">       
-        <link href="${root}/Admin/css/styles.css" rel="stylesheet">
-        <script src="${root}/Admin/bootstrap/js/jquery.js"></script>
-        <script src="${root}/Admin/bootstrap/js/bootstrap.min.js"></script>      
-        <script src="${root}/Admin/js/custom.js"></script>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="${root}/Admin/layout/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
     </head>
-    <body>
-        <jsp:include page="header.jsp"></jsp:include>
-        <div class="page-content">
-            <div class="row">
-                <jsp:include page="menu.jsp"></jsp:include>
-                <div class="col-md-10">
-                    <div class="col-md-6">
-	  					<div class="content-box-large">
-			  				<div class="panel-heading">
-					            <div class="panel-title">Vertical Form</div>
-					          
-					            <div class="panel-options">
-					              <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-					              <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
-					            </div>
-					        </div>
-			  				<div class="panel-body">
-			  					<form action="">
-									<fieldset>
-										<div class="form-group">
-											<label>Text field</label>
-											<input class="form-control" placeholder="Text field" type="text">
-										</div>
-										<div class="form-group">
-											<label>Password field</label>
-											<input class="form-control" placeholder="Password" type="password" value="mypassword">
-										</div>
-										<div class="form-group">
-											<label>Textarea</label>
-											<textarea class="form-control" placeholder="Textarea" rows="3"></textarea>
-										</div>
-										<div class="form-group">
-											<label>Readonly</label>
-											<span class="form-control">Read only text</span>
-										</div>
-									</fieldset>
-									<div>
-										<div class="btn btn-primary">
-											<i class="fa fa-save"></i>
-											Submit
-										</div>
-									</div>
-								</form>
-			  				</div>
-			  			</div>
-	  				</div>
-                </div>
-                
-            </div>
-        </div>
-        <jsp:include page="footer.jsp"></jsp:include>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <%
+            String error = "";
+            if(request.getParameter("error")!=null){
+                error = (String) request.getParameter("error");
+            }
+        %>
+            <div class="wrapper">
+            <jsp:include page="./layout/header.jsp"></jsp:include>
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <h1>
+                      Dashboard
+                      <small>Version 2.0</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                      <li class="active">Dashboard</li>
+                    </ol>
+                  </section>
+<!--                MAIN------------------------------------------------------------------->
+                    <section class="content">
+                      <div class="row">
+                          <div class="col-xs-12">
+                            <!-- Horizontal Form -->
+                            <div class="box box-info">
+                              <div class="box-header with-border">
+                                <h3 class="box-title">Thông tin sản phẩm</h3>
+                              </div>
+                              <!-- /.box-header -->
+                              <!-- form start -->
+                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
+                                <div class="box-body">
+                                    <input type="hidden" name="command" value="insert">
+                                  <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên sản phẩm</label>
 
+                                    <div class="col-sm-10">
+                                        <input type="text" name="tenDanhMuc" required class="form-control" value="" id="inputEmail3" placeholder="Tên danh mục">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
+
+                                    <div class="col-sm-10">
+                                      <input type="text" name="mt" value="" class="form-control" id="inputEmail3" placeholder="MetaTittle">
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
+
+                                    <div class="col-sm-10">
+                                      <input type="text" name="mk" value=""  class="form-control" id="inputEmail3" placeholder="Metakeywords">
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" name="md" value="" class="form-control" id="inputEmail3" placeholder="MetaDescription">
+                                    </div>
+                                  </div>
+                                    
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                  <button type="submit" class="btn btn-default">Cancel</button>
+                                  <button type="submit" class="btn btn-info pull-right">Thêm dữ liệu</button>
+                                </div>
+                                <!-- /.box-footer -->
+                              </form>
+                            </div>
+                          </div>                 
+                  
+                    </div>
+                  </section>
+<!--                /MAIN------------------------------------------------------------------->
+            </div>            
+            <jsp:include page="./layout/footer.jsp"></jsp:include>
+            <jsp:include page="./layout/control-sidebar.jsp"></jsp:include>
+            <div class="control-sidebar-bg"></div>
+        </div>
+            <script src="${root}/Admin/layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <script src="${root}/Admin/layout/bootstrap/js/bootstrap.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
+            <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
+            <script src="${root}/Admin/layout/dist/js/demo.js"></script>           
     </body>
 </html>
