@@ -8,6 +8,7 @@ package controller;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +22,8 @@ import model.Product;
  */
 public class ManagerProductServlet extends HttpServlet {
     ProductDAO productDAO = new ProductDAO();
+    java.util.Date date = new Date();
+    Timestamp timestamp = new Timestamp(date.getTime());
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -59,7 +62,7 @@ public class ManagerProductServlet extends HttpServlet {
             switch (command) {
                 case "delete":
                     productDAO.delete(Long.parseLong(product_id));
-                    url = "/Admin/manager_category.jsp";
+                    url = "/Admin/manager_product.jsp";
                     break;
             }
         } catch (Exception e) {
@@ -100,32 +103,38 @@ public class ManagerProductServlet extends HttpServlet {
         String product_size = request.getParameter("product_size");
         String product_weight = request.getParameter("product_weight");
         String product_material = request.getParameter("product_material");
-        int product_price = request.getParameter("product_price");
-        String  = request.getParameter("");
-        String  = request.getParameter("");
-        String  = request.getParameter("");
-        String  = request.getParameter("");
-        String  = request.getParameter("");
-        String  = request.getParameter("");
+        int product_price = Integer.parseInt(request.getParameter("product_price"));
+        int product_sale = Integer.parseInt(request.getParameter("product_sale"));
+        int product_price_real = Integer.parseInt(request.getParameter("product_price_real"));
+        int product_buys = Integer.parseInt(request.getParameter("product_buys"));
+        int product_inventory = Integer.parseInt(request.getParameter("product_inventory"));
+        String product_hide = request.getParameter("product_hide");
+        long cpu_id = Long.parseLong(request.getParameter("cpu_id"));
+        long ram_id = Long.parseLong(request.getParameter("ram_id"));
+        long storage_id = Long.parseLong(request.getParameter("storage_id"));
+        long pricelevel_id = Long.parseLong(request.getParameter("pricelevel_id"));
+        long screensize_id = Long.parseLong(request.getParameter("screensize_id"));
+        long category_id = Long.parseLong(request.getParameter("category_id"));
+        long producer_id = Long.parseLong(request.getParameter("producer_id"));
         String url = "", error = "";
-        if (tenDanhMuc.equals("")) {
-            error = "Vui lòng nhập tên danh mục!";
+        if (product_name.equals("")) {
+            error = "Vui lòng nhập tên!";
             request.setAttribute("error", error);
         }
         try {
             if (error.length() == 0) {
                 switch (command) {
                     case "insert":
-                        categoryDAO.insert(new Category(new Date().getTime()%1000, tenDanhMuc, mt, mk, md));
-                        url = "/Admin/manager_category.jsp";
+                        productDAO.insert(new Product(new Date().getTime()%1000, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, true, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
+                        url = "/Admin/manager_product.jsp";
                         break;
                     case "update":
-                        categoryDAO.update(new Category(Long.parseLong(request.getParameter("category_id")),tenDanhMuc, mt, mk, md));
-                        url = "/Admin/manager_category.jsp";
+                        productDAO.insert(new Product(Long.parseLong(request.getParameter("product_id")), product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, true, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
+                        url = "/Admin/manager_product.jsp";
                         break;
                 }
             } else {
-                url = "/Admin/insert_category.jsp";
+                url = "/Admin/insert_product.jsp";
             }
         } catch (Exception e) {
         }

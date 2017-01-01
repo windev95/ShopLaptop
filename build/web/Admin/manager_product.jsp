@@ -83,7 +83,7 @@
                                           <td>
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerProductServlet?command=delete&product_id=<%=p.getProductID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>
