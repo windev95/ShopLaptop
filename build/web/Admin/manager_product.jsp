@@ -4,8 +4,8 @@
     Author     : Khang
 --%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.CategoryDAO"%>
-<%@page import="model.Category"%>
+<%@page import="dao.ProductDAO"%>
+<%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,8 +26,8 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
-            CategoryDAO categorydao = new CategoryDAO();
-            ArrayList<Category> listCategory = categorydao.getListCategory();            
+            ProductDAO productdao = new ProductDAO();
+            ArrayList<Product> listProduct = productdao.getListProduct();            
         %>
        <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -51,7 +51,7 @@
                                  <div class="box">
                                    <div class="box-header">
                                      <h3 class="box-title">Bảng danh mục sản phẩm</h3>                                     
-                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_category.jsp">THÊM MỚI</a>
+                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_product.jsp">THÊM MỚI</a>
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
@@ -59,21 +59,31 @@
                                        <thead>
                                        <tr>
                                             <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Hình ảnh</th>
+                                            <td>Màu sắc</td>
+                                            <td>Thông tin</td>
+                                            <td>Ngày cập nhật</td>
+                                            <td>Nhà sản xuất</td>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </thead>
                                        <tbody>
                                         <%
-                                            for(Category category : listCategory){
+                                            for(Product p : listProduct){
                                         %>
                                         <tr>                                        
-                                          <td><%=category.getCategoryID()%></td>
-                                          <td><%=category.getCategoryName()%></td>
+                                          <td><%=p.getProductID()%></td>
+                                          <td><%=p.getProductName()%></td>
+                                          <td><%=p.getProductImage()%></td>
+                                          <td><%=p.getProductColor()%></td>
+                                          <td><%=p.getProductContent()%></td>
+                                          <td><%=p.getProductUpdate()%></td>
+                                          <td><%=p.getProducerID()%></td>
                                           <td>
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>
@@ -82,7 +92,12 @@
                                        <tfoot>
                                        <tr>
                                             <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Hình ảnh</th>
+                                            <td>Màu sắc</td>
+                                            <td>Thông tin</td>
+                                            <td>Ngày cập nhật</td>
+                                            <td>Nhà sản xuất</td>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </tfoot>
