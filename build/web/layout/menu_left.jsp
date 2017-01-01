@@ -49,25 +49,6 @@
             </nav>
             <!-- .cd-dropdown -->
         </div>        
-<!--                THƯƠNG HIỆU-->
-<!--        <div class="cd-dropdown-wrapper">
-            <nav class="cd-dropdown dropdown-is-active">
-                <div class="dropdown-content-title"><i class="fa fa-bars"></i> THƯƠNG HIỆU</div>
-                <ul class="cd-dropdown-content">
-                    <%
-                    for (Producer c : producerDAO.getListProducer())
-                    {
-                    %>
-                    <li class="">
-                        <a href="product.jsp?category=<%=c.getProducerID()%>&pages=1" class="link_title_css link_title_<%=c.getProducerID()%>"> <%=c.getProducerName()%>
-                        </a>
-                    </li>
-                    <%
-                    }
-                    %>
-                </ul>
-            </nav>
-        </div>   -->
 
 <!--               DEMO DEMO DEMO ==========================================-->
 
@@ -76,193 +57,140 @@
                 <div class="dropdown-content-title">Tìm kiếm sản phẩm</div>
 
                 <ul class="cd-dropdown-content">
-                    <div class="panel-group" id="accordion">
+                    
+                        <form id="formsearch" action="#" method="GET">
+                            <div class="panel-group" id="accordion">
                         
-<!--                    NHÀ SẢN XUẤT  -->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h5 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">NHÀ SẢN XUẤT</a>
-                        </h5>
-                      </div>
-                      <div id="collapse1" class="panel-collapse collapse">
-                            <div class="radio-item">
-                                <input type="radio" id="ritema" name="ritem" value="ropt1" checked>
-                                <label for="ritema">Tất cả</label>
-                            </div>
-                            
-                            <div class="radio-item">
-                                <input type="radio" id="ritemb" name="ritem" value="ropt2">
-                                <label for="ritemb">Option 2</label>
-                            </div>
-                            <div class="radio-item">
-                                <input type="radio" id="ritemc" name="ritem" value="ropt3">
-                                <label for="ritemc">Option 3</label>
-                            </div>
-                            
-                        <div class="btn-group" data-toggle="buttons">
-                            
-<!--                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options1" id="option1" autocomplete="on" value="Tất cả" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options1" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options1" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>-->
+    <!--                    NHÀ SẢN XUẤT  -->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">NHÀ SẢN XUẤT</a>
+                            </h5>
                           </div>
-                      </div>
-                    </div>
-<!--                    KHOẢNG GIÁ-->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">KHOẢNG GIÁ</a>
-                        </h4>
-                      </div>
-                      <div id="collapse2" class="panel-collapse collapse">
-                        <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options2" id="option1" autocomplete="off" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options2" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options2" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>
-                            </div>
-                      </div>
-                    </div>
-<!--                    MÀN HÌNH-->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">MÀN HÌNH</a>
-                        </h4>
-                      </div>
-                      <div id="collapse3" class="panel-collapse collapse">
-                        <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options3" id="option1" autocomplete="off" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options3" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options3" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>
+                          <div id="collapse1" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="nsx" name="nsx" value="" checked>
+                                    <label for="nsx">Tất cả</label>
+                                </div>
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
+                                <div class="radio-item">
+                                    <input type="radio" id="nsx<%=c.getProducerID()%>" name="nsx" value="<%=c.getProducerID()%>">
+                                    <label for="nsx<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                </div>
+                                <% }%>
                           </div>
-                      </div>
-                    </div>
-<!--                    BỘ VI XỬ LÝ-->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">VI XỬ LÝ</a>
-                        </h4>
-                      </div>
-                      <div id="collapse4" class="panel-collapse collapse">
-                        <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options4" id="option1" autocomplete="off" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options4" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options4" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>
-                            </div>
-                      </div>
-                    </div>
-<!--                    BỘ NHỚ-->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ</a>
-                        </h4>
-                      </div>
-                      <div id="collapse5" class="panel-collapse collapse">
-                        <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options5" id="option1" autocomplete="off" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options5" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options5" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-<!--                    Ổ CỨNG-->
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Ổ CỨNG</a>
-                        </h4>
-                      </div>
-                      <div id="collapse6" class="panel-collapse collapse">
-                        <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options6" id="option1" autocomplete="off" checked> Tất cả
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options6" id="option2" autocomplete="off" > 2 GB
-                                </label>
-                            </div>
-                            <div class="panel-body">
-                                <label class="btn btn-primary active">
-                                    <input type="radio" name="options6" id="option3" autocomplete="off" > 4 GB
-                                </label>
-                            </div>
                         </div>
-                      </div>
-                    </div>
-                        
-                  </div> 
+    <!--                    KHOẢNG GIÁ-->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">KHOẢNG GIÁ</a>
+                            </h4>
+                          </div>
+                          <div id="collapse2" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="khoanggia" name="khoanggia" value="" checked>
+                                    <label for="khoanggia">Tất cả</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="khoanggia1" name="khoanggia" value="ropt2">
+                                    <label for="khoanggia1">Option 2</label>
+                                </div>
+                          </div>
+                        </div>
+    <!--                    MÀN HÌNH-->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">MÀN HÌNH</a>
+                            </h4>
+                          </div>
+                          <div id="collapse3" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="manhinh" name="manhinh" value="" checked>
+                                    <label for="manhinh">Tất cả</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="manhinh1" name="manhinh" value="ropt2">
+                                    <label for="manhinh1">Option 2</label>
+                                </div>
+                          </div>
+                        </div>
+    <!--                    BỘ VI XỬ LÝ-->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">VI XỬ LÝ</a>
+                            </h4>
+                          </div>
+                          <div id="collapse4" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="cpu" name="cpu" value="" checked>
+                                    <label for="cpu">Tất cả</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="cpu1" name="cpu" value="ropt2">
+                                    <label for="cpu1">Option 2</label>
+                                </div>
+                          </div>
+                        </div>
+    <!--                    BỘ NHỚ-->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ</a>
+                            </h4>
+                          </div>
+                          <div id="collapse5" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="bonho" name="bonho" value="" checked>
+                                    <label for="bonho">Tất cả</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="bonho1" name="bonho" value="ropt2">
+                                    <label for="bonho1">Option 2</label>
+                                </div>
+                          </div>
+                        </div>
+    <!--                    Ổ CỨNG-->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Ổ CỨNG</a>
+                            </h4>
+                          </div>
+                          <div id="collapse6" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="ocung" name="ocung" value="" checked>
+                                    <label for="ocung">Tất cả</label>
+                                </div>
+
+                                <div class="radio-item">
+                                    <input type="radio" id="ocung1" name="ocung" value="ropt2">
+                                    <label for="ocung1">Option 2</label>
+                                </div>
+                          </div>
+                        </div>
+                        <div>
+                            <button width="100%" type="submit" class="btn btn-primary mini_btn btn-block center-block">TÌM KIẾM NÂNG CAO</button>
+                        </div>
+                    </div> 
+                        </form>
                 </ul>
             </nav>
         </div> 
                 
 <!--               ==============================================  DEMO DEMO DEMO-->
     <!-- .cd-dropdown-wrapper -->
+    <br>
         <div class="widget-sidebar-item banner em-effect06" style="margin-top: 30px;">
             <h3 class="widget-sidebar-name">THẺ TAGS</h3>
             <ul class="widget-sidebar-list products_tags">
