@@ -1,14 +1,19 @@
 package model;
 public class Users {
     private long userID;
-    private String fullName;
+    private String userfullName;
+    private String userAddress;
+    private long userPhone;
     private String userEmail;
     private String userPass;    
     public Users(){
     }
-    public Users(long userID, String fullName, String userEmail, String userPass) {
+
+    public Users(long userID, String userfullName, String userAddress, long userPhone, String userEmail, String userPass) {
         this.userID = userID;
-        this.fullName = fullName;
+        this.userfullName = userfullName;
+        this.userAddress = userAddress;
+        this.userPhone = userPhone;
         this.userEmail = userEmail;
         this.userPass = userPass;
     }
@@ -22,11 +27,27 @@ public class Users {
     }
 
     public String getUserFullName() {
-        return fullName;
+        return userfullName;
     }
 
-    public void setUserFullName(String fullName) {
-        this.fullName = fullName;
+    public void setUserFullName(String userfullName) {
+        this.userfullName = userfullName;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public long getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(long userPhone) {
+        this.userPhone = userPhone;
     }
 
     public String getUserEmail() {

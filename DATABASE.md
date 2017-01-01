@@ -235,13 +235,15 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
 `user_id` bigint(20) NOT NULL auto_increment,
 `user_fullname` varchar(50) collate utf8_unicode_ci NOT NULL,
+`user_address` longtext collate utf8_unicode_ci,
+`user_phone` bigint(20) default NULL,
 `user_email` varchar(50) NOT NULL,
 `user_pass` varchar(50) NOT NULL,
 PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 //Nhập liệu cho Table Users
-INSERT INTO `users` VALUES ('1481990800540','Quốc Toàn', 'demo@gmail.com',
+INSERT INTO `users` VALUES ('1481990800540','Quốc Toàn','D3, P.24, Q.Bình Thạnh','01234567899', 'demo@gmail.com',
 '3e8f51ec1e337d5317a3578de559665a');
 
 ======================TẠO BẢNG HÓA ĐƠN===========================

@@ -65,12 +65,9 @@
             <!-- .cd-dropdown -->
         </div>        
 
-<!--               DEMO DEMO DEMO ==========================================-->
-
         <div class="cd-dropdown-wrapper">
             <nav class="cd-dropdown dropdown-is-active">
-                <div class="dropdown-content-title">Tìm kiếm nhanh</div>
-
+                <div class="dropdown-content-title"><i class="fa fa-search"></i> TÌM KIẾM NHANH</div>
                 <ul class="cd-dropdown-content">
                     
                         <form id="formsearch" action="QuickSearchServlet" method="POST">
@@ -215,14 +212,13 @@
                           </div>
                         </div>
                         <div>
-                            <button width="100%" type="submit" class="btn btn-primary mini_btn btn-block center-block">TÌM KIẾM NÂNG CAO</button>
+                            <button width="100%" type="submit" class="btn btn-primary mini_btn btn-block center-block">LỌC KẾT QUẢ</button>
                         </div>
                     </div> 
                         </form>
                 </ul>
             </nav>
         </div> 
-<!--               ==============================================  DEMO DEMO DEMO-->
     <!-- .cd-dropdown-wrapper -->
     <br>
         <div class="widget-sidebar-item banner em-effect06" style="margin-top: 30px;">

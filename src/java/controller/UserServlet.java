@@ -55,6 +55,8 @@ public class UserServlet extends HttpServlet {
             case "insert":
                 users.setUserID(new java.util.Date().getTime());
                 users.setUserFullName(request.getParameter("fullname"));
+                users.setUserAddress(request.getParameter("address"));
+                users.setUserPhone(Long.parseLong(request.getParameter("phone")));
                 users.setUserEmail(request.getParameter("email"));
                 users.setUserPass(encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 usersDAO.insertUser(users);
@@ -65,10 +67,13 @@ public class UserServlet extends HttpServlet {
                 users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 {
                     try { 
-                        for (Users ds : usersDAO.getUserByEmail("demo@gmail.com"))
+                        for (Users ds : usersDAO.getUserByEmail(request.getParameter("email")))
                         {
-                            session.setAttribute("name", ds.getUserFullName());
                             session.setAttribute("id", ds.getUserID());
+                            session.setAttribute("name", ds.getUserFullName());
+                            session.setAttribute("address", ds.getUserAddress());
+                            session.setAttribute("phone", ds.getUserPhone());
+                            session.setAttribute("email", ds.getUserEmail());
                         }
                     } catch (SQLException ex) {
                         Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);

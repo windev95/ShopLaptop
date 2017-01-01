@@ -71,7 +71,17 @@
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="email" value="" name="email" id="email" id="email" maxlength="50" placeholder="Email *" required="yes" /> <span id="user-result"></span>                                                
+                                                <input type="email" value="" name="email" id="email" id="email" maxlength="30" placeholder="Email *" required="yes" /> <span id="user-result"></span>                                                
+                                            </div>
+                                        </div>
+                                        <div class="row info-input">
+                                            <div class="">
+                                                <input type="text" value="" name="address" id="address" maxlength="50" placeholder="Địa chỉ *" />                                                
+                                            </div>
+                                        </div>
+                                        <div class="row info-input">
+                                            <div class="">
+                                                <input type="number" value="" name="phone" id="phone" maxlength="20" placeholder="Điện thoại *" />                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">

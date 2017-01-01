@@ -84,41 +84,27 @@
                                         <tbody>
                                             <tr>
                                                 <td>Họ và tên: </td>
-                                                <td><p> toan</p></td>
+                                                <td><p> <%=session.getAttribute("name")%></p></td>
                                             </tr>
                                             <tr>
                                                 <td>Email: </td>
-                                                <td><p>hiii@gmail.com</p></td>
+                                                <td><p> <%=session.getAttribute("email")%></p></td>
                                             </tr>
                                             <tr>
                                                 <td>Địa chỉ: </td>
-                                                <td><p>-</p></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Địa chỉ 2: </td>
-                                                <td><p></p></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Thành phố: </td>
-                                                <td><p>An Giang, Việt Nam</p></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Zip code: </td>
-                                                <td><p></p></td>
+                                                <td><p> <%=session.getAttribute("address")%></p></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Số điện thoại: </td>
-                                                <td>0123456789</td>
+                                                <td> <%=session.getAttribute("phone")%></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <ul class="checkout">
                                         <li>
-                                            <button class="btn-cart" title="Sổ địa chỉ" onclick="window.location.href='/account/addresses'"><span>Sổ địa chỉ (1)</span></button>
+                                            <button onclick="window.location.href='/account/addresses'" width="100%" class="btn mini_btn btn-block">ĐỔI MẬT KHẨU</button>
+                                            <button onclick="window.location.href='/account/addresses'" width="100%" class="btn mini_btn btn-block">CẬP NHẬT THÔNG TIN</button>
                                         </li>
                                     </ul>
                                 </div>

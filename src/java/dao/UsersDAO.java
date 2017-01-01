@@ -37,7 +37,10 @@ public class UsersDAO {
         {             
             Users users = new Users();      
             users.setUserID(rs.getLong("user_id"));   
-            users.setUserFullName(rs.getString("user_fullname"));       
+            users.setUserFullName(rs.getString("user_fullname")); 
+            users.setUserAddress(rs.getString("user_address")); 
+            users.setUserPhone(rs.getLong("user_phone")); 
+            users.setUserEmail(rs.getString("user_email")); 
             list.add(users);         
         }         
         return list;    
@@ -46,13 +49,15 @@ public class UsersDAO {
     public boolean insertUser(Users u) {
         Connection connection = DBConnect.getConnecttion();
 
-        String sql = "INSERT INTO users VALUES(?,?,?,?)";
+        String sql = "INSERT INTO users VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, u.getUserID());
             ps.setString(2, u.getUserFullName());
-            ps.setString(3, u.getUserEmail());
-            ps.setString(4, u.getUserPass());
+            ps.setString(3, u.getUserAddress());
+            ps.setLong(4, u.getUserPhone());
+            ps.setString(5, u.getUserEmail());
+            ps.setString(6, u.getUserPass());
 
             ps.executeUpdate();
             return true;

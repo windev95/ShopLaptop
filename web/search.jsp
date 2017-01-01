@@ -64,7 +64,7 @@
             <div id="main">
 <!--                MAIN-->
                 <section class="page_title">
-                    <h1 class="text-center">Tất cả sản phẩm</h1>
+                    <h1 class="text-center">Tìm kiếm sản phẩm</h1>
                 </section>
                 <div class="header-breadcrumb">
                     <div class="container">
@@ -73,7 +73,7 @@
                                 <ol class="breadcrumb">
 
                                     <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
-                                    <li class="active ">Tất cả sản phẩm</li>
+                                    <li class="active ">Tìm kiếm sản phẩm</li>
                                 </ol>
                             </div>
                         </div>
