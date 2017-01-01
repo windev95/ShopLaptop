@@ -112,12 +112,12 @@
                                     <label for="khoanggia">Tất cả</label>
                                 </div>
                                 <%
-                                for (Producer c : producerDAO.getListProducer())
+                                for (Pricelevel c : pricelevelDAO.getListPricelevel())
                                 {
                                 %>
                                 <div class="radio-item">
-                                    <input type="radio" id="khoanggia<%=c.getProducerID()%>" name="khoanggia" value="<%=c.getProducerID()%>">
-                                    <label for="khoanggia<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                    <input type="radio" id="khoanggia<%=c.getPricelevelID()%>" name="khoanggia" value="<%=c.getPricelevelID()%>">
+                                    <label for="khoanggia<%=c.getPricelevelID()%>"><%=c.getPricelevelName()%></label>
                                 </div>
                                 <% }%>
                           </div>
@@ -135,12 +135,12 @@
                                     <label for="manhinh">Tất cả</label>
                                 </div>
                                 <%
-                                for (Producer c : producerDAO.getListProducer())
+                                for (Screensize c : screensizeDAO.getListScreensize())
                                 {
                                 %>
                                 <div class="radio-item">
-                                    <input type="radio" id="manhinh<%=c.getProducerID()%>" name="manhinh" value="<%=c.getProducerID()%>">
-                                    <label for="manhinh<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                    <input type="radio" id="manhinh<%=c.getScreensizeID()%>" name="manhinh" value="<%=c.getScreensizeID()%>">
+                                    <label for="manhinh<%=c.getScreensizeID()%>"><%=c.getScreensizeName()%></label>
                                 </div>
                                 <% }%>
                           </div>
@@ -158,35 +158,35 @@
                                     <label for="cpu">Tất cả</label>
                                 </div>
                                 <%
-                                for (Producer c : producerDAO.getListProducer())
+                                for (Cpu c : cpuDAO.getListCpu())
                                 {
                                 %>
                                 <div class="radio-item">
-                                    <input type="radio" id="cpu<%=c.getProducerID()%>" name="cpu" value="<%=c.getProducerID()%>">
-                                    <label for="cpu<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                    <input type="radio" id="cpu<%=c.getCpuID()%>" name="cpu" value="<%=c.getCpuID()%>">
+                                    <label for="cpu<%=c.getCpuID()%>"><%=c.getCpuName()%></label>
                                 </div>
                                 <% }%>
                           </div>
                         </div>
-    <!--                    BỘ NHỚ-->
+    <!--                    BỘ NHỚ RAM-->
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ RAM</a>
                             </h4>
                           </div>
                           <div id="collapse5" class="panel-collapse collapse">
                                 <div class="radio-item">
-                                    <input type="radio" id="bonho" name="bonho" value="" checked>
-                                    <label for="bonho">Tất cả</label>
+                                    <input type="radio" id="ram" name="ram" value="" checked>
+                                    <label for="ram">Tất cả</label>
                                 </div>
                                 <%
-                                for (Producer c : producerDAO.getListProducer())
+                                for (Ram c : ramDAO.getListRam())
                                 {
                                 %>
                                 <div class="radio-item">
-                                    <input type="radio" id="bonho<%=c.getProducerID()%>" name="bonho" value="<%=c.getProducerID()%>">
-                                    <label for="bonho<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                    <input type="radio" id="ram<%=c.getRamID()%>" name="ram" value="<%=c.getRamID()%>">
+                                    <label for="ram<%=c.getRamID()%>"><%=c.getRamName()%></label>
                                 </div>
                                 <% }%>
                           </div>
@@ -204,12 +204,12 @@
                                     <label for="ocung">Tất cả</label>
                                 </div>
                                 <%
-                                for (Producer c : producerDAO.getListProducer())
+                                for (Storage c : storageDAO.getListStorage())
                                 {
                                 %>
                                 <div class="radio-item">
-                                    <input type="radio" id="ocung<%=c.getProducerID()%>" name="ocung" value="<%=c.getProducerID()%>">
-                                    <label for="ocung<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                    <input type="radio" id="ocung<%=c.getStorageID()%>" name="ocung" value="<%=c.getStorageID()%>">
+                                    <label for="ocung<%=c.getStorageID()%>"><%=c.getStorageName()%></label>
                                 </div>
                                 <% }%>
                           </div>
