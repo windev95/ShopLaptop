@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>JSP Page</title>
         <link href='./css/main.css' rel='stylesheet' type='text/css' />        
+        <link href='./css/radiobutton.css' rel='stylesheet' type='text/css' />
 <!--        <link rel="stylesheet" href="./css/bootstrap.min.css">
         <script src="./js/jquery.min.js"></script>
         <script src="./js/bootstrap.min.js"></script>-->
@@ -85,9 +86,23 @@
                         </h5>
                       </div>
                       <div id="collapse1" class="panel-collapse collapse">
-
+                            <div class="radio-item">
+                                <input type="radio" id="ritema" name="ritem" value="ropt1" checked>
+                                <label for="ritema">Tất cả</label>
+                            </div>
+                            
+                            <div class="radio-item">
+                                <input type="radio" id="ritemb" name="ritem" value="ropt2">
+                                <label for="ritemb">Option 2</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ritemc" name="ritem" value="ropt3">
+                                <label for="ritemc">Option 3</label>
+                            </div>
+                            
                         <div class="btn-group" data-toggle="buttons">
-                            <div class="panel-body">
+                            
+<!--                            <div class="panel-body">
                                 <label class="btn btn-primary active">
                                     <input type="radio" name="options1" id="option1" autocomplete="on" value="Tất cả" checked> Tất cả
                                 </label>
@@ -101,7 +116,7 @@
                                 <label class="btn btn-primary active">
                                     <input type="radio" name="options1" id="option3" autocomplete="off" > 4 GB
                                 </label>
-                            </div>
+                            </div>-->
                           </div>
                       </div>
                     </div>
