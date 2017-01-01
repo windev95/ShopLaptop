@@ -5,15 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body>-->
     <header class="main-header">
-
     <!-- Logo -->
     <a href="../Admin/index.jsp" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -351,5 +350,5 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-    </body>
-</html>
+<!--    </body>
+</html>-->
