@@ -122,15 +122,15 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
       out.write("                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Tên sản phẩm</label>\r\n");
       out.write("\r\n");
       out.write("                                    <div class=\"col-sm-10\">\r\n");
-      out.write("                                        <input type=\"text\" name=\"product_name\"  class=\"form-control\" value=\"\" id=\"inputEmail3\" placeholder=\"Tên sản phẩm\">\r\n");
+      out.write("                                        <input type=\"text\" maxlength=\"50\" name=\"product_name\" required class=\"form-control\" id=\"inputEmail3\" placeholder=\"Tên sản phẩm\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                  </div>\r\n");
       out.write("                                    \r\n");
       out.write("                                  <div class=\"form-group\">\r\n");
-      out.write("                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">product_price</label>\r\n");
+      out.write("                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">Giá</label>\r\n");
       out.write("\r\n");
       out.write("                                    <div class=\"col-sm-10\">\r\n");
-      out.write("                                        <input type=\"number\" name=\"product_price\" required value=\"\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"product_price\">\r\n");
+      out.write("                                        <input type=\"number\" name=\"product_price\" required max=\"200000000\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"product_price\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                  </div>\r\n");
       out.write("                                    \r\n");

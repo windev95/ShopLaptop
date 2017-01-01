@@ -58,15 +58,15 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Tên sản phẩm</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="product_name"  class="form-control" value="" id="inputEmail3" placeholder="Tên sản phẩm">
+                                        <input type="text" maxlength="50" name="product_name" required class="form-control" id="inputEmail3" placeholder="Tên sản phẩm">
                                     </div>
                                   </div>
                                     
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">product_price</label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Giá</label>
 
                                     <div class="col-sm-10">
-                                        <input type="number" name="product_price" required value="" class="form-control" id="inputEmail3" placeholder="product_price">
+                                        <input type="number" name="product_price" required max="200000000" class="form-control" id="inputEmail3" placeholder="product_price">
                                     </div>
                                   </div>
                                     
