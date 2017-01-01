@@ -129,7 +129,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.write("                                            <th>Tên Sản Phẩm</th>\r\n");
       out.write("                                            <th>Hình ảnh</th>\r\n");
       out.write("                                            <td>Màu sắc</td>\r\n");
-      out.write("                                            <td>Thông tin</td>\r\n");
+      out.write("                                            <td>Giá</td>\r\n");
       out.write("                                            <td>Ngày cập nhật</td>\r\n");
       out.write("                                            <td>Nhà sản xuất</td>\r\n");
       out.write("                                            <th>Tùy chọn</th>\r\n");
@@ -155,7 +155,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.print(p.getProductColor());
       out.write("</td>\r\n");
       out.write("                                          <td>");
-      out.print(p.getProductContent());
+      out.print(p.getProductPrice());
       out.write("</td>\r\n");
       out.write("                                          <td>");
       out.print(p.getProductUpdate());

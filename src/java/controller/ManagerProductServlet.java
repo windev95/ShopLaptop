@@ -103,7 +103,7 @@ public class ManagerProductServlet extends HttpServlet {
         String product_size = request.getParameter("product_size");
         String product_weight = request.getParameter("product_weight");
         String product_material = request.getParameter("product_material");
-        
+        int product_price = Integer.parseInt(request.getParameter("product_price"));
         String url = "", error = "";
         if (product_name.equals("")) {
             error = "Vui lòng nhập tên!";
@@ -115,12 +115,12 @@ public class ManagerProductServlet extends HttpServlet {
                     case "insert":
                 {
                     
-                    productDAO.insert(new Product(722, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, 50000, 10, 1, timestamp, 1, 1, true, 1, 1, 1, 1, 1, 1, 1));
+                    productDAO.insert(new Product(new Date().getTime()%1000, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, 10, 1, timestamp, 1, 1, true, 1, 1, 1, 1, 1, 1, 1));
                 }
                         url = "/Admin/manager_product.jsp";
                         break;
                     case "update":
-                       //productDAO.update(new Product(Long.parseLong(request.getParameter("product_id")), product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, true, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
+                        //productDAO.update(new Product(Long.parseLong(request.getParameter("product_id")), product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, true, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
                         url = "/Admin/manager_product.jsp";
                         break;
                 }

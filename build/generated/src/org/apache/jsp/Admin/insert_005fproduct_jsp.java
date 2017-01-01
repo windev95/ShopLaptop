@@ -127,10 +127,10 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
       out.write("                                  </div>\r\n");
       out.write("                                    \r\n");
       out.write("                                  <div class=\"form-group\">\r\n");
-      out.write("                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\"></label>\r\n");
+      out.write("                                    <label for=\"inputEmail3\" class=\"col-sm-2 control-label\">product_price</label>\r\n");
       out.write("\r\n");
       out.write("                                    <div class=\"col-sm-10\">\r\n");
-      out.write("                                      <input type=\"text\" name=\"\" value=\"\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"\">\r\n");
+      out.write("                                        <input type=\"number\" name=\"product_price\" required value=\"\" class=\"form-control\" id=\"inputEmail3\" placeholder=\"product_price\">\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                  </div>\r\n");
       out.write("                                    \r\n");

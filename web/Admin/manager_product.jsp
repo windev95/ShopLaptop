@@ -62,7 +62,7 @@
                                             <th>Tên Sản Phẩm</th>
                                             <th>Hình ảnh</th>
                                             <td>Màu sắc</td>
-                                            <td>Thông tin</td>
+                                            <td>Giá</td>
                                             <td>Ngày cập nhật</td>
                                             <td>Nhà sản xuất</td>
                                             <th>Tùy chọn</th>
@@ -77,7 +77,7 @@
                                           <td><%=p.getProductName()%></td>
                                           <td><%=p.getProductImage()%></td>
                                           <td><%=p.getProductColor()%></td>
-                                          <td><%=p.getProductContent()%></td>
+                                          <td><%=p.getProductPrice()%></td>
                                           <td><%=p.getProductUpdate()%></td>
                                           <td><%=p.getProducerID()%></td>
                                           <td>

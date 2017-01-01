@@ -63,10 +63,10 @@
                                   </div>
                                     
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">product_price</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="" value="" class="form-control" id="inputEmail3" placeholder="">
+                                        <input type="number" name="product_price" required value="" class="form-control" id="inputEmail3" placeholder="product_price">
                                     </div>
                                   </div>
                                     
