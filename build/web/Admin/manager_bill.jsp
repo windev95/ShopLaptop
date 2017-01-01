@@ -3,9 +3,10 @@
     Created on : Dec 30, 2016, 10:18:52 AM
     Author     : Khang
 --%>
+<%@page import="dao.UsersDAO"%>
+<%@page import="model.Bill"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.CategoryDAO"%>
-<%@page import="model.Category"%>
+<%@page import="dao.BillDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,8 +27,9 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
-            CategoryDAO categorydao = new CategoryDAO();
-            ArrayList<Category> listCategory = categorydao.getListCategory();            
+            BillDAO billDAO = new BillDAO();
+            ArrayList<Bill> listBill = billDAO.getListBill();
+            UsersDAO usersDAO = new UsersDAO();            
         %>
        <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -50,30 +52,37 @@
 
                                  <div class="box">
                                    <div class="box-header">
-                                     <h3 class="box-title">Bảng danh mục sản phẩm</h3>                                     
-                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_category.jsp">THÊM MỚI</a>
+                                     <h3 class="box-title">Bảng hóa đơn</h3>                                                                          
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
                                      <table id="example1" class="table table-bordered table-striped">
                                        <thead>
                                        <tr>
-                                            <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
-                                            <th>Tùy chọn</th>
+                                            <th>Mã hóa đơn</th>
+                                            <th>Khách hàng</th>							
+                                            <th>Tổng hóa đơn</th>
+                                            <th>Thanh toán</th>
+                                            <th>Địa chỉ giao hàng</th>
+                                            <th>Ngày mua</th>
+                                            <th>Tùy chọn</th>                                           
                                        </tr>
                                        </thead>
                                        <tbody>
                                         <%
-                                            for(Category category : listCategory){
+                                            for(Bill bill : listBill){
                                         %>
                                         <tr>                                        
-                                          <td><%=category.getCategoryID()%></td>
-                                          <td><%=category.getCategoryName()%></td>
+                                          <td><%=bill.getBillID()%></td>
+                                          <td><%=usersDAO.getUser(bill.getUserID()).getUserEmail()%></td>
+                                          <td><%=bill.getBillTotal()%></td>
+                                          <td><%=bill.getBillPayment()%></td>
+                                          <td><%=bill.getBillAddress()%></td>
+                                          <td><%=bill.getBillDate()%></td>                                         
                                           <td>
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>
@@ -81,8 +90,12 @@
                                        </tbody>
                                        <tfoot>
                                        <tr>
-                                            <th>Mã Danh Mục</th>
-                                            <th>Tên Danh Mục</th>							
+                                            <th>Mã hóa đơn</th>
+                                            <th>Khách hàng</th>							
+                                            <th>Tổng hóa đơn</th>
+                                            <th>Thanh toán</th>
+                                            <th>Địa chỉ giao hàng</th>
+                                            <th>Ngày mua</th>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </tfoot>
