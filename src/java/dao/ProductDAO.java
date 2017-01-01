@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement; 
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
+import java.sql.Timestamp;
 //import java.sql.Timestamp;
 //import java.text.DecimalFormat;
 import java.util.ArrayList; 
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Product; 
@@ -337,13 +339,64 @@ public class ProductDAO
         }
         return false;
     }
-    public static void main(String[] args) throws SQLException {
-        ProductDAO dao = new ProductDAO();  
-        for (Product ds : dao.getListProductByAdvanceSearch("","","","","","")) 
-        {           
-            //System.out.println(ds.getProductID() + " - " + ds.getProductName());
-            System.out.println(ds.getProductID() + " - " +ds.getProductName());
-
+    public boolean insert(Product p) throws SQLException {
+    try {
+            java.util.Date date = new Date();
+            Timestamp timestamp = new Timestamp(date.getTime());
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "INSERT INTO product VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, p.getProductID());
+            ps.setString(2, p.getProductName());
+            ps.setString(3, p.getProductImage());
+            ps.setString(4, p.getProductColor());
+            ps.setString(5, p.getProductContent());
+            ps.setString(6, p.getProductMetaTitle());
+            ps.setString(7, p.getProductMetaKeywords());
+            ps.setString(8, p.getProductMetaDescription());
+            ps.setString(9, p.getProductCpuDetail());
+            ps.setString(10, p.getProductRamDetail());
+            ps.setString(11, p.getProductStorageDetail());
+            ps.setString(12, p.getProductScreen());
+            ps.setString(13, p.getProductScreenDetail());
+            ps.setString(14, p.getProductVGA());
+            ps.setString(15, p.getProductSound());
+            ps.setString(16, p.getProductDVD());
+            ps.setString(17, p.getProductConnect());
+            ps.setString(18, p.getProductLAN());
+            ps.setString(19, p.getProductWifi());
+            ps.setString(20, p.getProductWireless());
+            ps.setString(21, p.getProductCardReader());
+            ps.setString(22, p.getProductWebcam());
+            ps.setString(23, p.getProductPin());
+            ps.setString(24, p.getProductOS());
+            ps.setString(25, p.getProductSize());
+            ps.setString(26, p.getProductWeight());
+            ps.setString(27, p.getProductMaterial());
+            ps.setDouble(28, p.getProductPrice());
+            ps.setInt(29, p.getProductSale());
+            ps.setDouble(30, p.getProductPriceReal());
+            ps.setTimestamp(31, timestamp);
+            ps.setInt(32, p.getProductBuys());
+            ps.setInt(33, p.getProductInventory());
+            ps.setBoolean(34, p.getProductHide());
+            ps.setLong(35, p.getCpuID());
+            ps.setLong(36, p.getRamID());
+            ps.setLong(37, p.getStorageID());
+            ps.setLong(38, p.getPricelevelID());
+            ps.setLong(39, p.getScreensizeID());
+            ps.setLong(40, p.getCategoryID());
+            ps.setLong(41, p.getProducerID());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
         }
+    }
+    public static void main(String[] args) throws SQLException {
+        ProductDAO dao = new ProductDAO(); 
+        java.util.Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
+        System.out.println(dao.insert(new Product(100, "zero", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", 0, 0, 0, timestamp, 0, 0, true,1,1,1,1,1,1,1)));
     } 
 } 
