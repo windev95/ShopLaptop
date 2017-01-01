@@ -23,7 +23,7 @@ public class ScreensizeDAO {
         return list;    
     }
     // get danh sách Screensize
-    public ArrayList<Screensize> getListRam() throws SQLException { 
+    public ArrayList<Screensize> getListScreensize() throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
         String sql = "SELECT * FROM screensize";       
         PreparedStatement ps = connection.prepareCall(sql);        

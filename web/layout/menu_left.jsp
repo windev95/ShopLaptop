@@ -7,6 +7,16 @@
 <%@page import="dao.CategoryDAO"%> 
 <%@page import="model.Producer"%> 
 <%@page import="dao.ProducerDAO"%> 
+<%@page import="model.Cpu"%> 
+<%@page import="dao.CpuDAO"%>
+<%@page import="model.Ram"%> 
+<%@page import="dao.RamDAO"%>
+<%@page import="model.Storage"%> 
+<%@page import="dao.StorageDAO"%>
+<%@page import="model.Pricelevel"%> 
+<%@page import="dao.PricelevelDAO"%>
+<%@page import="model.Screensize"%> 
+<%@page import="dao.ScreensizeDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +37,11 @@
         <%
             CategoryDAO categoryDAO = new CategoryDAO(); 
             ProducerDAO producerDAO = new ProducerDAO(); 
+            CpuDAO cpuDAO = new CpuDAO();
+            RamDAO ramDAO = new RamDAO();
+            StorageDAO storageDAO = new StorageDAO();
+            PricelevelDAO pricelevelDAO = new PricelevelDAO();
+            ScreensizeDAO screensizeDAO = new ScreensizeDAO();
         %>
         <div class="megamenu-left col-md-3 col-md-pull-9">
         <div class="cd-dropdown-wrapper">
@@ -96,11 +111,15 @@
                                     <input type="radio" id="khoanggia" name="khoanggia" value="" checked>
                                     <label for="khoanggia">Tất cả</label>
                                 </div>
-
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
                                 <div class="radio-item">
-                                    <input type="radio" id="khoanggia1" name="khoanggia" value="ropt2">
-                                    <label for="khoanggia1">Option 2</label>
+                                    <input type="radio" id="khoanggia<%=c.getProducerID()%>" name="khoanggia" value="<%=c.getProducerID()%>">
+                                    <label for="khoanggia<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
                                 </div>
+                                <% }%>
                           </div>
                         </div>
     <!--                    MÀN HÌNH-->
@@ -115,11 +134,15 @@
                                     <input type="radio" id="manhinh" name="manhinh" value="" checked>
                                     <label for="manhinh">Tất cả</label>
                                 </div>
-
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
                                 <div class="radio-item">
-                                    <input type="radio" id="manhinh1" name="manhinh" value="ropt2">
-                                    <label for="manhinh1">Option 2</label>
+                                    <input type="radio" id="manhinh<%=c.getProducerID()%>" name="manhinh" value="<%=c.getProducerID()%>">
+                                    <label for="manhinh<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
                                 </div>
+                                <% }%>
                           </div>
                         </div>
     <!--                    BỘ VI XỬ LÝ-->
@@ -134,11 +157,15 @@
                                     <input type="radio" id="cpu" name="cpu" value="" checked>
                                     <label for="cpu">Tất cả</label>
                                 </div>
-
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
                                 <div class="radio-item">
-                                    <input type="radio" id="cpu1" name="cpu" value="ropt2">
-                                    <label for="cpu1">Option 2</label>
+                                    <input type="radio" id="cpu<%=c.getProducerID()%>" name="cpu" value="<%=c.getProducerID()%>">
+                                    <label for="cpu<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
                                 </div>
+                                <% }%>
                           </div>
                         </div>
     <!--                    BỘ NHỚ-->
@@ -153,11 +180,15 @@
                                     <input type="radio" id="bonho" name="bonho" value="" checked>
                                     <label for="bonho">Tất cả</label>
                                 </div>
-
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
                                 <div class="radio-item">
-                                    <input type="radio" id="bonho1" name="bonho" value="ropt2">
-                                    <label for="bonho1">Option 2</label>
+                                    <input type="radio" id="bonho<%=c.getProducerID()%>" name="bonho" value="<%=c.getProducerID()%>">
+                                    <label for="bonho<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
                                 </div>
+                                <% }%>
                           </div>
                         </div>
     <!--                    Ổ CỨNG-->
@@ -172,11 +203,15 @@
                                     <input type="radio" id="ocung" name="ocung" value="" checked>
                                     <label for="ocung">Tất cả</label>
                                 </div>
-
+                                <%
+                                for (Producer c : producerDAO.getListProducer())
+                                {
+                                %>
                                 <div class="radio-item">
-                                    <input type="radio" id="ocung1" name="ocung" value="ropt2">
-                                    <label for="ocung1">Option 2</label>
+                                    <input type="radio" id="ocung<%=c.getProducerID()%>" name="ocung" value="<%=c.getProducerID()%>">
+                                    <label for="ocung<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
                                 </div>
+                                <% }%>
                           </div>
                         </div>
                         <div>

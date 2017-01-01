@@ -23,7 +23,7 @@ public class StorageDAO {
         return list;    
     }
     // get danh sách Storage
-    public ArrayList<Storage> getListRam() throws SQLException { 
+    public ArrayList<Storage> getListStorage() throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
         String sql = "SELECT * FROM storage";       
         PreparedStatement ps = connection.prepareCall(sql);        
