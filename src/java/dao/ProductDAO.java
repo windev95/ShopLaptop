@@ -35,10 +35,12 @@ public class ProductDAO
         return list;     
     }    
     // get danh sách sản phẩm dựa vào tìm kiếm nâng cao
-    public ArrayList<Product> getListProductByAdvanceSearch(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID)  throws SQLException {     
+    public ArrayList<Product> getListProductByAdvanceSearchNav(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID, int firstResult,int maxResult)  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%' limit ?,?";      
         PreparedStatement ps = connection.prepareCall(sql);  
+        ps.setInt(1, firstResult);
+        ps.setInt(2, maxResult);
         ResultSet rs = ps.executeQuery();       
         ArrayList<Product> list = new ArrayList<>();       
         while (rs.next()) { 
@@ -53,6 +55,18 @@ public class ProductDAO
             list.add(product);         
         }         
         return list;     
+    }
+    // Tính tổng sản phẩm tìm kiếm nâng cao
+    public int countProductByAdvanceSearch(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID) throws SQLException{
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT count(product_id) FROM product WHERE `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        int count = 0;
+        while (rs.next()) {
+            count = rs.getInt(1);
+        }
+        return count;
     }
     public ArrayList<Product> getListProduct()  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      

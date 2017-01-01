@@ -73,7 +73,7 @@
 
                 <ul class="cd-dropdown-content">
                     
-                        <form id="formsearch" action="#" method="GET">
+                        <form id="formsearch" action="QuickSearchServlet" method="POST">
                             <div class="panel-group" id="accordion">
                         
     <!--                    NHÀ SẢN XUẤT  -->
@@ -222,7 +222,6 @@
                 </ul>
             </nav>
         </div> 
-                
 <!--               ==============================================  DEMO DEMO DEMO-->
     <!-- .cd-dropdown-wrapper -->
     <br>
