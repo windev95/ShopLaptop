@@ -26,6 +26,7 @@
     </head>
     <body>
         <%
+            CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
             CpuDAO cpuDAO = new CpuDAO();
             RamDAO ramDAO = new RamDAO();
@@ -247,11 +248,11 @@
                                         <div class="collection-pagination-parent">
                                             <div class="filter-right">
                                                 <div class="collection-pagination pull-right pagination-wrapper">
-                                                    <ul class="pagination">                                                                                          
+                                                    <ul class="pagination">                                                                                         
                                                       
                                                         <%for(int i=1;i<=(total/pagesize)+1;i++){%>
-                                                        <li><a href="search.jsp?nsx=<%=nsx%>&khoanggia=<%=khoanggia%>&manhinh=<%=manhinh%>&cpu=<%=cpu%>&ram=<%=ram%>&ocung=<%=ocung%>&pages=<%=i%>"><%=i%></a></li>
-                                                        <%}%>
+                                                        <li><a href="quicksearch.jsp?nsx=<%=nsx%>&khoanggia=<%=khoanggia%>&manhinh=<%=manhinh%>&cpu=<%=cpu%>&ram=<%=ram%>&ocung=<%=ocung%>&pages=<%=i%>"><%=i%></a></li>
+                                                        <% }%>
                                                     </ul>
                                                 </div>
                                             </div>

@@ -45,13 +45,18 @@ public class ProductDAO
         ArrayList<Product> list = new ArrayList<>();       
         while (rs.next()) { 
             Product product = new Product();       
-            product.setProductID(rs.getLong("product_id"));     
+            product.setProductID(rs.getLong("product_id")); 
             product.setProductName(rs.getString("product_name"));    
             product.setProductImage(rs.getString("product_image")); 
-            product.setProductPrice(rs.getInt("product_price")); 
+            product.setProductPrice(rs.getInt("product_price"));   
             product.setProductSale(rs.getInt("product_sale")); 
             product.setProductPriceReal(rs.getInt("product_price_real"));
-            product.setProductContent(rs.getString("product_content"));      
+            product.setProductContent(rs.getString("product_content")); 
+            product.setProductCpuDetail(rs.getString("product_cpudetail")); 
+            product.setProductVGA(rs.getString("product_vga")); 
+            product.setCpuID(rs.getLong("cpu_id"));
+            product.setRamID(rs.getLong("ram_id"));
+            product.setStorageID(rs.getLong("storage_id"));    
             list.add(product);         
         }         
         return list;     
@@ -59,7 +64,7 @@ public class ProductDAO
     // Tính tổng sản phẩm tìm kiếm nâng cao
     public int countProductByAdvanceSearch(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT count(product_id) FROM product WHERE `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";
+        String sql = "SELECT count(product_id) FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         int count = 0;

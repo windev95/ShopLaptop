@@ -69,7 +69,7 @@
 
         <div class="cd-dropdown-wrapper">
             <nav class="cd-dropdown dropdown-is-active">
-                <div class="dropdown-content-title">Tìm kiếm sản phẩm</div>
+                <div class="dropdown-content-title">Tìm kiếm nhanh</div>
 
                 <ul class="cd-dropdown-content">
                     
