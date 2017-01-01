@@ -58,15 +58,23 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Tên sản phẩm</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" required class="form-control" value="" id="inputEmail3" placeholder="Tên danh mục">
+                                        <input type="text" name="product_name"  class="form-control" value="" id="inputEmail3" placeholder="Tên sản phẩm">
                                     </div>
                                   </div>
-                                  
+                                    
+                                  <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+
+                                    <div class="col-sm-10">
+                                      <input type="text" name="" value="" class="form-control" id="inputEmail3" placeholder="">
+                                    </div>
+                                  </div>
+                                    
                                   <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mt" value="" class="form-control" id="inputEmail3" placeholder="MetaTittle">
+                                      <input type="text" name="product_metatitle" value="" class="form-control" id="inputEmail3" placeholder="MetaTittle">
                                     </div>
                                   </div>
                                   
@@ -74,7 +82,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mk" value=""  class="form-control" id="inputEmail3" placeholder="Metakeywords">
+                                      <input type="text" name="product_metakeywords" value=""  class="form-control" id="inputEmail3" placeholder="Metakeywords">
                                     </div>
                                   </div>
                                   
@@ -82,7 +90,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="md" value="" class="form-control" id="inputEmail3" placeholder="MetaDescription">
+                                        <input type="text" name="product_metadescription" value="" class="form-control" id="inputEmail3" placeholder="MetaDescription">
                                     </div>
                                   </div>
                                     
