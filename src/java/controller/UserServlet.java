@@ -45,10 +45,9 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String command = request.getParameter("command");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String command = request.getParameter("command");        
         String url = "";
         Users users = new Users();
         HttpSession session = request.getSession();

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <header class="main-header">
+    <header class="main-header">
 
     <!-- Logo -->
     <a href="../Admin/index.jsp" class="logo">
@@ -275,7 +275,7 @@
 
     </nav>
   </header>
-        <aside class="main-sidebar">
+    <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar" style="height: auto;">
       <!-- Sidebar user panel -->
@@ -302,20 +302,18 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-
+        
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
+            <i class="fa fa-table"></i> <span>Tables</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+            <li><a href="../Admin/manager_category.jsp"><i class="fa fa-circle-o"></i>Category</a></li>
+            <li><a href="../Admin/manager_product.jsp"><i class="fa fa-circle-o"></i>Product</a></li>
+            <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-circle-o"></i>Bill</a></li>
           </ul>
         </li>
 
@@ -332,17 +330,20 @@
             <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
           </ul>
         </li>
+        
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
+            <i class="fa fa-pie-chart"></i>
+            <span>Charts</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../Admin/manager_category.jsp"><i class="fa fa-circle-o"></i>Category</a></li>
-            <li><a href="../Admin/manager_product.jsp"><i class="fa fa-circle-o"></i>Product</a></li>
-            <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-circle-o"></i>Bill</a></li>
+            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
         </li>
 

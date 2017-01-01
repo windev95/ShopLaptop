@@ -3,16 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/src/java/dao/UsersDAO.java</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/message.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/upload.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/src/java/connect/DBConnect.java</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/Admin/manager_category.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/Admin/manager_product.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/Admin/update_category.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/web/Admin/manager_bill.jsp</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/src/java/controller/UserServlet.java</file>
-            <file>file:/C:/Users/Khang/Documents/GitHub/ShopLaptop/src/java/dao/BillDAO.java</file>
+            <file>file:/C:/Users/Toan/Desktop/ShopLaptop/web/Admin/insert_product.jsp</file>
+            <file>file:/C:/Users/Toan/Desktop/ShopLaptop/web/Admin/manager_category.jsp</file>
+            <file>file:/C:/Users/Toan/Desktop/ShopLaptop/web/Admin/insert_category.jsp</file>
         </group>
     </open-files>
 </project-private>
