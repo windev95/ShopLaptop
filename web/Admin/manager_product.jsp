@@ -61,10 +61,10 @@
                                             <th>Mã Danh Mục</th>
                                             <th>Tên Sản Phẩm</th>
                                             <th>Hình ảnh</th>
-                                            <td>Màu sắc</td>
-                                            <td>Giá</td>
-                                            <td>Ngày cập nhật</td>
-                                            <td>Nhà sản xuất</td>
+                                            <th>Màu sắc</th>
+                                            <th>Giá</th>
+                                            <th>Ngày cập nhật</th>
+                                            <th>Nhà sản xuất</th>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </thead>
@@ -94,10 +94,10 @@
                                             <th>Mã Danh Mục</th>
                                             <th>Tên Sản Phẩm</th>
                                             <th>Hình ảnh</th>
-                                            <td>Màu sắc</td>
-                                            <td>Thông tin</td>
-                                            <td>Ngày cập nhật</td>
-                                            <td>Nhà sản xuất</td>
+                                            <th>Màu sắc</th>
+                                            <th>Giá</th>
+                                            <th>Ngày cập nhật</th>
+                                            <th>Nhà sản xuất</th>
                                             <th>Tùy chọn</th>
                                        </tr>
                                        </tfoot>

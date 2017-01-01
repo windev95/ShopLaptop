@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="vn">
     <head>        
-        <title>Đăng ký</title>
+        <title>Thông tin tài khoảng</title>
         <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
