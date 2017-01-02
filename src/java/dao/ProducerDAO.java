@@ -41,6 +41,23 @@ public class ProducerDAO {
         }         
         return list;    
     }
+    public Producer getProducer(long producerID) {
+    try {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM producer WHERE producer_id = ?";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.setLong(1, producerID);
+        ResultSet rs = ps.executeQuery();
+        Producer u = new Producer();
+        while (rs.next()) {
+        u.setProducerName(rs.getString("producer_name"));
+        }
+    return u;
+    } catch (SQLException ex) {
+    
+    }
+    return null;
+    }
     public static void main(String[] args) throws SQLException 
     {       
         ProducerDAO dao = new ProducerDAO();      

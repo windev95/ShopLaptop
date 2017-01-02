@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.util.ArrayList;
 import dao.ProductDAO;
+import dao.ProducerDAO;
 import model.Product;
 
 public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -59,6 +60,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -92,6 +94,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.write("        ");
 
             ProductDAO productdao = new ProductDAO();
+            ProducerDAO producerdao = new ProducerDAO();
             ArrayList<Product> listProduct = productdao.getListProduct();            
         
       out.write("\r\n");
@@ -170,7 +173,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.print(p.getProductUpdate());
       out.write("</td>\r\n");
       out.write("                                          <td>");
-      out.print(p.getProducerID());
+      out.print(producerdao.getProducer(p.getProducerID()).getProducerName());
       out.write("</td>\r\n");
       out.write("                                          <td>\r\n");
       out.write("                                              <center> \r\n");

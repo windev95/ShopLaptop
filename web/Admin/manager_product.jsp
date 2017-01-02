@@ -5,6 +5,7 @@
 --%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ProductDAO"%>
+<%@page import="dao.ProducerDAO"%>
 <%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,6 +29,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <%
             ProductDAO productdao = new ProductDAO();
+            ProducerDAO producerdao = new ProducerDAO();
             ArrayList<Product> listProduct = productdao.getListProduct();            
         %>
        <div class="wrapper">
@@ -84,7 +86,7 @@
                                           <td><%=p.getProductColor()%></td>
                                           <td><%=p.getProductPrice()%></td>
                                           <td><%=p.getProductUpdate()%></td>
-                                          <td><%=p.getProducerID()%></td>
+                                          <td><%=producerdao.getProducer(p.getProducerID()).getProducerName()%></td>
                                           <td>
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
