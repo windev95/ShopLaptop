@@ -104,6 +104,17 @@ public class ManagerProductServlet extends HttpServlet {
         String product_weight = request.getParameter("product_weight");
         String product_material = request.getParameter("product_material");
         int product_price = Integer.parseInt(request.getParameter("product_price"));
+        int product_sale = Integer.parseInt(request.getParameter("product_sale"));
+        int product_price_real = Integer.parseInt(request.getParameter("product_price_real"));
+        int product_buys = Integer.parseInt(request.getParameter("product_buys"));
+        int product_inventory = Integer.parseInt(request.getParameter("product_inventory"));
+        long cpu_id = Long.parseLong(request.getParameter("cpu_id"));
+        long ram_id = Long.parseLong(request.getParameter("ram_id"));
+        long storage_id = Long.parseLong(request.getParameter("storage_id"));
+        long pricelevel_id = Long.parseLong(request.getParameter("pricelevel_id"));
+        long screensize_id = Long.parseLong(request.getParameter("screensize_id"));
+        long category_id = Long.parseLong(request.getParameter("category_id"));       
+        long producer_id = Long.parseLong(request.getParameter("producer_id"));
         String url = "", error = "";
         if (product_name.equals("")) {
             error = "Vui lòng nhập tên!";
@@ -113,9 +124,8 @@ public class ManagerProductServlet extends HttpServlet {
             if (error.length() == 0) {
                 switch (command) {
                     case "insert":
-                {
-                    
-                    productDAO.insert(new Product(new Date().getTime()%1000, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, 10, 1, timestamp, 1, 1, true, 1, 1, 1, 1, 1, 1, 1));
+                {                  
+                    productDAO.insert(new Product(new Date().getTime()%1000, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, false, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
                 }
                         url = "/Admin/manager_product.jsp";
                         break;
