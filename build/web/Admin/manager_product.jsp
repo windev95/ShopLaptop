@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
+     
     </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -75,7 +76,11 @@
                                         <tr>                                        
                                           <td><%=p.getProductID()%></td>
                                           <td><%=p.getProductName()%></td>
-                                          <td><%=p.getProductImage()%></td>
+                                          <td><div class="col-sm-5 col-md-5 no-padding-l">
+                                                            <div class="product-img-parent">
+                                                                <a class="product-img"><img src="${root}../images/product/<%=p.getProductImage()%>" width="50" height="50" alt="<%=p.getProductName()%>"></a>
+                                                            </div>
+                                                        </div></td>
                                           <td><%=p.getProductColor()%></td>
                                           <td><%=p.getProductPrice()%></td>
                                           <td><%=p.getProductUpdate()%></td>
