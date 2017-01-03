@@ -66,11 +66,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="first odd">
-                                                    <%
-                                                        for(Bill bill : billDAO.getListBillbyUserID(String.valueOf(session.getAttribute("id"))))
-                                                        {
-                                                    %>
+                                                <%
+                                                for(Bill bill : billDAO.getListBillbyUserID(String.valueOf(session.getAttribute("id"))))
+                                                    {
+                                                %>
+                                                <tr class="first odd">                                                    
                                                     <td>
                                                         <a href='/orders.jsp?bill=<%=bill.getBillID()%>'>#<%=bill.getBillID()%></a>
                                                     </td>
@@ -84,10 +84,9 @@
                                                     </td>
                                                     <td class="a-right movewishlist">
                                                         <%=formatter.format(bill.getBillTotal())%>
-                                                    </td>
-                                                    <% }%>
+                                                    </td>                                                    
                                                 </tr>
-
+                                                <% }%>
                                             </tbody>
                                         </table>
                                     </fieldset>
