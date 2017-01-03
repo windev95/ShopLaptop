@@ -119,8 +119,8 @@
                                     </table>
                                     <ul class="checkout">
                                         <li>
-                                            <button onclick="window.location.href='/account/addresses'" width="100%" class="btn mini_btn btn-block">ĐỔI MẬT KHẨU</button>
-                                            <button onclick="window.location.href='/account/addresses'" width="100%" class="btn mini_btn btn-block">CẬP NHẬT THÔNG TIN</button>
+                                            <button onclick="window.location.href='../change_pass.jsp'" width="100%" class="btn mini_btn btn-block">ĐỔI MẬT KHẨU</button>
+                                            <button onclick="window.location.href='../update_user.jsp'" width="100%" class="btn mini_btn btn-block">CẬP NHẬT THÔNG TIN</button>
                                         </li>
                                     </ul>
                                 </div>

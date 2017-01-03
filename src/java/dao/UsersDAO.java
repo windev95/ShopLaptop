@@ -66,6 +66,30 @@ public class UsersDAO {
         }
         return false;
     }
+    //Đổi mật khẩu
+    public boolean updatePass(Users u, String UserID) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE users SET user_pass = '" + u.getUserPass() + "' WHERE user_id = '"+ UserID + "'";
+            PreparedStatement ps = connection.prepareCall(sql);         
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
+    //Đổi thông tin User
+    public boolean updateUser(Users u, String UserID) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE users SET user_fullname = '" + u.getUserFullName() + "', user_address = '" + u.getUserAddress() + "', user_phone = '" + u.getUserPhone() + "' WHERE user_id = '"+ UserID + "'";
+            PreparedStatement ps = connection.prepareCall(sql);         
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
  // kiểm tra đăng nhập
     public Users login(String email, String password) {
         Connection con = DBConnect.getConnecttion();
@@ -104,10 +128,10 @@ public class UsersDAO {
     }    
     public static void main(String[] args) throws SQLException 
     {       
-        UsersDAO dao = new UsersDAO();      
-        for (Users ds : dao.getUserByEmail("demo@gmail.com")) 
-        {           
-            System.out.println(ds.getUserID()+" - " + ds.getUserFullName());         
-        }     
+        UsersDAO dao = new UsersDAO(); 
+//        for (Users ds : dao.getUserByEmail("demo@gmail.com")) 
+//        {           
+//            System.out.println(ds.getUserID()+" - " + ds.getUserFullName());         
+//        }     
     } 
 }

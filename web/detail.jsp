@@ -27,8 +27,6 @@
     CpuDAO cpuDAO = new CpuDAO();
     RamDAO ramDAO = new RamDAO();
     StorageDAO storageDAO = new StorageDAO();
-    ScreensizeDAO screensizeDAO = new ScreensizeDAO();
-    PricelevelDAO pricelevelDAO = new PricelevelDAO();
     ImageDAO imageDAO = new ImageDAO();
     Product product = new Product();
     String productID = "";

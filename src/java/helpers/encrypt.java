@@ -17,10 +17,7 @@ public class encrypt {
             throw new RuntimeException(e);
         }               
     }
-    
     public static void main(String[] args) throws Exception {
-        int b = 1000000000;
-        System.out.println("Xuất: " + b);
         System.out.println("Kết quả đã mã hóa: " + hashmd5("demo@gmail.com", "demo"));
     }
     

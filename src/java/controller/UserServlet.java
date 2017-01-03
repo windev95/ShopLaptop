@@ -62,6 +62,33 @@ public class UserServlet extends HttpServlet {
                 usersDAO.insertUser(users);
                 url = "/login.jsp";
                 break;
+            case "change":
+                users.setUserPass(encrypt.hashmd5((String) session.getAttribute("email"), request.getParameter("repassword")));
+                {
+                    try {
+                        usersDAO.updatePass(users,(String) session.getAttribute("id"));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                url = "/login.jsp";
+                break;
+            case "update":
+                users.setUserFullName(request.getParameter("fullname"));
+                users.setUserAddress(request.getParameter("address"));
+                users.setUserPhone(Long.parseLong(request.getParameter("phone")));
+                {
+                    try {
+                        usersDAO.updateUser( users,(String) session.getAttribute("id"));
+                        session.setAttribute("name", users.getUserFullName());
+                        session.setAttribute("address", users.getUserAddress());
+                        session.setAttribute("phone", users.getUserPhone());
+                    } catch (SQLException ex) {
+                        Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }                
+                url = "/account.jsp";
+                break;
             case "login":
                 session.setAttribute("error", "");
                 users = usersDAO.login(request.getParameter("email"), encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
