@@ -116,7 +116,7 @@
                                                         <div class="cart-title">
                                                         <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                                         </div><div class="cart-price">
-                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPrice())%>₫</div>
+                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPriceReal())%>₫</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -261,7 +261,7 @@
                                                             <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                                         </div>
                                                         <div class="cart-price">
-                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPrice())%>₫</div>
+                                                            <i style="color:#898989;font-style: normal;"><%=list.getValue().getQuantity()%> x </i><%=formatter.format(list.getValue().getProduct().getProductPriceReal())%>₫</div>
                                                         </div>
                                                     </div>
                                                 </div>

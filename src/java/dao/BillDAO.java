@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Bill;
@@ -54,9 +52,60 @@ public class BillDAO {
         }
         return null;
     }
+    //kiểm tra, trả về thông tin Bill theo User ID
+    public ArrayList<Bill> getListBillbyUserID(String userID) throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM bill WHERE user_id = '" + userID + "'";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Bill> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Bill bill = new Bill();      
+            bill.setBillID(rs.getLong("bill_id"));
+            bill.setBillName(rs.getString("bill_name"));
+            bill.setBillPhone(rs.getInt("bill_phone"));
+            bill.setBillAddress(rs.getString("bill_address"));
+            bill.setBillDate(rs.getTimestamp("bill_date"));
+            bill.setBillPayment(rs.getString("bill_payment"));
+            bill.setBillPaid(rs.getInt("bill_paid"));
+            bill.setBillFinish(rs.getInt("bill_finish"));
+            bill.setBillTotal(rs.getInt("bill_total"));
+            bill.setUserID(rs.getLong("user_id")); 
+            list.add(bill);         
+        }         
+        return list;    
+    }
+    //kiểm tra, trả về thông tin Bill theo Bill ID
+    public Bill getBill(String BillID) throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM bill WHERE bill_id = '" + BillID + "'";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        Bill bill = new Bill();        
+        while (rs.next()) 
+        {                  
+            bill.setBillID(rs.getLong("bill_id"));
+            bill.setBillName(rs.getString("bill_name"));
+            bill.setBillPhone(rs.getInt("bill_phone"));
+            bill.setBillAddress(rs.getString("bill_address"));
+            bill.setBillDate(rs.getTimestamp("bill_date"));
+            bill.setBillPayment(rs.getString("bill_payment"));
+            bill.setBillPaid(rs.getInt("bill_paid"));
+            bill.setBillFinish(rs.getInt("bill_finish"));
+            bill.setBillTotal(rs.getInt("bill_total"));
+            bill.setUserID(rs.getLong("user_id"));         
+        }         
+        return bill;    
+    }
     public static void main(String[] args) throws SQLException {
         
-        new BillDAO().insertBill(new Bill(5678,"Toàn", 012345 , "sdfghj", new Timestamp(new Date().getTime()), "Live", 0, 1,1000, 1));
+        BillDAO dao = new BillDAO();      
+        System.out.println(dao.getBill("1483436508149").getBillName());
+//        for (Bill ds : dao.getBill("1483110241484")) 
+//        {           
+//            System.out.println(ds.getBillID()+" - " + ds.getBillPayment());         
+//        } 
     }
     
 }

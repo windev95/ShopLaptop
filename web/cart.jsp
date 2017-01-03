@@ -80,13 +80,13 @@
                                                 <a href="detail.jsp?product=<%=list.getValue().getProduct().getProductID()%>" title="<%=list.getValue().getProduct().getProductName()%>"><%=list.getValue().getProduct().getProductName()%></a>
                                             </td>
                                             <!--giá-->
-                                            <td class="cart_price_item"> <%=formatter.format(list.getValue().getProduct().getProductPrice())%></td>
+                                            <td class="cart_price_item"> <%=formatter.format(list.getValue().getProduct().getProductPriceReal())%></td>
                                             <!--số lượng-->
                                             <td>
                                                 <input type="number" class="big_input form-control input-control" min="1" name="Lines" value="<%=list.getValue().getQuantity()%>">
                                             </td>
                                             <!--thành tiền-->
-                                            <td class="cart_price_total"><%= formatter.format(list.getValue().getQuantity() * list.getValue().getProduct().getProductPrice()) %></td>
+                                            <td class="cart_price_total"><%= formatter.format(list.getValue().getQuantity() * list.getValue().getProduct().getProductPriceReal()) %></td>
                                             <!--xóa-->
                                             <td class="cart_item_close"><a href="CartServlet?command=remove&productID=<%=list.getValue().getProduct().getProductID()%>" data-id="1420708"><i class="fa fa-trash"></i></a></td>
                                         </tr>

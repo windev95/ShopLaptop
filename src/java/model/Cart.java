@@ -61,7 +61,7 @@ public class Cart {
     public int total() {
         int count = 0;
         for (Map.Entry<Long, Item> list : cartItems.entrySet()) {
-            count += list.getValue().getProduct().getProductPrice() * list.getValue().getQuantity();
+            count += list.getValue().getProduct().getProductPriceReal() * list.getValue().getQuantity();
         }
         return count;
     }

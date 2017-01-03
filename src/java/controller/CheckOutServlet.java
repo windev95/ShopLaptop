@@ -76,7 +76,7 @@ public class CheckOutServlet extends HttpServlet {
                 billDetailDAO.insertBillDetail(new BillDetail(billDetailID,
                         list.getValue().getProduct().getProductID(),
                         list.getValue().getQuantity(),
-                        list.getValue().getProduct().getProductPrice(), billID
+                        list.getValue().getProduct().getProductPriceReal(), billID
                         ));
             }
             Sendmail sm = new Sendmail();

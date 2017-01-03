@@ -3,7 +3,16 @@
     Created on : Dec 17, 2016, 11:14:12 PM
     Author     : Toan
 --%>
-
+<%@page import="model.Users"%>
+<% 
+    Users users = (Users) session.getAttribute("user");
+    if (users == null) {
+        response.sendRedirect("/login.jsp");
+    }
+%>
+<%@page import="model.Bill" %>
+<%@page import="dao.BillDAO" %>
+<%@page import="helpers.MoneyFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="vn">
@@ -12,6 +21,10 @@
         <jsp:include page = "layout/head.jsp"></jsp:include>
     </head>
     <body>
+        <%
+        BillDAO billDAO = new BillDAO();
+        MoneyFormat formatter = new MoneyFormat();
+        %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
         <div id="site-content">
@@ -33,7 +46,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Main Content -->
                 <div class="main-content account">
                     <div class="container">
@@ -47,28 +59,33 @@
                                                 <tr class="first last">
                                                     <th rowspan="1">Mã đơn hàng</th>
                                                     <th rowspan="1">Ngày</th>
-                                                    <th colspan="1">Trạng thái thanh toán</th>
-                                                    <th rowspan="1">Trạng thái vận chuyển</th>
+                                                    <th rowspan="1">Loại thanh toán</th>
+                                                    <th colspan="1">Đã thanh toán</th>
+                                                    <th rowspan="1">Hoàn thành</th>
                                                     <th colspan="1">Thành tiền</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-
                                                 <tr class="first odd">
+                                                    <%
+                                                        for(Bill bill : billDAO.getListBillbyUserID(String.valueOf(session.getAttribute("id"))))
+                                                        {
+                                                    %>
                                                     <td>
-                                                        <a href='/account/orders/3194479'>#1006</a>
+                                                        <a href='/orders.jsp?bill=<%=bill.getBillID()%>'>#<%=bill.getBillID()%></a>
                                                     </td>
-                                                    <td>17/ 12/ 2016</td>
-
+                                                    <td><%=bill.getBillDate()%></td>
+                                                    <td><%=bill.getBillPayment()%></td>
                                                     <td>
-                                                        Chưa thanh toán
+                                                        <%=bill.getBillPaid()%>
                                                     </td>
                                                     <td>
-                                                        Chưa giao hàng
+                                                        <%=bill.getBillFinish()%>
                                                     </td>
                                                     <td class="a-right movewishlist">
-                                                        3.790.000₫
+                                                        <%=formatter.format(bill.getBillTotal())%>
                                                     </td>
+                                                    <% }%>
                                                 </tr>
 
                                             </tbody>
