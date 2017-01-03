@@ -114,7 +114,7 @@ public class ProductDAO
             product.setProductUpdate(rs.getTimestamp("product_update")); 
             product.setProductBuys(rs.getInt("product_buys")); 
             product.setProductInventory(rs.getInt("product_inventory")); 
-            product.setProductHide(rs.getBoolean("product_hide"));           
+            product.setProductHide(rs.getInt("product_hide"));           
             product.setProductPrice(rs.getInt("product_price"));
             product.setCpuID(rs.getLong("cpu_id"));
             product.setRamID(rs.getLong("ram_id"));
@@ -269,7 +269,7 @@ public class ProductDAO
             product.setProductUpdate(rs.getTimestamp("product_update")); 
             product.setProductBuys(rs.getInt("product_buys")); 
             product.setProductInventory(rs.getInt("product_inventory")); 
-            product.setProductHide(rs.getBoolean("product_hide"));           
+            product.setProductHide(rs.getInt("product_hide"));           
             product.setProductPrice(rs.getInt("product_price"));
             product.setCpuID(rs.getLong("cpu_id"));
             product.setRamID(rs.getLong("ram_id"));
@@ -450,7 +450,7 @@ public class ProductDAO
             ps.setTimestamp(31, p.getProductUpdate());
             ps.setInt(32, p.getProductBuys());
             ps.setInt(33, p.getProductInventory());
-            ps.setBoolean(34, p.getProductHide());
+            ps.setInt(34, p.getProductHide());
             ps.setLong(35, p.getCpuID());
             ps.setLong(36, p.getRamID());
             ps.setLong(37, p.getStorageID());
@@ -501,7 +501,7 @@ public class ProductDAO
             ps.setTimestamp(30, p.getProductUpdate());
             ps.setInt(31, p.getProductBuys());
             ps.setInt(32, p.getProductInventory());
-            ps.setBoolean(33, p.getProductHide());
+            ps.setInt(33, p.getProductHide());
             ps.setLong(34, p.getCpuID());
             ps.setLong(35, p.getRamID());
             ps.setLong(36, p.getStorageID());

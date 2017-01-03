@@ -34,7 +34,8 @@
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
-            ProducerDAO producerdao = new ProducerDAO(); 
+            ProducerDAO producerdao = new ProducerDAO();
+            String[] checked = request.getParameterValues("s1_t1_view");
         %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -235,10 +236,11 @@
                                               <input type="text"  name="product_content" class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
-                                            <label>
-                                                Ẩn sản phẩm
-                                                <input type="checkbox" class="minimal">
-                                            </label>
+                                            <label>Ẩn sản phẩm</label>
+                                            <select name="product_hide"  class="form-control">
+                                                <option value="0" >Không</option>
+                                                <option value="1" >Có</option> 
+                                            </select>
                                             </div>
                                         </div>                                       
                                     </div>

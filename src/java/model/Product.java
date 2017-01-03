@@ -34,7 +34,7 @@ public class Product {
     private Timestamp productUpdate;
     private int productBuys;
     private int productInventory;
-    private boolean productHide;   
+    private int productHide;   
     private long cpuID;
     private long ramID;
     private long storageID;
@@ -44,7 +44,7 @@ public class Product {
     private long producerID;  
     public Product() {
     }
-    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, boolean productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
+    public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
         this.productID = productID;
         this.productName = productName;
         this.productImage = productImage;
@@ -285,10 +285,10 @@ public class Product {
     public void setProductInventory(int productInventory) {
         this.productInventory = productInventory;
     }
-    public boolean getProductHide() {
+    public int getProductHide() {
         return productHide;
     }
-    public void setProductHide(boolean productHide) {
+    public void setProductHide(int productHide) {
         this.productHide = productHide;
     }
     public long getCpuID() {

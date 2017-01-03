@@ -108,7 +108,8 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
-            ProducerDAO producerdao = new ProducerDAO(); 
+            ProducerDAO producerdao = new ProducerDAO();
+            String[] checked = request.getParameterValues("s1_t1_view");
         
       out.write("\r\n");
       out.write("            <div class=\"wrapper\">\r\n");
@@ -320,10 +321,11 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
       out.write("                                              <input type=\"text\"  name=\"product_content\" class=\"form-control\" placeholder=\"\">\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
-      out.write("                                            <label>\r\n");
-      out.write("                                                Ẩn sản phẩm\r\n");
-      out.write("                                                <input type=\"checkbox\" class=\"minimal\">\r\n");
-      out.write("                                            </label>\r\n");
+      out.write("                                            <label>Ẩn sản phẩm</label>\r\n");
+      out.write("                                            <select name=\"product_hide\"  class=\"form-control\">\r\n");
+      out.write("                                                <option value=\"0\" >Không</option>\r\n");
+      out.write("                                                <option value=\"1\" >Có</option> \r\n");
+      out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                        </div>                                       \r\n");
       out.write("                                    </div>\r\n");
