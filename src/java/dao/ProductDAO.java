@@ -303,7 +303,7 @@ public class ProductDAO
     }
     public ArrayList<Product> getListProductByNav(long producerID, int firstResult,int maxResult) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
-        String sql="SELECT * FROM product WHERE producer_id = '"+producerID+"' limit ?,?";
+        String sql="SELECT * FROM product WHERE producer_id = '" + producerID + "' limit ?,?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
@@ -323,12 +323,13 @@ public class ProductDAO
             product.setCpuID(rs.getLong("cpu_id"));
             product.setRamID(rs.getLong("ram_id"));
             product.setStorageID(rs.getLong("storage_id"));
+            product.setProducerID(rs.getLong("producer_id"));
         list.add(product);
     }
     return list;
     }
     // Tính tổng sản phẩm
-    public int countProductByCategory(long producerID) throws SQLException{
+    public int countProductByProducer(long producerID) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT count(product_id) FROM product WHERE producer_id = '" + producerID + "'";
         PreparedStatement ps = connection.prepareCall(sql);
@@ -550,6 +551,9 @@ public class ProductDAO
     }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO(); 
-        System.out.println(dao.delete(100));
+        for (Product ds : dao.getListProductByNav(1, 1, 9)) 
+        {           
+            System.out.println(ds.getProductID() +" - " + ds.getProductName());         
+        }
     } 
 } 

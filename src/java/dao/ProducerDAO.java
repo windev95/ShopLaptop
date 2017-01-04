@@ -24,9 +24,24 @@ public class ProducerDAO {
         return list;    
     }
     //get tên loại sản phẩm them id
-    public ArrayList<Producer> getProducerNameID(long categoryID) throws SQLException { 
+    public ArrayList<Producer> getProducerNamebyID(long producerID) throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        
-        String sql = "SELECT producer_name FROM producer WHERE producer_id = '" + categoryID + "'";       
+        String sql = "SELECT producer_name FROM producer WHERE producer_id = '" + producerID + "'";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Producer> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Producer producer = new Producer();        
+            producer.setProducerName(rs.getString("producer_name"));       
+            list.add(producer);         
+        }         
+        return list;    
+    }
+    //get tên loại sản phẩm them id
+    public ArrayList<Producer> getProducerNameID(long producerID) throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT producer_name FROM producer WHERE producer_id = '" + producerID + "'";       
         PreparedStatement ps = connection.prepareCall(sql);        
         ResultSet rs = ps.executeQuery();       
         ArrayList<Producer> list = new ArrayList<>();        
@@ -61,7 +76,7 @@ public class ProducerDAO {
     public static void main(String[] args) throws SQLException 
     {       
         ProducerDAO dao = new ProducerDAO();      
-        for (Producer ds : dao.getListProducer()) 
+        for (Producer ds : dao.getProducerNameID(1)) 
         {           
             System.out.println(ds.getProducerID() +" - " + ds.getProducerName());         
         }     

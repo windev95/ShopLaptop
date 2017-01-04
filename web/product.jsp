@@ -32,10 +32,10 @@
             CpuDAO cpuDAO = new CpuDAO();
             RamDAO ramDAO = new RamDAO();
             StorageDAO storageDAO = new StorageDAO();
-            long producer_id = 0;
+            long producerID = 0;
             if(request.getParameter("producer")!=null)
             {
-                producer_id = (long) Long.parseLong(request.getParameter("producer"));
+                producerID = (long) Long.parseLong(request.getParameter("producer"));
             }
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
@@ -47,7 +47,7 @@
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }
-            total = productDAO.countProductByCategory(producer_id);
+            total = productDAO.countProductByProducer(producerID);
             if (total <= pagesize) {
                 firstResult = 0;
                 maxResult = total;
@@ -55,7 +55,7 @@
                 firstResult = (pages - 1) * pagesize;
                 maxResult = pagesize;
             }
-            ArrayList<Product> listProduct = productDAO.getListProductByNav(producer_id, firstResult, maxResult);
+            ArrayList<Product> listProduct = productDAO.getListProductByNav(producerID, firstResult, maxResult);
         %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -64,7 +64,7 @@
         =========================================================================== -->
         <div id="main">
                 <%
-                for (Producer c : producerDAO.getProducerNameID(producer_id))
+                for (Producer c : producerDAO.getProducerNamebyID(producerID))
                 {
                 %>
                 <section class="page_title">
@@ -234,7 +234,7 @@
                                                     <ul class="pagination">                                                                                          
                                                       
                                                         <%for(int i=1;i<=(total/pagesize)+1;i++){%>
-                                                        <li><a href="product.jsp?producer=<%=producer_id%>&pages=<%=i%>"><%=i%></a></li>
+                                                        <li><a href="product.jsp?producer=<%=producerID%>&pages=<%=i%>"><%=i%></a></li>
                                                         <%}%>
                                                       
                                                     </ul>

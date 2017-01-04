@@ -72,7 +72,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h5 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">NHÀ SẢN XUẤT</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"> NHÀ SẢN XUẤT</a>
                             </h5>
                           </div>
                           <div id="collapse1" class="panel-collapse collapse">
@@ -96,7 +96,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h5 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">LOẠI SẢN PHẨM</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse7"> LOẠI SẢN PHẨM</a>
                             </h5>
                           </div>
                           <div id="collapse7" class="panel-collapse collapse">
@@ -119,7 +119,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">KHOẢNG GIÁ</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"> KHOẢNG GIÁ</a>
                             </h4>
                           </div>
                           <div id="collapse2" class="panel-collapse collapse">
@@ -142,7 +142,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">MÀN HÌNH</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"> MÀN HÌNH</a>
                             </h4>
                           </div>
                           <div id="collapse3" class="panel-collapse collapse">
@@ -165,7 +165,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">VI XỬ LÝ</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"> VI XỬ LÝ</a>
                             </h4>
                           </div>
                           <div id="collapse4" class="panel-collapse collapse">
@@ -188,7 +188,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">BỘ NHỚ RAM</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"> BỘ NHỚ RAM</a>
                             </h4>
                           </div>
                           <div id="collapse5" class="panel-collapse collapse">
@@ -211,7 +211,7 @@
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Ổ CỨNG</a>
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"> Ổ CỨNG</a>
                             </h4>
                           </div>
                           <div id="collapse6" class="panel-collapse collapse">

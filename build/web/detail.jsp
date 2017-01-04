@@ -6,6 +6,8 @@
 <%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
+<%@page import="model.Producer" %>
+<%@page import="dao.ProducerDAO" %>
 <%@page import="model.Category"%> 
 <%@page import="dao.CategoryDAO"%>
 <%@page import="model.Cpu"%> 
@@ -23,6 +25,7 @@
 <%@page import="model.Cart" %>
 <%
     ProductDAO productDAO = new ProductDAO();
+    ProducerDAO producerDAO = new ProducerDAO();
     CategoryDAO categoryDAO = new CategoryDAO();
     CpuDAO cpuDAO = new CpuDAO();
     RamDAO ramDAO = new RamDAO();
@@ -77,11 +80,11 @@
                                 <ol class="breadcrumb">
                                     <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
                                     <%
-                                    for (Category c : categoryDAO.getCategoryNameID(product.getCategoryID()))
+                                    for (Producer c : producerDAO.getProducerNamebyID(product.getProducerID()))
                                     {
                                     %>
                                     <li>
-                                        <a href="product.jsp?category=<%=product.getCategoryID()%>" title="<%=c.getCategoryName()%>"><%=c.getCategoryName()%></a>
+                                        <a href="product.jsp?producer=<%=product.getProducerID()%>&pages=1" title="<%=c.getProducerName()%>"><%=c.getProducerName()%></a>
                                     </li>
                                     <%}
                                     %>
