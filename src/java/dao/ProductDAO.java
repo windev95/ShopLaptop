@@ -33,11 +33,31 @@ public class ProductDAO
             list.add(product);         
         }         
         return list;     
-    }    
-    // get danh sách sản phẩm dựa vào tìm kiếm nâng cao
-    public ArrayList<Product> getListProductByAdvanceSearchNav(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID, int firstResult,int maxResult)  throws SQLException {     
+    }  
+    // get danh sách sản phẩm dựa vào mã nhà sản xuất
+    public ArrayList<Product> getListProductByProducer(long producer_id)  throws SQLException {     
         Connection connection = DBConnect.getConnecttion();      
-        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%' limit ?,?";      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and producer_id = '" + producer_id + "'";      
+        PreparedStatement ps = connection.prepareCall(sql);       
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Product> list = new ArrayList<>();       
+        while (rs.next()) { 
+            Product product = new Product();       
+            product.setProductID(rs.getLong("product_id"));     
+            product.setProductName(rs.getString("product_name"));    
+            product.setProductImage(rs.getString("product_image")); 
+            product.setProductPrice(rs.getInt("product_price")); 
+            product.setProductSale(rs.getInt("product_sale")); 
+            product.setProductPriceReal(rs.getInt("product_price_real"));
+            product.setProductContent(rs.getString("product_content"));      
+            list.add(product);         
+        }         
+        return list;     
+    }  
+    // get danh sách sản phẩm dựa vào tìm kiếm nâng cao
+    public ArrayList<Product> getListProductByAdvanceSearchNav(String categoryID,String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID, int firstResult,int maxResult)  throws SQLException {     
+        Connection connection = DBConnect.getConnecttion();      
+        String sql = "SELECT * FROM product WHERE `product_hide` = 0 and `category_id` LIKE '%" + categoryID + "%' and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%' limit ?,?";      
         PreparedStatement ps = connection.prepareCall(sql);  
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
@@ -62,9 +82,9 @@ public class ProductDAO
         return list;     
     }
     // Tính tổng sản phẩm tìm kiếm nâng cao
-    public int countProductByAdvanceSearch(String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID) throws SQLException{
+    public int countProductByAdvanceSearch(String categoryID, String producerID, String pricelevelID, String screensizeID, String cpuID, String ramID, String storageID) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT count(product_id) FROM product WHERE `product_hide` = 0 and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";
+        String sql = "SELECT count(product_id) FROM product WHERE `product_hide` = 0 and `category_id` LIKE '%" + categoryID + "%' and `producer_id` LIKE '%" + producerID + "%' and `pricelevel_id` LIKE '%" + pricelevelID + "%' and `screensize_id` LIKE '%" + screensizeID + "%' and `cpu_id` LIKE '%" + cpuID + "%' and `ram_id` LIKE '%" + ramID + "%' and `storage_id` LIKE '%" + storageID + "%'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         int count = 0;
@@ -281,9 +301,9 @@ public class ProductDAO
         }
         return product;
     }
-    public ArrayList<Product> getListProductByNav(long categoryID, int firstResult,int maxResult) throws SQLException{
+    public ArrayList<Product> getListProductByNav(long producerID, int firstResult,int maxResult) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
-        String sql="SELECT * FROM product WHERE category_id = '"+categoryID+"' limit ?,?";
+        String sql="SELECT * FROM product WHERE producer_id = '"+producerID+"' limit ?,?";
         PreparedStatement ps = connection.prepareCall(sql);
         ps.setInt(1, firstResult);
         ps.setInt(2, maxResult);
@@ -308,9 +328,9 @@ public class ProductDAO
     return list;
     }
     // Tính tổng sản phẩm
-    public int countProductByCategory(long categoryID) throws SQLException{
+    public int countProductByCategory(long producerID) throws SQLException{
         Connection connection = DBConnect.getConnecttion();
-        String sql = "SELECT count(product_id) FROM product WHERE category_id = '" + categoryID + "'";
+        String sql = "SELECT count(product_id) FROM product WHERE producer_id = '" + producerID + "'";
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         int count = 0;

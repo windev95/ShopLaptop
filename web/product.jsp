@@ -7,6 +7,8 @@
 <%@page import="helpers.MoneyFormat"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
+<%@page import="model.Producer" %>
+<%@page import="dao.ProducerDAO" %>
 <%@page import="model.Category" %> 
 <%@page import="dao.CategoryDAO" %>
 <%@page import="model.Cart" %>
@@ -25,15 +27,15 @@
     </head>
     <body>
         <%
-            CategoryDAO categoryDAO = new CategoryDAO();
             ProductDAO productDAO = new ProductDAO();
+            ProducerDAO producerDAO = new ProducerDAO();
             CpuDAO cpuDAO = new CpuDAO();
             RamDAO ramDAO = new RamDAO();
             StorageDAO storageDAO = new StorageDAO();
-            long category_id = 0;
-            if(request.getParameter("category")!=null)
+            long producer_id = 0;
+            if(request.getParameter("producer")!=null)
             {
-                category_id = (long) Long.parseLong(request.getParameter("category"));
+                producer_id = (long) Long.parseLong(request.getParameter("producer"));
             }
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
@@ -45,7 +47,7 @@
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }
-            total = productDAO.countProductByCategory(category_id);
+            total = productDAO.countProductByCategory(producer_id);
             if (total <= pagesize) {
                 firstResult = 0;
                 maxResult = total;
@@ -53,7 +55,7 @@
                 firstResult = (pages - 1) * pagesize;
                 maxResult = pagesize;
             }
-            ArrayList<Product> listProduct = productDAO.getListProductByNav(category_id, firstResult, maxResult);
+            ArrayList<Product> listProduct = productDAO.getListProductByNav(producer_id, firstResult, maxResult);
         %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -62,11 +64,11 @@
         =========================================================================== -->
         <div id="main">
                 <%
-                for (Category c : categoryDAO.getCategoryNameID(category_id))
+                for (Producer c : producerDAO.getProducerNameID(producer_id))
                 {
                 %>
                 <section class="page_title">
-                    <h1 class="text-center"><%=c.getCategoryName()%></h1>
+                    <h1 class="text-center"><%=c.getProducerName()%></h1>
                 </section>
                 <div class="header-breadcrumb">
                     <div class="container">
@@ -74,7 +76,7 @@
                             <div class="col-xs-12">
                                 <ol class="breadcrumb">
                                     <li><a href="/" title="Trang chủ">Trang chủ </a> </li>
-                                    <li class="active "><%=c.getCategoryName()%></li>
+                                    <li class="active "><%=c.getProducerName()%></li>
                                 </ol>
                             </div>
                         </div>
@@ -232,7 +234,7 @@
                                                     <ul class="pagination">                                                                                          
                                                       
                                                         <%for(int i=1;i<=(total/pagesize)+1;i++){%>
-                                                        <li><a href="product.jsp?category=<%=category_id%>&pages=<%=i%>"><%=i%></a></li>
+                                                        <li><a href="product.jsp?producer=<%=producer_id%>&pages=<%=i%>"><%=i%></a></li>
                                                         <%}%>
                                                       
                                                     </ul>

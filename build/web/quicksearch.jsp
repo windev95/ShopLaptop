@@ -43,7 +43,11 @@
             String cpu = null;
             String ram = null;
             String ocung = null;
+            String lsp = null;
             int pages = 0, firstResult = 0, maxResult = 0, total = 0, pagesize=9;
+            if (request.getParameter("lsp") != null) {
+                lsp = (String) request.getParameter("lsp");
+            }
             if (request.getParameter("nsx") != null) {
                 nsx = (String) request.getParameter("nsx");
             }
@@ -65,7 +69,7 @@
             if (request.getParameter("pages") != null) {
                 pages = (int) Integer.parseInt(request.getParameter("pages"));
             }
-            total = productDAO.countProductByAdvanceSearch(nsx,khoanggia,manhinh,cpu,ram,ocung);
+            total = productDAO.countProductByAdvanceSearch(lsp, nsx,khoanggia,manhinh,cpu,ram,ocung);
             if (total <= pagesize) {
                 firstResult = 0;
                 maxResult = total;
@@ -73,7 +77,7 @@
                 firstResult = (pages - 1) * pagesize;
                 maxResult = pagesize;
             }
-             ArrayList<Product> listProduct = productDAO.getListProductByAdvanceSearchNav(nsx, khoanggia, manhinh, cpu, ram, ocung, firstResult, maxResult);
+             ArrayList<Product> listProduct = productDAO.getListProductByAdvanceSearchNav(lsp, nsx, khoanggia, manhinh, cpu, ram, ocung, firstResult, maxResult);
         %>
         <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
@@ -251,7 +255,7 @@
                                                     <ul class="pagination">                                                                                         
                                                       
                                                         <%for(int i=1;i<=(total/pagesize)+1;i++){%>
-                                                        <li><a href="quicksearch.jsp?nsx=<%=nsx%>&khoanggia=<%=khoanggia%>&manhinh=<%=manhinh%>&cpu=<%=cpu%>&ram=<%=ram%>&ocung=<%=ocung%>&pages=<%=i%>"><%=i%></a></li>
+                                                        <li><a href="quicksearch.jsp?lsp=<%=lsp%>&nsx=<%=nsx%>&khoanggia=<%=khoanggia%>&manhinh=<%=manhinh%>&cpu=<%=cpu%>&ram=<%=ram%>&ocung=<%=ocung%>&pages=<%=i%>"><%=i%></a></li>
                                                         <% }%>
                                                     </ul>
                                                 </div>

@@ -41,14 +41,14 @@
         <div class="megamenu-left col-md-3 col-md-pull-9">
         <div class="cd-dropdown-wrapper">
             <nav class="cd-dropdown dropdown-is-active">
-                <div class="dropdown-content-title"><i class="fa fa-bars"></i> DANH MỤC SẢN PHẨM</div>
+                <div class="dropdown-content-title"><i class="fa fa-bars"></i> NHÀ SẢN XUẤT</div>
                 <ul class="cd-dropdown-content">
                     <%
-                    for (Category c : categoryDAO.getListCategory())
+                    for (Producer c : producerDAO.getListProducer())
                     {
                     %>
                     <li class="">
-                        <a href="product.jsp?category=<%=c.getCategoryID()%>&pages=1" class="link_title_css link_title_<%=c.getCategoryID()%>"> <%=c.getCategoryName()%>
+                        <a href="product.jsp?producer=<%=c.getProducerID()%>&pages=1" class="link_title_css link_title_<%=c.getProducerID()%>"> <%=c.getProducerName()%>
                         </a>
                     </li>
                     <%
@@ -87,6 +87,30 @@
                                 <div class="radio-item">
                                     <input type="radio" id="nsx<%=c.getProducerID()%>" name="nsx" value="<%=c.getProducerID()%>">
                                     <label for="nsx<%=c.getProducerID()%>"><%=c.getProducerName()%></label>
+                                </div>
+                                <% }%>
+                          </div>
+                        </div>
+                          
+    <!--                    LOẠI SẢN PHẨM  -->
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">LOẠI SẢN PHẨM</a>
+                            </h5>
+                          </div>
+                          <div id="collapse7" class="panel-collapse collapse">
+                                <div class="radio-item">
+                                    <input type="radio" id="lsp" name="lsp" value="" checked>
+                                    <label for="lsp">Tất cả</label>
+                                </div>
+                                <%
+                                for (Category c : categoryDAO.getListCategory())
+                                {
+                                %>
+                                <div class="radio-item">
+                                    <input type="radio" id="lsp<%=c.getCategoryID()%>" name="lsp" value="<%=c.getCategoryID()%>">
+                                    <label for="lsp<%=c.getCategoryID()%>"><%=c.getCategoryName()%></label>
                                 </div>
                                 <% }%>
                           </div>

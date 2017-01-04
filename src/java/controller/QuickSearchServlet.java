@@ -41,6 +41,9 @@ public class QuickSearchServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         
+        String lsp = (request.getParameter("lsp"));
+        session.setAttribute("lsp", lsp);
+        
         String nsx = (request.getParameter("nsx"));
         session.setAttribute("nsx", nsx);
         
@@ -59,7 +62,7 @@ public class QuickSearchServlet extends HttpServlet {
         String ocung = (request.getParameter("ocung"));
         session.setAttribute("query", ocung);
         
-        response.sendRedirect("/quicksearch.jsp?nsx="+nsx+"&khoanggia="+khoanggia+"&manhinh="+manhinh+"&cpu="+cpu+"&ram="+ram+"&ocung="+ocung+"&pages=1");
+        response.sendRedirect("/quicksearch.jsp?lsp="+lsp+"&nsx="+nsx+"&khoanggia="+khoanggia+"&manhinh="+manhinh+"&cpu="+cpu+"&ram="+ram+"&ocung="+ocung+"&pages=1");
         processRequest(request, response);
     }
 
