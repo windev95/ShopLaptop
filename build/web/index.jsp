@@ -29,7 +29,7 @@
             <div id="main">
                 <jsp:include page = "layout/slider.jsp"></jsp:include> 
                 <jsp:include page = "layout/contact.jsp"></jsp:include>
-                <section class="news_jobs">
+<!--                <section class="news_jobs">
                     <div class="container">
                         <div class="row ">
                             <div class="col-sm-6 col-md-12 div-new-news-content">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>-->
                 <section class="featured_projects">
                     <div class="container">
                         <div class="row ">

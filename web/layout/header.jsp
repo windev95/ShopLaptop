@@ -211,7 +211,7 @@
                                                     </div>
                                                 </ul>
                                             </li>
-                                            <li class="fali"><a href="#" title="Tin tức">Tin tức</a></li>
+<!--                                            <li class="fali"><a href="#" title="Tin tức">Tin tức</a></li>-->
                                             <li class="fali"><a href="./support.jsp" title="Liên hệ">Liên hệ</a></li>
                                         </ul>
                                     </div>
