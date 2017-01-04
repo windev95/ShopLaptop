@@ -90,25 +90,6 @@
                         <div class="row">
                             <div class="megamenu-right col-md-9 col-md-push-3">
                                 <div class="row">
-                                    <script type="text/javascript">
-                                        $(document).ready(function () {
-                                            Bizweb.queryParams = {};
-                                            if (location.search.length) {
-                                                for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&') ; i < aCouples.length; i++) {
-                                                    aKeyValue = aCouples[i].split('=');
-                                                    if (aKeyValue.length > 1) {
-                                                        Bizweb.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-                                                    }
-                                                }
-                                            }
-                                            $('.sort-by')
-                                                .val('created-asc')
-                                                .bind('change', function () {
-                                                    Bizweb.queryParams.sortby = jQuery(this).val();
-                                                    location.search = jQuery.param(Bizweb.queryParams).replace(/\+/g, '%20');
-                                                });
-                                        });
-                                    </script>
                                     <div class="col-xs-12">
                                         <div class="filter-right">
                                             <div class="pull-left-content">
@@ -133,7 +114,7 @@
                                                 {
                                             %>
                                            <div class="product_item col-xs-12">
-                                                <form action="/cart/add" class="product_item_form" method="post">
+                                                <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                     <div>
                                                         <div class="col-sm-5 col-md-5 no-padding-l">
                                                             <div class="product-img-parent">
@@ -144,15 +125,15 @@
                                                             <h5 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
                                                             <div class="description">
                                                                 <% for (Cpu cpu : cpuDAO.getCpuNameID(p.getCpuID()))  { %>
-                                                                <h5>Bộ xử lý: <%=cpu.getCpuName()%>, <%=p.getProductCpuDetail()%></h5>
+                                                                <h6>Bộ xử lý: <%=cpu.getCpuName()%>, <%=p.getProductCpuDetail()%></h6>
                                                                 <% }%>
                                                                 <% for (Ram ram : ramDAO.getRamNameID(p.getRamID()))  { %>
-                                                                <h5>Bộ nhớ Ram: <%=ram.getRamName()%></h5>
+                                                                <h6>Bộ nhớ Ram: <%=ram.getRamName()%></h6>
                                                                 <% }%>
                                                                 <%for (Storage storage : storageDAO.getStorageNameID(p.getStorageID())){ %>
-                                                                <h5>Ổ cứng: <%=storage.getStorageName()%></h5>
+                                                                <h6>Ổ cứng: <%=storage.getStorageName()%></h6>
                                                                 <% }%>
-                                                                <h5>Chipset đồ họa: <%=p.getProductVGA()%></h5>
+                                                                <h6>Chipset đồ họa: <%=p.getProductVGA()%></h6>
                                                             </div>
                                                             <span class="product-price">
                                                                 <b class="productminprice"><%=formatter.format(p.getProductPrice())%></b>
@@ -189,7 +170,7 @@
                                             %>
                                             <div class="col-xs-12 col-sm-6 col-md-4">
                                                 <div class="product_item">
-                                                    <form action="/cart/add" class="product_item_form" method="post">
+                                                    <form action="CartServlet?command=plus&productID=<%=p.getProductID()%>" class="product_item_form" method="post">
                                                         <div class="product-gird">
                                                             <div class="product-img-parent">
                                                                 <a class="product-img" href="detail.jsp?product=<%=p.getProductID()%>" title="<%=p.getProductName()%>">

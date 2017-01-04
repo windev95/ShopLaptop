@@ -84,25 +84,6 @@
                         <div class="row">
                             <div class="megamenu-right col-md-9 col-md-push-3">
                                 <div class="row">
-                                    <script type="text/javascript">
-                                        $(document).ready(function () {
-                                            Bizweb.queryParams = {};
-                                            if (location.search.length) {
-                                                for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&') ; i < aCouples.length; i++) {
-                                                    aKeyValue = aCouples[i].split('=');
-                                                    if (aKeyValue.length > 1) {
-                                                        Bizweb.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-                                                    }
-                                                }
-                                            }
-                                            $('.sort-by')
-                                                .val('default')
-                                                .bind('change', function () {
-                                                    Bizweb.queryParams.sortby = jQuery(this).val();
-                                                    location.search = jQuery.param(Bizweb.queryParams).replace(/\+/g, '%20');
-                                                });
-                                        });
-                                    </script>
                                     
                                     <div class="col-xs-12">
                                         <div class="filter-right">
@@ -141,15 +122,15 @@
                                                             <h5 class="product-name"><a href="detail.jsp?product=<%=p.getProductID()%>"><%=p.getProductName()%></a></h5>
                                                             <div class="description">
                                                                 <% for (Cpu cpu : cpuDAO.getCpuNameID(p.getCpuID()))  { %>
-                                                                <h5>Bộ xử lý: <%=cpu.getCpuName()%>, <%=p.getProductCpuDetail()%></h5>
+                                                                <h6>Bộ xử lý: <%=cpu.getCpuName()%>, <%=p.getProductCpuDetail()%></h6>
                                                                 <% }%>
                                                                 <% for (Ram ram : ramDAO.getRamNameID(p.getRamID()))  { %>
-                                                                <h5>Bộ nhớ Ram: <%=ram.getRamName()%></h5>
+                                                                <h6>Bộ nhớ Ram: <%=ram.getRamName()%></h6>
                                                                 <% }%>
                                                                 <%for (Storage storage : storageDAO.getStorageNameID(p.getStorageID())){ %>
-                                                                <h5>Ổ cứng: <%=storage.getStorageName()%></h5>
+                                                                <h6>Ổ cứng: <%=storage.getStorageName()%></h6>
                                                                 <% }%>
-                                                                <h5>Chipset đồ họa: <%=p.getProductVGA()%></h5>
+                                                                <h6>Chipset đồ họa: <%=p.getProductVGA()%></h6>
                                                             </div>
                                                             <span class="product-price">
                                                                 <b class="productminprice"><%= formatter.format(p.getProductPrice())%></b>

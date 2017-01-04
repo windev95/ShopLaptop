@@ -239,7 +239,7 @@
             </nav>
         </div> 
     <!-- .cd-dropdown-wrapper -->
-    <br>
+<!--    <br>
         <div class="widget-sidebar-item banner em-effect06" style="margin-top: 30px;">
             <h3 class="widget-sidebar-name">THẺ TAGS</h3>
             <ul class="widget-sidebar-list products_tags">
@@ -263,7 +263,7 @@
                             </span>
                         </div>
                     </div>
-<!--                     End . -->
+                     End . 
                 </form>
             </div>
             <div class="product_item col-xs-12">
@@ -279,10 +279,10 @@
                             </span>
                         </div>
                     </div>
-<!--                     End . -->
+                     End . 
                 </form>
             </div>
-        </div>
+        </div>-->
         <div id="bw-statistics"></div>
         </div>
     </body>
