@@ -301,50 +301,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
+ 
+        <li><a href="../Admin/manager_category.jsp"><i class="fa fa-list-ul"></i> <span>Danh mục</span></a></li>
+        <li><a href="../Admin/manager_product.jsp"><i class="fa fa-laptop"></i> <span>Sản phẩm</span></a></li>
+        <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-file-o"></i> <span>Hóa đơn</span></a></li>
+        <li><a href="../Admin/manager_image.jsp"><i class="fa fa-file-image-o"></i> <span>Hình ảnh</span></a></li>    
         
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../Admin/manager_category.jsp"><i class="fa fa-circle-o"></i>Category</a></li>
-            <li><a href="../Admin/manager_product.jsp"><i class="fa fa-circle-o"></i>Product</a></li>
-            <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-circle-o"></i>Bill</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
 
       </ul>
     </section>
