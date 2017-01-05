@@ -54,13 +54,37 @@ public class ImageDAO {
         return false;
         }
     }
+    public boolean update(Image c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE image SET image_alt= ?,image_image=?,product_id=? WHERE image_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, c.getImageAlt());
+            ps.setString(2, c.getImageImage());
+            ps.setLong(3, c.getProductID());
+            ps.setLong(4, c.getImageID());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+    public boolean delete(long image_id) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "DELETE FROM image WHERE image_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, image_id);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
     public static void main(String[] args) throws SQLException 
     {       
-        ImageDAO dao = new ImageDAO();      
-        for (Image ds : dao.getListImageByProduct(3)) 
-        {           
-            System.out.println(ds.getImageID() +" - "+ ds.getImageAlt() +" - "+ ds.getImageImage() +" - "+ ds.getProductID());         
-        }     
+        ImageDAO dao = new ImageDAO();
+        dao.delete(8);
     } 
     
 }

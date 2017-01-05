@@ -11,10 +11,11 @@ public class Image {
         this.imageImage = imageImage;
         this.productID = productID;
     }
-    public Image(long imageID, String imageAlt, String imageImage) {
+    public Image(long imageID, String imageAlt, String imageImage , Long productID) {
         this.imageID = imageID;
         this.imageAlt = imageAlt;
         this.imageImage = imageImage;
+        this.productID = productID;
     }
     public long getImageID() {
         return imageID;

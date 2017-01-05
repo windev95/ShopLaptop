@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-public class InsertImageServlet extends HttpServlet {
+public class UpdateImageServlet extends HttpServlet {
     ImageDAO dao = new ImageDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,7 +36,6 @@ public class InsertImageServlet extends HttpServlet {
         ServletFileUpload sfu = new ServletFileUpload(file_factory); 
         ArrayList<String> campos = new ArrayList<>();
         ArrayList<String> imgs = new ArrayList<>();
-        String url = "";
         try {
             List items  = sfu.parseRequest(request);
             for (int i = 0; i < items.size(); i++) { 
@@ -50,12 +49,11 @@ public class InsertImageServlet extends HttpServlet {
                     campos.add(item.getString("UTF-8"));
                 }
             }
-            dao.insert(new Image(campos.get(0), imgs.get(0), Long.parseLong(campos.get(1))));
-            url = "/Admin/manager_image.jsp";
+            dao.update(new Image(Long.parseLong(campos.get(0)), campos.get(1), imgs.get(0), Long.parseLong(campos.get(2))));
         } catch (Exception e) {
         }
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-        rd.forward(request, response);
+        
+        response.sendRedirect(response.encodeRedirectURL("/Admin/manager_image.jsp"));
     }
     @Override
     public String getServletInfo() {

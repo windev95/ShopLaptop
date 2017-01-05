@@ -44,6 +44,14 @@
         <servlet-name>InsertImageServlet</servlet-name>
         <servlet-class>controller.InsertImageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateImageServlet</servlet-name>
+        <servlet-class>controller.UpdateImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DelImageServlet</servlet-name>
+        <servlet-class>controller.DelImageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>InsertImageServlet</servlet-name>
         <url-pattern>/InsertImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateImageServlet</servlet-name>
+        <url-pattern>/UpdateImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DelImageServlet</servlet-name>
+        <url-pattern>/DelImageServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
