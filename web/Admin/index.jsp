@@ -33,7 +33,7 @@
                 color: white;font: 10px arial, san serif;
                 text-align: left;white-space: nowrap;
                 padding: 5px;border: 1px solid white;
-                z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}
+                z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}              
         </style>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -881,5 +881,13 @@
             <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
             <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
             <script src="${root}/Admin/layout/dist/js/demo.js"></script>
+            <script type="text/javascript">
+	$(function(){
+		$('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');
+		$('.sidebar-menu a').click(function(){
+			$(this).parent().addClass('active').siblings().removeClass('active');	
+		});
+	});
+	</script>
     </body>  
 </html>

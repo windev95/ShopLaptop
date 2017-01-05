@@ -59,6 +59,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "layout/head.jsp", out, false);
       out.write("\r\n");
+      out.write("    \r\n");
       out.write("</head>\r\n");
       out.write("<body id=\"top\">\r\n");
       out.write("    ");
@@ -838,6 +839,20 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "layout/script.jsp", out, false);
       out.write("\r\n");
+      out.write("    <style>.active{\r\n");
+      out.write("    color: #000;\r\n");
+      out.write("   background: #d65c14;\r\n");
+      out.write(" }\r\n");
+      out.write(" \r\n");
+      out.write("    </style>\r\n");
+      out.write("    <script type=\"text/javascript\">\r\n");
+      out.write("            $(function(){\r\n");
+      out.write("                    $('.nav a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');\r\n");
+      out.write("                    $('.nav a').click(function(){\r\n");
+      out.write("                            $(this).parent().addClass('active').siblings().removeClass('active');\t\r\n");
+      out.write("                    });\r\n");
+      out.write("            });\r\n");
+      out.write("            </script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

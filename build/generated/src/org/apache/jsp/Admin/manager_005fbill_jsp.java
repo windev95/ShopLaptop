@@ -235,6 +235,14 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                });\r\n");
       out.write("            });\r\n");
       out.write("            </script>\r\n");
+      out.write("            <script type=\"text/javascript\">\r\n");
+      out.write("            $(function(){\r\n");
+      out.write("                    $('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');\r\n");
+      out.write("                    $('.sidebar-menu a').click(function(){\r\n");
+      out.write("                            $(this).parent().addClass('active').siblings().removeClass('active');\t\r\n");
+      out.write("                    });\r\n");
+      out.write("            });\r\n");
+      out.write("            </script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

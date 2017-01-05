@@ -106,7 +106,7 @@
             <script src="${root}/Admin/layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
             <script src="${root}/Admin/layout/bootstrap/js/bootstrap.min.js"></script>
             <script src="${root}/Admin/layout/plugins/datatables/jquery.dataTables.min.js"></script>
-            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>          
             <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
             <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
             <script src="${root}/Admin/layout/dist/js/app.min.js"></script>

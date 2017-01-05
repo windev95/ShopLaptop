@@ -131,5 +131,13 @@
                 });
             });
             </script>
+            <script type="text/javascript">
+            $(function(){
+                    $('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');
+                    $('.sidebar-menu a').click(function(){
+                            $(this).parent().addClass('active').siblings().removeClass('active');	
+                    });
+            });
+            </script>
     </body>
 </html>

@@ -95,7 +95,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                color: white;font: 10px arial, san serif;\r\n");
       out.write("                text-align: left;white-space: nowrap;\r\n");
       out.write("                padding: 5px;border: 1px solid white;\r\n");
-      out.write("                z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}\r\n");
+      out.write("                z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}              \r\n");
       out.write("        </style>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body class=\"hold-transition skin-blue sidebar-mini\">\r\n");
@@ -965,6 +965,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <script src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${root}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/Admin/layout/dist/js/demo.js\"></script>\r\n");
+      out.write("            <script type=\"text/javascript\">\r\n");
+      out.write("\t$(function(){\r\n");
+      out.write("\t\t$('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');\r\n");
+      out.write("\t\t$('.sidebar-menu a').click(function(){\r\n");
+      out.write("\t\t\t$(this).parent().addClass('active').siblings().removeClass('active');\t\r\n");
+      out.write("\t\t});\r\n");
+      out.write("\t});\r\n");
+      out.write("\t</script>\r\n");
       out.write("    </body>  \r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
