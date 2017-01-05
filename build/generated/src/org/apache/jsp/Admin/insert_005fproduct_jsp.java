@@ -3,9 +3,21 @@ package org.apache.jsp.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import dao.CategoryDAO;
+import model.Category;
+import dao.PricelevelDAO;
+import model.Pricelevel;
+import dao.ScreensizeDAO;
+import model.Screensize;
+import dao.RamDAO;
+import model.Ram;
+import dao.StorageDAO;
+import model.Storage;
+import dao.CpuDAO;
+import model.Cpu;
+import dao.ProducerDAO;
 import model.Producer;
 import java.util.ArrayList;
-import dao.ProducerDAO;
 
 public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -54,6 +66,17 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -109,7 +132,12 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
                 error = (String) request.getParameter("error");
             }
             ProducerDAO producerdao = new ProducerDAO();
-            String[] checked = request.getParameterValues("s1_t1_view");
+            CategoryDAO cdao = new CategoryDAO();
+            PricelevelDAO pldap = new PricelevelDAO();
+            RamDAO rdao = new RamDAO();
+            StorageDAO srdao = new StorageDAO();
+            CpuDAO cpudao = new CpuDAO();
+            ScreensizeDAO srsdao = new ScreensizeDAO();
         
       out.write("\r\n");
       out.write("            <div class=\"wrapper\">\r\n");
@@ -252,37 +280,115 @@ public final class insert_005fproduct_jsp extends org.apache.jasper.runtime.Http
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn CPU</label>\r\n");
       out.write("                                            <select name=\"cpu_id\" class=\"form-control\">\r\n");
-      out.write("                                                <option>1</option>                                        \r\n");
+      out.write("                                                 ");
+
+                                                    for (Cpu p : cpudao.getListCpu())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getCpuID());
+      out.write("\" >");
+      out.print(p.getCpuName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                          \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn Ram</label>\r\n");
       out.write("                                            <select name=\"ram_id\" class=\"form-control\">\r\n");
-      out.write("                                                <option>1</option>                                        \r\n");
+      out.write("                                                 ");
+
+                                                    for (Ram p : rdao.getListRam())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getRamID());
+      out.write("\" >");
+      out.print(p.getRamName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                           \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn ổ cứng</label>\r\n");
       out.write("                                            <select name=\"storage_id\" class=\"form-control\">\r\n");
-      out.write("                                                <option >1</option>                                        \r\n");
+      out.write("                                                 ");
+
+                                                    for (Storage p : srdao.getListStorage())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getStorageID());
+      out.write("\" >");
+      out.print(p.getStorageName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                           \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn mức giá</label>\r\n");
       out.write("                                            <select name=\"pricelevel_id\" class=\"form-control\">\r\n");
-      out.write("                                                <option>1</option>                                      \r\n");
+      out.write("                                                 ");
+
+                                                    for (Pricelevel p : pldap.getListPricelevel())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getPricelevelID());
+      out.write("\" >");
+      out.print(p.getPricelevelName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                        \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn kích thước màn hình</label>\r\n");
       out.write("                                            <select name=\"screensize_id\" class=\"form-control\">\r\n");
-      out.write("                                                <option>1</option>                                        \r\n");
+      out.write("                                                 ");
+
+                                                    for (Screensize p : srsdao.getListScreensize())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getScreensizeID());
+      out.write("\" >");
+      out.print(p.getScreensizeName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                           \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");
       out.write("                                            <label>Chọn danh mục</label>\r\n");
       out.write("                                            <select name=\"category_id\"  class=\"form-control\">\r\n");
-      out.write("                                                <option>1</option>                                      \r\n");
+      out.write("                                                ");
+
+                                                    for (Category p : cdao.getListCategory())
+                                                    {
+                                                    
+      out.write("\r\n");
+      out.write("                                                <option value=\"");
+      out.print(p.getCategoryID());
+      out.write("\" >");
+      out.print(p.getCategoryName());
+      out.write("</option>\r\n");
+      out.write("                                                ");
+ } 
+      out.write("                                      \r\n");
       out.write("                                            </select>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                            <div class=\"form-group\">\r\n");

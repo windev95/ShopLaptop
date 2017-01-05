@@ -86,7 +86,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "layout/contact.jsp", out, false);
       out.write("\r\n");
-      out.write("                <section class=\"news_jobs\">\r\n");
+      out.write("<!--                <section class=\"news_jobs\">\r\n");
       out.write("                    <div class=\"container\">\r\n");
       out.write("                        <div class=\"row \">\r\n");
       out.write("                            <div class=\"col-sm-6 col-md-12 div-new-news-content\">\r\n");
@@ -160,7 +160,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                </section>\r\n");
+      out.write("                </section>-->\r\n");
       out.write("                <section class=\"featured_projects\">\r\n");
       out.write("                    <div class=\"container\">\r\n");
       out.write("                        <div class=\"row \">\r\n");

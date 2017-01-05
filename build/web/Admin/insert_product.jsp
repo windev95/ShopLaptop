@@ -3,10 +3,21 @@
     Created on : Dec 30, 2016, 5:42:36 PM
     Author     : Khang
 --%>
-
+<%@page import="dao.CategoryDAO"%>
+<%@page import="model.Category"%>
+<%@page import="dao.PricelevelDAO"%>
+<%@page import="model.Pricelevel"%>
+<%@page import="dao.ScreensizeDAO"%>
+<%@page import="model.Screensize"%>
+<%@page import="dao.RamDAO"%>
+<%@page import="model.Ram"%>
+<%@page import="dao.StorageDAO"%>
+<%@page import="model.Storage"%>
+<%@page import="dao.CpuDAO"%>
+<%@page import="model.Cpu"%>
+<%@page import="dao.ProducerDAO"%>
 <%@page import="model.Producer"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.ProducerDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,7 +46,12 @@
                 error = (String) request.getParameter("error");
             }
             ProducerDAO producerdao = new ProducerDAO();
-            String[] checked = request.getParameterValues("s1_t1_view");
+            CategoryDAO cdao = new CategoryDAO();
+            PricelevelDAO pldap = new PricelevelDAO();
+            RamDAO rdao = new RamDAO();
+            StorageDAO srdao = new StorageDAO();
+            CpuDAO cpudao = new CpuDAO();
+            ScreensizeDAO srsdao = new ScreensizeDAO();
         %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -175,37 +191,67 @@
                                             <div class="form-group">
                                             <label>Chọn CPU</label>
                                             <select name="cpu_id" class="form-control">
-                                                <option>1</option>                                        
+                                                 <%
+                                                    for (Cpu p : cpudao.getListCpu())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getCpuID()%>" ><%=p.getCpuName()%></option>
+                                                <% } %>                                          
                                             </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn Ram</label>
                                             <select name="ram_id" class="form-control">
-                                                <option>1</option>                                        
+                                                 <%
+                                                    for (Ram p : rdao.getListRam())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
+                                                <% } %>                                           
                                             </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn ổ cứng</label>
                                             <select name="storage_id" class="form-control">
-                                                <option >1</option>                                        
+                                                 <%
+                                                    for (Storage p : srdao.getListStorage())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getStorageID()%>" ><%=p.getStorageName()%></option>
+                                                <% } %>                                           
                                             </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn mức giá</label>
                                             <select name="pricelevel_id" class="form-control">
-                                                <option>1</option>                                      
+                                                 <%
+                                                    for (Pricelevel p : pldap.getListPricelevel())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getPricelevelID()%>" ><%=p.getPricelevelName()%></option>
+                                                <% } %>                                        
                                             </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn kích thước màn hình</label>
                                             <select name="screensize_id" class="form-control">
-                                                <option>1</option>                                        
+                                                 <%
+                                                    for (Screensize p : srsdao.getListScreensize())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getScreensizeID()%>" ><%=p.getScreensizeName()%></option>
+                                                <% } %>                                           
                                             </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn danh mục</label>
                                             <select name="category_id"  class="form-control">
-                                                <option>1</option>                                      
+                                                <%
+                                                    for (Category p : cdao.getListCategory())
+                                                    {
+                                                    %>
+                                                <option value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
+                                                <% } %>                                      
                                             </select>
                                             </div>
                                             <div class="form-group">

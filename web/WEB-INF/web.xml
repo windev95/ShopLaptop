@@ -40,6 +40,10 @@
         <servlet-name>QuickSearchServlet</servlet-name>
         <servlet-class>controller.QuickSearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertImageServlet</servlet-name>
+        <servlet-class>controller.InsertImageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>QuickSearchServlet</servlet-name>
         <url-pattern>/QuickSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertImageServlet</servlet-name>
+        <url-pattern>/InsertImageServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

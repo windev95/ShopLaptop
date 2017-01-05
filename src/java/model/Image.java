@@ -6,6 +6,11 @@ public class Image {
     private long productID;  
     public Image() {
     }
+    public Image(String imageAlt, String imageImage, Long productID) {
+        this.imageAlt = imageAlt;
+        this.imageImage = imageImage;
+        this.productID = productID;
+    }
     public Image(long imageID, String imageAlt, String imageImage) {
         this.imageID = imageID;
         this.imageAlt = imageAlt;

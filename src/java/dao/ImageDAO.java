@@ -24,6 +24,36 @@ public class ImageDAO {
         }         
         return list;     
     }
+    public ArrayList<Image> getListImage() throws SQLException{     
+        Connection connection = DBConnect.getConnecttion();      
+        String sql = "SELECT * FROM image";      
+        PreparedStatement ps = connection.prepareCall(sql);       
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Image> list = new ArrayList<>();       
+        while (rs.next()) { 
+            Image image = new Image();     
+            image.setImageID(rs.getLong("image_id"));    
+            image.setImageAlt(rs.getString("image_alt")); 
+            image.setImageImage(rs.getString("image_image"));        
+            image.setProductID(rs.getLong("product_id"));  
+            list.add(image);         
+        }         
+        return list;     
+    }
+    public boolean insert(Image c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "call INSERTimage(?,?,?)";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, c.getImageAlt());
+            ps.setString(2, c.getImageImage());
+            ps.setLong(3, c.getProductID());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
     public static void main(String[] args) throws SQLException 
     {       
         ImageDAO dao = new ImageDAO();      
