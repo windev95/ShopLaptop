@@ -52,8 +52,8 @@ public class UpdateImageServlet extends HttpServlet {
             dao.update(new Image(Long.parseLong(campos.get(0)), campos.get(1), imgs.get(0), Long.parseLong(campos.get(2))));
         } catch (Exception e) {
         }
-        
-        response.sendRedirect(response.encodeRedirectURL("/Admin/manager_image.jsp"));
+        getServletContext().getRequestDispatcher("/Admin/manager_image.jsp").forward(
+                request, response);
     }
     @Override
     public String getServletInfo() {

@@ -68,7 +68,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Chọn hình ảnh</label>
 
                                     <div class="col-sm-10">
-                                        <input type="file" name="file[]" value="<%=request.getParameter("image")%>" />
+                                        <input type="file" name="file[]" required value="<%=request.getParameter("image")%>" />
                                     </div>
                                   </div>
                                    <div class="form-group">

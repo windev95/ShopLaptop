@@ -36,7 +36,6 @@ public class InsertImageServlet extends HttpServlet {
         ServletFileUpload sfu = new ServletFileUpload(file_factory); 
         ArrayList<String> campos = new ArrayList<>();
         ArrayList<String> imgs = new ArrayList<>();
-        String url = "";
         try {
             List items  = sfu.parseRequest(request);
             for (int i = 0; i < items.size(); i++) { 
@@ -50,12 +49,11 @@ public class InsertImageServlet extends HttpServlet {
                     campos.add(item.getString("UTF-8"));
                 }
             }
-            dao.insert(new Image(campos.get(0), imgs.get(0), Long.parseLong(campos.get(1))));
-            url = "/Admin/manager_image.jsp";
+            dao.insert(new Image(campos.get(0), imgs.get(0), Long.parseLong(campos.get(1))));     
         } catch (Exception e) {
         }
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-        rd.forward(request, response);
+        getServletContext().getRequestDispatcher("/Admin/manager_image.jsp").forward(
+                request, response);
     }
     @Override
     public String getServletInfo() {
