@@ -549,6 +549,23 @@ public class ProductDAO
         return false;
         }
     }
+    public Product getProducer(long producerID) {
+    try {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM product WHERE product_id = ?";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ps.setLong(1, producerID);
+        ResultSet rs = ps.executeQuery();
+        Product u = new Product();
+        while (rs.next()) {
+        u.setProductName(rs.getString("product_name"));
+        }
+    return u;
+    } catch (SQLException ex) {
+    
+    }
+    return null;
+    }
     public static void main(String[] args) throws SQLException {
         ProductDAO dao = new ProductDAO(); 
         for (Product ds : dao.getListProductByNav(1, 1, 9)) 

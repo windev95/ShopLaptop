@@ -3,7 +3,8 @@
     Created on : Dec 30, 2016, 5:42:36 PM
     Author     : Khang
 --%>
-
+<%@page import="dao.ProductDAO"%>
+<%@page import="model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +27,7 @@
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
+            ProductDAO productDAO = new ProductDAO();
         %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -45,7 +47,7 @@
                       <div class="row">
                           <div class="col-xs-12">
                             <!-- Horizontal Form -->
-                            <div class="box box-info">
+                            <div class="box box-primary">
                               <div class="box-header with-border">
                                 <h3 class="box-title">Thông tin hình ảnh</h3>
                               </div>
@@ -70,17 +72,23 @@
                                     </div>
                                   </div>
                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">id product</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="number" name="id" required class="form-control" value="" id="inputEmail3" placeholder="Tên hình ảnh">
-                                    </div>
-                                  </div>                                                                
+                                            <label class="col-sm-2 control-label">Chọn danh mục</label>
+                                            <div class="col-sm-10">
+                                            <select name="product_id"  class="form-control">
+                                                <%
+                                                    for (Product p : productDAO.getListAllProduct())
+                                                    {
+                                                    %>
+                                                    <option value="<%=p.getProductID()%>" ><%=p.getProductName()%></option>
+                                                <% } %> 
+                                                
+                                            </select>
+                                            </div>                                                               
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
-                                  <button type="submit" class="btn btn-info pull-right">Thêm dữ liệu</button>
+                                  <button type="submit" class="btn btn-primary pull-right">Thêm dữ liệu</button>
                                 </div>
                                 <!-- /.box-footer -->
                               </form>

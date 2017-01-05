@@ -6,6 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ImageDAO"%>
+<%@page import="dao.ProductDAO"%>
 <%@page import="model.Image"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,6 +28,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <%
             ImageDAO categorydao = new ImageDAO();
+            ProductDAO productDAO = new ProductDAO();
             ArrayList<Image> listImages = categorydao.getListImage();            
         %>
         <div class="wrapper">
@@ -77,7 +79,7 @@
                                                                 <a class="product-img"><img src="${root}../images/product/<%=image.getImageImage()%>" width="50" height="50" alt="<%=image.getImageImage()%>"></a>
                                                             </div>
                                                         </div></td>
-                                          <td><%=image.getProductID()%></td>                                      
+                                                        <td><%=productDAO.getProduct(image.getProductID()).getProductName()%></td>                                      
                                           <td>
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
