@@ -72,76 +72,7 @@ public class ManagerProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        java.util.Date date = new Date();
-        Timestamp timestamp = new Timestamp(date.getTime());
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
-        String command = request.getParameter("command");
-        String product_name = request.getParameter("product_name");
-        String product_image = request.getParameter("product_image");
-        String product_color = request.getParameter("product_color");
-        String product_content = request.getParameter("product_content");
-        String product_metatitle = request.getParameter("product_metatitle");
-        String product_metakeywords = request.getParameter("product_metakeywords");
-        String product_metadescription = request.getParameter("product_metadescription");
-        String product_cpudetail = request.getParameter("product_cpudetail");
-        String product_ramdetail = request.getParameter("product_ramdetail");
-        String product_storagedetail = request.getParameter("product_storagedetail");
-        String product_screen = request.getParameter("product_screen");
-        String product_screendetail = request.getParameter("product_screendetail");
-        String product_vga = request.getParameter("product_vga");
-        String product_sound = request.getParameter("product_sound");
-        String product_dvd = request.getParameter("product_dvd");
-        String product_connect = request.getParameter("product_connect");
-        String product_lan = request.getParameter("product_lan");
-        String product_wifi = request.getParameter("product_wifi");
-        String product_wireless = request.getParameter("product_wireless");
-        String product_cardreader = request.getParameter("product_cardreader");
-        String product_webcam = request.getParameter("product_webcam");
-        String product_pin = request.getParameter("product_pin");
-        String product_os = request.getParameter("product_os");
-        String product_size = request.getParameter("product_size");
-        String product_weight = request.getParameter("product_weight");
-        String product_material = request.getParameter("product_material");
-        int product_price = Integer.parseInt(request.getParameter("product_price"));
-        int product_sale = Integer.parseInt(request.getParameter("product_sale"));
-        int product_price_real = Integer.parseInt(request.getParameter("product_price_real"));
-        int product_buys = Integer.parseInt(request.getParameter("product_buys"));
-        int product_inventory = Integer.parseInt(request.getParameter("product_inventory"));
-        long cpu_id = Long.parseLong(request.getParameter("cpu_id"));
-        long ram_id = Long.parseLong(request.getParameter("ram_id"));
-        long storage_id = Long.parseLong(request.getParameter("storage_id"));
-        long pricelevel_id = Long.parseLong(request.getParameter("pricelevel_id"));
-        long screensize_id = Long.parseLong(request.getParameter("screensize_id"));
-        long category_id = Long.parseLong(request.getParameter("category_id"));       
-        long producer_id = Long.parseLong(request.getParameter("producer_id"));
-        int product_hide = Integer.parseInt(request.getParameter("product_hide"));
-        String url = "", error = "";      
-        if (product_name.equals("")) {
-            error = "Vui lòng nhập tên!";
-            request.setAttribute("error", error);
-        }
-        try {
-            if (error.length() == 0) {
-                switch (command) {
-                    case "insert":
-                {                  
-                    productDAO.insert(new Product(new Date().getTime()%1000, product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, product_hide, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
-                }
-                        url = "/Admin/manager_product.jsp";
-                        break;
-                    case "update":
-                        //productDAO.update(new Product(Long.parseLong(request.getParameter("product_id")), product_name, product_image, product_color, product_content, product_metatitle, product_metakeywords, product_metadescription, product_cpudetail, product_ramdetail, product_storagedetail, product_screen, product_screendetail, product_vga, product_sound, product_dvd, product_connect, product_lan, product_wifi, product_wireless, product_cardreader, product_webcam, product_pin, product_os, product_size, product_weight, product_material, product_price, product_sale, product_price_real, timestamp, product_buys, product_inventory, true, cpu_id, ram_id, storage_id, pricelevel_id, screensize_id, category_id, producer_id));
-                        url = "/Admin/manager_product.jsp";
-                        break;
-                }
-            } else {
-                url = "/Admin/insert_product.jsp";
-            }
-        } catch (Exception e) {
-        }
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-        rd.forward(request, response);
+        processRequest(request, response); 
     }
 
 }
