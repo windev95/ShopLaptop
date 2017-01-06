@@ -44,6 +44,44 @@ public class Product {
     private long producerID;  
     public Product() {
     }
+    public Product(String productName, String productImage, String productColor, String productContent, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
+        this.productName = productName;
+        this.productImage = productImage;
+        this.productColor = productColor;
+        this.productContent = productContent;
+        this.productCpuDetail = productCpuDetail;
+        this.productRamDetail = productRamDetail;
+        this.productStorageDetail = productStorageDetail;
+        this.productScreen = productScreen;
+        this.productScreenDetail = productScreenDetail;
+        this.productVGA = productVGA;
+        this.productSound = productSound;
+        this.productDVD = productDVD;
+        this.productConnect = productConnect;
+        this.productLAN = productLAN;
+        this.productWifi = productWifi;
+        this.productWireless = productWireless;
+        this.productCardReader = productCardReader;
+        this.productWebcam = productWebcam;
+        this.productPin = productPin;
+        this.productOS = productOS;
+        this.productSize = productSize;
+        this.productWeight = productWeight;
+        this.productMaterial = productMaterial;
+        this.productPrice = productPrice;
+        this.productSale = productSale;
+        this.productPriceReal = productPriceReal;
+        this.productUpdate = productUpdate;
+        this.productInventory = productInventory;
+        this.productHide = productHide;
+        this.cpuID = cpuid;
+        this.ramID = ramid;
+        this.storageID = storageid;
+        this.pricelevelID = pricelevelid;
+        this.screensizeID = screensizeid;
+        this.categoryID = categoryid;
+        this.producerID = producerid;
+    }
     public Product(long productID, String productName, String productImage, String productColor, String productContent, String productMetaTitle, String productMetaKeywords, String productMetaDescription, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productBuys, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
         this.productID = productID;
         this.productName = productName;

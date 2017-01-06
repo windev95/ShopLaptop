@@ -178,9 +178,7 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.write("                                          <td>\r\n");
       out.write("                                              <center> \r\n");
       out.write("                                             <button class=\"btn btn-primary btn-xs\" onclick=\"location.href='#'\"><i class=\"glyphicon glyphicon-pencil\"></i> Sửa</button>\r\n");
-      out.write("                                             <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='../ManagerProductServlet?command=delete&product_id=");
-      out.print(p.getProductID());
-      out.write("'\"><i class=\"glyphicon glyphicon-remove\"></i> Xóa</button>\r\n");
+      out.write("                                             <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='#'\"><i class=\"glyphicon glyphicon-remove\"></i> Xóa</button>\r\n");
       out.write("                                                </center> \r\n");
       out.write("                                           </td>                                         \r\n");
       out.write("                                        </tr>\r\n");
@@ -252,6 +250,14 @@ public final class manager_005fproduct_jsp extends org.apache.jasper.runtime.Htt
       out.write("                });\r\n");
       out.write("            });\r\n");
       out.write("            </script>\r\n");
+      out.write("            <script type=\"text/javascript\">\r\n");
+      out.write("\t$(function(){\r\n");
+      out.write("\t\t$('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');\r\n");
+      out.write("\t\t$('.sidebar-menu a').click(function(){\r\n");
+      out.write("\t\t\t$(this).parent().addClass('active').siblings().removeClass('active');\t\r\n");
+      out.write("\t\t});\r\n");
+      out.write("\t});\r\n");
+      out.write("\t</script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

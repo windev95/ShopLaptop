@@ -77,96 +77,106 @@
                               </div>
                               <!-- /.box-header -->
                               <!-- form start -->
-                              <form action="../ManagerProductServlet" method="POST">
+                              <form action="../InsertProductServlet" method="POST" enctype="multipart/form-data">
                                 <div class="box-body">
-                                    <input type="hidden" name="command" value="insert">
+     
                                     <div class="row">
                                         <div class="col-md-6">                                  
                                             <div class="form-group">
                                               <label>Tên sản phẩm</label>
-                                              <input type="text"  name="product_name" required class="form-control" placeholder="">
-                                            </div>                                                                                                        
+                                              <input type="text"  name="product_name" value="dfsg" required class="form-control" placeholder="fsdiuhfsd">
+                                            </div>                                                                                                                                                   
                                             <div class="form-group">
-                                              <label>Hình ảnh</label>
-                                              <input type="text"  name="product_image" class="form-control" placeholder="">
-                                            </div>  
+                                                <label>Chọn hình ảnh</label>             
+                                                <input type="file" name="file[]" required class="form-control" required />
+                                              </div>
                                             <div class="form-group">
                                               <label>Màu sắc</label>
-                                              <input type="text"  name="product_color" class="form-control" placeholder="">
+                                              <input type="text"  name="product_color" required class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Giới thiệu</label>
+                                              <input type="text"  name="product_content" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>CPU</label>
-                                              <input type="text"  name="product_cpudetail" class="form-control" placeholder="">
+                                              <input type="text"  name="product_cpudetail" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Ram</label>
-                                              <input type="text"  name="product_ramdetail" class="form-control" placeholder="">
+                                              <input type="text"  name="product_ramdetail" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Ổ cứng</label>
-                                              <input type="text"  name="product_storagedetail" class="form-control" placeholder="">
+                                              <input type="text"  name="product_storagedetail" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Màn hình</label>
-                                              <input type="text"  name="product_screen" class="form-control" placeholder="">
+                                              <input type="text"  name="product_screen" required class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Màn hình</label>
+                                              <input type="text"  name="product_screendetail" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>VGA</label>
-                                              <input type="text"  name="product_vga" class="form-control" placeholder="">
+                                              <input type="text"  name="product_vga" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Âm thanh</label>
-                                              <input type="text"  name="product_sound" class="form-control" placeholder="">
+                                              <input type="text"  name="product_sound" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Đĩa quang</label>
-                                              <input type="text"  name="product_dvd" class="form-control" placeholder="">
+                                              <input type="text"  name="product_dvd" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Cổng giao tiếp</label>
-                                              <input type="text"  name="product_connect" class="form-control" placeholder="">
+                                              <input type="text"  name="product_connect" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Giao tiếp mạng</label>
-                                              <input type="text"  name="product_lan" class="form-control" placeholder="">
+                                              <input type="text"  name="product_lan"  required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Wifi</label>
-                                              <input type="text"  name="product_wifi" class="form-control" placeholder="">
+                                              <input type="text"  name="product_wifi" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Không dây khác</label>
-                                              <input type="text"  name="product_wireless" class="form-control" placeholder="">
+                                              <input type="text"  name="product_wireless" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Card reader</label>
-                                              <input type="text"  name="product_cardreader" class="form-control" placeholder="">
+                                              <input type="text"  name="product_cardreader" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Webcam</label>
-                                              <input type="text"  name="product_webcam" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Bin</label>
-                                              <input type="text"  name="product_pin" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Hệ điều hành</label>
-                                              <input type="text"  name="product_os" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Kích thước</label>
-                                              <input type="text"  name="product_size" class="form-control" placeholder="">
+                                              <input type="text"  name="product_webcam" required class="form-control" placeholder="">
                                             </div>
                                             </div>
                                             <div class="col-md-6">
                                             <div class="form-group">
+                                              <label>Bin</label>
+                                              <input type="text"  name="product_pin" required class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Hệ điều hành</label>
+                                              <input type="text"  name="product_os" required class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Kích thước</label>
+                                              <input type="text"  name="product_size" required class="form-control" placeholder="">
+                                            </div>
+                                            
+          
+                                            <div class="form-group">
                                               <label>Trọng lượng</label>
-                                              <input type="text"  name="product_weight" class="form-control" placeholder="">
+                                              <input type="text"  name="product_weight" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Chất liệu</label>
-                                              <input type="text"  name="product_material" class="form-control" placeholder="">
+                                              <input type="text"  name="product_material" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Giá</label>
@@ -181,12 +191,15 @@
                                               <input type="number"  name="product_price_real" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
-                                              <label>Số lượng</label>
-                                              <input type="number"  name="product_buys" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
                                               <label>Tồn kho</label>
                                               <input type="number"  name="product_inventory" required class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                            <label>Ẩn sản phẩm</label>
+                                            <select name="product_hide"  class="form-control">
+                                                <option value="0" >Không</option>
+                                                <option value="1" >Có</option> 
+                                            </select>
                                             </div>
                                             <div class="form-group">
                                             <label>Chọn CPU</label>
@@ -264,30 +277,7 @@
                                                 <option value="<%=p.getProducerID()%>" ><%=p.getProducerName()%></option>
                                                 <% } %>
                                             </select>
-                                            </div>    
-                                            <div class="form-group">
-                                              <label>product_metatitle</label>
-                                              <input type="text"  name="product_metatitle" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>product_metakeywords</label>
-                                              <input type="text"  name="product_metakeywords" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>product_metadescription</label>
-                                              <input type="text"  name="product_metadescription" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Giới thiệu</label>
-                                              <input type="text"  name="product_content" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Ẩn sản phẩm</label>
-                                            <select name="product_hide"  class="form-control">
-                                                <option value="0" >Không</option>
-                                                <option value="1" >Có</option> 
-                                            </select>
-                                            </div>
+                                            </div>                                                                                                                                  
                                         </div>                                       
                                     </div>
                                     <!-- /.box-body -->
