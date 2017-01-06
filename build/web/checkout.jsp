@@ -59,17 +59,17 @@
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" maxlength="50" placeholder="Tên" name="name" required />
+                                                <input type="text" value="<%=session.getAttribute("name")%>" maxlength="50" placeholder="Tên" name="name" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" maxlength="50" placeholder="Điện thoại" name="phone" required />
+                                                <input type="text" value="<%=session.getAttribute("phone")%>" maxlength="50" placeholder="Điện thoại" name="phone" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" maxlength="50" placeholder="Địa chỉ" name="address" required />
+                                                <input type="text" value="<%=session.getAttribute("address")%>" maxlength="50" placeholder="Địa chỉ" name="address" required />
                                             </div>
                                         </div>
                                         <div class="row info-input">

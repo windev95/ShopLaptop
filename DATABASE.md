@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS `producer`;
 CREATE TABLE `producer` (   
 `producer_id` bigint(20) NOT NULL auto_increment,   
 `producer_name` varchar(50) NULL,  
- `producer_ image _brand` varchar(50)  NULL,    
+ `producer_image_brand` varchar(50)  NULL,    
  `producer_link` varchar(100) NULL,  
  PRIMARY KEY  (`producer_id`)
  ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
