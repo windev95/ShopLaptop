@@ -1,11 +1,11 @@
-
-<%@page import="model.Category"%>
+<%@page import="dao.ProducerDAO"%>
+<%@page import="model.Producer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cập nhật danh mục</title>
+        <title>Cập nhật nhà sản xuất</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -22,7 +22,8 @@
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
-        %>                                                                                
+            ProducerDAO productDAO = new ProducerDAO();
+        %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
@@ -43,47 +44,35 @@
                             <!-- Horizontal Form -->
                             <div class="box box-primary">
                               <div class="box-header with-border">
-                                <h3 class="box-title">Sửa danh mục sản phẩm</h3>
+                                <h3 class="box-title">Thông tin nhà sản xuất</h3>
                               </div>
                               <!-- /.box-header -->
                               <!-- form start -->
-                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
+                              <form class="form-horizontal" action="../UpdateProducerServlet" method="POST" enctype="multipart/form-data">
                                 <div class="box-body">
-                                    <input type="hidden" name="command" value="update">
-                                    <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
+                                    <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên nhà sản xuất</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
+                                        <input type="text" name="name" required class="form-control" value="<%=request.getParameter("name")%>" id="inputEmail3" placeholder="Tên nhà sản xuất">
                                     </div>
                                   </div>
                                   
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Chọn hình ảnh</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mt" value="<%=request.getParameter("category_metatitle")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metatitle")%>">
+                                        <input type="file" name="file[]" required />
                                     </div>
                                   </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
+                                   <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Link nhà sản xuất</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mk" value="<%=request.getParameter("category_metakeywords")%>"  class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metakeywords")%>">
+                                        <input type="url" name="link" required class="form-control" value="<%=request.getParameter("link")%>" id="inputEmail3" placeholder="Link nhà sản xuất">
                                     </div>
                                   </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" name="md" value="<%=request.getParameter("category_metadescription")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metadescription")%>">
-                                    </div>
-                                  </div>
-                                    
-                                </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
@@ -105,10 +94,10 @@
             <script src="${root}/Admin/layout/plugins/jQuery/jquery-2.2.3.min.js"></script>
             <script src="${root}/Admin/layout/bootstrap/js/bootstrap.min.js"></script>
             <script src="${root}/Admin/layout/plugins/datatables/jquery.dataTables.min.js"></script>
-            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>
+            <script src="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.min.js"></script>          
             <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
             <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
             <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
-            <script src="${root}/Admin/layout/dist/js/demo.js"></script>                                                                 
+            <script src="${root}/Admin/layout/dist/js/demo.js"></script>           
     </body>
 </html>

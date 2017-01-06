@@ -56,6 +56,18 @@
         <servlet-name>ManagerCpuServlet</servlet-name>
         <servlet-class>controller.ManagerCpuServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InsertProducerServlet</servlet-name>
+        <servlet-class>controller.InsertProducerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProducerServlet</servlet-name>
+        <servlet-class>controller.UpdateProducerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DelProducerServlet</servlet-name>
+        <servlet-class>controller.DelProducerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -111,6 +123,18 @@
     <servlet-mapping>
         <servlet-name>ManagerCpuServlet</servlet-name>
         <url-pattern>/ManagerCpuServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertProducerServlet</servlet-name>
+        <url-pattern>/InsertProducerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProducerServlet</servlet-name>
+        <url-pattern>/UpdateProducerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DelProducerServlet</servlet-name>
+        <url-pattern>/DelProducerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

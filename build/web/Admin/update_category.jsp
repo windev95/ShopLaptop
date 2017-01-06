@@ -87,7 +87,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
-                                  <button type="submit" class="btn btn-primary pull-right">Lưu dữ liệu</button>
+                                  <button type="submit" class="btn btn-primary pull-right">Cập nhật</button>
                                 </div>
                                 <!-- /.box-footer -->
                               </form>

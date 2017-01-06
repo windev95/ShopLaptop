@@ -7,7 +7,11 @@ public class Producer {
 
     public Producer() {
     }
-
+    public Producer(String producerName, String producerImageBrand, String producerLink) {
+        this.producerName = producerName;
+        this.producerImageBrand = producerImageBrand;
+        this.producerLink = producerLink;
+    }
     public Producer(long producerID, String producerName, String producerImageBrand, String producerLink) {
         this.producerID = producerID;
         this.producerName = producerName;

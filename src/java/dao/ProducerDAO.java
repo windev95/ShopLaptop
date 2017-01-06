@@ -18,7 +18,9 @@ public class ProducerDAO {
         {             
             Producer category = new Producer();      
             category.setProducerID(rs.getInt("producer_id"));       
-            category.setProducerName(rs.getString("producer_name"));       
+            category.setProducerName(rs.getString("producer_name"));
+            category.setProducerImageBrand(rs.getString("producer_image_brand"));
+            category.setProducerLink(rs.getString("producer_link")); 
             list.add(category);         
         }         
         return list;    
@@ -72,6 +74,47 @@ public class ProducerDAO {
     
     }
     return null;
+    }
+    public boolean insert(Producer c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "call insertproducer(?,?,?)";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, c.getProducerName());
+            ps.setString(2, c.getProducerImageBrand());
+            ps.setString(3, c.getProducerLink());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+    public boolean update(Producer c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE producer SET producer_name= ?,producer_image_brand=?,producer_link=? WHERE producer_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setString(1, c.getProducerName());
+            ps.setString(2, c.getProducerImageBrand());
+            ps.setString(3, c.getProducerLink());
+            ps.setLong(4, c.getProducerID());
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+    public boolean delete(long producer_id) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "DELETE FROM producer WHERE producer_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, producer_id);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
     }
     public static void main(String[] args) throws SQLException 
     {       
