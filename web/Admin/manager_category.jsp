@@ -63,7 +63,7 @@
                                             <th>Tittle</th>
                                             <th>Keywords</th>
                                             <th>Description</th>
-                                            <th>Tùy chọn</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </thead>
                                        <tbody>
@@ -76,7 +76,7 @@
                                           <td><%=category.getCategorymt()%></td>
                                           <td><%=category.getCategorymkw()%></td>
                                           <td><%=category.getCategorymd()%></td>
-                                          <td>
+                                          <td width="75px"> 
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
                                              <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
@@ -92,7 +92,7 @@
                                             <th>Tittle</th>
                                             <th>Keywords</th>
                                             <th>Description</th>
-                                            <th>Tùy chọn</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </tfoot>
                                      </table>

@@ -1,18 +1,18 @@
 <%-- 
-    Document   : manager_product
-    Created on : Dec 30, 2016, 10:18:52 AM
+    Document   : manager_category
+    Created on : Dec 30, 2016, 10:14:21 AM
     Author     : Khang
 --%>
-<%@page import="dao.UsersDAO"%>
-<%@page import="model.Bill"%>
+
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.BillDAO"%>
+<%@page import="dao.CpuDAO"%>
+<%@page import="model.Cpu"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Quản lý đơn hàng</title>
+        <title>Quản lý loại CPU</title>
         <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -23,15 +23,13 @@
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
-    </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
-            BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBill();
-            UsersDAO usersDAO = new UsersDAO();            
+            CpuDAO categorydao = new CpuDAO();
+            ArrayList<Cpu> listCategory = categorydao.getListCpu();            
         %>
-       <div class="wrapper">
+        <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
                 <section class="content-header">
@@ -52,37 +50,30 @@
 
                                  <div class="box">
                                    <div class="box-header">
-                                     <h3 class="box-title">Bảng hóa đơn</h3>                                                                          
+                                     <h3 class="box-title">Bảng danh mục loại CPU</h3>                                     
+                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_cpu.jsp">THÊM MỚI</a>
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
-                                     <table id="example1" class="table table-bordered table-striped">
+                                     <table id="example1" class="table table-bordered table-striped display" cellspacing="0" width="100%">
                                        <thead>
                                        <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>							
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Địa chỉ giao hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th width="75px">Tùy chọn</th>                                           
+                                            <th>Mã loại CPU</th>
+                                            <th>Tên Loại CPU</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </thead>
                                        <tbody>
                                         <%
-                                            for(Bill bill : listBill){
+                                            for(Cpu category : listCategory){
                                         %>
                                         <tr>                                        
-                                          <td><%=bill.getBillID()%></td>
-                                          <td><%=usersDAO.getUser(bill.getUserID()).getUserEmail()%></td>
-                                          <td><%=bill.getBillTotal()%></td>
-                                          <td><%=bill.getBillPayment()%></td>
-                                          <td><%=bill.getBillAddress()%></td>
-                                          <td><%=bill.getBillDate()%></td>                                         
+                                          <td><%=category.getCpuID()%></td>
+                                          <td><%=category.getCpuName()%></td>
                                           <td width="75px">
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_cpu.jsp?command=update&cpu_id=<%=category.getCpuID()%>&name=<%=category.getCpuName()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCpuServlet?command=delete&cpu_id=<%=category.getCpuID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>
@@ -90,12 +81,8 @@
                                        </tbody>
                                        <tfoot>
                                        <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>							
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Địa chỉ giao hàng</th>
-                                            <th>Ngày mua</th>
+                                            <th>Mã loại CPU</th>
+                                            <th>Tên Loại CPU</th>
                                             <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </tfoot>
@@ -132,12 +119,12 @@
             });
             </script>
             <script type="text/javascript">
-            $(function(){
-                    $('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');
-                    $('.sidebar-menu a').click(function(){
-                            $(this).parent().addClass('active').siblings().removeClass('active');	
-                    });
-            });
-            </script>
+	$(function(){
+		$('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');
+		$('.sidebar-menu a').click(function(){
+			$(this).parent().addClass('active').siblings().removeClass('active');	
+		});
+	});
+	</script>
     </body>
 </html>

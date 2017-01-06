@@ -52,6 +52,10 @@
         <servlet-name>DelImageServlet</servlet-name>
         <servlet-class>controller.DelImageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerCpuServlet</servlet-name>
+        <servlet-class>controller.ManagerCpuServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>DelImageServlet</servlet-name>
         <url-pattern>/DelImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerCpuServlet</servlet-name>
+        <url-pattern>/ManagerCpuServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

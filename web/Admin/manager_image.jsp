@@ -64,7 +64,7 @@
                                             <th>Tên ảnh</th>
                                             <th>Ảnh</th>
                                             <th>Sản phẩm</th>                    
-                                            <th>Tùy chọn</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </thead>
                                        <tbody>
@@ -80,7 +80,7 @@
                                                             </div>
                                                         </div></td>
                                                         <td><%=productDAO.getProduct(image.getProductID()).getProductName()%></td>                                      
-                                          <td>
+                                          <td width="75px">
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_image.jsp?image_id=<%=image.getImageID()%>&name=<%=image.getImageAlt()%>&image=<%=image.getImageImage()%>&id=<%=image.getProductID()%>&productname=<%=productDAO.getProduct(image.getProductID()).getProductName()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
                                              <button class="btn btn-danger btn-xs" onclick="location.href='../DelImageServlet?image_id=<%=image.getImageID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
@@ -95,7 +95,7 @@
                                             <th>Tên ảnh</th>
                                             <th>Ảnh</th>
                                             <th>Sản phẩm</th>                    
-                                            <th>Tùy chọn</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </tfoot>
                                      </table>

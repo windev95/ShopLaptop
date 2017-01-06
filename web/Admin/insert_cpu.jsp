@@ -1,11 +1,15 @@
+<%-- 
+    Document   : insert_category
+    Created on : Dec 30, 2016, 5:42:36 PM
+    Author     : Khang
+--%>
 
-<%@page import="model.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cập nhật danh mục</title>
+        <title>Thêm mới loại CPU</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -22,7 +26,7 @@
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
-        %>                                                                                
+        %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
@@ -43,51 +47,26 @@
                             <!-- Horizontal Form -->
                             <div class="box box-primary">
                               <div class="box-header with-border">
-                                <h3 class="box-title">Sửa danh mục sản phẩm</h3>
+                                <h3 class="box-title">Thông tin loại CPU</h3>
                               </div>
                               <!-- /.box-header -->
                               <!-- form start -->
-                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
+                              <form class="form-horizontal" action="../ManagerCpuServlet" method="POST">
                                 <div class="box-body">
-                                    <input type="hidden" name="command" value="update">
-                                    <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
+                                    <input type="hidden" name="command" value="insert">
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên loại CPU</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
+                                        <input type="text" name="name" required class="form-control" value="" id="inputEmail3" placeholder="Tên loại CPU">
                                     </div>
                                   </div>
                                   
-                                  <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
-
-                                    <div class="col-sm-10">
-                                      <input type="text" name="mt" value="<%=request.getParameter("category_metatitle")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metatitle")%>">
-                                    </div>
-                                  </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
-
-                                    <div class="col-sm-10">
-                                      <input type="text" name="mk" value="<%=request.getParameter("category_metakeywords")%>"  class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metakeywords")%>">
-                                    </div>
-                                  </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" name="md" value="<%=request.getParameter("category_metadescription")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metadescription")%>">
-                                    </div>
-                                  </div>
-                                    
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
-                                  <button type="submit" class="btn btn-primary pull-right">Lưu dữ liệu</button>
+                                  <button type="submit" class="btn btn-primary pull-right">Thêm dữ liệu</button>
                                 </div>
                                 <!-- /.box-footer -->
                               </form>
@@ -109,6 +88,6 @@
             <script src="${root}/Admin/layout/plugins/slimScroll/jquery.slimscroll.min.js"></script>
             <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
             <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
-            <script src="${root}/Admin/layout/dist/js/demo.js"></script>                                                                 
+            <script src="${root}/Admin/layout/dist/js/demo.js"></script>           
     </body>
 </html>

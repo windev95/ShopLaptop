@@ -41,7 +41,7 @@
                       <div class="row">
                           <div class="col-xs-12">
                             <!-- Horizontal Form -->
-                            <div class="box box-info">
+                            <div class="box box-primary">
                               <div class="box-header with-border">
                                 <h3 class="box-title">Sửa danh mục sản phẩm</h3>
                               </div>
@@ -87,7 +87,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
-                                  <button type="submit" class="btn btn-info pull-right">Lưu dữ liệu</button>
+                                  <button type="submit" class="btn btn-primary pull-right">Lưu dữ liệu</button>
                                 </div>
                                 <!-- /.box-footer -->
                               </form>

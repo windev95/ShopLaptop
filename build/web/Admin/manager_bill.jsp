@@ -65,7 +65,7 @@
                                             <th>Thanh toán</th>
                                             <th>Địa chỉ giao hàng</th>
                                             <th>Ngày mua</th>
-                                            <th>Tùy chọn</th>                                           
+                                            <th width="75px">Tùy chọn</th>                                           
                                        </tr>
                                        </thead>
                                        <tbody>
@@ -79,7 +79,7 @@
                                           <td><%=bill.getBillPayment()%></td>
                                           <td><%=bill.getBillAddress()%></td>
                                           <td><%=bill.getBillDate()%></td>                                         
-                                          <td>
+                                          <td width="75px">
                                               <center> 
                                              <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
                                              <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
@@ -96,7 +96,7 @@
                                             <th>Thanh toán</th>
                                             <th>Địa chỉ giao hàng</th>
                                             <th>Ngày mua</th>
-                                            <th>Tùy chọn</th>
+                                            <th width="75px">Tùy chọn</th>
                                        </tr>
                                        </tfoot>
                                      </table>

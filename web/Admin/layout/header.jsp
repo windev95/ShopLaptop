@@ -304,10 +304,10 @@
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="../Admin/index.jsp"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
         <li><a href="../Admin/manager_category.jsp"><i class="fa fa-list-ul"></i> <span>Danh mục</span></a></li>
-        <li><a href="../Admin/manager_product.jsp"><i class="fa fa-laptop"></i> <span>Sản phẩm</span></a></li>
+        <li><a href="../Admin/manager_product.jsp"><i class="fa fa-laptop"></i> <span>Laptop</span></a></li>
         <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-file-o"></i> <span>Hóa đơn</span></a></li>
         <li><a href="../Admin/manager_image.jsp"><i class="fa fa-file-image-o"></i> <span>Hình ảnh</span></a></li>    
-        
+        <li><a href="../Admin/manager_cpu.jsp"><i class="fa fa-bolt"></i> <span>Loại CPU</span></a></li>
 
       </ul>
     </section>

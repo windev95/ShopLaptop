@@ -1,11 +1,11 @@
 
-<%@page import="model.Category"%>
+<%@page import="model.Cpu"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cập nhật danh mục</title>
+        <title>Cập nhật loại CPU</title>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -43,46 +43,21 @@
                             <!-- Horizontal Form -->
                             <div class="box box-primary">
                               <div class="box-header with-border">
-                                <h3 class="box-title">Sửa danh mục sản phẩm</h3>
+                                <h3 class="box-title">Sửa loại CPU</h3>
                               </div>
                               <!-- /.box-header -->
                               <!-- form start -->
-                              <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
+                              <form class="form-horizontal" action="../ManagerCpuServlet" method="POST">
                                 <div class="box-body">
                                     <input type="hidden" name="command" value="update">
-                                    <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
+                                    <input type="hidden" name="cpu_id" value="<%=request.getParameter("cpu_id")%>">
                                   <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
+                                    <label for="inputEmail3" class="col-sm-2 control-label">Tên CPU</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
+                                        <input type="text" name="name" class="form-control" required value="<%=request.getParameter("name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
                                     </div>
-                                  </div>
-                                  
-                                  <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
-
-                                    <div class="col-sm-10">
-                                      <input type="text" name="mt" value="<%=request.getParameter("category_metatitle")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metatitle")%>">
-                                    </div>
-                                  </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
-
-                                    <div class="col-sm-10">
-                                      <input type="text" name="mk" value="<%=request.getParameter("category_metakeywords")%>"  class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metakeywords")%>">
-                                    </div>
-                                  </div>
-                                  
-                                    <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" name="md" value="<%=request.getParameter("category_metadescription")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metadescription")%>">
-                                    </div>
-                                  </div>
-                                    
+                                  </div>                                
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">

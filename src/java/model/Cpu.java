@@ -5,6 +5,9 @@ public class Cpu {
 
     public Cpu() {
     }
+    public Cpu(String cpuName) {
+        this.cpuName = cpuName;
+    }
 
     public Cpu(long cpuID, String cpuName) {
         this.cpuID = cpuID;
