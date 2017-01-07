@@ -17,6 +17,8 @@
 <%@page import="model.Cpu"%>
 <%@page import="dao.ProducerDAO"%>
 <%@page import="model.Producer"%>
+<%@page import="model.Product" %>
+<%@page import="dao.ProductDAO" %>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,12 +48,20 @@
                 error = (String) request.getParameter("error");
             }
             ProducerDAO producerdao = new ProducerDAO();
+            ProductDAO productDAO = new ProductDAO();
             CategoryDAO cdao = new CategoryDAO();
             PricelevelDAO pldap = new PricelevelDAO();
             RamDAO rdao = new RamDAO();
             StorageDAO srdao = new StorageDAO();
             CpuDAO cpudao = new CpuDAO();
             ScreensizeDAO srsdao = new ScreensizeDAO();
+            Product product = new Product();
+            String productID = "";
+            if(request.getParameter("product_id") != null)
+                {
+                    productID = request.getParameter("product_id");
+                    product = productDAO.getProduct(Long.parseLong(productID));
+                }
         %>
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -79,12 +89,12 @@
                               <!-- form start -->
                               <form action="../UpdateProductServlet" method="POST" enctype="multipart/form-data">
                                 <div class="box-body">
-                                    <input type="hidden" name="product_id" value="<%=request.getParameter("product_id")%>">
+                                    <input type="hidden" name="product_id" value="<%=product.getProductID()%>">
                                     <div class="row">
                                         <div class="col-md-6">                                  
                                             <div class="form-group">
                                               <label>Tên sản phẩm</label>
-                                              <input type="text"  name="product_name" required class="form-control" value="<%=request.getParameter("product_name")%>">
+                                              <input type="text"  name="product_name" required class="form-control" value="<%=product.getProductName()%>">
                                             </div>                                                                                                                                                   
                                             <div class="form-group">
                                                 <label>Chọn hình ảnh</label>             
@@ -92,107 +102,107 @@
                                               </div>
                                             <div class="form-group">
                                               <label>Màu sắc</label>
-                                              <input type="text"  name="product_color" required class="form-control" value="<%=request.getParameter("product_color")%>" >
+                                              <input type="text"  name="product_color" required class="form-control" value="<%=product.getProductColor()%>" >
                                             </div>
                                             <div class="form-group">
                                               <label>Giới thiệu</label>
-                                              <input type="text"  name="product_content" required class="form-control" value="<%=request.getParameter("product_content")%>">
+                                              <input type="text"  name="product_content" required class="form-control" value="<%=product.getProductContent()%>">
                                             </div>
                                             <div class="form-group">
                                               <label>CPU</label>
-                                              <input type="text"  name="product_cpudetail" required class="form-control" value="<%=request.getParameter("product_cpudetail")%>">
+                                              <input type="text"  name="product_cpudetail" required class="form-control" value="<%=product.getProductCpuDetail()%>">
                                             </div>
                                             <div class="form-group">
                                               <label>Ram</label>
-                                              <input type="text"  name="product_ramdetail" required class="form-control" value="<%=request.getParameter("product_ramdetail")%>">
+                                              <input type="text"  name="product_ramdetail" required class="form-control" value="<%=product.getProductRamDetail()%>">
                                             </div>
                                             <div class="form-group">
                                               <label>Ổ cứng</label>
-                                              <input type="text"  name="product_storagedetail" value="<%=request.getParameter("product_storagedetail")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_storagedetail" value="<%=product.getProductStorageDetail()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Màn hình</label>
-                                              <input type="text"  name="product_screen" value="<%=request.getParameter("product_screen")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_screen" value="<%=product.getProductScreen()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Màn hình</label>
-                                              <input type="text"  name="product_screendetail" value="<%=request.getParameter("product_screendetail")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_screendetail" value="<%=product.getProductScreenDetail()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>VGA</label>
-                                              <input type="text"  name="product_vga" value="<%=request.getParameter("product_vga")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_vga" value="<%=product.getProductVGA()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Âm thanh</label>
-                                              <input type="text"  name="product_sound" value="<%=request.getParameter("product_sound")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_sound" value="<%=product.getProductSound()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Đĩa quang</label>
-                                              <input type="text"  name="product_dvd" value="<%=request.getParameter("product_dvd")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_dvd" value="<%=product.getProductDVD()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Cổng giao tiếp</label>
-                                              <input type="text"  name="product_connect" value="<%=request.getParameter("product_connect")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_connect" value="<%=product.getProductConnect()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Giao tiếp mạng</label>
-                                              <input type="text"  name="product_lan" value="<%=request.getParameter("product_lan")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_lan" value="<%=product.getProductLAN()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Wifi</label>
-                                              <input type="text"  name="product_wifi" value="<%=request.getParameter("product_wifi")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_wifi" value="<%=product.getProductWifi()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Không dây khác</label>
-                                              <input type="text"  name="product_wireless" value="<%=request.getParameter("product_wireless")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_wireless" value="<%=product.getProductWireless()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Card reader</label>
-                                              <input type="text"  name="product_cardreader" value="<%=request.getParameter("product_cardreader")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_cardreader" value="<%=product.getProductCardReader()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Webcam</label>
-                                              <input type="text"  name="product_webcam" value="<%=request.getParameter("product_webcam")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_webcam" value="<%=product.getProductWebcam()%>" required class="form-control" placeholder="">
                                             </div>
                                             </div>
                                             <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Bin</label>
-                                              <input type="text"  name="product_pin" value="<%=request.getParameter("product_pin")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_pin" value="<%=product.getProductPin()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Hệ điều hành</label>
-                                              <input type="text"  name="product_os" value="<%=request.getParameter("product_os")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_os" value="<%=product.getProductOS()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Kích thước</label>
-                                              <input type="text"  name="product_size" value="<%=request.getParameter("product_size")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_size" value="<%=product.getProductSize()%>" required class="form-control" placeholder="">
                                             </div>
                                             
           
                                             <div class="form-group">
                                               <label>Trọng lượng</label>
-                                              <input type="text"  name="product_weight" value="<%=request.getParameter("product_weight")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_weight" value="<%=product.getProductWeight()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Chất liệu</label>
-                                              <input type="text"  name="product_material" value="<%=request.getParameter("product_material")%>" required class="form-control" placeholder="">
+                                              <input type="text"  name="product_material" value="<%=product.getProductMaterial()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Giá</label>
-                                              <input type="number"  name="product_price" value="<%=request.getParameter("product_price")%>" required class="form-control" placeholder="">
+                                              <input type="number"  name="product_price" value="<%=product.getProductPrice()%>" required class="form-control" placeholder="">
                                             </div>                                          
                                             <div class="form-group">
                                               <label>Giảm giá</label>
-                                              <input type="number"  name="product_sale" value="<%=request.getParameter("product_sale")%>" required class="form-control" placeholder="">
+                                              <input type="number"  name="product_sale" value="<%=product.getProductSale()%>" required class="form-control" placeholder="">
                                             </div>  
                                             <div class="form-group">
                                               <label>Giá thật</label>
-                                              <input type="number"  name="product_price_real" value="<%=request.getParameter("product_price_real")%>" required class="form-control" placeholder="">
+                                              <input type="number"  name="product_price_real" value="<%=product.getProductPriceReal()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                               <label>Tồn kho</label>
-                                              <input type="number"  name="product_inventory" value="<%=request.getParameter("product_inventory")%>" required class="form-control" placeholder="">
+                                              <input type="number"  name="product_inventory" value="<%=product.getProductInventory()%>" required class="form-control" placeholder="">
                                             </div>
                                             <div class="form-group">
                                             <label>Ẩn sản phẩm</label>
