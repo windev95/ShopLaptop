@@ -195,8 +195,7 @@
                                                   <div class="col-md-12">
                                                       <div class="box box-info">
                                                         <div class="box-header">
-                                                          <h3 class="box-title">Giới thiệu sản phẩm
-                                                          </h3>
+                                                          <h3 class="box-title">Giới thiệu sản phẩm</h3>
                                                           <div class="pull-right box-tools">
                                                             <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                                                               <i class="fa fa-minus"></i></button>
@@ -206,7 +205,7 @@
                                                         </div>
                                                         <div class="box-body pad">
                                                           <form>
-                                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                                <textarea id="product_content" name="product_content" rows="10" cols="80">
                                                                      <%=product.getProductContent()%>
                                                                 </textarea>
                                                           </form>
@@ -592,7 +591,7 @@
         <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
         <script>
             $(function () {
-                CKEDITOR.replace('editor1');
+                CKEDITOR.replace('product_content');
               $(".textarea").wysihtml5();
             });
         </script>
