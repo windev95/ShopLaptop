@@ -1,6 +1,41 @@
 TẠO DATABASE shoplaptop
 CREATE DATABASE `shoplaptop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertcpu` (IN `cpu_name` VARCHAR(50) CHARSET utf8)  begin 
+INSERT INTO cpu(cpu_name) VALUES (cpu_name);
+END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INSERTimage` (IN `image_alt` VARCHAR(100) CHARSET utf8, IN `image_image` VARCHAR(50) CHARSET utf8, IN `product_id` BIGINT(20))  begin 
+INSERT INTO image(image_alt,image_image, product_id) VALUES (image_alt,image_image,product_id);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertos` (IN `os_name` VARCHAR(50) CHARSET utf8)  begin 
+INSERT INTO os(os_name) VALUES (os_name);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertproducer` (IN `producer_name` VARCHAR(50) CHARSET utf8, IN `producer_image_brand` VARCHAR(50) CHARSET utf8, IN `producer_link` VARCHAR(100) CHARSET utf8)  begin 
+INSERT INTO producer(producer_name, producer_image_brand, producer_link) VALUES (producer_name, producer_image_brand, producer_link);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertproduct` (IN `product_name` VARCHAR(50) CHARSET utf8, IN `product_image` VARCHAR(50) CHARSET utf8, IN `product_color` VARCHAR(50) CHARSET utf8, IN `product_content` LONGTEXT CHARSET utf8, IN `product_cpudetail` VARCHAR(200) CHARSET utf8, IN `product_ramdetail` VARCHAR(200) CHARSET utf8, IN `product_storagedetail` VARCHAR(300) CHARSET utf8, IN `product_screen` VARCHAR(10) CHARSET utf8, IN `product_screendetail` VARCHAR(300) CHARSET utf8, IN `product_vga` VARCHAR(300) CHARSET utf8, IN `product_sound` VARCHAR(300) CHARSET utf8, IN `product_dvd` VARCHAR(100) CHARSET utf8, IN `product_connect` VARCHAR(300) CHARSET utf8, IN `product_lan` VARCHAR(200) CHARSET utf8, IN `product_wifi` VARCHAR(100) CHARSET utf8, IN `product_wireless` VARCHAR(300) CHARSET utf8, IN `product_cardreader` VARCHAR(100) CHARSET utf8, IN `product_webcam` VARCHAR(100) CHARSET utf8, IN `product_pin` VARCHAR(50) CHARSET utf8, IN `product_os` VARCHAR(50) CHARSET utf8, IN `product_size` VARCHAR(300) CHARSET utf8, IN `product_weight` VARCHAR(50) CHARSET utf8, IN `product_material` VARCHAR(50) CHARSET utf8, IN `product_price` DOUBLE, IN `product_sale` INT(11), IN `product_price_real` DOUBLE, IN `product_update` TIMESTAMP, IN `product_inventory` INT(11), IN `product_hide` INT(1), IN `cpu_id` BIGINT(20), IN `ram_id` BIGINT(20), IN `storage_id` BIGINT(20), IN `pricelevel_id` BIGINT(20), IN `screensize_id` BIGINT(20), IN `category_id` BIGINT(20), IN `producer_id` BIGINT(20))  begin 
+INSERT INTO product(product_name,product_image,product_color,product_content,product_cpudetail,product_ramdetail,product_storagedetail, product_screen,product_screendetail,product_vga,product_sound,product_dvd,product_connect,product_lan,product_wifi,product_wireless,product_cardreader,product_webcam,product_pin,product_os,product_size,product_weight,product_material,product_price,product_sale,product_price_real,product_update,product_inventory,product_hide,cpu_id,ram_id,storage_id,pricelevel_id,screensize_id,category_id,producer_id) VALUES (product_name,product_image,product_color,product_content,product_cpudetail,product_ramdetail,product_storagedetail, product_screen,product_screendetail,product_vga,product_sound,product_dvd,product_connect,product_lan,product_wifi,product_wireless,product_cardreader,product_webcam,product_pin,product_os,product_size,product_weight,product_material,product_price,product_sale,product_price_real,product_update,product_inventory,product_hide,cpu_id,ram_id,storage_id,pricelevel_id,screensize_id,category_id,producer_id);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATEimage` (IN `p_image_id` BIGINT(20), IN `p_image_alt` VARCHAR(100), IN `p_image_image` VARCHAR(50), IN `p_product_id` BIGINT(20))  BEGIN 
+
+    UPDATE image
+    SET    
+           image_alt  = p_image_alt,
+           image_image = p_image_image,
+           product_id = p_product_id
+    WHERE  image_id = p_image_id ; 
+
+END$$
+
+DELIMITER ;
 ======================TẠO BẢNG NSX===========================
 DROP TABLE IF EXISTS `producer`; 
 CREATE TABLE `producer` (   
