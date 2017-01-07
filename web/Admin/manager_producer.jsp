@@ -27,14 +27,7 @@
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
                 <section class="content-header">
-                    <h1>
-                      Dashboard
-                      <small>Version 2.0</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                      <li class="active">Dashboard</li>
-                    </ol>
+                    <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_producer.jsp">THÊM MỚI</a>
                   </section>
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
@@ -45,7 +38,7 @@
                                  <div class="box">
                                    <div class="box-header">
                                      <h3 class="box-title">Bảng nhà sản xuất</h3>                                     
-                                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_producer.jsp">THÊM MỚI</a>
+                                     
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">

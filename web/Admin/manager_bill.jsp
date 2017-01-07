@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
+        
     </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -35,24 +36,23 @@
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
                 <section class="content-header">
-                    <h1>
-                      Dashboard
-                      <small>Version 2.0</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                      <li class="active">Dashboard</li>
-                    </ol>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <a class="btn btn-info">Đã thanh toán</a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-success">Hoàn thành</a>
+                        </div>
+                    </div>                                                               
                   </section>
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
                              <div class="row">
                                <div class="col-xs-12">
                                  <!-- /.box -->
-
                                  <div class="box">
-                                   <div class="box-header">
-                                     <h3 class="box-title">Bảng hóa đơn</h3>                                                                          
+                                   <div class="box-header">              
+                                     <h3 class="box-title">Bảng hóa đơn</h3>                                                                       
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
