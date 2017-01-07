@@ -4,6 +4,10 @@
     Author     : Khang
 --%>
 
+<%@page import="model.BillDetail"%>
+<%@page import="helpers.MoneyFormat"%>
+<%@page import="dao.BillDetailDAO"%>
+<%@page import="dao.ProductDAO"%>
 <%@page import="model.Bill"%>
 <%@page import="dao.UsersDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,9 +46,14 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
-            BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBillup();
-            UsersDAO usersDAO = new UsersDAO();            
+        ProductDAO productDAO = new ProductDAO();
+        BillDetailDAO billDetailDAO = new BillDetailDAO();
+        MoneyFormat formatter = new MoneyFormat();
+        String billID = "";
+        if(request.getParameter("bill") != null)
+        {
+            billID = request.getParameter("bill");
+        }
         %>
         <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -63,13 +72,7 @@
                     <section class="content">
                       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
+              <h3 class="box-title">Chi tiết hóa đơn</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -77,35 +80,24 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>Mã hóa đơn</th>
-                    <th>Khách hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Tổng hóa đơn</th>
-                    <th>Tình trạng</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
                   </tr>
                   </thead>
                   <tbody>
                       <%
-                                            for(Bill bill : listBill){
-                                        %>
-                  <tr>
-                    <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
-                    <td><%=usersDAO.getUser(bill.getUserID()).getUserEmail()%></td>
-                    <td><%=bill.getBillAddress()%></td>
-                    <td><%=bill.getBillTotal()%></td>
-                    <% if (bill.getBillPaid()==0) {                      
-                    %>
-                    <td><span class="label label-warning">Chưa thanh toán</span></td>
-                    <% } else if (bill.getBillPaid()==1&&bill.getBillFinish()==0) {                          
-                    %>
-                    <td><span class="label label-info">Đã thanh toán</span></td>
-                    <% } else if (bill.getBillFinish()==1) {                          
-                    %>
-                    <td><span class="label label-success">Hoàn thành</span></td>
-                    <% }%>
-                  </tr>
-                  <% }%>
-                  
+                                            for(BillDetail billDetail : billDetailDAO.getListBillDetailbyBillID(String.valueOf(billID)))
+                                            {
+                                            %>
+                                            <tr>
+                                                <td><a href='detail.jsp?product=<%=billDetail.getProductID()%>'><%=productDAO.getProduct(billDetail.getProductID()).getProductName()%></a></td>
+                                                <td><%=formatter.format(billDetail.getPrice())%></td>
+                                                <td><%=billDetail.getQuantity()%></td>
+                                                <td><%=formatter.format(billDetail.getPrice() * billDetail.getQuantity())%></td>
+                                            </tr>
+                                            <% }%>
                   </tbody>
                 </table>
               </div>
@@ -114,7 +106,7 @@
             <!-- /.box-body -->
             <div class="box-footer clearfix">
               
-              <a href="../Admin/manager_bill.jsp" class="btn btn-sm btn-default btn-flat pull-right">Xem tất cả</a>
+              <a href="../Admin/index.jsp" class="btn btn-sm btn-default btn-flat pull-right">Xem tất cả</a>
             </div>
             <!-- /.box-footer -->
           </div>

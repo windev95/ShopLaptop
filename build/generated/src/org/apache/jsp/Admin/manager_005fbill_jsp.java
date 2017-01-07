@@ -94,7 +94,7 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("        ");
 
             BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBill();
+            ArrayList<Bill> listBill = billDAO.getListBillnotpaid();
             UsersDAO usersDAO = new UsersDAO();            
         
       out.write("\r\n");
@@ -106,10 +106,13 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                <section class=\"content-header\">\r\n");
       out.write("                    <div class=\"btn-group btn-group-justified\">\r\n");
       out.write("                        <div class=\"btn-group\">\r\n");
-      out.write("                            <a class=\"btn btn-info\">Đã thanh toán</a>\r\n");
+      out.write("                            <a class=\"btn btn-warning btn-flat\" href=\"../Admin/manager_bill.jsp\" >Chưa thanh toán</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"btn-group\">\r\n");
-      out.write("                            <a class=\"btn btn-success\">Hoàn thành</a>\r\n");
+      out.write("                            <a class=\"btn btn-info btn-flat\" href=\"../Admin/paid_bill.jsp\" >Đã thanh toán</a>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"btn-group\">\r\n");
+      out.write("                            <a class=\"btn btn-success btn-flat\" href=\"../Admin/finish_bill.jsp\" >Hoàn thành</a>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>                                                               \r\n");
       out.write("                  </section>\r\n");
@@ -120,7 +123,7 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                 <!-- /.box -->\r\n");
       out.write("                                 <div class=\"box\">\r\n");
       out.write("                                   <div class=\"box-header\">              \r\n");
-      out.write("                                     <h3 class=\"box-title\">Bảng hóa đơn</h3>                                                                       \r\n");
+      out.write("                                     <h3 class=\"box-title\">Hóa đơn chưa thanh toán</h3>                                                                       \r\n");
       out.write("                                   </div>\r\n");
       out.write("                                   <!-- /.box-header -->\r\n");
       out.write("                                   <div class=\"box-body\">\r\n");

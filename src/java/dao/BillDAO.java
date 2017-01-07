@@ -24,11 +24,38 @@ public class BillDAO {
         ps.setLong(9, bill.getBillTotal());
         ps.setLong(10, bill.getUserID());
         ps.executeUpdate();
-    }  
+    }
     public ArrayList<Bill> getListBill() {
         try {
             Connection connection = DBConnect.getConnecttion();
             String sql = "SELECT * FROM bill";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Bill> list = new ArrayList<>();
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setBillID(rs.getLong("bill_id"));
+                bill.setBillName(rs.getString("bill_name"));
+                bill.setBillPhone(rs.getInt("bill_phone"));
+                bill.setBillAddress(rs.getString("bill_address"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setBillPayment(rs.getString("bill_payment"));
+                bill.setBillPaid(rs.getInt("bill_paid"));
+                bill.setBillFinish(rs.getInt("bill_finish"));
+                bill.setBillTotal(rs.getInt("bill_total"));
+                bill.setUserID(rs.getLong("user_id"));
+                list.add(bill);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList<Bill> getListBillup() {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "SELECT * FROM `bill` ORDER BY `bill`.`bill_date` DESC LIMIT 20";
             PreparedStatement ps = connection.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             ArrayList<Bill> list = new ArrayList<>();
