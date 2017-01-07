@@ -63,10 +63,11 @@ public class UserServlet extends HttpServlet {
                 url = "/login.jsp";
                 break;
             case "change":
-                users.setUserPass(encrypt.hashmd5((String) session.getAttribute("email"), request.getParameter("repassword")));
+                users.setUserPass(encrypt.hashmd5(session.getAttribute("email").toString(), request.getParameter("repassword")));
                 {
                     try {
-                        usersDAO.updatePass(users,(String) session.getAttribute("id"));
+                        usersDAO.updatePass(users,session.getAttribute("id").toString());
+                        session.setAttribute("user", null);
                     } catch (SQLException ex) {
                         Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -79,7 +80,7 @@ public class UserServlet extends HttpServlet {
                 users.setUserPhone(Long.parseLong(request.getParameter("phone")));
                 {
                     try {
-                        usersDAO.updateUser( users,(String) session.getAttribute("id"));
+                        usersDAO.updateUser( users,session.getAttribute("id").toString());
                         session.setAttribute("name", users.getUserFullName());
                         session.setAttribute("address", users.getUserAddress());
                         session.setAttribute("phone", users.getUserPhone());

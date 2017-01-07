@@ -47,17 +47,17 @@
                                         <h3 class="form-heading">Cập nhật thông tin</h3>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" name="fullname" id="fullname" maxlength="50" placeholder="Họ và Tên *" />                                                
+                                                <input type="text" value="<%=session.getAttribute("name")%>" name="fullname" id="fullname" maxlength="50" placeholder="Họ và Tên *" />                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="text" value="" name="address" id="address" maxlength="50" placeholder="Địa chỉ *" />                                                
+                                                <input type="text" value="<%=session.getAttribute("address")%>" name="address" id="address" maxlength="50" placeholder="Địa chỉ *" />                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">
                                             <div class="">
-                                                <input type="number" value="" name="phone" id="phone" maxlength="20" placeholder="Điện thoại *" />                                                
+                                                <input type="number" value="<%=session.getAttribute("phone")%>" name="phone" id="phone" maxlength="20" placeholder="Điện thoại *" />                                                
                                             </div>
                                         </div>
                                         <div class="row info-input">
