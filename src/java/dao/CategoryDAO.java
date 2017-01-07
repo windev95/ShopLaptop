@@ -27,6 +27,24 @@ public class CategoryDAO
         }         
         return list;    
     }
+        //Get thể loại
+    public Category getCategory(long categoryID) throws SQLException 
+    {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM category WHERE `category_id` = '" + categoryID + "'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        Category category = new Category();
+        while (rs.next()) 
+        {
+            category.setCategoryID(rs.getInt("category_id"));       
+            category.setCategoryName(rs.getString("category_name"));
+            category.setCategorymt(rs.getString("category_metatitle")); 
+            category.setCategorymkw(rs.getString("category_metakeywords"));  
+            category.setCategorymd(rs.getString("category_metadescription"));
+        }
+        return category;
+    }
     //get tên loại sản phẩm them id
     public ArrayList<Category> getCategoryNameID(long categoryID) throws SQLException { 
         Connection connection = DBConnect.getConnecttion();        

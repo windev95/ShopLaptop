@@ -71,7 +71,7 @@
                                           <td><%=category.getCategorymd()%></td>
                                           <td width="75px"> 
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>&category_name=<%=category.getCategoryName()%>&category_metatitle=<%=category.getCategorymt()%>&category_metakeywords=<%=category.getCategorymkw()%>&category_metadescription=<%=category.getCategorymd()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_category.jsp?command=update&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
                                              <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerCategoryServlet?command=delete&category_id=<%=category.getCategoryID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         

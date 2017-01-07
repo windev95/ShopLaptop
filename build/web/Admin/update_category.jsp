@@ -1,4 +1,5 @@
 
+<%@page import="dao.CategoryDAO"%>
 <%@page import="model.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,6 +23,14 @@
             if(request.getParameter("error")!=null){
                 error = (String) request.getParameter("error");
             }
+            Category category = new Category();
+            CategoryDAO categoryDAO = new CategoryDAO();
+            String categoryID = "";
+            if(request.getParameter("category_id") != null)
+                {
+                    categoryID = request.getParameter("category_id");
+                    category = categoryDAO.getCategory(Long.parseLong(categoryID));
+                }
         %>                                                                                
             <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
@@ -50,12 +59,12 @@
                               <form class="form-horizontal" action="../ManagerCategoryServlet" method="POST">
                                 <div class="box-body">
                                     <input type="hidden" name="command" value="update">
-                                    <input type="hidden" name="category_id" value="<%=request.getParameter("category_id")%>">
+                                    <input type="hidden" name="category_id" value="<%=category.getCategoryID()%>">
                                   <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=request.getParameter("category_name")%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
+                                        <input type="text" name="tenDanhMuc" class="form-control" required value="<%=category.getCategoryName()%>" id="inputEmail3" placeholder="<%=request.getParameter("category_name")%>">
                                     </div>
                                   </div>
                                   
@@ -63,7 +72,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">MetaTittle</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mt" value="<%=request.getParameter("category_metatitle")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metatitle")%>">
+                                      <input type="text" name="mt" value="<%=category.getCategorymt()%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metatitle")%>">
                                     </div>
                                   </div>
                                   
@@ -71,7 +80,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Metakeywords</label>
 
                                     <div class="col-sm-10">
-                                      <input type="text" name="mk" value="<%=request.getParameter("category_metakeywords")%>"  class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metakeywords")%>">
+                                      <input type="text" name="mk" value="<%=category.getCategorymkw()%>"  class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metakeywords")%>">
                                     </div>
                                   </div>
                                   
@@ -79,7 +88,7 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">MetaDescription</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="md" value="<%=request.getParameter("category_metadescription")%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metadescription")%>">
+                                        <input type="text" name="md" value="<%=category.getCategorymd()%>" class="form-control" id="inputEmail3" placeholder="<%=request.getParameter("category_metadescription")%>">
                                     </div>
                                   </div>
                                     
