@@ -77,10 +77,18 @@
                                                     <td><%=bill.getBillDate()%></td>
                                                     <td><%=bill.getBillPayment()%></td>
                                                     <td>
-                                                        <%=bill.getBillPaid()%>
+                                                        <%if(bill.getBillPaid()==0){%>
+                                                            <span class="label label-warning">Chưa thanh toán</span>
+                                                        <%}else {%>
+                                                            <span class="label label-success">Hoàn thành</span>
+                                                        <% }%>
                                                     </td>
                                                     <td>
-                                                        <%=bill.getBillFinish()%>
+                                                        <%if(bill.getBillFinish()==0){%>
+                                                            <span class="label label-warning">Chưa giao</span>
+                                                        <%}else {%>
+                                                            <span class="label label-success">Hoàn thành</span>
+                                                        <% }%>
                                                     </td>
                                                     <td class="a-right movewishlist">
                                                         <%=formatter.format(bill.getBillTotal())%>

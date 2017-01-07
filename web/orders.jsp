@@ -102,7 +102,11 @@
                                         <div class="">
                                             <p>
                                                 Trạng thái thanh toán:
-                                                <%=bill.getBillPaid()%>
+                                                <%if(bill.getBillPaid()==0){%>
+                                                    <span class="label label-warning">Chưa thanh toán</span>
+                                                <%}else {%>
+                                                    <span class="label label-success">Hoàn thành</span>
+                                                <% }%>
                                             </p>
                                             <p>Tên: <%=bill.getBillName()%></p>
                                             <p>Địa chỉ: <%=bill.getBillAddress()%></p>
@@ -116,7 +120,11 @@
                                         <div class="">
                                             <p>
                                                 Trạng thái vận chuyển:
-                                                <%=bill.getBillFinish()%>
+                                                <%if(bill.getBillFinish()==0){%>
+                                                    <span class="label label-warning">Chưa giao</span>
+                                                <%}else {%>
+                                                    <span class="label label-success">Hoàn thành</span>
+                                                <% }%>
                                             </p>
                                             <p>Tên: <%=bill.getBillName()%></p>
                                             <p>Địa chỉ: <%=bill.getBillAddress()%></p>
