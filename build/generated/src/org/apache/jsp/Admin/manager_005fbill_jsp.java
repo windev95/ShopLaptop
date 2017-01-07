@@ -133,7 +133,7 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                                            <th>Thanh toán</th>\r\n");
       out.write("                                            <th>Địa chỉ giao hàng</th>\r\n");
       out.write("                                            <th>Ngày mua</th>\r\n");
-      out.write("                                            <th>Tùy chọn</th>                                           \r\n");
+      out.write("                                            <th width=\"100px\">Tùy chọn</th>                                           \r\n");
       out.write("                                       </tr>\r\n");
       out.write("                                       </thead>\r\n");
       out.write("                                       <tbody>\r\n");
