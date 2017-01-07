@@ -193,10 +193,29 @@
                                               
                                               <div class="row">
                                                   <div class="col-md-12">
-                                                  <div class="form-group">
+                                                      <div class="box box-info">
+                                                        <div class="box-header">
+                                                          <h3 class="box-title">Giới thiệu sản phẩm
+                                                          </h3>
+                                                          <div class="pull-right box-tools">
+                                                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                              <i class="fa fa-minus"></i></button>
+                                                            <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                                                              <i class="fa fa-times"></i></button>
+                                                          </div>
+                                                        </div>
+                                                        <div class="box-body pad">
+                                                          <form>
+                                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                                     <%=product.getProductContent()%>
+                                                                </textarea>
+                                                          </form>
+                                                        </div>
+                                                      </div>
+<!--                                                  <div class="form-group">
                                                     <label>Giới thiệu</label>
                                                     <input type="text" value="<%=product.getProductContent()%>"  name="product_content" required class="form-control" placeholder="">
-                                                  </div>
+                                                  </div>-->
                                                    </div>
                                               </div>
                                               
@@ -570,5 +589,12 @@
             });
           });
         </script>         
+        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+        <script>
+            $(function () {
+                CKEDITOR.replace('editor1');
+              $(".textarea").wysihtml5();
+            });
+        </script>
     </body>
 </html>
