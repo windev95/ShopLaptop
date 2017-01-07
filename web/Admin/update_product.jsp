@@ -89,207 +89,387 @@
                               <!-- form start -->
                               <form action="../UpdateProductServlet" method="POST" enctype="multipart/form-data">
                                 <div class="box-body">
-                                    <input type="hidden" name="product_id" value="<%=product.getProductID()%>">
-                                    <div class="row">
-                                        <div class="col-md-6">                                  
-                                            <div class="form-group">
-                                              <label>Tên sản phẩm</label>
-                                              <input type="text"  name="product_name" required class="form-control" value="<%=product.getProductName()%>">
-                                            </div>                                                                                                                                                   
-                                            <div class="form-group">
-                                                <label>Chọn hình ảnh</label>             
-                                                <input type="file" name="file[]" required class="form-control" required />
+                                    <input type="hidden" name="product_id" value="<%=product.getProductID()%>">                                   
+                                               
+                                    <div class="panel-group" id="accordion">                                        
+                                    <div class="panel panel-info">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Thông tin cơ bản</a>
+                                        </h4>
+                                      </div>
+                                      <div id="collapse1" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Tên sản phẩm</label>
+                                                        <input type="text"  name="product_name" value="<%=product.getProductName()%>" required class="form-control" placeholder="Tên sản phẩm">
+                                                      </div> 
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Màu sắc</label>
+                                                        <input type="text" value="<%=product.getProductColor()%>"  name="product_color" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
                                               </div>
-                                            <div class="form-group">
-                                              <label>Màu sắc</label>
-                                              <input type="text"  name="product_color" required class="form-control" value="<%=product.getProductColor()%>" >
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Giới thiệu</label>
-                                              <input type="text"  name="product_content" required class="form-control" value="<%=product.getProductContent()%>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>CPU</label>
-                                              <input type="text"  name="product_cpudetail" required class="form-control" value="<%=product.getProductCpuDetail()%>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Ram</label>
-                                              <input type="text"  name="product_ramdetail" required class="form-control" value="<%=product.getProductRamDetail()%>">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Ổ cứng</label>
-                                              <input type="text"  name="product_storagedetail" value="<%=product.getProductStorageDetail()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Màn hình</label>
-                                              <input type="text"  name="product_screen" value="<%=product.getProductScreen()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Màn hình</label>
-                                              <input type="text"  name="product_screendetail" value="<%=product.getProductScreenDetail()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>VGA</label>
-                                              <input type="text"  name="product_vga" value="<%=product.getProductVGA()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Âm thanh</label>
-                                              <input type="text"  name="product_sound" value="<%=product.getProductSound()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Đĩa quang</label>
-                                              <input type="text"  name="product_dvd" value="<%=product.getProductDVD()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Cổng giao tiếp</label>
-                                              <input type="text"  name="product_connect" value="<%=product.getProductConnect()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Giao tiếp mạng</label>
-                                              <input type="text"  name="product_lan" value="<%=product.getProductLAN()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Wifi</label>
-                                              <input type="text"  name="product_wifi" value="<%=product.getProductWifi()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Không dây khác</label>
-                                              <input type="text"  name="product_wireless" value="<%=product.getProductWireless()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Card reader</label>
-                                              <input type="text"  name="product_cardreader" value="<%=product.getProductCardReader()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Webcam</label>
-                                              <input type="text"  name="product_webcam" value="<%=product.getProductWebcam()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <div class="form-group">
-                                              <label>Bin</label>
-                                              <input type="text"  name="product_pin" value="<%=product.getProductPin()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Hệ điều hành</label>
-                                              <input type="text"  name="product_os" value="<%=product.getProductOS()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Kích thước</label>
-                                              <input type="text"  name="product_size" value="<%=product.getProductSize()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            
-          
-                                            <div class="form-group">
-                                              <label>Trọng lượng</label>
-                                              <input type="text"  name="product_weight" value="<%=product.getProductWeight()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Chất liệu</label>
-                                              <input type="text"  name="product_material" value="<%=product.getProductMaterial()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Giá</label>
-                                              <input type="number"  name="product_price" value="<%=product.getProductPrice()%>" required class="form-control" placeholder="">
-                                            </div>                                          
-                                            <div class="form-group">
-                                              <label>Giảm giá</label>
-                                              <input type="number"  name="product_sale" value="<%=product.getProductSale()%>" required class="form-control" placeholder="">
-                                            </div>  
-                                            <div class="form-group">
-                                              <label>Giá thật</label>
-                                              <input type="number"  name="product_price_real" value="<%=product.getProductPriceReal()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                              <label>Tồn kho</label>
-                                              <input type="number"  name="product_inventory" value="<%=product.getProductInventory()%>" required class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Ẩn sản phẩm</label>
-                                            <select name="product_hide"  class="form-control">
-                                                <option value="0" >Không</option>
-                                                <option value="1" >Có</option> 
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn CPU</label>
-                                            <select name="cpu_id" class="form-control">
-                                                 <%
-                                                    for (Cpu p : cpudao.getListCpu())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getCpuID()%>" ><%=p.getCpuName()%></option>
-                                                <% } %>                                          
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn Ram</label>
-                                            <select name="ram_id" class="form-control">
-                                                 <%
-                                                    for (Ram p : rdao.getListRam())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
-                                                <% } %>                                           
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn ổ cứng</label>
-                                            <select name="storage_id" class="form-control">
-                                                 <%
-                                                    for (Storage p : srdao.getListStorage())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getStorageID()%>" ><%=p.getStorageName()%></option>
-                                                <% } %>                                           
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn mức giá</label>
-                                            <select name="pricelevel_id" class="form-control">
-                                                 <%
-                                                    for (Pricelevel p : pldap.getListPricelevel())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getPricelevelID()%>" ><%=p.getPricelevelName()%></option>
-                                                <% } %>                                        
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn kích thước màn hình</label>
-                                            <select name="screensize_id" class="form-control">
-                                                 <%
-                                                    for (Screensize p : srsdao.getListScreensize())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getScreensizeID()%>" ><%=p.getScreensizeName()%></option>
-                                                <% } %>                                           
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn danh mục</label>
-                                            <select name="category_id"  class="form-control">
-                                                <%
-                                                    for (Category p : cdao.getListCategory())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
-                                                <% } %>                                      
-                                            </select>
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Chọn nhà sản xuất</label>
-                                            <select name="producer_id"  class="form-control select2">
-                                                <%
-                                                    for (Producer p : producerdao.getListProducer())
-                                                    {
-                                                    %>
-                                                <option value="<%=p.getProducerID()%>" ><%=p.getProducerName()%></option>
-                                                <% } %>
-                                            </select>
-                                            </div>                                                                                                                                  
-                                        </div>                                       
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Hệ điều hành</label>
+                                                        <input type="text" value="<%=product.getProductOS()%>"  name="product_os" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chất liệu</label>
+                                                        <input type="text" value="<%=product.getProductMaterial()%>" name="product_material" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Kích thước</label>
+                                                        <input type="text" value="<%=product.getProductSize()%>"  name="product_size" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Trọng lượng</label>
+                                                        <input type="text" value="<%=product.getProductWeight()%>" name="product_weight" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn hình ảnh</label>             
+                                                        <input type="file" name="file[]" required class="form-control" required />
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Ẩn sản phẩm</label>
+                                                        <select name="product_hide"  class="form-control">
+                                                            <option value="0" >Không</option>
+                                                            <option value="1" >Có</option> 
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn danh mục</label>
+                                                        <select name="category_id"  class="form-control">
+                                                            <%
+                                                                for (Category p : cdao.getListCategory())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
+                                                            <% } %>                                      
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn nhà sản xuất</label>
+                                                        <select name="producer_id"  class="form-control select2">
+                                                            <%
+                                                                for (Producer p : producerdao.getListProducer())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getProducerID()%>" ><%=p.getProducerName()%></option>
+                                                            <% } %>
+                                                        </select>
+                                                        </div> 
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-12">
+                                                  <div class="form-group">
+                                                    <label>Giới thiệu</label>
+                                                    <input type="text" value="<%=product.getProductContent()%>"  name="product_content" required class="form-control" placeholder="">
+                                                  </div>
+                                                   </div>
+                                              </div>
+                                              
+                                          </div>                                          
+                                      </div>
                                     </div>
+                                        
+                                    <div class="panel panel-info">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Thông tin SEO</a>
+                                        </h4>
+                                      </div>
+                                      <div id="collapse2" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <div class="row">
+                                                <div class="col-md-6">                                                
+                                                        <div class="form-group">
+                                                          <label>MetaTitle</label>
+                                                          <input type="text" value="<%=product.getProductMetaTitle()%>" name="MetaTitle" required class="form-control" placeholder="MetaTitle">
+                                                        </div>                                                   
+                                                </div>
+                                                <div class="col-md-6">                                                 
+                                                        <div class="form-group">
+                                                          <label>MetaKeywords</label>
+                                                          <input type="text"  name="MetaKeywords" value="<%=product.getProductMetaKeywords()%>" required class="form-control" placeholder="MetaKeywords">
+                                                        </div>                                                  
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-12">
+                                                      <div class="form-group">
+                                                        <label>MetaDescription</label>
+                                                        <input type="text"  name="MetaDescription" value="<%=product.getProductMetaDescription()%>" required class="form-control" placeholder="MetaDescription">
+                                                      </div>  
+                                                  </div>     
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                        
+                                    <div class="panel panel-info">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Gía và số lượng</a>
+                                        </h4>
+                                      </div>
+                                      <div id="collapse3" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Giá</label>
+                                                        <input type="number" value="<%=product.getProductPrice()%>"  name="product_price" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Giảm giá</label>
+                                                        <input type="number" value="<%=product.getProductSale()%>"  name="product_sale" required class="form-control" placeholder="">
+                                                      </div> 
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Giá thật</label>
+                                                        <input type="number" value="<%=product.getProductPriceReal()%>"  name="product_price_real" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Tồn kho</label>
+                                                        <input type="number" value="<%=product.getProductInventory()%>" name="product_inventory" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn mức giá</label>
+                                                        <select name="pricelevel_id" class="form-control">
+                                                             <%
+                                                                for (Pricelevel p : pldap.getListPricelevel())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getPricelevelID()%>" ><%=p.getPricelevelName()%></option>
+                                                            <% } %>                                        
+                                                        </select>
+                                                        </div>                                                      
+                                                  </div>
+                                                  
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                    </div>
+                                        
+                                    <div class="panel panel-info">
+                                      <div class="panel-heading">
+                                        <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Cấu hình</a>
+                                        </h4>
+                                      </div>
+                                      <div id="collapse4" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn CPU</label>
+                                                        <select name="cpu_id" class="form-control">
+                                                             <%
+                                                                for (Cpu p : cpudao.getListCpu())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getCpuID()%>" ><%=p.getCpuName()%></option>
+                                                            <% } %>                                          
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>CPU</label>
+                                                        <input type="text" value="<%=product.getProductCpuDetail()%>"  name="product_cpudetail" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn Ram</label>
+                                                        <select name="ram_id" class="form-control">
+                                                             <%
+                                                                for (Ram p : rdao.getListRam())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
+                                                            <% } %>                                           
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Ram</label>
+                                                        <input type="text" value="<%=product.getProductRamDetail()%>" name="product_ramdetail" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn ổ cứng</label>
+                                                        <select name="storage_id" class="form-control">
+                                                             <%
+                                                                for (Storage p : srdao.getListStorage())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getStorageID()%>" ><%=p.getStorageName()%></option>
+                                                            <% } %>                                           
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Ổ cứng</label>
+                                                        <input type="text" value="<%=product.getProductStorageDetail()%>" name="product_storagedetail" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Chọn kích thước màn hình</label>
+                                                        <select name="screensize_id" class="form-control">
+                                                             <%
+                                                                for (Screensize p : srsdao.getListScreensize())
+                                                                {
+                                                                %>
+                                                            <option value="<%=p.getScreensizeID()%>" ><%=p.getScreensizeName()%></option>
+                                                            <% } %>                                           
+                                                        </select>
+                                                        </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Màn hình</label>
+                                                        <input type="text" value="<%=product.getProductScreenDetail()%>" name="product_screendetail" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>VGA</label>
+                                                        <input type="text" value="<%=product.getProductVGA()%>" name="product_vga" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Âm thanh</label>
+                                                        <input type="text" value="<%=product.getProductSound()%>" name="product_sound" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Đĩa quang</label>
+                                                        <input type="text" value="<%=product.getProductDVD()%>" name="product_dvd" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Cổng giao tiếp</label>
+                                                        <input type="text" value="<%=product.getProductConnect()%>" name="product_connect" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                                        
+                                            <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Giao tiếp mạng</label>
+                                                        <input type="text" value="<%=product.getProductLAN()%>" name="product_lan"  required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Wifi</label>
+                                                        <input type="text" value="<%=product.getProductWifi()%>" name="product_wifi" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Không dây khác</label>
+                                                        <input type="text" value="<%=product.getProductWireless()%>" name="product_wireless" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Card reader</label>
+                                                        <input type="text" value="<%=product.getProductCardReader()%>" name="product_cardreader" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              
+                                               <div class="row">
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Webcam</label>
+                                                        <input type="text" value="<%=product.getProductWebcam()%>" name="product_webcam" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                      <div class="form-group">
+                                                        <label>Pin</label>
+                                                        <input type="text" value="<%=product.getProductPin()%>" name="product_pin" required class="form-control" placeholder="">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>                                        
+                                  </div>  
                                     <!-- /.box-body -->
                                     <div class="box-footer">
                                       <button type="submit" class="btn btn-default">Hủy</button>
