@@ -98,6 +98,123 @@ public class BillDAO {
         }         
         return bill;    
     }
+    public boolean finish(long c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE bill SET bill_finish= 1 WHERE bill_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, c);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+    public boolean update(long c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE bill SET bill_paid= 1 WHERE bill_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, c);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+    public boolean delete(long bill_id) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "DELETE FROM bill WHERE bill_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, bill_id);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
+     public ArrayList<Bill> getListBillnotpaid() {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "SELECT * FROM bill where bill_paid=0 AND bill_finish = 0";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Bill> list = new ArrayList<>();
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setBillID(rs.getLong("bill_id"));
+                bill.setBillName(rs.getString("bill_name"));
+                bill.setBillPhone(rs.getInt("bill_phone"));
+                bill.setBillAddress(rs.getString("bill_address"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setBillPayment(rs.getString("bill_payment"));
+                bill.setBillPaid(rs.getInt("bill_paid"));
+                bill.setBillFinish(rs.getInt("bill_finish"));
+                bill.setBillTotal(rs.getInt("bill_total"));
+                bill.setUserID(rs.getLong("user_id"));
+                list.add(bill);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList<Bill> getListBillpaid() {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "SELECT * FROM bill where bill_paid=1 AND bill_finish = 0";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Bill> list = new ArrayList<>();
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setBillID(rs.getLong("bill_id"));
+                bill.setBillName(rs.getString("bill_name"));
+                bill.setBillPhone(rs.getInt("bill_phone"));
+                bill.setBillAddress(rs.getString("bill_address"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setBillPayment(rs.getString("bill_payment"));
+                bill.setBillPaid(rs.getInt("bill_paid"));
+                bill.setBillFinish(rs.getInt("bill_finish"));
+                bill.setBillTotal(rs.getInt("bill_total"));
+                bill.setUserID(rs.getLong("user_id"));
+                list.add(bill);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList<Bill> getListBillfinish() {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "SELECT * FROM bill where bill_paid=1 AND bill_finish = 1";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Bill> list = new ArrayList<>();
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setBillID(rs.getLong("bill_id"));
+                bill.setBillName(rs.getString("bill_name"));
+                bill.setBillPhone(rs.getInt("bill_phone"));
+                bill.setBillAddress(rs.getString("bill_address"));
+                bill.setBillDate(rs.getTimestamp("bill_date"));
+                bill.setBillPayment(rs.getString("bill_payment"));
+                bill.setBillPaid(rs.getInt("bill_paid"));
+                bill.setBillFinish(rs.getInt("bill_finish"));
+                bill.setBillTotal(rs.getInt("bill_total"));
+                bill.setUserID(rs.getLong("user_id"));
+                list.add(bill);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public static void main(String[] args) throws SQLException {
         
         BillDAO dao = new BillDAO();      

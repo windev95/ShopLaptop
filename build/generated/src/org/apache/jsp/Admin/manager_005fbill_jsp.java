@@ -163,8 +163,12 @@ public final class manager_005fbill_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("</td>                                         \r\n");
       out.write("                                          <td>\r\n");
       out.write("                                              <center> \r\n");
-      out.write("                                             <button class=\"btn btn-primary btn-xs\" onclick=\"location.href='#'\"><i class=\"glyphicon glyphicon-pencil\"></i> Xác nhận</button>\r\n");
-      out.write("                                             <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='#'\"><i class=\"glyphicon glyphicon-remove\"></i> Hủy</button>\r\n");
+      out.write("                                             <button class=\"btn btn-primary btn-xs\" onclick=\"location.href='../ManagerBillServlet?command=update&bill_id=");
+      out.print(bill.getBillID());
+      out.write("'\"><i class=\"glyphicon glyphicon-pencil\"></i> Xác nhận</button>\r\n");
+      out.write("                                             <button class=\"btn btn-danger btn-xs\" onclick=\"location.href='../ManagerBillServlet?command=delete&bill_id=");
+      out.print(bill.getBillID());
+      out.write("'\"><i class=\"glyphicon glyphicon-remove\"></i> Hủy</button>\r\n");
       out.write("                                                </center> \r\n");
       out.write("                                           </td>                                         \r\n");
       out.write("                                        </tr>\r\n");

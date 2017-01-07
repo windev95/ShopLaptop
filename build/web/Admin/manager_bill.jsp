@@ -29,7 +29,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <%
             BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBill();
+            ArrayList<Bill> listBill = billDAO.getListBillnotpaid();
             UsersDAO usersDAO = new UsersDAO();            
         %>
        <div class="wrapper">
@@ -38,10 +38,13 @@
                 <section class="content-header">
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group">
-                            <a class="btn btn-info">Đã thanh toán</a>
+                            <a class="btn btn-warning" href="../Admin/manager_bill.jsp" >Chưa thanh toán</a>
                         </div>
                         <div class="btn-group">
-                            <a class="btn btn-success">Hoàn thành</a>
+                            <a class="btn btn-info" href="../Admin/paid_bill.jsp" >Đã thanh toán</a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-success" href="../Admin/finish_bill.jsp" >Hoàn thành</a>
                         </div>
                     </div>                                                               
                   </section>
@@ -52,7 +55,7 @@
                                  <!-- /.box -->
                                  <div class="box">
                                    <div class="box-header">              
-                                     <h3 class="box-title">Bảng hóa đơn</h3>                                                                       
+                                     <h3 class="box-title">Hóa đơn chưa thanh toán</h3>                                                                       
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
@@ -81,8 +84,8 @@
                                           <td><%=bill.getBillDate()%></td>                                         
                                           <td>
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='#'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                             <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
+                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>

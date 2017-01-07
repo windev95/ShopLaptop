@@ -29,7 +29,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <%
             BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBillnotpaid();
+            ArrayList<Bill> listBill = billDAO.getListBillfinish();
             UsersDAO usersDAO = new UsersDAO();            
         %>
        <div class="wrapper">
@@ -55,7 +55,7 @@
                                  <!-- /.box -->
                                  <div class="box">
                                    <div class="box-header">              
-                                     <h3 class="box-title">Hóa đơn chưa thanh toán</h3>                                                                       
+                                     <h3 class="box-title">Hóa đơn đã hoàn thành</h3>                                                                       
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
@@ -83,8 +83,7 @@
                                           <td><%=bill.getBillAddress()%></td>
                                           <td><%=bill.getBillDate()%></td>                                         
                                           <td>
-                                              <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
+                                              <center>                                             
                                              <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
                                                 </center> 
                                            </td>                                         

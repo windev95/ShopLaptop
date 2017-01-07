@@ -76,6 +76,10 @@
         <servlet-name>UpdateProductServlet</servlet-name>
         <servlet-class>controller.UpdateProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerBillServlet</servlet-name>
+        <servlet-class>controller.ManagerBillServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -152,13 +156,17 @@
         <servlet-name>UpdateProductServlet</servlet-name>
         <url-pattern>/UpdateProductServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerBillServlet</servlet-name>
+        <url-pattern>/ManagerBillServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <error-page>
-    <error-code>404</error-code>
-    <location>/404.jsp</location>
-</error-page> 
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
 </web-app>
