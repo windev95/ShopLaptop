@@ -44,6 +44,24 @@ public class FeedbackServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String command = request.getParameter("command");
+        String feedback_id = request.getParameter("feedback_id");
+        String url = "";
+        try {
+            switch (command) {
+                case "delete":
+                    feedbackDAO.delete(Long.parseLong(feedback_id));
+                    url = "/Admin/feedback.jsp";
+                    break;
+                case "finish":
+                    feedbackDAO.finish(Long.parseLong(feedback_id));
+                    url = "/Admin/feedback.jsp";
+                    break; 
+            }
+        } catch (Exception e) {
+        }
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+        rd.forward(request, response);
         processRequest(request, response);
     }
 
@@ -58,7 +76,6 @@ public class FeedbackServlet extends HttpServlet {
         feedback.setFeedbackName(request.getParameter("name"));
         feedback.setFeedbackEmail(request.getParameter("email"));
         feedback.setFeedbackText(request.getParameter("message"));
-        feedback.setFeedbackFinish(0);
         try {
             feedbackDAO.insert(feedback);
         } catch (SQLException ex) {

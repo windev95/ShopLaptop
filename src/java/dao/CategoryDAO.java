@@ -126,6 +126,6 @@ public class CategoryDAO
     public static void main(String[] args) throws SQLException 
     {       
         CategoryDAO dao = new CategoryDAO();      
-        System.out.println(dao.delete(15));
+        System.out.println(dao.getListCategory());
     } 
 } 

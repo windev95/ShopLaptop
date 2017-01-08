@@ -309,6 +309,7 @@
         <li><a href="../Admin/manager_image.jsp"><i class="fa fa-file-image-o"></i> <span>Hình ảnh</span></a></li>    
         <li><a href="../Admin/manager_cpu.jsp"><i class="fa fa-bolt"></i> <span>Loại CPU</span></a></li>
         <li><a href="../Admin/manager_producer.jsp"><i class="fa fa-windows"></i> <span>Nhà sản xuất</span></a></li>
+        <li><a href="../Admin/feedback.jsp"><i class="fa fa-send-o"></i> <span>Góp ý</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

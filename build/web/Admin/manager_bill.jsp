@@ -31,25 +31,11 @@
         <%
             MoneyFormat formatter = new MoneyFormat();
             BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBill();
-            UsersDAO usersDAO = new UsersDAO();            
+            ArrayList<Bill> listBill = billDAO.getListBill();          
         %>
        <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
-<!--                <section class="content-header">
-                    <div class="btn-group btn-group-justified">
-                        <div class="btn-group">
-                            <a class="btn btn-warning btn-flat" href="../Admin/manager_bill.jsp" >Chưa thanh toán</a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn btn-info btn-flat" href="../Admin/paid_bill.jsp" >Đã thanh toán</a>
-                        </div>
-                        <div class="btn-group">
-                            <a class="btn btn-success btn-flat" href="../Admin/finish_bill.jsp" >Hoàn thành</a>
-                        </div>
-                    </div>                                                               
-                  </section>-->
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
                              <div class="row">

@@ -8,12 +8,12 @@ public class Feedback {
     private String feedbackEmail;
     private Timestamp feedbackUpdate;
     private String feedbackText;
-    private int feedbackFinish;   
+    private Boolean feedbackFinish;   
 
     public Feedback() {
     }
 
-    public Feedback(long feedbackID, String feedbackName, String feedbackEmail, Timestamp feedbackUpdate, String feedbackText, int feedbackFinish) {
+    public Feedback(long feedbackID, String feedbackName, String feedbackEmail, Timestamp feedbackUpdate, String feedbackText, Boolean feedbackFinish) {
         this.feedbackID = feedbackID;
         this.feedbackName = feedbackName;
         this.feedbackEmail = feedbackEmail;
@@ -54,11 +54,11 @@ public class Feedback {
         this.feedbackText = feedbackText;
     }
 
-    public int getFeedbackFinish() {
+    public Boolean getFeedbackFinish() {
         return feedbackFinish;
     }
 
-    public void setFeedbackFinish(int feedbackFinish) {
+    public void setFeedbackFinish(Boolean feedbackFinish) {
         this.feedbackFinish = feedbackFinish;
     }
 

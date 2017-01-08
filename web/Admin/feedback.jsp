@@ -1,19 +1,17 @@
 <%-- 
-    Document   : manager_product
-    Created on : Dec 30, 2016, 10:18:52 AM
-    Author     : Khang
+    Document   : feedback
+    Created on : Jan 8, 2017, 7:21:05 PM
+    Author     : Toan
 --%>
-<%@page import="dao.UsersDAO"%>
-<%@page import="model.Bill"%>
+<%@page import="dao.FeedbackDAO"%>
+<%@page import="model.Feedback"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.BillDAO"%>
-<%@page import="helpers.MoneyFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Quản lý đơn hàng</title>
+        <title>Quản lý góp ý</title>
         <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -24,16 +22,13 @@
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
-        
-    </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
-            MoneyFormat formatter = new MoneyFormat();
-            BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBill();          
+            FeedbackDAO feedbackDAO = new FeedbackDAO();
+            ArrayList<Feedback> listFeedback = feedbackDAO.getListFeedback();          
         %>
-       <div class="wrapper">
+         <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
 <!--                MAIN------------------------------------------------------------------->
@@ -43,68 +38,64 @@
                                  <!-- /.box -->
                                  <div class="box">
                                    <div class="box-header">              
-                                     <h3 class="box-title">Tất cả đơn hàng</h3>                                                                       
+                                     <h3 class="box-title">Tất cả góp ý</h3>                                                                       
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
                                      <table id="example1" class="table table-bordered table-striped">
                                        <thead>
                                        <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Ngày lập</th>
-                                            <th>Khách hàng</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Điện thoại</th>
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Tình trạng</th>                                           
+                                            <th>Mã góp ý</th>
+                                            <th>Người gửi</th>
+                                            <th>Email</th>
+                                            <th>Nội dung</th>
+                                            <th>Ngày nhận</th>
+                                            <th>Xử lý</th> 
+                                            <th>Tùy chọn</th> 
                                        </tr>
                                        </thead>
                                        <tbody>
                                         <%
-                                            for(Bill bill : listBill){
+                                            for(Feedback feedback : listFeedback){
                                         %>
                                           <tr>
-                                            <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
-                                            <td><%=bill.getBillDate()%></td>
-                                            <td><%=bill.getBillName()%></td>                                            
-                                            <td><%=bill.getBillAddress()%></td>
-                                            <td><%=bill.getBillPhone()%></td>
-                                            <td><%=formatter.format(bill.getBillTotal())%></td>
+                                            <td><a href="#"><%=feedback.getFeedbackID()%></a></td>
+                                            <td><%=feedback.getFeedbackName()%></td>
+                                            <td><%=feedback.getFeedbackEmail()%></td>                                            
+                                            <td><%=feedback.getFeedbackText()%></td>
+                                            <td><%=feedback.getFeedbackUpdate()%></td>
                                             <td>
                                               <center> 
-                                              <% if (bill.getBillPaid()==0) {                      
+                                              <% if (feedback.getFeedbackFinish()!=true) {                      
                                                 %>
-                                                <span class="label label-warning"> Chưa thanh toán</span>                                                
+                                                <button class="btn btn-primary btn-xs" onclick="location.href='../FeedbackServlet?command=finish&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
                                                 <%} else {%>
                                                 <span class="label label-success"> Hoàn thành</span>
                                                 <% }%>
                                               </center>
-                                            </td>
+                                            </td> 
                                             <td>
-                                              <center> 
-                                              <% if (bill.getBillFinish()==0) {                      
-                                                %>
-                                                <span class="label label-warning"> Chưa giao</span>   
-                                                <%} else {%>                    
-                                                <span class="label label-success"> Hoàn thành</span>
-                                                <% }%>
-                                              </center>
+                                                <center>
+                                                    <% if (feedback.getFeedbackFinish()!=true) {                      
+                                                    %>
+                                                    <button class="btn btn-danger btn-xs" disabled onclick="location.href='../FeedbackServlet?command=delete&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                                    <% } else {%>
+                                                    <button class="btn btn-danger btn-xs" onclick="location.href='../FeedbackServlet?command=delete&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                                    <% }%>
+                                                </center>
                                             </td>
-                                            
                                           </tr>
                                           <% }%>
                                        </tbody>
                                        <tfoot>
                                        <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Ngày lập</th>
-                                            <th>Khách hàng</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Điện thoại</th>
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Tình trạng</th> 
+                                            <th>Mã góp ý</th>
+                                            <th>Người gửi</th>
+                                            <th>Email</th>
+                                            <th>Nội dung</th>
+                                            <th>Ngày nhận</th>
+                                            <th>Xử lý</th>  
+                                            <th>Tùy chọn</th> 
                                        </tr>
                                        </tfoot>
                                      </table>
@@ -147,5 +138,6 @@
                     });
             });
             </script>
+        
     </body>
 </html>

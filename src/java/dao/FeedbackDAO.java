@@ -19,12 +19,12 @@ public class FeedbackDAO {
         while (rs.next()) 
         {             
             Feedback feedback = new Feedback();    
-            feedback.setFeedbackID(rs.getInt("feedback_id")); 
+            feedback.setFeedbackID(rs.getLong("feedback_id")); 
             feedback.setFeedbackName(rs.getString("feedback_name")); 
             feedback.setFeedbackEmail(rs.getString("feedback_email")); 
             feedback.setFeedbackText(rs.getString("feedback_text")); 
             feedback.setFeedbackUpdate(rs.getTimestamp("feedback_update")); 
-            feedback.setFeedbackFinish(rs.getInt("feedback_finish")); 
+            feedback.setFeedbackFinish(rs.getBoolean("feedback_finish")); 
             list.add(feedback);         
         }         
         return list;    
@@ -39,12 +39,12 @@ public class FeedbackDAO {
         Feedback feedback = new Feedback();
         while (rs.next()) 
         {
-            feedback.setFeedbackID(rs.getInt("feedback_id")); 
+            feedback.setFeedbackID(rs.getLong("feedback_id")); 
             feedback.setFeedbackName(rs.getString("feedback_name")); 
             feedback.setFeedbackEmail(rs.getString("feedback_email")); 
             feedback.setFeedbackText(rs.getString("feedback_text")); 
             feedback.setFeedbackUpdate(rs.getTimestamp("feedback_update")); 
-            feedback.setFeedbackFinish(rs.getInt("feedback_finish")); 
+            feedback.setFeedbackFinish(rs.getBoolean("feedback_finish")); 
         }
         return feedback;
     }
@@ -75,8 +75,22 @@ public class FeedbackDAO {
         return false;
         }
     }
+    public boolean finish(long c) throws SQLException {
+    try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "UPDATE feedback SET feedback_finish = 1 WHERE feedback_id=?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, c);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (SQLException e) {
+        return false;
+        }
+    }
         public static void main(String[] args) throws SQLException 
     {       
         FeedbackDAO dao = new FeedbackDAO(); 
+        System.out.println(dao.getListFeedback());
+        
     } 
 }
