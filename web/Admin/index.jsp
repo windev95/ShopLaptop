@@ -151,6 +151,7 @@
                                 <th>Địa chỉ</th>
                                 <th>Điện thoại</th>
                                 <th>Tổng hóa đơn</th>
+                                <th>Hủy</th>
                                 <th>Thanh toán</th>
                                 <th>Tình trạng</th>                                           
                             </tr>
@@ -166,12 +167,21 @@
                                             <td><%=bill.getBillPhone()%></td>
                                             <td><%=formatter.format(bill.getBillTotal())%></td>
                                             <td>
+                                                <center>      
+                                                <% if (bill.getBillPaid()==0) {                      
+                                                %>
+                                                 <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                                <% }else {%>
+                                                <button disabled="" class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                                <%}%>
+                                                </center> 
+                                            </td>
+                                            <td>
                                               <center> 
                                               <% if (bill.getBillPaid()==0) {                      
                                                 %>
                                                 <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
                                                 <%} else {%>
-<!--                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-justify"></i> Hoàn tất</button>-->
                                                 <span class="label label-success"> Hoàn thành</span>
                                                 <% }%>
                                               </center>
@@ -198,6 +208,7 @@
                                 <th>Địa chỉ</th>
                                 <th>Điện thoại</th>
                                 <th>Tổng hóa đơn</th>
+                                <th>Hủy</th>
                                 <th>Thanh toán</th>
                                 <th>Tình trạng</th>                                           
                             </tr>

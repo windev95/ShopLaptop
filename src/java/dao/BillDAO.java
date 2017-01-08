@@ -128,7 +128,7 @@ public class BillDAO {
     public boolean finish(long c) throws SQLException {
     try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "UPDATE bill SET bill_finish= 1 WHERE bill_id=?";
+            String sql = "UPDATE bill SET bill_paid = 1, bill_finish= 1 WHERE bill_id=?";
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, c);
             int temp = ps.executeUpdate();
