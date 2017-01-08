@@ -204,9 +204,9 @@
                                                   <div class="col-md-12">
                                                       <div class="box box-info">
                                                         <div class="box-header">
-                                                          <h3 class="box-title">Giới thiệu sản phẩm</h3>
+                                                          <h3 class="box-title" data-widget="collapse" data-toggle="tooltip">Giới thiệu sản phẩm</h3>
                                                           <div class="pull-right box-tools">
-                                                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                                            <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip">
                                                               <i class="fa fa-minus"></i></button>
                                                             <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
                                                               <i class="fa fa-times"></i></button>

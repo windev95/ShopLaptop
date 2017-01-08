@@ -73,25 +73,24 @@
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
+            <!-- /.box-header -->        
                 <div class="box-body">
-                                     <table id="example1" class="table table-bordered table-striped">
-                                       <thead>
-                                       <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Điện thoại</th>
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Tình trạng</th>                                           
-                                       </tr>
-                                       </thead>
-                                       <tbody>
-                                        <%
-                                            for(Bill bill : listBill){
-                                        %>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã hóa đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Địa chỉ</th>
+                                <th>Điện thoại</th>
+                                <th>Tổng hóa đơn</th>
+                                <th>Thanh toán</th>
+                                <th>Tình trạng</th>                                           
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                for(Bill bill : listBill){
+                            %>
                                           <tr>
                                             <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
                                             <td><%=bill.getBillName()%></td>
@@ -122,21 +121,20 @@
                                             </td>
                                             
                                           </tr>
-                                          <% }%>
-                                       </tbody>
-                                       <tfoot>
-                                       <tr>
-                                            <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Điện thoại</th>
-                                            <th>Tổng hóa đơn</th>
-                                            <th>Thanh toán</th>
-                                            <th>Tình trạng</th> 
-                                       </tr>
-                                       </tfoot>
-                                     </table>
-                                   </div>
+                            <% }%>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Mã hóa đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Địa chỉ</th>
+                                <th>Điện thoại</th>
+                                <th>Tổng hóa đơn</th>
+                                <th>Thanh toán</th>
+                                <th>Tình trạng</th>                                           
+                            </tr>
+                        </tfoot>
+                    </table>
               <!-- /.table-responsive -->
             </div>
             <!-- /.box-body -->
