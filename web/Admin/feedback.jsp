@@ -59,15 +59,14 @@
                                             for(Feedback feedback : listFeedback){
                                         %>
                                           <tr>
-                                            <td><a href="#"><%=feedback.getFeedbackID()%></a></td>
+                                            <td><a href="#" data-toggle="modal" data-target="#myModal<%=feedback.getFeedbackID()%>"><%=feedback.getFeedbackID()%></a></td>                                            
                                             <td><%=feedback.getFeedbackName()%></td>
                                             <td><%=feedback.getFeedbackEmail()%></td>    
                                             <%if(feedback.getFeedbackText().length()>130){%>
                                             <td><%=feedback.getFeedbackText().substring(0,130)+" ..."%></td>
                                             <% }else {%>
                                             <td><%=feedback.getFeedbackText()%></td>
-                                            <% }%>
-                                            
+                                            <% }%>                                            
                                             <td><%=feedback.getFeedbackUpdate()%></td>
                                             <td>
                                               <center> 
@@ -89,7 +88,32 @@
                                                     <% }%>
                                                 </center>
                                             </td>
-                                          </tr>
+                                          </tr>                                  
+                                              <!-- Modal -->
+                                                <div class="modal fade" id="myModal<%=feedback.getFeedbackID()%>" role="dialog">
+                                                  <div class="modal-dialog modal-lg">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"></button>
+                                                        <h4 class="modal-title">#<%=feedback.getFeedbackID()%></h4>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                        <p>Người gửi: <%=feedback.getFeedbackName()%></p>
+                                                        <p>Email: <%=feedback.getFeedbackEmail()%></p>
+                                                        <p>Ngày nhận: <%=feedback.getFeedbackUpdate()%></p>
+                                                        <p>Nội dung: <%=feedback.getFeedbackText()%></p>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                        <a href="mailto:<%=feedback.getFeedbackEmail()%>?Subject=Xin chào bạn!" class="btn btn-primary pull-left">Send mail!</a>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+
+                                                  </div>
+                                                </div>
+                                       <!-- /Modal -->
                                           <% }%>
                                        </tbody>
                                        <tfoot>
