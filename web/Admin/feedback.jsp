@@ -61,8 +61,13 @@
                                           <tr>
                                             <td><a href="#"><%=feedback.getFeedbackID()%></a></td>
                                             <td><%=feedback.getFeedbackName()%></td>
-                                            <td><%=feedback.getFeedbackEmail()%></td>                                            
+                                            <td><%=feedback.getFeedbackEmail()%></td>    
+                                            <%if(feedback.getFeedbackText().length()>130){%>
+                                            <td><%=feedback.getFeedbackText().substring(0,130)+" ..."%></td>
+                                            <% }else {%>
                                             <td><%=feedback.getFeedbackText()%></td>
+                                            <% }%>
+                                            
                                             <td><%=feedback.getFeedbackUpdate()%></td>
                                             <td>
                                               <center> 
