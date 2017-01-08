@@ -7,6 +7,7 @@
 <%@page import="dao.ProductDAO"%>
 <%@page import="dao.ProducerDAO"%>
 <%@page import="model.Product"%>
+<%@page import="helpers.MoneyFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,12 +23,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
-        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
-     
+        <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">     
     </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
+            MoneyFormat formatter = new MoneyFormat();
             ProductDAO productdao = new ProductDAO();
             ProducerDAO producerdao = new ProducerDAO();
             ArrayList<Product> listProduct = productdao.getListProduct();            
@@ -46,7 +47,7 @@
 
                                  <div class="box">
                                    <div class="box-header">
-                                     <h3 class="box-title">Bảng danh mục sản phẩm</h3>                                     
+                                     <h3 class="box-title">Bảng sản phẩm</h3>                                     
                                      
                                    </div>
                                    <!-- /.box-header -->
@@ -70,14 +71,16 @@
                                         %>
                                         <tr>                                        
                                           <td><%=p.getProductID()%></td>
-                                          <td><%=p.getProductName()%></td>
-                                          <td><div class="col-sm-5 col-md-5 no-padding-l">
-                                                            <div class="product-img-parent">
-                                                                <a class="product-img"><img src="${root}../images/product/<%=p.getProductImage()%>" width="50" height="50" alt="<%=p.getProductName()%>"></a>
-                                                            </div>
-                                                        </div></td>
+                                          <td><a href="#" data-toggle="modal" data-target="#myModal<%=p.getProductID()%>"><%=p.getProductName()%></a></td>
+                                          <td>
+                                              <div class="col-sm-5 col-md-5 no-padding-l">
+                                                <div class="product-img-parent">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal<%=p.getProductID()%>" class="product-img"><img src="${root}../images/product/<%=p.getProductImage()%>" width="50" height="50" alt="<%=p.getProductName()%>"></a>
+                                                </div>
+                                              </div>
+                                          </td>
                                           <td><%=p.getProductColor()%></td>
-                                          <td><%=p.getProductPrice()%></td>
+                                          <td><%=formatter.format(p.getProductPrice())%></td>
                                           <td><%=p.getProductUpdate()%></td>
                                           <td><%=producerdao.getProducer(p.getProducerID()).getProducerName()%></td>
                                           <td>
@@ -87,6 +90,98 @@
                                                 </center> 
                                            </td>                                         
                                         </tr>
+                                        
+                       <!-------------------- Modal --------------------------------------->
+                                                <div class="modal fade" id="myModal<%=p.getProductID()%>" role="dialog">
+                                                  <div class="modal-dialog modal-lg">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"></button>
+                                                        <h4 class="modal-title"><%=p.getProductName()%></h4>
+                                                      </div>
+                                                      <div class="modal-body">
+                                                          
+                                                          
+                                                          
+                                                        <div class="box box-solid">
+                                                          <div class="box-header with-border">
+                                                            <i class="fa fa-text-width"></i>
+                                                            <h3 class="box-title">Thông tin cơ bản</h3>
+                                                          </div>
+                                                          <div class="box-body">
+                                                            <dl class="dl-horizontal">
+                                                              <dt>Nhà sản xuất: </dt><dd></dd>
+                                                              <dt>Loại sản phẩm: </dt><dd></dd>                                                              
+                                                              <dt>Kích thước: </dt><dd></dd>
+                                                              <dt>Trọng lương: </dt><dd></dd>
+                                                            </dl>
+                                                          </div>
+                                                        </div>
+                                                      
+                                                       <div class="box box-solid"> 
+                                                        <div class="box-header with-border">
+                                                            <i class="fa fa-text-width"></i>
+                                                            <h3 class="box-title">Thông tin SEO</h3>
+                                                          </div>
+                                                          <div class="box-body">
+                                                            <dl class="dl-horizontal">
+                                                              <dt>MetaTitle: </dt><dd><%=p.getProductMetaTitle()%></dd>
+                                                              <dt>MetaKeywords: </dt><dd><%=p.getProductMetaKeywords()%></dd>                                                              
+                                                              <dt>MetaDescription: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                            </dl>
+                                                          </div>
+                                                      </div>
+                                                            
+                                                       <div class="box box-solid"> 
+                                                        <div class="box-header with-border">
+                                                            <i class="fa fa-text-width"></i>
+                                                            <h3 class="box-title">Gía và số lượng</h3>
+                                                          </div>
+                                                          <div class="box-body">
+                                                            <dl class="dl-horizontal">
+                                                              <dt>Gía bán: </dt><dd><%=formatter.format(p.getProductPrice())%></dd>
+                                                              <dt>Khuyến mãi: </dt><dd><%=p.getProductSale()%></dd>                                                              
+                                                              <dt>Lượt mua: </dt><dd><%=p.getProductBuys()%></dd>
+                                                              <dt>Còn lại: </dt><dd><%=p.getProductInventory()%></dd>
+                                                            </dl>
+                                                          </div>
+                                                      </div>
+                                                            
+                                                      <div class="box box-solid"> 
+                                                        <div class="box-header with-border">
+                                                            <i class="fa fa-text-width"></i>
+                                                            <h3 class="box-title">Cấu hình</h3>
+                                                          </div>
+                                                          <div class="box-body">
+                                                            <dl class="dl-horizontal">
+                                                              <dt>CPU: </dt><dd><%=p.getProductMetaTitle()%></dd>
+                                                              <dt>RAM: </dt><dd><%=p.getProductMetaKeywords()%></dd>                                                              
+                                                              <dt>Ổ cứng: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                              <dt>Màn hình: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                              <dt>VGA: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                              <dt>Âm thanh: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                              <dt>Ổ cứng: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                              <dt>Ổ cứng: </dt><dd><%=p.getProductMetaDescription()%></dd>
+                                                            </dl>
+                                                          </div>
+                                                      </div>
+                                                         
+
+
+                                                      </div>
+                                                      <div class="modal-footer">            
+                                                          <a href="${root}../Admin/update_product.jsp?product_id=<%=p.getProductID()%>" class="btn btn-primary pull-left"><i class="glyphicon glyphicon-pencil"></i> SỬA</a>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                      </div>
+                                                    </div>
+
+                                                  </div>
+                                                </div>
+                 <!-------------------------------- /Modal --------------------------------------------->
+                                        
+                                        
                                        <% }%>
                                        </tbody>
                                        <tfoot>

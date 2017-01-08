@@ -102,11 +102,11 @@
                                                       <div class="modal-body">
                                                         <p>Người gửi: <%=feedback.getFeedbackName()%></p>
                                                         <p>Email: <%=feedback.getFeedbackEmail()%></p>
-                                                        <p>Ngày nhận: <%=feedback.getFeedbackUpdate()%></p>
+                                                        <p>Ngày nhận: <%=feedback.getFeedbackUpdate()%></p><hr>
                                                         <p>Nội dung: <%=feedback.getFeedbackText()%></p>
                                                       </div>
                                                       <div class="modal-footer">
-                                                        <a href="mailto:<%=feedback.getFeedbackEmail()%>?Subject=Xin chào bạn!" class="btn btn-primary pull-left">Send mail!</a>
+                                                        <a href="mailto:<%=feedback.getFeedbackEmail()%>?Subject=ShopLaptop phản hồi góp ý!" class="btn btn-primary pull-left">Send mail!</a>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                       </div>
                                                     </div>
