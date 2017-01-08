@@ -8,6 +8,7 @@
 <%@page import="dao.UsersDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.BillDAO"%>
+<%@page import="helpers.MoneyFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -42,6 +43,7 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
+            MoneyFormat formatter = new MoneyFormat();
             BillDAO billDAO = new BillDAO();
             ArrayList<Bill> listBill = billDAO.getListBillup();
             UsersDAO usersDAO = new UsersDAO();            
@@ -73,42 +75,68 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Mã hóa đơn</th>
-                    <th>Khách hàng</th>
-                    <th>Địa chỉ</th>
-                    <th>Tổng hóa đơn</th>
-                    <th>Tình trạng</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                      <%
+                <div class="box-body">
+                                     <table id="example1" class="table table-bordered table-striped">
+                                       <thead>
+                                       <tr>
+                                            <th>Mã hóa đơn</th>
+                                            <th>Khách hàng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Điện thoại</th>
+                                            <th>Tổng hóa đơn</th>
+                                            <th>Thanh toán</th>
+                                            <th>Tình trạng</th>                                           
+                                       </tr>
+                                       </thead>
+                                       <tbody>
+                                        <%
                                             for(Bill bill : listBill){
                                         %>
-                  <tr>
-                    <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
-                    <td><%=usersDAO.getUser(bill.getUserID()).getUserEmail()%></td>
-                    <td><%=bill.getBillAddress()%></td>
-                    <td><%=bill.getBillTotal()%></td>
-                    <% if (bill.getBillPaid()==0) {                      
-                    %>
-                    <td><span class="label label-warning">Chưa thanh toán</span></td>
-                    <% } else if (bill.getBillPaid()==1&&bill.getBillFinish()==0) {                          
-                    %>
-                    <td><span class="label label-info">Đã thanh toán</span></td>
-                    <% } else if (bill.getBillFinish()==1) {                          
-                    %>
-                    <td><span class="label label-success">Hoàn thành</span></td>
-                    <% }%>
-                  </tr>
-                  <% }%>
-                  
-                  </tbody>
-                </table>
-              </div>
+                                          <tr>
+                                            <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
+                                            <td><%=bill.getBillName()%></td>
+                                            <td><%=bill.getBillAddress()%></td>
+                                            <td><%=bill.getBillPhone()%></td>
+                                            <td><%=formatter.format(bill.getBillTotal())%></td>
+                                            <td>
+                                              <center> 
+                                              <% if (bill.getBillPaid()==0) {                      
+                                                %>
+                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
+                                                <%} else {%>
+<!--                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-justify"></i> Hoàn tất</button>-->
+                                                <span class="label label-success"> Hoàn thành</span>
+                                                <% }%>
+                                              </center>
+                                            </td>
+                                            <td>
+                                              <center> 
+                                              <% if (bill.getBillFinish()==0) {                      
+                                                %>
+                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=finish&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Đã giao</button>
+                                                <%} else {%>
+<!--                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-justify"></i> Hoàn tất</button>-->
+                                                <span class="label label-success"> Hoàn thành</span>
+                                                <% }%>
+                                              </center>
+                                            </td>
+                                            
+                                          </tr>
+                                          <% }%>
+                                       </tbody>
+                                       <tfoot>
+                                       <tr>
+                                            <th>Mã hóa đơn</th>
+                                            <th>Khách hàng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Điện thoại</th>
+                                            <th>Tổng hóa đơn</th>
+                                            <th>Thanh toán</th>
+                                            <th>Tình trạng</th> 
+                                       </tr>
+                                       </tfoot>
+                                     </table>
+                                   </div>
               <!-- /.table-responsive -->
             </div>
             <!-- /.box-body -->
@@ -133,6 +161,13 @@
             <script src="${root}/Admin/layout/plugins/fastclick/fastclick.js"></script>
             <script src="${root}/Admin/layout/dist/js/app.min.js"></script>
             <script src="${root}/Admin/layout/dist/js/demo.js"></script>
+            <script>
+            $(document).ready(function () {
+                $('#example1').DataTable({
+                    responsive: true
+                });
+            });
+            </script>
             <script type="text/javascript">
 	$(function(){
 		$('.sidebar-menu a').filter(function(){return this.href===location.href;}).parent().addClass('active').siblings().removeClass('active');

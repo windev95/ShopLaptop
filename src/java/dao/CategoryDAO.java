@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
 import java.util.ArrayList; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Category; 
 public class CategoryDAO 
 {     
@@ -26,6 +28,23 @@ public class CategoryDAO
             list.add(category);         
         }         
         return list;    
+    }
+    // kiểm tra email tồn tại chưa
+    public boolean checkCategory(String Category) {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM category WHERE category_name = '" + Category + "'";
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                connection.close();
+            return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
         //Get thể loại
     public Category getCategory(long categoryID) throws SQLException 

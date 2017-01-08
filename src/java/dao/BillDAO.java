@@ -28,7 +28,7 @@ public class BillDAO {
     public ArrayList<Bill> getListBill() {
         try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "SELECT * FROM bill";
+            String sql = "SELECT * FROM bill ORDER BY bill_finish ASC";
             PreparedStatement ps = connection.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             ArrayList<Bill> list = new ArrayList<>();
@@ -55,7 +55,7 @@ public class BillDAO {
     public ArrayList<Bill> getListBillup() {
         try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "SELECT * FROM `bill` ORDER BY `bill`.`bill_date` DESC LIMIT 20";
+            String sql = "SELECT * FROM `bill` WHERE `bill_finish` = 0 ORDER BY `bill`.`bill_date` DESC";
             PreparedStatement ps = connection.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
             ArrayList<Bill> list = new ArrayList<>();

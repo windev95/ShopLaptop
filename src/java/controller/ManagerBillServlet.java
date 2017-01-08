@@ -28,15 +28,15 @@ public class ManagerBillServlet extends HttpServlet {
             switch (command) {
                 case "delete":
                     dao.delete(Long.parseLong(bill_id));
-                    url = "/Admin/manager_bill.jsp";
+                    url = "/Admin/index.jsp";
                     break;
                 case "update":
                     dao.update(Long.parseLong(bill_id));
-                    url = "/Admin/manager_bill.jsp";
+                    url = "/Admin/index.jsp";
                     break;
                 case "finish":
                     dao.finish(Long.parseLong(bill_id));
-                    url = "/Admin/paid_bill.jsp";
+                    url = "/Admin/index.jsp";
                     break;    
             }
         } catch (Exception e) {

@@ -4,20 +4,19 @@
     Author     : Khang
 --%>
 
-<%@page import="model.BillDetail"%>
+<%@page import="model.Bill" %>
+<%@page import="dao.BillDAO" %>
+<%@page import="model.BillDetail" %>
+<%@page import="dao.BillDetailDAO" %>
+<%@page import="model.Product" %>
+<%@page import="dao.ProductDAO" %>
 <%@page import="helpers.MoneyFormat"%>
-<%@page import="dao.BillDetailDAO"%>
-<%@page import="dao.ProductDAO"%>
-<%@page import="model.Bill"%>
-<%@page import="dao.UsersDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="dao.BillDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin</title>
+        <title>Chi tiết hóa đơn</title>
         <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <c:set var="root" value="${pageContext.request.contextPath}"/>
@@ -46,6 +45,8 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
+        BillDAO billDAO = new BillDAO();
+        Bill bill = new Bill();
         ProductDAO productDAO = new ProductDAO();
         BillDetailDAO billDetailDAO = new BillDetailDAO();
         MoneyFormat formatter = new MoneyFormat();
@@ -53,6 +54,7 @@
         if(request.getParameter("bill") != null)
         {
             billID = request.getParameter("bill");
+            bill = billDAO.getBill(billID);
         }
         %>
         <div class="wrapper">
@@ -72,7 +74,7 @@
                     <section class="content">
                       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Chi tiết hóa đơn</h3>
+              <h3 class="box-title">Chi tiết hóa đơn #<%=bill.getBillID()%></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -88,25 +90,77 @@
                   </thead>
                   <tbody>
                       <%
-                                            for(BillDetail billDetail : billDetailDAO.getListBillDetailbyBillID(String.valueOf(billID)))
-                                            {
-                                            %>
-                                            <tr>
-                                                <td><a href='detail.jsp?product=<%=billDetail.getProductID()%>'><%=productDAO.getProduct(billDetail.getProductID()).getProductName()%></a></td>
-                                                <td><%=formatter.format(billDetail.getPrice())%></td>
-                                                <td><%=billDetail.getQuantity()%></td>
-                                                <td><%=formatter.format(billDetail.getPrice() * billDetail.getQuantity())%></td>
-                                            </tr>
-                                            <% }%>
+                        for(BillDetail billDetail : billDetailDAO.getListBillDetailbyBillID(String.valueOf(billID)))
+                            {
+                       %>
+                        <tr>
+                            <td><a href='detail.jsp?product=<%=billDetail.getProductID()%>'><%=productDAO.getProduct(billDetail.getProductID()).getProductName()%></a></td>
+                            <td><%=formatter.format(billDetail.getPrice())%></td>
+                            <td><%=billDetail.getQuantity()%></td>
+                            <td><%=formatter.format(billDetail.getPrice() * billDetail.getQuantity())%></td>
+                        </tr>
+                       <% }%>
                   </tbody>
                 </table>
               </div>
+              <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="">
+                                        <h3>Thông tin giao hàng</h3>
+                                        <div class="">
+                                            <p>
+                                                Trạng thái thanh toán:
+                                                <%if(bill.getBillPaid()==0){%>
+                                                    <span class="label label-warning">Chưa thanh toán</span>
+                                                <%}else {%>
+                                                    <span class="label label-success">Hoàn thành</span>
+                                                <% }%>
+                                            </p>
+                                            <p>
+                                                Trạng thái vận chuyển:
+                                                <%if(bill.getBillFinish()==0){%>
+                                                    <span class="label label-warning">Chưa giao</span>
+                                                <%}else {%>
+                                                    <span class="label label-success">Hoàn thành</span>
+                                                <% }%>
+                                            </p>
+                                            <p>Tên: <%=bill.getBillName()%></p>
+                                            <p>Địa chỉ: <%=bill.getBillAddress()%></p>
+                                            <p>Điện thoại: <%=bill.getBillPhone()%></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                </div>
+                                <div class="col-sm-4">
+                                    <h3>Tổng tiền hóa đơn</h3>
+                                    <div class="">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td> Tổng tiền </td>
+                                                    <td class="text-right"><span class="price"><%=formatter.format(bill.getBillTotal())%></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Giao hàng tận nơi:</td>
+                                                    <td class="text-right"><span class="price">0₫</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Cần thanh toán </td>
+                                                    <td class="text-right"><span class="price"><%=formatter.format(bill.getBillTotal())%></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--inner-->
+                                </div>
+                            </div>
               <!-- /.table-responsive -->
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
               
-              <a href="../Admin/index.jsp" class="btn btn-sm btn-default btn-flat pull-right">Xem tất cả</a>
+              <a href="../Admin/manager_bill.jsp" class="btn btn-sm btn-default btn-flat pull-right">Xem tất cả</a>
             </div>
             <!-- /.box-footer -->
           </div>

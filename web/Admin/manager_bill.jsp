@@ -7,6 +7,7 @@
 <%@page import="model.Bill"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.BillDAO"%>
+<%@page import="helpers.MoneyFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -28,14 +29,15 @@
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
+            MoneyFormat formatter = new MoneyFormat();
             BillDAO billDAO = new BillDAO();
-            ArrayList<Bill> listBill = billDAO.getListBillnotpaid();
+            ArrayList<Bill> listBill = billDAO.getListBill();
             UsersDAO usersDAO = new UsersDAO();            
         %>
        <div class="wrapper">
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
-                <section class="content-header">
+<!--                <section class="content-header">
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group">
                             <a class="btn btn-warning btn-flat" href="../Admin/manager_bill.jsp" >Chưa thanh toán</a>
@@ -47,7 +49,7 @@
                             <a class="btn btn-success btn-flat" href="../Admin/finish_bill.jsp" >Hoàn thành</a>
                         </div>
                     </div>                                                               
-                  </section>
+                  </section>-->
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
                              <div class="row">
@@ -55,7 +57,7 @@
                                  <!-- /.box -->
                                  <div class="box">
                                    <div class="box-header">              
-                                     <h3 class="box-title">Hóa đơn chưa thanh toán</h3>                                                                       
+                                     <h3 class="box-title">Tất cả đơn hàng</h3>                                                                       
                                    </div>
                                    <!-- /.box-header -->
                                    <div class="box-body">
@@ -63,43 +65,60 @@
                                        <thead>
                                        <tr>
                                             <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>							
+                                            <th>Ngày lập</th>
+                                            <th>Khách hàng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Điện thoại</th>
                                             <th>Tổng hóa đơn</th>
                                             <th>Thanh toán</th>
-                                            <th>Địa chỉ giao hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th width="100px">Tùy chọn</th>                                           
+                                            <th>Tình trạng</th>                                           
                                        </tr>
                                        </thead>
                                        <tbody>
                                         <%
                                             for(Bill bill : listBill){
                                         %>
-                                        <tr>                                        
-                                          <td><%=bill.getBillID()%></td>
-                                          <td><%=usersDAO.getUser(bill.getUserID()).getUserEmail()%></td>
-                                          <td><%=bill.getBillTotal()%></td>
-                                          <td><%=bill.getBillPayment()%></td>
-                                          <td><%=bill.getBillAddress()%></td>
-                                          <td><%=bill.getBillDate()%></td>                                         
-                                          <td>
+                                          <tr>
+                                            <td><a href="${root}../Admin/bill_detail.jsp?bill=<%=bill.getBillID()%>"><%=bill.getBillID()%></a></td>
+                                            <td><%=bill.getBillDate()%></td>
+                                            <td><%=bill.getBillName()%></td>                                            
+                                            <td><%=bill.getBillAddress()%></td>
+                                            <td><%=bill.getBillPhone()%></td>
+                                            <td><%=formatter.format(bill.getBillTotal())%></td>
+                                            <td>
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-pencil"></i> Xác nhận</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
-                                                </center> 
-                                           </td>                                         
-                                        </tr>
-                                       <% }%>
+                                              <% if (bill.getBillPaid()==0) {                      
+                                                %>
+                                                <span class="label label-warning"> Chưa thanh toán</span>                                                
+                                                <%} else {%>
+                                                <span class="label label-success"> Hoàn thành</span>
+                                                <% }%>
+                                              </center>
+                                            </td>
+                                            <td>
+                                              <center> 
+                                              <% if (bill.getBillFinish()==0) {                      
+                                                %>
+                                                <span class="label label-warning"> Chưa giao</span>   
+                                                <%} else {%>                    
+                                                <span class="label label-success"> Hoàn thành</span>
+                                                <% }%>
+                                              </center>
+                                            </td>
+                                            
+                                          </tr>
+                                          <% }%>
                                        </tbody>
                                        <tfoot>
                                        <tr>
                                             <th>Mã hóa đơn</th>
-                                            <th>Khách hàng</th>							
+                                            <th>Ngày lập</th>
+                                            <th>Khách hàng</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Điện thoại</th>
                                             <th>Tổng hóa đơn</th>
                                             <th>Thanh toán</th>
-                                            <th>Địa chỉ giao hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th>Tùy chọn</th>
+                                            <th>Tình trạng</th> 
                                        </tr>
                                        </tfoot>
                                      </table>

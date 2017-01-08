@@ -108,16 +108,6 @@
                                                     <span class="label label-success">Hoàn thành</span>
                                                 <% }%>
                                             </p>
-                                            <p>Tên: <%=bill.getBillName()%></p>
-                                            <p>Địa chỉ: <%=bill.getBillAddress()%></p>
-                                            <p>Điện thoại: <%=bill.getBillPhone()%></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="">
-                                        <h3>Thông tin giao hàng</h3>
-                                        <div class="">
                                             <p>
                                                 Trạng thái vận chuyển:
                                                 <%if(bill.getBillFinish()==0){%>
@@ -131,6 +121,8 @@
                                             <p>Điện thoại: <%=bill.getBillPhone()%></p>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-sm-4">
                                 </div>
                                 <div class="col-sm-4">
                                     <h3>Tổng tiền hóa đơn</h3>

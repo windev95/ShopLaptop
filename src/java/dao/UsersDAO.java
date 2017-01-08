@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Users; 
 public class UsersDAO {
-        // kiểm tra email tồn tại chưa
+    // kiểm tra email tồn tại chưa
     public boolean checkEmail(String email) {
         Connection connection = DBConnect.getConnecttion();
         String sql = "SELECT * FROM users WHERE user_email = '" + email + "'";

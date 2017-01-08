@@ -19,6 +19,25 @@
         <link rel="stylesheet" href="${root}/Admin/layout/plugins/datatables/dataTables.bootstrap.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="${root}/Admin/layout/dist/css/skins/_all-skins.min.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+              $(document).ready(function () {
+                   var x_timer;
+                   $("#tenDanhMuc").keyup(function (e) {
+                        clearTimeout(x_timer);
+                        var user_name = $(this).val();
+                        x_timer = setTimeout(function () {
+                            check_username_ajax(user_name);
+                        }, 1000);
+                        });
+                   function check_username_ajax(tenDanhMuc) {
+                        $("#tenDanhMuc-result").html('<img src="${root}/Admin/images/shop/ajax-loader.gif" />');
+                        $.post('../CheckCategoryServlet', {'tenDanhMuc':tenDanhMuc}, function (data) {
+                            $("#tenDanhMuc-result").html(data);
+                         });
+                   }
+               });
+        </script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <%
@@ -58,7 +77,9 @@
                                     <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" name="tenDanhMuc" required class="form-control" value="" id="inputEmail3" placeholder="Tên danh mục">
+                                        <input type="text" id="tenDanhMuc" name="tenDanhMuc" required class="form-control" value="" id="inputEmail3" placeholder="Tên danh mục">
+                                        
+                                        <span id="tenDanhMuc-result"></span> 
                                     </div>
                                   </div>
                                   

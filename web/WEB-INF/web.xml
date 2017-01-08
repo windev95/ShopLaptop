@@ -80,6 +80,10 @@
         <servlet-name>ManagerBillServlet</servlet-name>
         <servlet-class>controller.ManagerBillServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckCategoryServlet</servlet-name>
+        <servlet-class>controller.CheckCategoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -159,6 +163,10 @@
     <servlet-mapping>
         <servlet-name>ManagerBillServlet</servlet-name>
         <url-pattern>/ManagerBillServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckCategoryServlet</servlet-name>
+        <url-pattern>/CheckCategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
