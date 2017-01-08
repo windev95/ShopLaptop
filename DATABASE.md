@@ -323,5 +323,7 @@ CREATE TABLE `feedback` (
 `feedback_name` varchar(50) collate utf8_unicode_ci NOT NULL,
 `feedback_email` varchar(50) NOT NULL,
 `feedback_text` longtext collate utf8_unicode_ci,
+`feedback_update` timestamp NULL default NULL on update CURRENT_TIMESTAMP,  
+`feedback_finish` int(1) default 0,
 PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

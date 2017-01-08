@@ -84,6 +84,10 @@
         <servlet-name>CheckCategoryServlet</servlet-name>
         <servlet-class>controller.CheckCategoryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FeedbackServlet</servlet-name>
+        <servlet-class>controller.FeedbackServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckEmailServlet</servlet-name>
         <url-pattern>/CheckEmailServlet</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>CheckCategoryServlet</servlet-name>
         <url-pattern>/CheckCategoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FeedbackServlet</servlet-name>
+        <url-pattern>/FeedbackServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
