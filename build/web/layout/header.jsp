@@ -27,6 +27,11 @@
             }
             DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
+        <style>
+            .dropdown-toggle::after {
+                display: none;
+            }
+        </style>
         <!-- SITE HEADER
         =========================================================================== -->
         <div id="site-header">
@@ -78,7 +83,7 @@
                                 <ul>
                                     <li>
                                         <div class="dropdown">
-                                            <a class="dropdown-toggle" type="button" id="dropdown_Menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <a class="dropdown-toggle" type="text" id="dropdown_Menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown_Menu1" aria-labelledby="dropdown_Menu1">
@@ -221,7 +226,7 @@
                                 <ul>
                                     <li>
                                         <div class="dropdown">
-                                            <a class="dropdown-toggle" type="button" id="dropdown_Menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <a class="dropdown-toggle" type="text" id="dropdown_Menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                 <i class="fa fa-search"></i>
                                             </a>
                                             <ul class="dropdown-menu dropdown_Menu1" aria-labelledby="dropdown_Menu1">
