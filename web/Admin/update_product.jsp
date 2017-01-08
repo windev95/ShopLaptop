@@ -155,8 +155,13 @@
                                                       <div class="form-group">
                                                         <label>Ẩn sản phẩm</label>
                                                         <select name="product_hide"  class="form-control">
-                                                            <option value="0" >Không</option>
-                                                            <option value="1" >Có</option> 
+                                                            <%if(product.getProductHide()==0){%>
+                                                                <option selected value="0" >Không</option>
+                                                                <option value="1" >Có</option> 
+                                                            <%}else{%>
+                                                                <option value="0" >Không</option>
+                                                                <option selected value="1" >Có</option> 
+                                                            <% }%>
                                                         </select>
                                                         </div>
                                                   </div>
@@ -166,26 +171,30 @@
                                                   <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label>Chọn danh mục</label>
-                                                        <select name="category_id"  class="form-control">
+                                                        <select selected="<%=product.getCategoryID()%>" name="category_id"  class="form-control">
                                                             <%
                                                                 for (Category p : cdao.getListCategory())
-                                                                {
+                                                                { if(product.getCategoryID() != p.getCategoryID()){
                                                                 %>
-                                                            <option value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
-                                                            <% } %>                                      
+                                                                <option value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
+                                                            <% }else{ %>    
+                                                                <option selected value="<%=p.getCategoryID()%>" ><%=p.getCategoryName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>
                                                   </div>
                                                   <div class="col-md-6">
                                                       <div class="form-group">
                                                         <label>Chọn nhà sản xuất</label>
-                                                        <select name="producer_id"  class="form-control select2">
+                                                        <select selected="<%=product.getProducerID()%>" name="producer_id"  class="form-control select2">
                                                             <%
                                                                 for (Producer p : producerdao.getListProducer())
-                                                                {
+                                                                {if(product.getProducerID()!=p.getProducerID()){
                                                                 %>
                                                             <option value="<%=p.getProducerID()%>" ><%=p.getProducerName()%></option>
-                                                            <% } %>
+                                                            <% }else{ %>
+                                                            <option selected="" value="<%=p.getProducerID()%>" ><%=p.getProducerName()%></option>
+                                                            <% }}%>                                                           
                                                         </select>
                                                         </div> 
                                                   </div>
@@ -300,10 +309,12 @@
                                                         <select name="pricelevel_id" class="form-control">
                                                              <%
                                                                 for (Pricelevel p : pldap.getListPricelevel())
-                                                                {
+                                                                {if(product.getPricelevelID()!=p.getPricelevelID()){
                                                                 %>
                                                             <option value="<%=p.getPricelevelID()%>" ><%=p.getPricelevelName()%></option>
-                                                            <% } %>                                        
+                                                            <% }else{ %> 
+                                                                <option selected value="<%=p.getPricelevelID()%>" ><%=p.getPricelevelName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>                                                      
                                                   </div>
@@ -329,10 +340,12 @@
                                                         <select name="cpu_id" class="form-control">
                                                              <%
                                                                 for (Cpu p : cpudao.getListCpu())
-                                                                {
+                                                                {if(product.getCpuID()!=p.getCpuID()){
                                                                 %>
                                                             <option value="<%=p.getCpuID()%>" ><%=p.getCpuName()%></option>
-                                                            <% } %>                                          
+                                                            <% }else{ %>   
+                                                            <option selected value="<%=p.getCpuID()%>" ><%=p.getCpuName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>
                                                   </div>
@@ -351,10 +364,12 @@
                                                         <select name="ram_id" class="form-control">
                                                              <%
                                                                 for (Ram p : rdao.getListRam())
-                                                                {
+                                                                {if(product.getRamID()!=p.getRamID()){
                                                                 %>
-                                                            <option value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
-                                                            <% } %>                                           
+                                                            <option  value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
+                                                            <% }else{ %>     
+                                                            <option selected value="<%=p.getRamID()%>" ><%=p.getRamName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>
                                                   </div>
@@ -373,10 +388,12 @@
                                                         <select name="storage_id" class="form-control">
                                                              <%
                                                                 for (Storage p : srdao.getListStorage())
-                                                                {
+                                                                {if(product.getStorageID()!=p.getStorageID()){
                                                                 %>
                                                             <option value="<%=p.getStorageID()%>" ><%=p.getStorageName()%></option>
-                                                            <% } %>                                           
+                                                            <% }else{ %> 
+                                                            <option selected value="<%=p.getStorageID()%>" ><%=p.getStorageName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>
                                                   </div>
@@ -395,10 +412,12 @@
                                                         <select name="screensize_id" class="form-control">
                                                              <%
                                                                 for (Screensize p : srsdao.getListScreensize())
-                                                                {
+                                                                {if(product.getScreensizeID()!=p.getScreensizeID()){
                                                                 %>
                                                             <option value="<%=p.getScreensizeID()%>" ><%=p.getScreensizeName()%></option>
-                                                            <% } %>                                           
+                                                            <% }else{ %>    
+                                                                <option selected value="<%=p.getScreensizeID()%>" ><%=p.getScreensizeName()%></option>
+                                                            <% }}%>
                                                         </select>
                                                         </div>
                                                   </div>
