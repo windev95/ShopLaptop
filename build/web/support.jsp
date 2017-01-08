@@ -144,19 +144,19 @@
                                         <!--End. form-errors-custom-->
                                         <div class="form-inline form-comment">
                                             <div class="form-group">
-                                                <label for="name">Họ tên</label>
-                                                <input id="name" name="contact[Name]" type="text" value="" class="form-control">
+                                                <label for="name">Họ tên <span class="text-danger">*</span></label>
+                                                <input id="name" name="name" type="text" value="" class="form-control" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                                <input id="email" name="contact[email]" class="form-control" type="email" value="" required>
+                                                <input id="email" name="email" class="form-control" type="email" value="" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="message">Lời nhắn <span class="text-danger">*</span></label>
-                                                <textarea id="message" name="contact[Body]" class="form-control custom-control" rows="3" required></textarea>
+                                                <textarea id="message" name="message" class="form-control custom-control" rows="3" required></textarea>
                                             </div>
-                                            <button type="submit" id="submitlienhe" class="btn btn-default">Gửi nhận xét</button>
+                                            <button type="submit" id="submitlienhe" class="btn btn-default">Gửi phản hồi</button>
                                         </div>
                                     </form>
                                 </div>

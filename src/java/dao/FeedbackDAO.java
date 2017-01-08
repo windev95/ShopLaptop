@@ -51,14 +51,12 @@ public class FeedbackDAO {
     public boolean insert(Feedback c) throws SQLException {
     try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "INSERT INTO feedback VALUE(?,?,?,?,?,?)";
+            String sql = "INSERT INTO feedback(feedback_id,feedback_name,feedback_email,feedback_text) VALUE(?,?,?,?)";
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, c.getFeedbackID());
             ps.setString(2, c.getFeedbackName());
             ps.setString(3, c.getFeedbackEmail());
             ps.setString(4, c.getFeedbackText());
-            ps.setTimestamp(5, c.getFeedbackUpdate());
-            ps.setInt(6, c.getFeedbackFinish());
             int temp = ps.executeUpdate();
             return temp == 1;
         } catch (Exception e) {
@@ -77,4 +75,8 @@ public class FeedbackDAO {
         return false;
         }
     }
+        public static void main(String[] args) throws SQLException 
+    {       
+        FeedbackDAO dao = new FeedbackDAO(); 
+    } 
 }

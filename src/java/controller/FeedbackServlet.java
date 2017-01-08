@@ -1,18 +1,25 @@
 
 package controller;
 
+import dao.FeedbackDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Feedback;
 
 /**
  *
  * @author Toan
  */
 public class FeedbackServlet extends HttpServlet {
+    FeedbackDAO feedbackDAO = new FeedbackDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,6 +52,21 @@ public class FeedbackServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String url = "";
+        Feedback feedback = new Feedback();
+        feedback.setFeedbackID(new java.util.Date().getTime());
+        feedback.setFeedbackName(request.getParameter("name"));
+        feedback.setFeedbackEmail(request.getParameter("email"));
+        feedback.setFeedbackText(request.getParameter("message"));
+        feedback.setFeedbackFinish(0);
+        try {
+            feedbackDAO.insert(feedback);
+        } catch (SQLException ex) {
+            Logger.getLogger(FeedbackServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        url = "/index.jsp";
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+        rd.forward(request, response);
         processRequest(request, response);
     }
 
