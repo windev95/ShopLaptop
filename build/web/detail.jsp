@@ -26,7 +26,7 @@
 <%
     ProductDAO productDAO = new ProductDAO();
     ProducerDAO producerDAO = new ProducerDAO();
-    CategoryDAO categoryDAO = new CategoryDAO();
+    ScreensizeDAO screensizeDAO = new ScreensizeDAO();
     CpuDAO cpuDAO = new CpuDAO();
     RamDAO ramDAO = new RamDAO();
     StorageDAO storageDAO = new StorageDAO();
@@ -173,33 +173,7 @@
                                                 <del><%=formatter.format(product.getProductPrice())%></del>
                                                 <% }%>
                                             </span>
-<!--             //                                <div class="variant_Count">
-                                                <select id="product-selectors" name="variantId" style="display:none">
-                                                    <option value="2108928">Xanh lam - <%=formatter.format(product.getProductPrice())%></option>
-                                                    <option value="2108929">Xanh ngọc - <%=formatter.format(product.getProductPrice())%></option>
-                                                </select>
-                                            </div>-->
-                                            <!--số lượng-->
                                             <div class="col-sm-12 no-padding-lr quantity_cartbtn ">
-                                                <!-- <div class="col-sm-6 no-padding-lr"> -->
-<!--                                                <div class="product_quantity">
-                                                    <div class="quanitybtn">
-                                                        <div class="input-group quantity">
-                                                            <div class="input-group qttform">
-                                                                <input type="text" class="big_input form-control input-control product-qty" name="quantity" id="qty" value="1" min="1" step="1" onkeypress='validate(event)' />
-                                                                <div class="qty_up_down_right">
-                                                                    <span class="input-group-btn data-up">
-                                                                        <div onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="btn mathbtn" data-dir="up"><i class="fa fa-caret-up"></i></div>
-                                                                    </span>
-                                                                    <span class="input-group-btn data-dwn">
-                                                                        <div onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;" class="btn mathbtn" data-dir="dwn"><i class="fa fa-caret-down"></i></div>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!-- </div> -->
                                                 <div class="product_cart_btn">
                                                     <button class="product-action btn-red addtocart add-to-cart btn btn-default btn-lg" type="submit" id="button-cart">MUA NGAY</button>
 
@@ -292,8 +266,8 @@
                                                                         <td colspan=2 width="30%" class="danger sorting_1" >MÀN HÌNH</td>
                                                                     </tr>
                                                                   <tr>
-                                                                    <td style="width: 30%;">Kích thước</td>
-                                                                    <td><%=product.getProductScreen()%> Inch</td>
+                                                                    <td style="width: 30%;">Kích thước</td>                                                                    
+                                                                    <td><%=product.getProductScreen()%> Inch</td>                                                                    
                                                                   </tr>
                                                                   <tr>
                                                                     <td style="width: 30%;">Thông tin thêm</td>

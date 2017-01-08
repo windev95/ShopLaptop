@@ -62,7 +62,7 @@ INSERT INTO `producer` VALUES ('10', ' Microsoft', 'brand4.png', '#');
 DROP TABLE IF EXISTS `category`; 
 CREATE TABLE `category` (   
 `category_id` int(11) NOT NULL auto_increment,  
- `category_name` varchar(50) collate utf8_unicode_ci default NULL, 
+`category_name` varchar(50) collate utf8_unicode_ci default NULL, 
 `category_metatitle` varchar(250) NULL,  
 `category_metakeywords` varchar(250) NULL,  
 `category_metadescription` varchar(250) NULL, 
@@ -315,3 +315,13 @@ PRIMARY KEY (`bill_detail_id`)
 INSERT INTO `bill_detail` VALUES ('1', '1', '1', '1000000', '1463295350519');
 INSERT INTO `bill_detail` VALUES ('2', '3', '2', '3000000', '1463295350519');
 INSERT INTO `bill_detail` VALUES ('3', '5', '4', '4000000', '1463295350519');
+
+======================TẠO BẢNG GÓP Ý ===========================
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+`feedback_id` bigint(20) NOT NULL auto_increment,
+`feedback_name` varchar(50) collate utf8_unicode_ci NOT NULL,
+`feedback_email` varchar(50) NOT NULL,
+`feedback_text` longtext collate utf8_unicode_ci,
+PRIMARY KEY (`feedback_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -53,19 +53,19 @@
             <div class="content-wrapper">
                 <section class="content-header">
                     <h1>
-                      Dashboard
+                      ShopLaptop
                       <small>Version 2.0</small>
                     </h1>
                     <ol class="breadcrumb">
-                      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                      <li class="active">Dashboard</li>
+                      <li><a href="../Admin/index.jsp"><i class="fa fa-dashboard"></i> Admin</a></li>
+                      <li class="active">Index</li>
                     </ol>
                   </section>
 <!--                MAIN------------------------------------------------------------------->
                     <section class="content">
                       <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
+              <h3 class="box-title">Các đơn hàng chưa giao</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
