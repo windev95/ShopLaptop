@@ -339,6 +339,8 @@ CREATE TABLE `admin` (
 `pq_id` bigint(20) default NULL,
 PRIMARY KEY (`admin_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+//Nhập liệu pass: demo
+INSERT INTO `admin` VALUES ('123', 'Quốc Toàn', 'user2-160x160.jpg', 'demo@gmail.com', '3e8f51ec1e337d5317a3578de559665a', '321');
 
 ======================TẠO BẢNG PHÂN QUYỀN ===========================
 DROP TABLE IF EXISTS `pq`;

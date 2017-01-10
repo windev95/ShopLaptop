@@ -3,6 +3,13 @@
     Created on : Dec 30, 2016, 5:42:36 PM
     Author     : Khang
 --%>
+<%@page import="model.Admin"%>
+<% 
+    Admin admin = (Admin) session.getAttribute("admin");
+    if (admin == null) {
+        response.sendRedirect("/Admin/login.jsp");
+    }
+%>
 <%@page import="dao.CategoryDAO"%>
 <%@page import="model.Category"%>
 <%@page import="dao.PricelevelDAO"%>

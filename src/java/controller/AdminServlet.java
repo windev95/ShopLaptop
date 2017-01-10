@@ -53,12 +53,12 @@ public class AdminServlet extends HttpServlet {
             case "insert":
                 admin.setAdminID(new java.util.Date().getTime());
                 admin.setAdminfullName(request.getParameter("fullname"));
-                admin.setAdminAvatar(request.getParameter("avataar"));
+                admin.setAdminAvatar(request.getParameter("avatar"));
                 admin.setAdminEmail(request.getParameter("email"));
                 admin.setAdminPass(encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
                 admin.setPqID(new java.util.Date().getTime());
                 adminDAO.insertAdmin(admin);
-                url = "/login.jsp";
+                url = "/Admin/login.jsp";
                 break;
             case "login":
                 session.setAttribute("error", "");
@@ -67,22 +67,23 @@ public class AdminServlet extends HttpServlet {
                     try { 
                         for (Admin ds : adminDAO.getAdminByEmail(request.getParameter("email")))
                         {
-                            session.setAttribute("id", ds.getAdminID());
-                            session.setAttribute("name", ds.getAdminfullName());
-                            session.setAttribute("address", ds.getAdminEmail());
-                            session.setAttribute("phone", ds.getPqID());
+                            session.setAttribute("idAdmin", ds.getAdminID());
+                            session.setAttribute("nameAdmin", ds.getAdminfullName());
+                            session.setAttribute("emailAdmin", ds.getAdminEmail());
+                            session.setAttribute("avatar", ds.getAdminAvatar());
+                            session.setAttribute("pqAdmin", ds.getPqID());
                         }
                     } catch (SQLException ex) {
-                        Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 if (admin != null) {
                     session.setAttribute("admin", admin);
-                    url = "../Admin/index.jsp";
+                    url = "/Admin/index.jsp";
                     break;
                 }else{
                     session.setAttribute("error", "Email hoặc mật khẩu không đúng.!");
-                    url = "../Admin/login.jsp";
+                    url = "/Admin/login.jsp";
                 }
                 break;
         }
@@ -93,6 +94,6 @@ public class AdminServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

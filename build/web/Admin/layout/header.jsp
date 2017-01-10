@@ -227,16 +227,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="${root}/Admin/layout/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <img src="${root}/Admin/images/admin/<%=session.getAttribute("avatar")%>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><%=session.getAttribute("nameAdmin")%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="${root}/Admin/layout/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="${root}/Admin/images/admin/<%=session.getAttribute("avatar")%>" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <%=session.getAttribute("nameAdmin")%> - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -281,10 +281,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="${root}/Admin/layout/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="${root}/Admin/images/admin/<%=session.getAttribute("avatar")%>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><%=session.getAttribute("nameAdmin")%></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

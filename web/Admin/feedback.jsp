@@ -3,6 +3,13 @@
     Created on : Jan 8, 2017, 7:21:05 PM
     Author     : Toan
 --%>
+<%@page import="model.Admin"%>
+<% 
+    Admin admin = (Admin) session.getAttribute("admin");
+    if (admin == null) {
+        response.sendRedirect("/Admin/login.jsp");
+    }
+%>
 <%@page import="dao.FeedbackDAO"%>
 <%@page import="model.Feedback"%>
 <%@page import="java.util.ArrayList"%>

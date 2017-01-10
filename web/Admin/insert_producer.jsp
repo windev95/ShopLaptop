@@ -1,3 +1,10 @@
+<%@page import="model.Admin"%>
+<% 
+    Admin admin = (Admin) session.getAttribute("admin");
+    if (admin == null) {
+        response.sendRedirect("/Admin/login.jsp");
+    }
+%>
 <%@page import="dao.ProducerDAO"%>
 <%@page import="model.Producer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

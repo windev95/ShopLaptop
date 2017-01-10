@@ -32,7 +32,7 @@ public class AdminDAO {
     // kiểm tra đăng nhập
     public Admin login(String email, String password) {
         Connection con = DBConnect.getConnecttion();
-        String sql = "select * from admin where admin_email='" + email + "' and admin_pass='" + password + "'";
+        String sql = "select * from admin where admin_email ='" + email + "' and admin_pass ='" + password + "'";
         PreparedStatement ps;
         try {
             ps = (PreparedStatement) con.prepareStatement(sql);
