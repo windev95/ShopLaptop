@@ -76,7 +76,8 @@ public class AdminDAO {
         {             
             Admin admin = new Admin();      
             admin.setAdminID(rs.getLong("admin_id"));   
-            admin.setAdminfullName(rs.getString("admin_fullname")); 
+            admin.setAdminfullName(rs.getString("admin_fullname"));
+            admin.setAdminAvatar(rs.getString("admin_avatar")); 
             admin.setAdminEmail(rs.getString("admin_email")); 
             admin.setPqID(rs.getLong("pq_id")); 
             list.add(admin);         
