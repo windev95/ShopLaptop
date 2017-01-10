@@ -1,9 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : Dec 30, 2016, 10:41:26 AM
-    Author     : Khang
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +21,7 @@
 	           <div class="col-md-12">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="#">Trang quản trị ShopLaptop</a></h1>
+<!--	                 <h1><a href="#">Trang quản trị ShopLaptop</a></h1>-->
 	              </div>
 	           </div>
 	        </div>
@@ -40,8 +34,9 @@
 				<div class="login-wrapper">
 			        <div class="box">
 			            <div class="content-wrap">
+                                        <form accept-charset='UTF-8' action="AdminServlet" method="POST">
 			                <h6>Sign In</h6>
-			                <div class="social">
+<!--			                <div class="social">
 	                            <a class="face_login" href="#">
 	                                <span class="face_icon">
 	                                    <img src="images/facebook.png" alt="fb">
@@ -53,12 +48,17 @@
 	                                <span>or</span>
 	                                <hr class="right">
 	                            </div>
-	                        </div>
-			                <input class="form-control" type="text" placeholder="E-mail address">
-			                <input class="form-control" type="password" placeholder="Password">
-			                <div class="action">
-			                    <a class="btn btn-primary signup" href="index.jsp">Login</a>
-			                </div>                
+	                        </div>-->
+                                        <input type="hidden" value="login" name="command" id="command"/>
+                                        
+			                <input class="form-control" value="" maxlength="50" type="email" name="email" required placeholder="E-mail address"/>
+                                        <br>
+			                <input class="form-control" value="" maxlength="50" type="password" name="password" required placeholder="Password"/>
+			                
+                                        <div class="action">
+			                    <a class="btn btn-primary signup" type="submit">Login</a>
+			                </div>  
+                                        </form>
 			            </div>
 			        </div>
 			    </div>

@@ -327,3 +327,27 @@ CREATE TABLE `feedback` (
 `feedback_finish` int(1) default 0,
 PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+======================TẠO BẢNG ADMIN ===========================
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+`admin_id` bigint(20) NOT NULL auto_increment,
+`admin_fullname` varchar(50) collate utf8_unicode_ci NOT NULL,
+`admin_avatar` varchar(50)  NULL, 
+`admin_email` varchar(50) NOT NULL,
+`admin_pass` varchar(50) NOT NULL,
+`pq_id` bigint(20) default NULL,
+PRIMARY KEY (`admin_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+======================TẠO BẢNG PHÂN QUYỀN ===========================
+DROP TABLE IF EXISTS `pq`;
+CREATE TABLE `pq` (
+`pq_id` bigint(20) NOT NULL auto_increment,
+`pq_all` tinyint(1) default 0,
+`pq_bill` tinyint(1) default 0,
+`pq_feedback` tinyint(1) default 0,
+`pq_edit` tinyint(1) default 0,
+`pq_delete` tinyint(1) default 0,
+PRIMARY KEY (`pq_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
