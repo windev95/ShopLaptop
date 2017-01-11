@@ -120,5 +120,17 @@ public class AdminDAO {
         }
         return admin;
     }
+    public boolean delete(long admin_id) throws SQLException {
+        try {
+            Connection connection = DBConnect.getConnecttion();
+            String sql = "DELETE FROM admin WHERE admin_id = ?";
+            PreparedStatement ps = connection.prepareCall(sql);
+            ps.setLong(1, admin_id);
+            int temp = ps.executeUpdate();
+            return temp == 1;
+        } catch (Exception e) {
+        return false;
+        }
+    }
     
 }

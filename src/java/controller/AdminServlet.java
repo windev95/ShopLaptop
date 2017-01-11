@@ -42,6 +42,16 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
+        String admin_id = request.getParameter("admin_id");
+        String url = "";
+        try {
+            adminDAO.delete(Long.parseLong(admin_id));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        url = "/Admin/manager_admin.jsp";
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+        rd.forward(request, response);
         processRequest(request, response);
     }
     @Override
