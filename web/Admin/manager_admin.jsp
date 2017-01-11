@@ -6,12 +6,13 @@
 <%@page import="model.Admin"%>
 <% 
     Admin adminid = (Admin) session.getAttribute("admin");
-    if (adminid == null) {
-        response.sendRedirect("/Admin/login.jsp");
-    }
     String pqAdmin = "";
-    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
-        pqAdmin = "disabled";
+    if (adminid == null) {
+        response.sendRedirect("../Admin/login.jsp");
+    }else{        
+        if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+            pqAdmin = "disabled";
+        }
     }
 %>
 <%@page import="java.util.ArrayList"%>

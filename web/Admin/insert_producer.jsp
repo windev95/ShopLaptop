@@ -1,12 +1,13 @@
 <%@page import="model.Admin"%>
 <% 
     Admin admin = (Admin) session.getAttribute("admin");
-    if (admin == null) {
-        response.sendRedirect("/Admin/login.jsp");
-    }
     String pqAdmin = "";
-    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
-        pqAdmin = "disabled";
+    if (admin == null) {
+        response.sendRedirect("../Admin/login.jsp");
+    }else{        
+        if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+            pqAdmin = "disabled";
+        }
     }
 %>
 <%@page import="dao.ProducerDAO"%>

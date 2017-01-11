@@ -1,8 +1,13 @@
 <%@page import="model.Admin"%>
 <% 
     Admin admin = (Admin) session.getAttribute("admin");
+    String pqAdmin = "";
     if (admin == null) {
-        response.sendRedirect("/Admin/login.jsp");
+        response.sendRedirect("../Admin/login.jsp");
+    }else{        
+        if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+            pqAdmin = "disabled";
+        }
     }
 %>
 <%@page import="dao.ProducerDAO"%>

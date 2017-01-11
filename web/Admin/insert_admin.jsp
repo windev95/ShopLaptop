@@ -8,15 +8,15 @@
 <%@page import="dao.PqDAO"%>
 <%@page import="model.Pq"%>
 <% 
-    Admin admin = (Admin) session.getAttribute("admin");
-    if (admin == null) {
-        response.sendRedirect("/Admin/login.jsp");
-    }
+    Admin adminid = (Admin) session.getAttribute("admin");
     String pqAdmin = "";
-    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
-        pqAdmin = "disabled";
+    if (adminid == null) {
+        response.sendRedirect("../Admin/login.jsp");
+    }else{        
+        if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+            pqAdmin = "disabled";
+        }
     }
-    
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

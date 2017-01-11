@@ -6,12 +6,13 @@
 <%@page import="model.Admin"%>
 <% 
     Admin admin = (Admin) session.getAttribute("admin");
-    if (admin == null) {
-        response.sendRedirect("/Admin/login.jsp");
-    }
     String pqAdmin = "";
-    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
-        pqAdmin = "disabled";
+    if (admin == null) {
+        response.sendRedirect("../Admin/login.jsp");
+    }else{        
+        if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+            pqAdmin = "disabled";
+        }
     }
 %>
 <%@page import="model.Bill"%>
@@ -138,9 +139,6 @@
                     </div>
       <!-- /.row -->
 
-      
-      
-          
             <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">Các đơn hàng chưa giao</h3>
