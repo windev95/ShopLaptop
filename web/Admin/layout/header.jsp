@@ -308,9 +308,10 @@
         <li><a href="../Admin/manager_bill.jsp"><i class="fa fa-file-o"></i> <span>Hóa đơn</span></a></li>
         <li><a href="../Admin/manager_image.jsp"><i class="fa fa-file-image-o"></i> <span>Hình ảnh</span></a></li>    
         <li><a href="../Admin/manager_cpu.jsp"><i class="fa fa-bolt"></i> <span>Loại CPU</span></a></li>
-        <li><a href="../Admin/manager_producer.jsp"><i class="fa fa-windows"></i> <span>Nhà sản xuất</span></a></li>
+        <li><a href="../Admin/manager_producer.jsp"><i class="fa fa-windows"></i> <span>Nhà sản xuất</span></a></li>        
+        <li><a href="../Admin/manager_admin.jsp"><i class="fa fa-user"></i> <span>Quản lý Admin</span></a></li>
+        <li><a href="../Admin/manager_users.jsp"><i class="fa fa-users"></i> <span>Quản lý Users</span></a></li>
         <li><a href="../Admin/feedback.jsp"><i class="fa fa-send-o"></i> <span>Góp ý</span></a></li>
-        <li><a href="../Admin/manager_admin.jsp"><i class="fa fa-adn"></i> <span>Tài khoảng Admin</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

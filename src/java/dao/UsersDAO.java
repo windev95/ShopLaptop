@@ -9,6 +9,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Users; 
 public class UsersDAO {
+    //get user
+    public ArrayList<Users> getListUsers() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM users";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Users> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Users users = new Users();      
+            users.setUserID(rs.getLong("user_id"));   
+            users.setUserFullName(rs.getString("user_fullname")); 
+            users.setUserAddress(rs.getString("user_address")); 
+            users.setUserPhone(rs.getLong("user_phone")); 
+            users.setUserEmail(rs.getString("user_email")); 
+            list.add(users);         
+        }         
+        return list;    
+    }
     // kiểm tra email tồn tại chưa
     public boolean checkEmail(String email) {
         Connection connection = DBConnect.getConnecttion();
