@@ -340,7 +340,7 @@ CREATE TABLE `admin` (
 PRIMARY KEY (`admin_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 //Nhập liệu pass: demo
-INSERT INTO `admin` VALUES ('123', 'Quốc Toàn', 'user2-160x160.jpg', 'demo@gmail.com', '3e8f51ec1e337d5317a3578de559665a', '321');
+INSERT INTO `admin` VALUES ('123', 'Quốc Toàn', 'user2.jpg', 'demo@gmail.com', '3e8f51ec1e337d5317a3578de559665a', '1');
 
 ======================TẠO BẢNG PHÂN QUYỀN ===========================
 DROP TABLE IF EXISTS `pq`;
@@ -355,5 +355,5 @@ PRIMARY KEY (`pq_id`)
 //Nhập
 INSERT INTO `pq` VALUES ('1', 'System', 'Admin System', '1');
 INSERT INTO `pq` VALUES ('2', 'Content', 'Admin quản lý nội dung', '2');
-INSERT INTO `pq` VALUES ('3', 'Bill and Feedback', 'Bill and Feedback', '3');
-INSERT INTO `pq` VALUES ('4', 'View', 'Chỉ xem', '4');
+INSERT INTO `pq` VALUES ('3', 'Bill and Feedback', 'Admin quản lý Bill and Feedback', '3');
+INSERT INTO `pq` VALUES ('4', 'View', 'Admin Chỉ xem', '4');
