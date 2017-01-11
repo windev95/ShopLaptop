@@ -4,6 +4,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ProducerDAO"%>
@@ -34,7 +38,9 @@
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
                 <section class="content-header">
+                    <%if(pqAdmin!="disabled"){%>
                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_producer.jsp">THÊM MỚI</a>
+                    <% }%>
                   </section>
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
@@ -74,8 +80,8 @@
                                                         <td><%=image.getProducerLink()%></td>                                      
                                           <td width="75px">
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_producer.jsp?id=<%=image.getProducerID()%>&name=<%=image.getProducerName()%>&link=<%=image.getProducerLink()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='../DelProducerServlet?id=<%=image.getProducerID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                             <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_producer.jsp?id=<%=image.getProducerID()%>&name=<%=image.getProducerName()%>&link=<%=image.getProducerLink()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button <%=pqAdmin%> class="btn btn-danger btn-xs" onclick="location.href='../DelProducerServlet?id=<%=image.getProducerID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>

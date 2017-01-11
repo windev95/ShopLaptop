@@ -9,6 +9,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="dao.FeedbackDAO"%>
 <%@page import="model.Feedback"%>
@@ -79,7 +83,7 @@
                                               <center> 
                                               <% if (feedback.getFeedbackFinish()!=true) {                      
                                                 %>
-                                                <button class="btn btn-primary btn-xs" onclick="location.href='../FeedbackServlet?command=finish&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
+                                                <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='../FeedbackServlet?command=finish&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
                                                 <%} else {%>
                                                 <span class="label label-success"> Hoàn thành</span>
                                                 <% }%>
@@ -89,7 +93,7 @@
                                                 <center>
                                                     <% if (feedback.getFeedbackFinish()!=true) {                      
                                                     %>
-                                                    <button class="btn btn-danger btn-xs" disabled onclick="location.href='../FeedbackServlet?command=delete&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                                    <button <%=pqAdmin%> class="btn btn-danger btn-xs" disabled onclick="location.href='../FeedbackServlet?command=delete&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                     <% } else {%>
                                                     <button class="btn btn-danger btn-xs" onclick="location.href='../FeedbackServlet?command=delete&feedback_id=<%=feedback.getFeedbackID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                     <% }%>
@@ -113,11 +117,10 @@
                                                         <p>Nội dung: <%=feedback.getFeedbackText()%></p>
                                                       </div>
                                                       <div class="modal-footer">
-                                                        <a href="mailto:<%=feedback.getFeedbackEmail()%>?Subject=ShopLaptop phản hồi góp ý!" class="btn btn-primary pull-left">Send mail!</a>
+                                                        <a <%=pqAdmin%> href="mailto:<%=feedback.getFeedbackEmail()%>?Subject=ShopLaptop phản hồi góp ý!" class="btn btn-primary pull-left">Send mail!</a>
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                       </div>
                                                     </div>
-
                                                   </div>
                                                 </div>
                                        <!-- /Modal -->

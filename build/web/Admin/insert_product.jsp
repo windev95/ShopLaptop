@@ -9,6 +9,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="dao.CategoryDAO"%>
 <%@page import="model.Category"%>
@@ -485,7 +489,7 @@
                                     <!-- /.box-body -->
                                     <div class="box-footer">
                                       <button type="submit" class="btn btn-default">Hủy</button>
-                                      <button type="submit" class="btn btn-primary pull-right">Thêm</button>
+                                      <button <%=pqAdmin%> type="submit" class="btn btn-primary pull-right">Thêm</button>
                                     </div>
                                     <!-- /.box-footer -->
                                   </form>

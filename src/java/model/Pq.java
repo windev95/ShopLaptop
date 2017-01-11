@@ -1,22 +1,18 @@
 package model;
 public class Pq {
     private long pqID;
-    private Boolean pqAll;
-    private Boolean pqBill;
-    private Boolean pqFeedback;
-    private Boolean pqEdit;
-    private Boolean pqDelete;
+    private String pqName;
+    private String pqContent;
+    private int pqType;
 
     public Pq() {
     }
 
-    public Pq(long pqID, Boolean pqAll, Boolean pqBill, Boolean pqFeedback, Boolean pqEdit, Boolean pqDelete) {
+    public Pq(long pqID, String pqName, String pqContent, int pqType) {
         this.pqID = pqID;
-        this.pqAll = pqAll;
-        this.pqBill = pqBill;
-        this.pqFeedback = pqFeedback;
-        this.pqEdit = pqEdit;
-        this.pqDelete = pqDelete;
+        this.pqName = pqName;
+        this.pqContent = pqContent;
+        this.pqType = pqType;
     }
 
     public long getPqID() {
@@ -27,43 +23,28 @@ public class Pq {
         this.pqID = pqID;
     }
 
-    public Boolean getPqAll() {
-        return pqAll;
+    public String getPqName() {
+        return pqName;
     }
 
-    public void setPqAll(Boolean pqAll) {
-        this.pqAll = pqAll;
+    public void setPqName(String pqName) {
+        this.pqName = pqName;
     }
 
-    public Boolean getPqBill() {
-        return pqBill;
+    public String getPqContent() {
+        return pqContent;
     }
 
-    public void setPqBill(Boolean pqBill) {
-        this.pqBill = pqBill;
+    public void setPqContent(String pqContent) {
+        this.pqContent = pqContent;
     }
 
-    public Boolean getPqFeedback() {
-        return pqFeedback;
+    public int getPqType() {
+        return pqType;
     }
 
-    public void setPqFeedback(Boolean pqFeedback) {
-        this.pqFeedback = pqFeedback;
+    public void setPqType(int pqType) {
+        this.pqType = pqType;
     }
-
-    public Boolean getPqEdit() {
-        return pqEdit;
-    }
-
-    public void setPqEdit(Boolean pqEdit) {
-        this.pqEdit = pqEdit;
-    }
-
-    public Boolean getPqDelete() {
-        return pqDelete;
-    }
-
-    public void setPqDelete(Boolean pqDelete) {
-        this.pqDelete = pqDelete;
-    }    
+    
 }

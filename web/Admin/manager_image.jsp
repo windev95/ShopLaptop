@@ -9,6 +9,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ImageDAO"%>
@@ -41,7 +45,9 @@
             <jsp:include page="./layout/header.jsp"></jsp:include>
             <div class="content-wrapper">
                 <section class="content-header">
+                    <%if(pqAdmin!="disabled"){%>
                     <a class="btn btn-primary mini_btn center-block" href="../Admin/insert_image.jsp">THÊM MỚI</a>
+                    <% }%>
                   </section>
 <!--                MAIN------------------------------------------------------------------->
                         <section class="content">
@@ -81,8 +87,8 @@
                                                         <td><%=productDAO.getProduct(image.getProductID()).getProductName()%></td>                                      
                                           <td width="75px">
                                               <center> 
-                                             <button class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_image.jsp?image_id=<%=image.getImageID()%>&name=<%=image.getImageAlt()%>&image=<%=image.getImageImage()%>&id=<%=image.getProductID()%>&productname=<%=productDAO.getProduct(image.getProductID()).getProductName()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
-                                             <button class="btn btn-danger btn-xs" onclick="location.href='../DelImageServlet?image_id=<%=image.getImageID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
+                                             <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_image.jsp?image_id=<%=image.getImageID()%>&name=<%=image.getImageAlt()%>&image=<%=image.getImageImage()%>&id=<%=image.getProductID()%>&productname=<%=productDAO.getProduct(image.getProductID()).getProductName()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
+                                             <button <%=pqAdmin%> class="btn btn-danger btn-xs" onclick="location.href='../DelImageServlet?image_id=<%=image.getImageID()%>'"><i class="glyphicon glyphicon-remove"></i> Xóa</button>
                                                 </center> 
                                            </td>                                         
                                         </tr>

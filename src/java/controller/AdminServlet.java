@@ -1,6 +1,7 @@
 package controller;
 
 import dao.AdminDAO;
+import dao.PqDAO;
 import helpers.encrypt;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Admin;
+import model.Pq;
 public class AdminServlet extends HttpServlet {
     AdminDAO adminDAO = new AdminDAO();
+    PqDAO pqDAO = new PqDAO();
+    Pq pq = new Pq();
     encrypt encrypt = new encrypt();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,15 +52,16 @@ public class AdminServlet extends HttpServlet {
         String command = request.getParameter("command");        
         String url = "";
         Admin admin = new Admin();
+        Long id = new java.util.Date().getTime();
         HttpSession session = request.getSession();
         switch (command) {
             case "insert":
-                admin.setAdminID(new java.util.Date().getTime());
+                admin.setAdminID(id);
                 admin.setAdminfullName(request.getParameter("fullname"));
                 admin.setAdminAvatar(request.getParameter("avatar"));
                 admin.setAdminEmail(request.getParameter("email"));
                 admin.setAdminPass(encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
-                admin.setPqID(new java.util.Date().getTime());
+                admin.setPqID(id);
                 adminDAO.insertAdmin(admin);
                 url = "/Admin/login.jsp";
                 break;
@@ -70,8 +75,8 @@ public class AdminServlet extends HttpServlet {
                             session.setAttribute("idAdmin", ds.getAdminID());
                             session.setAttribute("nameAdmin", ds.getAdminfullName());
                             session.setAttribute("emailAdmin", ds.getAdminEmail());
-                            session.setAttribute("avatar", ds.getAdminAvatar());
-                            session.setAttribute("pqAdmin", ds.getPqID());
+                            session.setAttribute("avatar", ds.getAdminAvatar());                            
+                            session.setAttribute("pqAdmin", pqDAO.getPqType(String.valueOf(ds.getPqID())).getPqType());
                         }
                     } catch (SQLException ex) {
                         Logger.getLogger(AdminServlet.class.getName()).log(Level.SEVERE, null, ex);

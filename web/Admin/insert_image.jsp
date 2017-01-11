@@ -9,6 +9,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 2 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="dao.ProductDAO"%>
 <%@page import="model.Product"%>
@@ -95,7 +99,7 @@
                                 <!-- /.box-body -->
                                 <div class="box-footer">
                                   <button type="submit" class="btn btn-default">Cancel</button>
-                                  <button type="submit" class="btn btn-primary pull-right">Thêm dữ liệu</button>
+                                  <button <%=pqAdmin%>  type="submit" class="btn btn-primary pull-right">Thêm dữ liệu</button>
                                 </div>
                                 <!-- /.box-footer -->
                               </form>

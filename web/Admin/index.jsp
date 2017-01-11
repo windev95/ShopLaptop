@@ -9,6 +9,10 @@
     if (admin == null) {
         response.sendRedirect("/Admin/login.jsp");
     }
+    String pqAdmin = "";
+    if(Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 3 && Integer.parseInt(session.getAttribute("pqAdmin").toString()) != 1){
+        pqAdmin = "disabled";
+    }
 %>
 <%@page import="model.Bill"%>
 <%@page import="dao.UsersDAO"%>
@@ -172,13 +176,13 @@
                                             <td><%=bill.getBillAddress()%></td>
                                             <td><%=bill.getBillPhone()%></td>
                                             <td><%=formatter.format(bill.getBillTotal())%></td>
-                                            <td>
+                                            <td>                                              
                                                 <center>      
                                                 <% if (bill.getBillPaid()==0) {                      
                                                 %>
-                                                 <button class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                                 <button <%=pqAdmin%> class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
                                                 <% }else {%>
-                                                <button disabled="" class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
+                                                <button disabled class="btn btn-danger btn-xs" onclick="location.href='../ManagerBillServlet?command=delete&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-remove"></i> Hủy</button>
                                                 <%}%>
                                                 </center> 
                                             </td>
@@ -186,7 +190,7 @@
                                               <center> 
                                               <% if (bill.getBillPaid()==0) {                      
                                                 %>
-                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
+                                                <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Xác nhận</button>
                                                 <%} else {%>
                                                 <span class="label label-success"> Hoàn thành</span>
                                                 <% }%>
@@ -196,7 +200,7 @@
                                               <center> 
                                               <% if (bill.getBillFinish()==0) {                      
                                                 %>
-                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=finish&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Đã giao</button>
+                                                <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=finish&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-check"></i> Đã giao</button>
                                                 <%} else {%>
 <!--                                                <button class="btn btn-primary btn-xs" onclick="location.href='../ManagerBillServlet?command=update&bill_id=<%=bill.getBillID()%>'"><i class="glyphicon glyphicon-justify"></i> Hoàn tất</button>-->
                                                 <span class="label label-success"> Hoàn thành</span>

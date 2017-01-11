@@ -346,10 +346,14 @@ INSERT INTO `admin` VALUES ('123', 'Quốc Toàn', 'user2-160x160.jpg', 'demo@gm
 DROP TABLE IF EXISTS `pq`;
 CREATE TABLE `pq` (
 `pq_id` bigint(20) NOT NULL auto_increment,
-`pq_all` tinyint(1) default 0,
-`pq_bill` tinyint(1) default 0,
-`pq_feedback` tinyint(1) default 0,
-`pq_edit` tinyint(1) default 0,
-`pq_delete` tinyint(1) default 0,
+`pq_name` varchar(50) collate utf8_unicode_ci NOT NULL,
+`pq_content` longtext NULL,
+`pq_type` tinyint(1) default 0,
 PRIMARY KEY (`pq_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+//Nhập
+INSERT INTO `pq` VALUES ('1', 'System', 'Admin System', '1');
+INSERT INTO `pq` VALUES ('2', 'Content', 'Admin quản lý nội dung', '2');
+INSERT INTO `pq` VALUES ('3', 'Bill and Feedback', 'Bill and Feedback', '3');
+INSERT INTO `pq` VALUES ('4', 'View', 'Chỉ xem', '4');
