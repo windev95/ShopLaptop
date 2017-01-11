@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet; 
 import java.sql.SQLException; 
 import java.util.ArrayList; 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.Pq; 
 public class PqDAO {
     //kiểm tra, trả về tên khách hàng tường ứng với email truyền vào
