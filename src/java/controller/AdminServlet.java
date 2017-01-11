@@ -61,7 +61,7 @@ public class AdminServlet extends HttpServlet {
                 admin.setAdminAvatar(request.getParameter("avatar"));
                 admin.setAdminEmail(request.getParameter("email"));
                 admin.setAdminPass(encrypt.hashmd5(request.getParameter("email"), request.getParameter("password")));
-                admin.setPqID(id);
+                admin.setPqID(Integer.parseInt(request.getParameter("pq")));
                 adminDAO.insertAdmin(admin);
                 url = "/Admin/login.jsp";
                 break;

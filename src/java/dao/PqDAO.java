@@ -25,6 +25,24 @@ public class PqDAO {
         }         
         return list;    
     }
+    // get danh sách Admin  
+    public ArrayList<Pq> getListPq() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM pq";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Pq> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Pq pq = new Pq();      
+            pq.setPqID(rs.getLong("pq_id"));   
+            pq.setPqName(rs.getString("pq_name"));
+            pq.setPqContent(rs.getString("pq_content"));
+            pq.setPqType(rs.getInt("pq_type")); 
+            list.add(pq);         
+        }         
+        return list;    
+    }
     // kiểm tra đăng nhập
     public Pq getPqType(String pqID) {
         Connection con = DBConnect.getConnecttion();

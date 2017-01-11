@@ -29,6 +29,25 @@ public class AdminDAO {
         }
         return false;
     }
+    // get danh sách Admin  
+    public ArrayList<Admin> getListAdmin() throws SQLException { 
+        Connection connection = DBConnect.getConnecttion();        
+        String sql = "SELECT * FROM admin";       
+        PreparedStatement ps = connection.prepareCall(sql);        
+        ResultSet rs = ps.executeQuery();       
+        ArrayList<Admin> list = new ArrayList<>();        
+        while (rs.next()) 
+        {             
+            Admin admin = new Admin();      
+            admin.setAdminID(rs.getLong("admin_id"));   
+            admin.setAdminfullName(rs.getString("admin_fullname"));
+            admin.setAdminAvatar(rs.getString("admin_avatar")); 
+            admin.setAdminEmail(rs.getString("admin_email")); 
+            admin.setPqID(rs.getLong("pq_id"));  
+            list.add(admin);         
+        }         
+        return list;    
+    }
     // kiểm tra đăng nhập
     public Admin login(String email, String password) {
         Connection con = DBConnect.getConnecttion();
@@ -83,6 +102,23 @@ public class AdminDAO {
             list.add(admin);         
         }         
         return list;    
+    }
+    public Admin getAdmin(long adminID) throws SQLException 
+    {
+        Connection connection = DBConnect.getConnecttion();
+        String sql = "SELECT * FROM admin WHERE `admin_id` = '" + adminID + "'";
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        Admin admin = new Admin();
+        while (rs.next()) 
+        {
+            admin.setAdminID(rs.getLong("admin_id"));   
+            admin.setAdminfullName(rs.getString("admin_fullname"));
+            admin.setAdminAvatar(rs.getString("admin_avatar")); 
+            admin.setAdminEmail(rs.getString("admin_email")); 
+            admin.setPqID(rs.getLong("pq_id"));
+        }
+        return admin;
     }
     
 }
