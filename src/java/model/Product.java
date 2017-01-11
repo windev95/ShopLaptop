@@ -44,7 +44,7 @@ public class Product {
     private long producerID;  
     public Product() {
     }
-    public Product(long productID,String productName, String productImage, String productColor, String productContent, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
+    public Product(long productID,String productContent,String productName, String productImage, String productColor, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
         this.productID = productID;
         this.productName = productName;
         this.productImage = productImage;
@@ -83,7 +83,7 @@ public class Product {
         this.categoryID = categoryid;
         this.producerID = producerid;
     }
-    public Product(String productName, String productImage, String productColor, String productContent, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
+    public Product(String productContent,String productName, String productImage, String productColor, String productCpuDetail, String productRamDetail, String productStorageDetail,String productScreen, String productScreenDetail, String productVGA, String productSound, String productDVD, String productConnect, String productLAN, String productWifi, String productWireless, String productCardReader, String productWebcam, String productPin, String productOS, String productSize, String productWeight, String productMaterial, int productPrice, int productSale, int productPriceReal, Timestamp productUpdate, int productInventory, int productHide,long cpuid,long ramid,long storageid,long pricelevelid,long screensizeid,long categoryid,long producerid) {
         this.productName = productName;
         this.productImage = productImage;
         this.productColor = productColor;
