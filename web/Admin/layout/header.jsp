@@ -3,7 +3,11 @@
     Created on : Dec 31, 2016, 7:50:08 PM
     Author     : Toan
 --%>
-
+<%@page import="model.Pq"%>
+<%@page import="dao.PqDAO"%>
+<%
+    PqDAO pqDAO = new PqDAO();         
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--<!DOCTYPE html>
 <html>
@@ -236,8 +240,8 @@
                 <img src="${root}/Admin/images/admin/<%=session.getAttribute("avatar")%>" class="img-circle" alt="User Image">
 
                 <p>
-                  <%=session.getAttribute("nameAdmin")%> - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <%=session.getAttribute("nameAdmin")%>
+                  <small>- <%=pqDAO.getPqName(session.getAttribute("pqAdmin").toString()).getPqName()%></small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -285,7 +289,7 @@
         </div>
         <div class="pull-left info">
           <p><%=session.getAttribute("nameAdmin")%></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i>- <%=pqDAO.getPqName(session.getAttribute("pqAdmin").toString()).getPqName()%></a>
         </div>
       </div>
       <!-- search form -->

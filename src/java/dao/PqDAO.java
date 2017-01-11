@@ -62,6 +62,25 @@ public class PqDAO {
         }
         return null;
     }
+    // kiểm tra đăng nhập
+    public Pq getPqName(String pqID) {
+        Connection con = DBConnect.getConnecttion();
+        String sql = "select pq_name from pq where pq_id='" + pqID + "'";
+        PreparedStatement ps;
+        try {
+            ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {      
+                Pq u = new Pq();
+                u.setPqName(rs.getString("pq_name"));
+                con.close();
+                return u;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public boolean insert(Pq pq) throws SQLException {
     try {
             Connection connection = DBConnect.getConnecttion();

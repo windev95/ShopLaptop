@@ -16,6 +16,8 @@
     }
 %>
 <%@page import="java.util.ArrayList"%>
+<%@page import="model.Pq"%>
+<%@page import="dao.PqDAO"%>
 <%@page import="dao.AdminDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,6 +39,7 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <%
             AdminDAO adminDAO = new AdminDAO();
+            PqDAO pqDAO = new PqDAO();
             ArrayList<Admin> listAdmin = adminDAO.getListAdmin();            
         %>
         <div class="wrapper">
@@ -86,7 +89,7 @@
                                               </div>
                                           </td>
                                           <td><%=admin.getAdminEmail()%></td>
-                                          <td><%=admin.getPqID()%></td>
+                                          <td><%=pqDAO.getPqName(Long.toString(admin.getPqID())).getPqName()%></td>
                                           <td width="75px"> 
                                               <center> 
                                              <button <%=pqAdmin%> class="btn btn-primary btn-xs" onclick="location.href='${root}../Admin/update_admin.jsp?command=update&admin_id=<%=admin.getAdminID()%>'"><i class="glyphicon glyphicon-pencil"></i> Sửa</button>
