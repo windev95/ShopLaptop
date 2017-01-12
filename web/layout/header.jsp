@@ -3,6 +3,14 @@
     Created on : Nov 27, 2016, 7:48:32 PM
     Author     : BoyIt
 --%>
+<%@page import="model.Admin"%>
+<% 
+    Admin adminid = (Admin) session.getAttribute("admin");
+    String pqAdmin = "";
+    if (adminid == null) {
+        response.sendRedirect("../Admin/login.jsp");
+    }
+%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="model.Users"%>
 <%@page import="dao.UsersDAO"%>
