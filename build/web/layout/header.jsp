@@ -106,6 +106,11 @@
                                             <img src="./images/shop/cart.png" alt="CART">
                                             <span class="cart-number"><%=cart.countItem()%></span>
                                         </a>
+                                        <%if(cart.countItem()==0){%>
+                                        <div id="cart-info-parent" class="dropdown-menu">
+                                            Không có sản phẩm nào trong giỏ hàng.
+                                        </div>
+                                        <% } else{%>
                                         <div id="cart-info-parent" class="dropdown-menu">
                                             <div id="cart-info">
                                                 <div class="cart-content" id="cart-content">
@@ -136,6 +141,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                    <% }%>
                                     </li>
                                 </ul>
                             </div>
@@ -249,6 +255,11 @@
                                             <img src="./images/shop/cart.png" alt="CART">
                                             <span class="cart-number"><%=cart.countItem()%></span>
                                         </a>
+                                        <%if(cart.countItem()==0){%>
+                                        <div id="cart-info-parent" class="dropdown-menu">
+                                            Không có sản phẩm nào trong giỏ hàng.
+                                        </div>
+                                        <% } else{%>
                                         <div id="cart-info-parent" class="dropdown-menu">
                                             <div id="cart-info">
                                                 <div class="cart-content" id="cart-content">
@@ -281,6 +292,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                                    <% } %>
                                     </li>
                                 </ul>
                             </div>

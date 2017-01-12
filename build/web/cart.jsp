@@ -44,6 +44,9 @@
                         </div>
                     </div>
                 </div>
+                <%if(cart.total()==0){%>
+                <h1 class="text-center">Không có sản phẩm nào trong giỏ hàng.</h1>
+                <%} else{%>
                 <!--====================Cart Begin=============================-->
                 <div class="cart_div">
                     <div class="container">
@@ -93,6 +96,7 @@
                                         <% }%>
                                     </table>
                                     <!-- FOTTER-->
+                                    
                                     <div class="cart_footer col-sm-12 col-md-12 col-lg-12 no-padding-lr">
                                         <div class="cart_checkout pull-right col-xs-12 pull-right text-right no-padding-lr">
                                             <div class="cart_checkout_total pull-right text-right col-xs-12 pull-right text-right no-padding-lr">
@@ -111,11 +115,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                              
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+  <%}%>
                 <!--====================Cart End=============================-->
             </div>
         <!--/MAIN-->
