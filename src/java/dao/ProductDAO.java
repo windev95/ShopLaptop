@@ -479,7 +479,7 @@ public class ProductDAO
     public boolean update(Product p) throws SQLException {
     try {
             Connection connection = DBConnect.getConnecttion();
-            String sql = "UPDATE product SET product_name=?,product_image=?,product_color=?,product_content=?,product_cpudetail=?,product_ramdetail=?,product_storagedetail=?,product_screen=?,product_screendetail=?,product_vga=?,product_sound=?,product_dvd=?,product_connect=?,product_lan=?,product_wifi=?,product_wireless=?,product_cardreader=?,product_webcam=?,product_pin=?,product_os=?,product_size=?,product_weight=?,product_material=?,product_price=?,product_sale=?,product_price_real=?,product_update=?,product_inventory=?,product_hide=?,cpu_id=?,ram_id=?,storage_id=?,pricelevel_id=?,screensize_id=?,category_id=?,producer_id=? WHERE product_id=?";
+            String sql = "UPDATE product SET product_content=?,product_name=?,product_image=?,product_color=?,product_cpudetail=?,product_ramdetail=?,product_storagedetail=?,product_screen=?,product_screendetail=?,product_vga=?,product_sound=?,product_dvd=?,product_connect=?,product_lan=?,product_wifi=?,product_wireless=?,product_cardreader=?,product_webcam=?,product_pin=?,product_os=?,product_size=?,product_weight=?,product_material=?,product_price=?,product_sale=?,product_price_real=?,product_update=?,product_inventory=?,product_hide=?,cpu_id=?,ram_id=?,storage_id=?,pricelevel_id=?,screensize_id=?,category_id=?,producer_id=? WHERE product_id=?";
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setString(1, p.getProductContent());
             ps.setString(2, p.getProductName());
