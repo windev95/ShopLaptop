@@ -137,20 +137,6 @@ public class BillDAO {
         return false;
         }
     }
-    
-    //kiểm tra, trả về thông tin Bill theo Bill ID
-    public Bill doanhthuthang(String thang) throws SQLException { 
-        Connection connection = DBConnect.getConnecttion();        
-        String sql = "SELECT sum(`bill_total`) FROM bill WHERE MONTH(`bill_date`) = '" + thang + "' and YEAR(`bill_date`) = YEAR(now())";       
-        PreparedStatement ps = connection.prepareCall(sql);        
-        ResultSet rs = ps.executeQuery();       
-        Bill bill = new Bill();        
-        while (rs.next()) 
-        {                  
-            bill.setBillTotal(rs.getInt("sum(`bill_total`)"));         
-        }         
-        return bill;    
-    }
     public boolean update(long c) throws SQLException {
     try {
             Connection connection = DBConnect.getConnecttion();
@@ -259,7 +245,7 @@ public class BillDAO {
     public static void main(String[] args) throws SQLException {
         
         BillDAO dao = new BillDAO();      
-        System.out.println(dao.doanhthuthang("2").getBillTotal());
+        System.out.println(dao.getBill("1483436508149").getBillName());
 //        for (Bill ds : dao.getBill("1483110241484")) 
 //        {           
 //            System.out.println(ds.getBillID()+" - " + ds.getBillPayment());         

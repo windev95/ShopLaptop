@@ -3,7 +3,6 @@ package controller;
 import dao.ImageDAO;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -21,23 +20,10 @@ public class InsertImageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AdminServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet InsertImageServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setCharacterEncoding("utf-8");
         processRequest(request, response);
     }
     @Override
@@ -55,7 +41,7 @@ public class InsertImageServlet extends HttpServlet {
                 FileItem item = (FileItem) items.get(i);
                 if(!item.isFormField())
                 {
-                    File archivo = new File("C:\\Users\\Toan\\Desktop\\ShopLaptop\\web\\images\\product\\" + item.getName());
+                    File archivo = new File("C:\\Users\\Toan\\Desktop\\ShopLaptop\\web\\images\\product" + item.getName());
                     item.write(archivo);
                     imgs.add("" + item.getName());
                 } else {

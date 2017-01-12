@@ -1,31 +1,27 @@
-<%-- 
-    Document   : all
-    Created on : Dec 1, 2016, 10:24:43 AM
-    Author     : BoyIt
---%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Product" %>
 <%@page import="dao.ProductDAO" %>
 <%@page import="model.Cart" %>
 <%@page import="helpers.MoneyFormat"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="vn">
-    <head>        
-        <title>Trang chủ  </title>
-        <jsp:include page = "layout/head.jsp"></jsp:include>
-    </head>
-    <body>
-        <%
-        ProductDAO productDAO = new ProductDAO();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
-        MoneyFormat formatter = new MoneyFormat();
-        %>
-        
-        <div id="page-wrapper">
+<!--<![endif]-->
+<head>
+    <title>Trang chủ  </title>
+    <jsp:include page = "layout/head.jsp"></jsp:include>
+</head>
+<body id="top">
+    <%
+    ProductDAO productDAO = new ProductDAO();
+    Cart cart = (Cart) session.getAttribute("cart");
+    if (cart == null) {
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
+    MoneyFormat formatter = new MoneyFormat();
+    %>
+    <div id="page-wrapper">
         <jsp:include page = "layout/header.jsp"></jsp:include>
         <!-- SITE CONTENT
         =========================================================================== -->
@@ -496,5 +492,5 @@
         <!-- /SITE FOOTER -->
     </div>
     <jsp:include page = "layout/script.jsp"></jsp:include>
-    </body>
+</body>
 </html>

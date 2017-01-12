@@ -316,7 +316,6 @@
         <li><a href="../Admin/manager_admin.jsp"><i class="fa fa-user"></i> <span>Quản lý Admin</span></a></li>
         <li><a href="../Admin/manager_users.jsp"><i class="fa fa-users"></i> <span>Quản lý Users</span></a></li>
         <li><a href="../Admin/feedback.jsp"><i class="fa fa-send-o"></i> <span>Góp ý</span></a></li>
-        <li><a href="../Admin/charts.jsp"><i class="fa fa-cutlery"></i> <span>Thống kê</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
